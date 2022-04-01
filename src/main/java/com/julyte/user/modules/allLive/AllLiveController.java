@@ -28,4 +28,10 @@ public class AllLiveController {
 		
 		return "/allLive/allLiveOrder";
 	}
+	
+	@RequestMapping(value = "/allLive/allLiveReg", method = RequestMethod.GET)
+	public String allLiveReg() {
+		
+		return "/allLive/allLiveReg";
+	}
 }

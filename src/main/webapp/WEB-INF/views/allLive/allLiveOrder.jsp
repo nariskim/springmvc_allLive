@@ -28,10 +28,10 @@ header {
 }
 
 main {
-	margin-top: 5%;
-	margin-bottom: 5%;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-top: 15%;
+	margin-bottom: 15%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 </style>
 
@@ -264,33 +264,274 @@ main {
 					</select>
 				</div>
 			</div>
-<br>
+			<br>
 			<div class="row">
 
 				<div class="col-9">상품정보</div>
 				<div class="col-1">판매가</div>
 				<div class="col-1">수량</div>
 				<div class="col-1">구매가</div>
-				
 
-					<div class="col-9">
-						<div class="row">
-							<div class="col-4">
-								<img src="/resources/user/image/bioheelbo.jpg" width="100px"
-									height="100px">
-							</div>
-							<div class="col-8">
-								바이오힐보<br> 바이오힐보 프로바이오덤 리프팅 크림X마 사저 기획(크림+마사저)(2202)
-							</div>
+
+				<div class="col-9">
+					<div class="row">
+						<div class="col-4">
+							<img src="/resources/user/image/bioheelbo.jpg" width="100px"
+								height="100px">
+						</div>
+						<div class="col-8">
+							바이오힐보<br> 바이오힐보 프로바이오덤 리프팅 크림X마 사저 기획(크림+마사저)(2202)
 						</div>
 					</div>
-					<div class="col-1">51,200원</div>
-					<div class="col-1">1</div>
-					<div class="col-1">
-						51,200원<br> 31,900원
-					</div>
+				</div>
+				<div class="col-1">51,200원</div>
+				<div class="col-1">1</div>
+				<div class="col-1">
+					<del>51,200원</del><br> 31,900원
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-9">
+					<div class="row">
+						<div class="col-12">
+							쿠폰할인정보
+							<button type="button" id="" name=""
+								class="btn btn-outline-light btn-sm text-dark">보유쿠폰</button>
+						</div>
+						<div class="col-9">
+							<div class="input-group">
+								<div class="form-check" style="padding-right: 150px;">
+									<input class="form-check-input" type="radio"
+										name="flexRadioDefault" id="flexRadioDefault1" checked>
+									<label class="form-check-label" for="flexRadioDefault1">
+										최대 할인 추천받기 </label>
+								</div>
+								<div class="form-check " style="padding-right: 150px;">
+									<input class="form-check-input" type="radio"
+										name="flexRadioDefault" id="flexRadioDefault1"> <label
+										class="form-check-label" for="flexRadioDefault1"> 혜택
+										직접 선택하기 </label>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<input type="text" class="form-control" id="" name="" value="">
+						</div>
+						<div class="col-3">상품별 할인</div>
+						<div class="col-9">
+							<select class="form-select" id="coupon01" name="coupon01"
+								aria-label="Default select example">
+								<option value="" selected>적용할 수 있는 쿠폰이 없습니다.</option>
+							</select>
+							<div id="coupon01" class="form-text">즉시할인쿠폰은 상품금액에 자동적용
+								되어있습니다.</div>
+						</div>
+					</div>
+					<div class="col-3">주문별 할인</div>
+					<div class="col-9">
+						<select class="form-select" aria-label="Default select example">
+							<option value="" selected>적용할 수 있는 쿠폰이 없습니다.</option>
+						</select>
+					</div>
+					<div class="col-3">배송비 쿠폰</div>
+					<div class="col-9">
+						<select class="form-select" aria-label="Default select example">
+							<option value="" selected>적용할 수 있는 쿠폰이 없습니다.</option>
+						</select>
+					</div>
+					<div class="col-12">포인트/기프트카드사용</div>
+					<div class="col-3">올리브영 기프트카드</div>
+					<div class="col-9"></div>
+					<div class="col-3">CJ 기프트카드</div>
+					<div class="col-9"></div>
+					<div class="col-3">CJ ONE 포인트</div>
+					<div class="col-9"></div>
+					<div class="col-3">예치금</div>
+					<div class="col-9"></div>
+					<div class="col-12">결제수단 선택</div>
+					<div class="col-12">
+						<div class="input-group">
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1" checked>
+								<label class="form-check-label" for="flexRadioDefault1">
+									신용카드 </label>
+							</div>
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> 무통장입금
+								</label>
+							</div>
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> PAYCO
+								</label>
+							</div>
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> 카카오페이
+								</label>
+							</div>
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> 네이버페이
+								</label>
+							</div>
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> 휴대폰결제
+								</label>
+							</div>
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> 계좌이체
+								</label>
+							</div>
+							<div class="form-check" style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> 도서상품권
+								</label>
+							</div>
+							<div class="form-check " style="padding-right: 150px;">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> <label
+									class="form-check-label" for="flexRadioDefault1"> 문화상품권
+								</label>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-3">카드종류</div>
+					<div class="col-9"></div>
+
+					<div class="col-3">할부분류</div>
+					<div class="col-9"></div>
+
+					<div class="col-12">
+						<ul>
+							<li><카카오뱅크 체크카트 혜택></카카오뱅크></li>
+							<li>3만원 이상 결제 시 2천원 캐시백</li>
+							<li>온/오프라인에서 월 1회 사용 가능</li>
+							<li>자세한 내용은 이벤트 탭에서 확인해주세요</li>
+							<li>신용/체크카드 결제금액이 30만원 이상인 경우 공인인증서가 필요합니다.</li>
+						</ul>
+					</div>
+				</div>
+
+
+
+				<div class="col-3">
+					<div class="row">
+						<div class="col-12">최종 결제정보</div>
+						<div class="col-9">총 상품금액</div>
+						<div class="col-3">
+							<input type="text" class="form-control" id="" name="" value="">
+						</div>
+
+						<div class="col-9">쿠폰할인금액</div>
+						<div class="col-3">
+							<input type="text" class="form-control" id="" name="" value="">
+						</div>
+
+						<div class="col-9">총 배송비</div>
+						<div class="col-3">
+							<input type="text" class="form-control" id="" name="" value="">
+						</div>
+
+						<div class="col-9">CJ ONE 포인트</div>
+						<div class="col-3">
+							<input type="text" class="form-control" id="" name="" value="">
+						</div>
+
+						<div class="col-9">최종 결제 금액</div>
+						<div class="col-3 sticky">
+							<input type="text" class="form-control" id="" name="" value="">
+						</div>
+						<div class="col-12">
+							<button type="button" id="" name=""
+								class="btn btn-danger btn-lg text-light">
+								결제하기<br> (증정품은 결제 시 확인 가능합니다)
+							</button>
+						</div>
+						<div class="col-12">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id=""
+									name="" checked> <label class="form-check-label"
+									for="defaultCheck1">지금 설정을 다음 주문에도 사용하겠습니다.<br>(빠른
+									모드)
+								</label>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="row">
+								<div class="accordion" id="">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+											<button class="accordion-button" type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#panelsStayOpen-collapseOne"
+												aria-expanded="true"
+												aria-controls="panelsStayOpen-collapseOne">
+												주문 상품정보 및 결제대행 서비스 이용약관에<br>모두 동의하십니까?
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="" name=""> <label class="form-check-label"
+														for="defaultCheck1">모두 동의</label>
+												</div>
+											</button>
+										</h2>
+										<div id="panelsStayOpen-collapseOne"
+											class="accordion-collapse collapse show"
+											aria-labelledby="panelsStayOpen-headingOne">
+											<div class="accordion-body">
+												<hr>
+												<strong>주문상품정보에 대한 동의</strong>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="" name=""> <label class="form-check-label"
+														for="defaultCheck1">주문하실 상품, 가격, 배송정보, 할인내역등을 최<br>종
+														확인하였으며, 구매에 동의합니다.<br>(전상거래법 제8조 제2항)
+													</label>
+												</div>
+												<hr>
+												<strong>결제대행 서비스 이용약관 동의</strong>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="" name=""> <label class="form-check-label"
+														for="defaultCheck1">전자금융거래 기본약관</label>
+													<button type="button" id="" name=""
+														class="btn btn-outline-light text-dark">약관보기</button>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="" name=""> <label class="form-check-label"
+														for="defaultCheck1">개인정보 수집 및 이용 동의</label>
+													<button type="button" id="" name=""
+														class="btn btn-outline-light text-dark">약관보기</button>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" value=""
+														id="" name=""> <label class="form-check-label"
+														for="defaultCheck1">개인정보 제공 및 위탁 동의</label>
+													<button type="button" id="" name=""
+														class="btn btn-outline-light text-dark">약관보기</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
 		</main>
 
 

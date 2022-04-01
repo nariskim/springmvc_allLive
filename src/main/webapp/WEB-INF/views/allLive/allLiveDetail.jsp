@@ -38,6 +38,23 @@ main {
 	margin-right: 15%;
 	margin-bottom: 5%;
 }
+
+.nav-m{
+width:100%;
+}
+.nav-item-m{
+width:10%;
+text-align:center;
+}
+
+.nav-tabs-p {
+	width: 100%;
+}
+
+.nav-item-p {
+	width: 25%;
+	text-align:center;
+}
 </style>
 
 </head>
@@ -52,20 +69,20 @@ main {
 
 			<div class="row">
 				<div style="font-size: small;">
-					<ul class="nav justify-content-end">
+					<ul class="nav nav-t justify-content-end">
 						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
 						</li>
-						<li class="nav-item"><a class="nav-link text-dark"
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
 							href="../xdmin/loginout/login.html">로그인</a></li>
-						<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">장바구니</a>
 						</li>
-						<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">주문배송</a>
 						</li>
-						<li class="nav-item"><a class="nav-link text-dark" href="#">고객센터</a>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">고객센터</a>
 						</li>
-						<li class="nav-item"><a class="nav-link text-dark" href="#">매장안내</a>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">매장안내</a>
 						</li>
-						<li class="nav-item"><a class="nav-link text-dark" href="#">Global</a>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">Global</a>
 						</li>
 
 					</ul>
@@ -143,24 +160,24 @@ main {
 
 
 			<div class="nav justify-content-center"">
-				<ul class="nav">
-					<li class="nav-item"><a class="nav-link"
+				<ul class="nav nav-m">
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">오특</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">신상</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">랭킹</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">프리미엄관</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">기획전</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">세일</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">기프트카드</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">멤버십/쿠폰</a></li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">이벤트</a></li>
 				</ul>
 			</div>
@@ -199,20 +216,52 @@ main {
 						class="badge rounded-pill bg-info">오늘드림</span><br>
 
 					<p>231명이 보고있어요
-					<p>
-						<b>배송정보</b> <br>
-					<p>
-						일반배송 | 2,500원 ( 20,000 원 이상 무료배송 )<br> 올리브영 배송 | 평균 6일 이내 배송
-					</p>
-					<p>오늘드림 | 2,500원 또는 5,000원</p>
 					<br>
 					<hr>
-					<b>결제혜택</b>
-					<p>THE CJ 카드 추가 10%할인</p>
 					<br>
-					<p>CJ ONE 포인트 최대 2% 적립 예상
-					<p>
+
+
+					<div class="col-12">
+						<b>배송정보</b>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-2">
+							<p>일반배송</p>
+						</div>
+
+						<div class="col-10">
+							<p>| 2,500원 ( 20,000 원 이상 무료배송 )</p>
+							<p>올리브영 배송 | 평균 6일 이내 배송</p>
+						</div>
+						<div class="col-2">
+							<p>오늘드림</p>
+						</div>
+
+						<div class="col-10">
+							<p>| 2,500원 또는 5,000원</p>
+						</div>
+					</div>
+
+
+					<br>
 					<hr>
+					<br>
+
+
+					<div class="col-12">
+						<b>결제혜택</b>
+					</div>
+					<br>
+					<div class="col-12">
+						<p>THE CJ 카드 추가 10%할인</p>
+						<p>CJ ONE 포인트 최대 2% 적립 예상</p>
+					</div>
+
+					<br>
+					<hr>
+					<br>
+
 					<div class="mb-3">
 						<label for="formFileMultiple" class="form-label">구매수량</label> <input
 							class="form-control" type="number" id="formFileMultiple" multiple>
@@ -226,6 +275,9 @@ main {
 						<span class="tx_cont"><span class="tx_num" id="totalPrcTxt">31,900</span>원</span>
 
 					</div>
+					<br>
+					<hr>
+					<br>
 
 					<input type="checkbox" id="deliveDay" name="qDelive" value="Y"
 						class="o2oDeliveDay " data-attr="상품상세^오늘드림신청여부^오늘드림신청"><label
@@ -236,7 +288,11 @@ main {
 					</div>
 
 				</div>
+				
 			</div>
+			<br>
+					<hr>
+					<br>
 			<div class="row">
 				<div class="col-3">
 					<p class="title">증정품 안내</p>
@@ -260,7 +316,7 @@ main {
 			<div class="row">
 				<div class="col-2">
 					<img src="/resources/user/image/this1jpg.jpg" class="rounded"
-						alt="..." width="100px" height="100px">
+						alt="..." width="150px" height="150px">
 				</div>
 				<div class="col-2">
 					<p>
@@ -272,7 +328,7 @@ main {
 				</div>
 				<div class="col-2">
 					<img src="/resources/user/image/this2.jpg" class="rounded"
-						alt="..." width="100px" height="100px">
+						alt="..." width="150px" height="150px">
 				</div>
 				<div class="col-2">
 					<p>
@@ -284,7 +340,7 @@ main {
 				</div>
 				<div class="col-2">
 					<img src="/resources/user/image/this3.jpg" class="rounded"
-						alt="..." width="100px">
+						alt="..." width="150px" height="150px">
 				</div>
 				<div class="col-2">
 					<p>
@@ -295,12 +351,12 @@ main {
 					<p>29800원</p>
 				</div>
 			</div>
-			<ul class="nav nav-tabs">
-				<li class="nav-item"><a class="nav-link active"
+			<ul class="nav nav-tabs-p">
+				<li class="nav-item nav-item-p"><a class="nav-link active"
 					aria-current="page" href="#">상품설명</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">구매정보</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">리뷰(771)</a></li>
-				<li class="nav-item"><a class="nav-link">Q&A(27)</a></li>
+				<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
+				<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰(771)</a></li>
+				<li class="nav-item nav-item-p"><a class="nav-link">Q&A(27)</a></li>
 			</ul>
 
 			<div class="row row-detail">
