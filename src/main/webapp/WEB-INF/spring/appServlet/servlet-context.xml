@@ -23,6 +23,19 @@
 	
 	<context:component-scan base-package="com.julyte.user" />
 	
-	
+			<!-- session interceptor s 2022.03.13 for logincheck -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/resources/**" />
+			<exclude-mapping path="/allLive/loginForm" />
+			<exclude-mapping path="/allLive/loginProc" />
+			<exclude-mapping path="/allLive/allLiveMain" />
+			<exclude-mapping path="/allLive/allLiveDetail" />
+		
+			<beans:bean id="checkLoginSessionInterception" class="com.julyte.user.common.interceptor.CheckLoginSessionInterception"/>
+		</interceptor>
+	</interceptors>	
+	<!-- session interceptor e 2022.03.13 for logincheck -->
 	
 </beans:beans>

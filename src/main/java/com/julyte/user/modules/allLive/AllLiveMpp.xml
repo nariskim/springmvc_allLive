@@ -8,7 +8,27 @@
 
 	<resultMap id="resultMapObj"
 		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
+	
+	
+	<select id="selectOneLogin" resultMap="resultMapObj">
+		SELECT
+		oymbSeq
+		, oymbId
+		, oymbPassword
+		, oymbDesc
+		, oymbName
+		, oymbAdminNy
+		FROM oyMember
+		WHERE 1=1
+		AND
+		oymbId=#{oymbId}
+		AND
+		oymbPassword=#{oymbPassword}
+		AND
+		oymbAdminNy=#{oymbAdminNy}
+	
 
+	</select>
 
 
 

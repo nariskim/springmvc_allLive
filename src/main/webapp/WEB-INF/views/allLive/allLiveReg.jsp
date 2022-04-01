@@ -251,8 +251,7 @@ main {
 
 <body>
 
-	<form action="" method="get" id="" name=""
-		enctype="multipart/form-data">
+	<form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg">
 
 		<header>
 

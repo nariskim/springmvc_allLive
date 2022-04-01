@@ -41,8 +41,7 @@ main {
 
 <body>
 
-	<form action="" method="post" id="" name=""
-		enctype="multipart/form-data">
+		<form id="allLiveOrder" name="allLiveOrder" method="post" action="/allLive/allLiveOrder">
 
 		<header>
 			<div class="row">

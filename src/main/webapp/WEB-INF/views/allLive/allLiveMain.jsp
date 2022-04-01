@@ -48,8 +48,7 @@ text-align:center;
 
 <body>
 
-	<form action="" method="post" id="" name=""
-		enctype="multipart/form-data">
+		<form id="allLiveMain" name="allLiveMain" method="post" action="/allLive/allLiveMain">
 
 		<header>
 			<div class="row">

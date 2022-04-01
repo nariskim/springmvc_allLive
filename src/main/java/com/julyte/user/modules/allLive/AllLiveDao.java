@@ -14,26 +14,10 @@ public class AllLiveDao {
 //	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
 
-	private static String namespace = "com.mycompany.myapp.modules.allLive.AllLiveMpp";
+	private static String namespace = "com.julyte.user.modules.allLive.AllLiveMpp";
 
-	public List<AllLive> selectList() {
-		return sqlSession.selectList(namespace + ".selectList", "");
-	}
-
-	public int insert(AllLive dto) {
-		return sqlSession.insert(namespace + ".insert", dto);
-	}
-
-	public AllLive selectOne(AllLiveVo vo) {
-		return sqlSession.selectOne(namespace + ".selectOne", vo);
-	}
-
-	public int update(AllLive dto) {
-		return sqlSession.update(namespace + ".update", dto);
-	}
-
-	public int delete(AllLiveVo vo) {
-		return sqlSession.update(namespace + ".delete", vo);
+	public AllLive selectOneLogin(AllLive dto) {
+		return sqlSession.selectOne(namespace + ".selectOneLogin", dto);
 	}
 
 }

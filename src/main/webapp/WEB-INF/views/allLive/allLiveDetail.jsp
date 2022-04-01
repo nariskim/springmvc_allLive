@@ -62,9 +62,7 @@ text-align:center;
 
 <body>
 
-	<form action="" method="post" id="" name=""
-		enctype="multipart/form-data">
-
+	<form id="allLiveDetail" name="allLiveDetail" method="post" action="/allLive/allLiveDetail">
 		<header>
 
 			<div class="row">
