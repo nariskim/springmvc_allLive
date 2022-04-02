@@ -18,7 +18,7 @@
 <script src="https://kit.fontawesome.com/893e1f7eb8.js"
 	crossorigin="anonymous"></script>
 
-<title>allLiveYoung_Main</title>
+<title>allLiveYoung_Main2</title>
 
 <style>
 header {
@@ -33,12 +33,13 @@ main {
 	margin-right: 5%;
 }
 
-.nav-top{
-width:100%;
+.nav-top {
+	width: 100%;
 }
-.nav-item-top{
-width:10%;
-text-align:center;
+
+.nav-item-top {
+	width: 10%;
+	text-align: center;
 }
 </style>
 
@@ -48,16 +49,16 @@ text-align:center;
 
 <body>
 
-		<form id="allLiveMain" name="allLiveMain" method="post" action="/allLive/allLiveMain">
+	<form id="allLiveMain2" name="allLiveMain2" method="post"
+		action="/allLive/allLiveMain2">
 
 		<header>
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav justify-content-end">
-						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
-						</li>
 						<li class="nav-item"><a class="nav-link text-dark"
-							href="javascript:goLogin();">로그인</a></li>
+							href="javascript:goLogout();">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">마이페이지</a></li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
@@ -285,7 +286,7 @@ text-align:center;
 							</h2>
 							<br>
 							<div class="input-group">
-								<a href="/allLive/allLiveDetail">
+								<a href="/allLive/allLiveDetail2">
 									<div class="card" style="width: 18rem;">
 										<img src="/resources/user/image/A00000016155902ko.jpg"
 											class="card-img-top" alt="...">
@@ -473,13 +474,34 @@ text-align:center;
 		src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		
-		<script type="text/javascript">
-goLogin = function() {
-	$("#allLiveMain").attr("action", "/allLive/loginForm");
-	$("#allLiveMain").submit();
-}
-</script>
+
+	<script type="text/javascript">
+		goLogout = function() {
+			/* 	if(validation()==false) return false; */
+			$.ajax({
+				async : true,
+				cache : false,
+				type : "post",
+				url : "/allLive/logoutProc",
+				data : {
+					"oymbId" : $("#oymbId").val(),
+					"oymbPassword" : $("#oymbPassword").val()
+				},
+				success : function(response) {
+					if (response.rt == "success") {
+						alert("로그아웃!")
+						location.href = "/allLive/allLiveMain";
+					} else {
+
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("ajaxUpdate " + jqXHR.textStatus + " : "
+							+ jqXHR.errorThrown);
+				}
+			});
+		}
+	</script>
 
 </body>
 </html>

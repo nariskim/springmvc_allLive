@@ -17,7 +17,7 @@
 <script src="https://kit.fontawesome.com/893e1f7eb8.js"
 	crossorigin="anonymous"></script>
 
-<title>allLiveYoung_Detail</title>
+<title>allLiveYoung_Detail2</title>
 
 <style>
 header {
@@ -33,19 +33,18 @@ main {
 }
 
 .row-detail {
-	margin-top: 5%;
+	margin-top: 5%; 
 	margin-left: 15%;
 	margin-right: 15%;
 	margin-bottom: 5%;
 }
 
-.nav-m {
-	width: 100%;
+.nav-m{
+width:100%;
 }
-
-.nav-item-m {
-	width: 10%;
-	text-align: center;
+.nav-item-m{
+width:10%;
+text-align:center;
 }
 
 .nav-tabs-p {
@@ -54,7 +53,7 @@ main {
 
 .nav-item-p {
 	width: 25%;
-	text-align: center;
+	text-align:center;
 }
 </style>
 
@@ -63,27 +62,26 @@ main {
 
 <body>
 
-	<form id="allLiveDetail" name="allLiveDetail" method="post"
-		action="/allLive/allLiveDetail">
+	<form id="allLiveDetail2" name="allLiveDetail2" method="post" action="/allLive/allLiveDetail2">
 		<header>
 
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav nav-t justify-content-end">
-						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="javascript:goLogout();">로그아웃</a>
 						</li>
 						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
-							href="javascript:goLogin();">로그인</a></li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
-							href="#">장바구니</a></li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
-							href="#">주문배송</a></li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
-							href="#">고객센터</a></li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
-							href="#">매장안내</a></li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
-							href="#">Global</a></li>
+							href="#">마이페이지</a></li>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">장바구니</a>
+						</li>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">주문배송</a>
+						</li>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">고객센터</a>
+						</li>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">매장안내</a>
+						</li>
+						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">Global</a>
+						</li>
 
 					</ul>
 
@@ -93,7 +91,7 @@ main {
 
 			<div class="row">
 				<div class="col-auto col-sm-5">
-					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
+					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain2"><img
 						src="/resources/user/image/h1_logo.png"></a>
 				</div>
 				<div class="col-auto d-md-none">
@@ -159,7 +157,7 @@ main {
 			</div>
 
 
-			<div class="nav justify-content-center"">
+			<div class="nav justify-content-center">
 				<ul class="nav nav-m">
 					<li class="nav-item nav-item-m"><a class="nav-link"
 						style="padding-left: 50px; padding-right: 50px;" href="#">오특</a></li>
@@ -215,8 +213,8 @@ main {
 					<span class="badge rounded-pill bg-success">쿠폰</span> <span
 						class="badge rounded-pill bg-info">오늘드림</span><br>
 
-					<p>
-						231명이 보고있어요 <br>
+					<p>231명이 보고있어요
+					<br>
 					<hr>
 					<br>
 
@@ -277,21 +275,22 @@ main {
 					</div>
 					<br>
 					<hr>
-					<br> <input type="checkbox" id="deliveDay" name="qDelive"
-						value="Y" class="o2oDeliveDay " data-attr="상품상세^오늘드림신청여부^오늘드림신청"><label
+					<br>
+
+					<input type="checkbox" id="deliveDay" name="qDelive" value="Y"
+						class="o2oDeliveDay " data-attr="상품상세^오늘드림신청여부^오늘드림신청"><label
 						for="deliveDay">오늘드림으로 받아 보시겠어요?</label><br>
 					<div class="input-group">
 						<button type="button" class="btn btn-outline-success">장바구니</button>
-						<a href="/allLive/allLiveOrder"><button type="button"
-								class="btn btn-success">바로구매</button></a>;;
+						<a href="/allLive/allLiveOrder"><button type="button" class="btn btn-success">바로구매</button></a>;;
 					</div>
 
 				</div>
-
+				
 			</div>
 			<br>
-			<hr>
-			<br>
+					<hr>
+					<br>
 			<div class="row">
 				<div class="col-3">
 					<p class="title">증정품 안내</p>
@@ -396,10 +395,32 @@ main {
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript">
-		goLogin = function() {
-			$("#allLiveDetail").attr("action", "/allLive/loginForm");
-			$("#allLiveDetail").submit();
+		goLogout = function() {
+			/* 	if(validation()==false) return false; */
+			$.ajax({
+				async : true,
+				cache : false,
+				type : "post",
+				url : "/allLive/logoutProc",
+				data : {
+					"oymbId" : $("#oymbId").val(),
+					"oymbPassword" : $("#oymbPassword").val()
+				},
+				success : function(response) {
+					if (response.rt == "success") {
+						alert("로그아웃!")
+						location.href = "/allLive/allLiveDetail";
+					} else {
+
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("ajaxUpdate " + jqXHR.textStatus + " : "
+							+ jqXHR.errorThrown);
+				}
+			});
 		}
 	</script>
+
 </body>
 </html>

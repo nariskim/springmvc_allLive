@@ -19,7 +19,7 @@
 <script src="https://kit.fontawesome.com/893e1f7eb8.js"
 	crossorigin="anonymous"></script>
 
-<title>allLiveYoung_Main</title>
+<title>allLiveYoung_Order</title>
 
 <style>
 header {
@@ -47,10 +47,10 @@ main {
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav justify-content-end">
-						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">로그아웃</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark"
-							href="../xdmin/loginout/login.html">로그인</a></li>
+							href="../xdmin/loginout/login.html">마이페이지</a></li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>

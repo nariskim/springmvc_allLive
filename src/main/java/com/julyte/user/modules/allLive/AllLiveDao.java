@@ -28,4 +28,13 @@ public class AllLiveDao {
 		return sqlSession.insert(namespace + ".insertSalePd", dto);
 	}
 
+	public List<AllLive> selectListForCache() {
+		List<AllLive> list = sqlSession.selectList(namespace + ".selectListForCache", "");
+		return list;
+	}
+
+	public List<AllLive> selectListForCacheCate() {
+		List<AllLive> list = sqlSession.selectList(namespace + ".selectListForCacheCate", "");
+		return list;
+	}
 }

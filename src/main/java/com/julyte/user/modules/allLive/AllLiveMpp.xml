@@ -8,49 +8,52 @@
 
 	<resultMap id="resultMapObj"
 		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
-	
-	
+
+
 	<select id="selectOneLogin" resultMap="resultMapObj">
 		SELECT
 		oymbSeq
 		, oymbId
-		, oymbPassword
+		,
+		oymbPassword
 		, oymbDesc
 		, oymbName
-		, oymbAdminNy
 		FROM oyMember
 		WHERE 1=1
 		AND
 		oymbId=#{oymbId}
 		AND
 		oymbPassword=#{oymbPassword}
-		AND
-		oymbAdminNy=#{oymbAdminNy}
-	
+
+
 
 	</select>
 
-<insert id="insertPd">
+	<insert id="insertPd">
 
 		INSERT INTO oyProduct (
 		oypdCate
 		, oypdBrandCd
 		, oypdName
 		, oypdPrice
-		, oypdCountryCd
+		,
+		oypdCountryCd
 		, oypdDistributorCd
 		, oypdManufacturerCd
 		, oypdDelNy
-		, regDateTime
+		,
+		regDateTime
 		, modDateTime
 		) values (
 		#{oypdCate}
 		, #{oypdBrandCd}
-		, #{oypdName}
+		,
+		#{oypdName}
 		, #{oypdPrice}
 		, #{oypdCountryCd}
 		, #{oypdDistributorCd}
-		, #{oypdDistributorCd}
+		,
+		#{oypdDistributorCd}
 		, 0
 		, now()
 		, now()
@@ -61,20 +64,23 @@
 		</selectKey>
 	</insert>
 
-<insert id="insertSalePd">
+	<insert id="insertSalePd">
 
 		INSERT INTO oySaleProduct (
 		oypdSeq
 		, oyspSaleNy
 		, oyspCouponNy
-		, oyspFreeGiftNy
+		,
+		oyspFreeGiftNy
 		, oyspTodayshipNy
 		, oyspFreeShippingNy
 		, oyspExclusiveNy
-		, oyspSalePrice
+		,
+		oyspSalePrice
 		, oyspSalePeriodStart
 		, oyspSalePeriodEnd
-		, oyspOneBuyGetOneFreeNy
+		,
+		oyspOneBuyGetOneFreeNy
 		, oyspTwoBuyGetOneFreeNy
 		, oyspDelNy
 		, regDateTime
@@ -83,15 +89,19 @@
 		#{oypdSeq}
 		, #{oyspSaleNy}
 		, #{oyspCouponNy}
-		, #{oyspFreeGiftNy}
+		,
+		#{oyspFreeGiftNy}
 		, #{oyspTodayshipNy}
 		, #{oyspFreeShippingNy}
-		, #{oyspExclusiveNy}
+		,
+		#{oyspExclusiveNy}
 		, #{oyspSalePrice}
 		, #{oyspSalePeriodStart}
-		, #{oyspSalePeriodEnd}
+		,
+		#{oyspSalePeriodEnd}
 		, #{oyspOneBuyGetOneFreeNy}
-		, #{oyspTwoBuyGetOneFreeNy}
+		,
+		#{oyspTwoBuyGetOneFreeNy}
 		, 0
 		, now()
 		, now()
@@ -103,6 +113,32 @@
 
 	</insert>
 
+	<select id="selectListForCache" resultMap="resultMapObj">
+		SELECT
+		oycdSeq
+		,
+		oycdName
+		, oycgSeq
+		FROM
+		oyCode
+		WHERE 1=1
+		AND oycdDelNy = 0
+		AND oycdUseNy = 1
+	</select>
+	
+	<select id="selectListForCacheCate" resultMap="resultMapObj">
+		SELECT
+		oyctSeq
+		, oyctName
+		, oyctParents
+		, oyctDepth
+		, oyctOrder
+		FROM
+		oyCate
+		WHERE 1=1
+		AND oyctDelNy = 0
+		AND oyctUseNy = 1
+	</select>
 
 
 </mapper>

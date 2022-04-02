@@ -122,6 +122,14 @@ public class AllLive {
 	private Integer oymeDelNy;
 //	private String oymbSeq;
 
+// oyCate
+	private String oyctSeq;
+	private String oyctName;
+	private Integer oyctParents;
+	private Integer oyctDepth;
+	private Integer oyctOrder;
+	private Integer oyctDelNy;
+
 //	codeGroup code 저장	cate 저장????확인하기
 	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
 
@@ -779,6 +787,54 @@ public class AllLive {
 
 	public void setOymeDelNy(Integer oymeDelNy) {
 		this.oymeDelNy = oymeDelNy;
+	}
+
+	public String getOyctSeq() {
+		return oyctSeq;
+	}
+
+	public void setOyctSeq(String oyctSeq) {
+		this.oyctSeq = oyctSeq;
+	}
+
+	public String getOyctName() {
+		return oyctName;
+	}
+
+	public void setOyctName(String oyctName) {
+		this.oyctName = oyctName;
+	}
+
+	public Integer getOyctParents() {
+		return oyctParents;
+	}
+
+	public void setOyctParents(Integer oyctParents) {
+		this.oyctParents = oyctParents;
+	}
+
+	public Integer getOyctDepth() {
+		return oyctDepth;
+	}
+
+	public void setOyctDepth(Integer oyctDepth) {
+		this.oyctDepth = oyctDepth;
+	}
+
+	public Integer getOyctOrder() {
+		return oyctOrder;
+	}
+
+	public void setOyctOrder(Integer oyctOrder) {
+		this.oyctOrder = oyctOrder;
+	}
+
+	public Integer getOyctDelNy() {
+		return oyctDelNy;
+	}
+
+	public void setOyctDelNy(Integer oyctDelNy) {
+		this.oyctDelNy = oyctDelNy;
 	}
 
 }

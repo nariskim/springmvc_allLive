@@ -41,7 +41,8 @@ a {
 </style>
 </head>
 <body>
-	<form id="loginForm" name="loginForm" method="post" action="/allLive/loginForm">
+	<form id="loginForm" name="loginForm" method="post"
+		action="/allLive/loginForm">
 		<!--  -->
 
 		<div class="position-absolute top-50 start-50 translate-middle">
@@ -52,13 +53,13 @@ a {
 			<div class="container">
 				<div class="form-floating mb-3" style="font-size: small;">
 					<input type="email" class="form-control" id="oymbId" name="oymbId"
-						placeholder="name@example.com" value="zxcv"> <label for="floatingInput">CJ
-						ONE 통합회원 아이디 입력</label>
+						placeholder="name@example.com" value="zxcv"> <label
+						for="floatingInput">CJ ONE 통합회원 아이디 입력</label>
 				</div>
 				<div class="form-floating mb-3" style="font-size: small;">
-					<input type="password" class="form-control" id="oymbPassword" name="oymbPassword"
-						placeholder="Password" value="zxcv"> <label for="floatingPassword">비밀번호(8-12자
-						영문자+숫자+특수문자)</label>
+					<input type="password" class="form-control" id="oymbPassword"
+						name="oymbPassword" placeholder="Password" value="zxcv"> <label
+						for="floatingPassword">비밀번호(8-12자 영문자+숫자+특수문자)</label>
 				</div>
 				<div class="input-group">
 					<div class="form-check" style="font-size: medium;">
@@ -73,8 +74,8 @@ a {
 					</div>
 					<div class="form-check" style="font-size: medium;">
 						<input class="form-check-input" type="checkbox" value="1"
-							id="oymbAdminNy" name="oymbAdminNy"> <label class="form-check-label"
-							for="flexCheckDefault"> 관리자 </label>
+							id="oymbAdminNy" name="oymbAdminNy"> <label
+							class="form-check-label" for="flexCheckDefault"> 관리자 </label>
 					</div>
 				</div>
 				<br>
@@ -137,77 +138,61 @@ a {
 		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 
-<script type="text/javascript">
+	<script type="text/javascript">
+		$("#btnLogin").on(
+				"click",
+				function() {
+					/* 	if(validation()==false) return false; */
+					$.ajax({
+						async : true,
+						cache : false,
+						type : "post",
+						url : "/allLive/loginProc",
+						data : {
+							"oymbId" : $("#oymbId").val(),
+							"oymbPassword" : $("#oymbPassword").val()
+						},
+						success : function(response) {
+							if (response.rt == "success") {
+								location.href = "/allLive/allLiveMain2";
+							} else {
+								alert("회원없음");
+							}
+						},
+						error : function(jqXHR, textStatus, errorThrown) {
+							alert("ajaxUpdate " + jqXHR.textStatus + " : "
+									+ jqXHR.errorThrown);
+						}
+					});
+				});
 
-$("#btnLogin").on("click", function(){
-    // 사용자 ID를 갖고 온다.
-    var userId = $("#oymbId").val();
- 
-    // name이 같은 체크박스의 값들을 배열에 담는다.
-    var oymbAdminNy = [];
-    $("input[name='oymbAdminNy']:checked").each(function(i) {
-    	oymbAdminNy.push($(this).val());
-    
-     
-    // 사용자 ID(문자열)와 체크박스 값들(배열)을 name/value 형태로 담는다.
-   
-     
-   $.ajax({
-	async: true 
-	,cache: false
-	,type: "post"
-	,url: "/allLive/loginProc"
-	,data : { "oymbId" : $("#oymbId").val(), "oymbPassword" : $("#oymbPassword").val(), "oymbAdminNy" : $("#oymbAdminNy").val()}
-	,success: function(response) {
-		if(response.rt == "success") {
-			
-				location.href = "/allLive/allLiveReg";
-				
-		} else if{
-					location.href = "/allLive/allLiveOrder";
-					
-			
-		} else {
-			alert("회원없음");
-		}
-	}
-	,error : function(jqXHR, textStatus, errorThrown){
-		alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-	}
-   }
-	});
-});
-
-/*$("#btnLogin").on("click", function(){
- 	if(validation()==false) return false; 
-	$.ajax({
-	async: true 
-	,cache: false
-	,type: "post"
-	,url: "/allLive/loginProc"
-	,data : { "oymbId" : $("#oymbId").val(), "oymbPassword" : $("#oymbPassword").val(), "oymbAdminNy" : $("#oymbAdminNy").val()}
-	,success: function(response) {
-		if(response.rt == "success") {
-			
-				location.href = "/allLive/allLiveReg";
-				
-		} else if{
-					location.href = "/allLive/allLiveOrder";
-					
-			
-		} else {
-			alert("회원없음");
-		}
-	}
-	,error : function(jqXHR, textStatus, errorThrown){
-		alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-	}
-	});
-});*/
-
-
-	
-</script>
+		/*$("#btnLogin").on("click", function(){
+		 if(validation()==false) return false; 
+		 $.ajax({
+		 async: true 
+		 ,cache: false
+		 ,type: "post"
+		 ,url: "/allLive/loginProc"
+		 ,data : { "oymbId" : $("#oymbId").val(), "oymbPassword" : $("#oymbPassword").val(), "oymbAdminNy" : $("#oymbAdminNy").val()}
+		 ,success: function(response) {
+		 if(response.rt == "success") {
+		
+		 location.href = "/allLive/allLiveReg";
+		
+		 } else if{
+		 location.href = "/allLive/allLiveOrder";
+		
+		
+		 } else {
+		 alert("회원없음");
+		 }
+		 }
+		 ,error : function(jqXHR, textStatus, errorThrown){
+		 alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		 }
+		 });
+		 });*/
+	</script>
 
 </body>
 
