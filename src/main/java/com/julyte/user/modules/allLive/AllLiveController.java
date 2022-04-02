@@ -1,6 +1,7 @@
 package com.julyte.user.modules.allLive;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -9,9 +10,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.julyte.user.common.constants.Constants;
 
@@ -86,4 +89,22 @@ public class AllLiveController {
 		return returnMap;
 	}
 
+	@RequestMapping(value = "/allLive/allLiveReg")
+	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
+
+		return "allLive/allLiveReg";
+	}
+
+	@RequestMapping(value = "/allLive/allLiveInst")
+	public String allLiveInst(AllLive dto, AllLiveVo vo, Model model, RedirectAttributes redirectAttributes)
+			throws Exception {
+
+		service.insert(dto);
+
+		vo.setOyspSeq(dto.getOyspSeq());
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/allLive/allLiveDetail";
+	}
 }

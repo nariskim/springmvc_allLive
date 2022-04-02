@@ -14,4 +14,12 @@ public class AllLiveServiceImpl implements AllLiveService {
 		return dao.selectOneLogin(dto);
 	}
 
+	@Override
+	public int insert(AllLive dto) throws Exception {
+
+		dao.insertPd(dto);
+		dao.insertSalePd(dto);
+		return 2;
+	}
+
 }

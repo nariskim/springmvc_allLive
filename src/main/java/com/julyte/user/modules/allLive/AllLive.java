@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AllLive {
 
-
+// multi insert시 필요
 	private Integer[] oympDefaultNyArray;
 	private String[] oympNumberArray;
 	private Integer[] oympTelecomCdArray;
@@ -76,11 +76,42 @@ public class AllLive {
 	private String oycgName;
 	private Integer oycgDelNy;
 
-//	oyCode	
+//	oyCate
+
+//	oyProduct
+	private String oypdSeq;
+	private Integer oypdCate;
+	private Integer oypdBrandCd;
+	private String oypdBrand;
+	private String oypdName;
+	private Integer oypdPrice;
+	private Integer oypdCountryCd;
+	private Integer oypdDistributorCd;
+	private Integer oypdManufactureCd;
+	private Integer oypdDelNy;
+
+//	oySaleProduct
+	private String oyspSeq;
+	private Integer oyspSaleNy;
+	private Integer oyspCouponNy;
+	private Integer oyspFreeGiftNy;
+	private Integer oyspOneBuyGetOneFreeNy;
+	private Integer oyspTwoBuyGetOneFreeNy;
+	private Integer oyspTodayShipNy;
+	private Integer oyspFreeShippingNy;
+
+	private Integer oyspExculsiveNy;
+	private Integer oyspSalePrice;
+	private String oyspSalePeriodStart;
+	private String oyspSalePeriodEnd;
+	private Integer oyspDelNy;
+//	private String oypdSeq;
+
+	// oyCode
 	private String oycdSeq;
 	private String oycdName;
 	private Integer oycdDelNy;
-//	private String oycgSeq = "";
+//	private String oycgSeq;
 
 //	oymbEmail	
 	private String oymeSeq;
@@ -91,15 +122,8 @@ public class AllLive {
 	private Integer oymeDelNy;
 //	private String oymbSeq;
 
+//	codeGroup code 저장	cate 저장????확인하기
 	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
-
-	public Integer getOymbAdminNy() {
-		return oymbAdminNy;
-	}
-
-	public void setOymbAdminNy(Integer oymbAdminNy) {
-		this.oymbAdminNy = oymbAdminNy;
-	}
 
 	public Integer[] getOympDefaultNyArray() {
 		return oympDefaultNyArray;
@@ -147,6 +171,14 @@ public class AllLive {
 
 	public void setOymeEmailDomainCdArray(Integer[] oymeEmailDomainCdArray) {
 		this.oymeEmailDomainCdArray = oymeEmailDomainCdArray;
+	}
+
+	public Integer getOymbAdminNy() {
+		return oymbAdminNy;
+	}
+
+	public void setOymbAdminNy(Integer oymbAdminNy) {
+		this.oymbAdminNy = oymbAdminNy;
 	}
 
 	public String getOymbSeq() {
@@ -491,6 +523,190 @@ public class AllLive {
 
 	public void setOycgDelNy(Integer oycgDelNy) {
 		this.oycgDelNy = oycgDelNy;
+	}
+
+	public String getOypdSeq() {
+		return oypdSeq;
+	}
+
+	public void setOypdSeq(String oypdSeq) {
+		this.oypdSeq = oypdSeq;
+	}
+
+	public Integer getOypdCate() {
+		return oypdCate;
+	}
+
+	public void setOypdCate(Integer oypdCate) {
+		this.oypdCate = oypdCate;
+	}
+
+	public Integer getOypdBrandCd() {
+		return oypdBrandCd;
+	}
+
+	public void setOypdBrandCd(Integer oypdBrandCd) {
+		this.oypdBrandCd = oypdBrandCd;
+	}
+
+	public String getOypdBrand() {
+		return oypdBrand;
+	}
+
+	public void setOypdBrand(String oypdBrand) {
+		this.oypdBrand = oypdBrand;
+	}
+
+	public String getOypdName() {
+		return oypdName;
+	}
+
+	public void setOypdName(String oypdName) {
+		this.oypdName = oypdName;
+	}
+
+	public Integer getOypdPrice() {
+		return oypdPrice;
+	}
+
+	public void setOypdPrice(Integer oypdPrice) {
+		this.oypdPrice = oypdPrice;
+	}
+
+	public Integer getOypdCountryCd() {
+		return oypdCountryCd;
+	}
+
+	public void setOypdCountryCd(Integer oypdCountryCd) {
+		this.oypdCountryCd = oypdCountryCd;
+	}
+
+	public Integer getOypdDistributorCd() {
+		return oypdDistributorCd;
+	}
+
+	public void setOypdDistributorCd(Integer oypdDistributorCd) {
+		this.oypdDistributorCd = oypdDistributorCd;
+	}
+
+	public Integer getOypdManufactureCd() {
+		return oypdManufactureCd;
+	}
+
+	public void setOypdManufactureCd(Integer oypdManufactureCd) {
+		this.oypdManufactureCd = oypdManufactureCd;
+	}
+
+	public Integer getOypdDelNy() {
+		return oypdDelNy;
+	}
+
+	public void setOypdDelNy(Integer oypdDelNy) {
+		this.oypdDelNy = oypdDelNy;
+	}
+
+	public String getOyspSeq() {
+		return oyspSeq;
+	}
+
+	public void setOyspSeq(String oyspSeq) {
+		this.oyspSeq = oyspSeq;
+	}
+
+	public Integer getOyspSaleNy() {
+		return oyspSaleNy;
+	}
+
+	public void setOyspSaleNy(Integer oyspSaleNy) {
+		this.oyspSaleNy = oyspSaleNy;
+	}
+
+	public Integer getOyspCouponNy() {
+		return oyspCouponNy;
+	}
+
+	public void setOyspCouponNy(Integer oyspCouponNy) {
+		this.oyspCouponNy = oyspCouponNy;
+	}
+
+	public Integer getOyspFreeGiftNy() {
+		return oyspFreeGiftNy;
+	}
+
+	public void setOyspFreeGiftNy(Integer oyspFreeGiftNy) {
+		this.oyspFreeGiftNy = oyspFreeGiftNy;
+	}
+
+	public Integer getOyspOneBuyGetOneFreeNy() {
+		return oyspOneBuyGetOneFreeNy;
+	}
+
+	public void setOyspOneBuyGetOneFreeNy(Integer oyspOneBuyGetOneFreeNy) {
+		this.oyspOneBuyGetOneFreeNy = oyspOneBuyGetOneFreeNy;
+	}
+
+	public Integer getOyspTwoBuyGetOneFreeNy() {
+		return oyspTwoBuyGetOneFreeNy;
+	}
+
+	public void setOyspTwoBuyGetOneFreeNy(Integer oyspTwoBuyGetOneFreeNy) {
+		this.oyspTwoBuyGetOneFreeNy = oyspTwoBuyGetOneFreeNy;
+	}
+
+	public Integer getOyspTodayShipNy() {
+		return oyspTodayShipNy;
+	}
+
+	public void setOyspTodayShipNy(Integer oyspTodayShipNy) {
+		this.oyspTodayShipNy = oyspTodayShipNy;
+	}
+
+	public Integer getOyspFreeShippingNy() {
+		return oyspFreeShippingNy;
+	}
+
+	public void setOyspFreeShippingNy(Integer oyspFreeShippingNy) {
+		this.oyspFreeShippingNy = oyspFreeShippingNy;
+	}
+
+	public Integer getOyspExculsiveNy() {
+		return oyspExculsiveNy;
+	}
+
+	public void setOyspExculsiveNy(Integer oyspExculsiveNy) {
+		this.oyspExculsiveNy = oyspExculsiveNy;
+	}
+
+	public Integer getOyspSalePrice() {
+		return oyspSalePrice;
+	}
+
+	public void setOyspSalePrice(Integer oyspSalePrice) {
+		this.oyspSalePrice = oyspSalePrice;
+	}
+
+	public String getOyspSalePeriodStart() {
+		return oyspSalePeriodStart;
+	}
+
+	public void setOyspSalePeriodStart(String oyspSalePeriodStart) {
+		this.oyspSalePeriodStart = oyspSalePeriodStart;
+	}
+
+	public String getOyspSalePeriodEnd() {
+		return oyspSalePeriodEnd;
+	}
+
+	public void setOyspSalePeriodEnd(String oyspSalePeriodEnd) {
+		this.oyspSalePeriodEnd = oyspSalePeriodEnd;
+	}
+
+	public Integer getOyspDelNy() {
+		return oyspDelNy;
+	}
+
+	public void setOyspDelNy(Integer oyspDelNy) {
+		this.oyspDelNy = oyspDelNy;
 	}
 
 	public String getOycdSeq() {

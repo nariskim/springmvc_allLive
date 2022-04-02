@@ -20,4 +20,12 @@ public class AllLiveDao {
 		return sqlSession.selectOne(namespace + ".selectOneLogin", dto);
 	}
 
+	public int insertPd(AllLive dto) {
+		return sqlSession.insert(namespace + ".insertPd", dto);
+	}
+
+	public int insertSalePd(AllLive dto) {
+		return sqlSession.insert(namespace + ".insertSalePd", dto);
+	}
+
 }

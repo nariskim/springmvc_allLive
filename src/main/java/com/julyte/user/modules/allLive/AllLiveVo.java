@@ -8,6 +8,8 @@ public class AllLiveVo {
 	private String oymaSeq;
 	private String oympSeq;
 	private String oymeSeq;
+	private String oypdSeq;
+	private String oyspSeq;
 
 	// oyMemberSearch
 	private String regDateTime;
@@ -87,14 +89,6 @@ public class AllLiveVo {
 
 	private String[] checkboxSeqArray;
 
-	public String[] getCheckboxSeqArray() {
-		return checkboxSeqArray;
-	}
-
-	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
-		this.checkboxSeqArray = checkboxSeqArray;
-	}
-
 	public String getOymbSeq() {
 		return oymbSeq;
 	}
@@ -149,6 +143,22 @@ public class AllLiveVo {
 
 	public void setOymeSeq(String oymeSeq) {
 		this.oymeSeq = oymeSeq;
+	}
+
+	public String getOypdSeq() {
+		return oypdSeq;
+	}
+
+	public void setOypdSeq(String oypdSeq) {
+		this.oypdSeq = oypdSeq;
+	}
+
+	public String getOyspSeq() {
+		return oyspSeq;
+	}
+
+	public void setOyspSeq(String oyspSeq) {
+		this.oyspSeq = oyspSeq;
 	}
 
 	public String getRegDateTime() {
@@ -310,4 +320,13 @@ public class AllLiveVo {
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
+
+	public String[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+
+	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
+	}
+
 }
