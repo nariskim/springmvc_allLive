@@ -1,6 +1,7 @@
 package com.julyte.user.modules.allLive;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -91,20 +92,31 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveReg")
-	public String allLiveReg(Model model) throws Exception {
+	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
+		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
+		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("23"));
+		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("18"));
+		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("17"));
+
+		List<AllLive> list = service.selectList(vo);
+		model.addAttribute("list", list);
 
 		return "allLive/allLiveReg";
 	}
 
-	@RequestMapping(value = "/allLive/allLiveReg2")
+	@RequestMapping(value = "/allLive/Map")
 	public String allLiveReg2(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
 		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("23"));
 		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("18"));
 		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("17"));
-		model.addAttribute("category", AllLiveServiceImpl.selectListCachedCate(""));
+
+
+		List<AllLive> list = service.selectList(vo);
+		model.addAttribute("list", list);
+
 		
-		return "allLive/allLiveReg2";
+		return "allLive/Map";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveInst")

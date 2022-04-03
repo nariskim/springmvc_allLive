@@ -15,6 +15,11 @@ public class AllLiveServiceImpl implements AllLiveService {
 	AllLiveDao dao;
 
 	@Override
+	public List<AllLive> selectList(AllLiveVo vo) throws Exception {
+		return dao.selectList(vo);
+	}
+
+	@Override
 	public AllLive selectOneLogin(AllLive dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
@@ -43,27 +48,6 @@ public class AllLiveServiceImpl implements AllLiveService {
 				rt.add(codeRow);
 			} else {
 
-			}
-		}
-		return rt;
-	}
-	
-	@PostConstruct
-	public void selectListForCacheCate() {
-		List<AllLive> cateListFromDb = (ArrayList<AllLive>) dao.selectListForCache();
-		
-		AllLive.cachedCodeArrayList.clear();
-		AllLive.cachedCodeArrayList.addAll(cateListFromDb);
-		System.out.println("cachedCodeArrayList:" + AllLive.cachedCodeArrayList.size() + "chached !");
-	}
-	
-	public static List<AllLive> selectListCachedCate(String oyctSeq) throws Exception {
-		List<AllLive> rt = new ArrayList<AllLive>();
-		for (AllLive cateRow : AllLive.cachedCodeArrayList) {
-			if (cateRow.getOyctSeq().equals(oyctSeq)) {
-				rt.add(cateRow);
-			} else {
-				
 			}
 		}
 		return rt;

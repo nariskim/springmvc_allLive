@@ -19,42 +19,199 @@
 <title>allLiveYoung_View</title>
 
 <style>
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-.map_wrap {position:relative;width:100%;height:500px;}
-#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
-.bg_white {background:#fff;}
-#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
-#menu_wrap .option{text-align: center;}
-#menu_wrap .option p {margin:10px 0;}  
-#menu_wrap .option button {margin-left:5px;}
-#placesList li {list-style: none;}
-#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
-#placesList .item span {display: block;margin-top:4px;}
-#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-#placesList .item .info{padding:10px 0 10px 55px;}
-#placesList .info .gray {color:#8a8a8a;}
-#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-#placesList .info .tel {color:#009900;}
-#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
-#placesList .item .marker_1 {background-position: 0 -10px;}
-#placesList .item .marker_2 {background-position: 0 -56px;}
-#placesList .item .marker_3 {background-position: 0 -102px}
-#placesList .item .marker_4 {background-position: 0 -148px;}
-#placesList .item .marker_5 {background-position: 0 -194px;}
-#placesList .item .marker_6 {background-position: 0 -240px;}
-#placesList .item .marker_7 {background-position: 0 -286px;}
-#placesList .item .marker_8 {background-position: 0 -332px;}
-#placesList .item .marker_9 {background-position: 0 -378px;}
-#placesList .item .marker_10 {background-position: 0 -423px;}
-#placesList .item .marker_11 {background-position: 0 -470px;}
-#placesList .item .marker_12 {background-position: 0 -516px;}
-#placesList .item .marker_13 {background-position: 0 -562px;}
-#placesList .item .marker_14 {background-position: 0 -608px;}
-#placesList .item .marker_15 {background-position: 0 -654px;}
-#pagination {margin:10px auto;text-align: center;}
-#pagination a {display:inline-block;margin-right:10px;}
-#pagination .on {font-weight: bold; cursor: default;color:#777;}
+.map_wrap, .map_wrap * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-size: 12px;
+}
+
+.map_wrap, .map_wrap * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-size: 12px;
+}
+
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.map_wrap {
+	position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+#menu_wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.7);
+	z-index: 1;
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+.bg_white {
+	background: #fff;
+}
+
+#menu_wrap hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 2px solid #5F5F5F;
+	margin: 3px 0;
+}
+
+#menu_wrap .option {
+	text-align: center;
+}
+
+#menu_wrap .option p {
+	margin: 10px 0;
+}
+
+#menu_wrap .option button {
+	margin-left: 5px;
+}
+
+#placesList li {
+	list-style: none;
+}
+
+#placesList .item {
+	position: relative;
+	border-bottom: 1px solid #888;
+	overflow: hidden;
+	cursor: pointer;
+	min-height: 65px;
+}
+
+#placesList .item span {
+	display: block;
+	margin-top: 4px;
+}
+
+#placesList .item h5, #placesList .item .info {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#placesList .item .info {
+	padding: 10px 0 10px 55px;
+}
+
+#placesList .info .gray {
+	color: #8a8a8a;
+}
+
+#placesList .info .jibun {
+	padding-left: 26px;
+	background:
+		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png)
+		no-repeat;
+}
+
+#placesList .info .tel {
+	color: #009900;
+}
+
+#placesList .item .markerbg {
+	float: left;
+	position: absolute;
+	width: 36px;
+	height: 37px;
+	margin: 10px 0 0 10px;
+	background:
+		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
+		no-repeat;
+}
+
+#placesList .item .marker_1 {
+	background-position: 0 -10px;
+}
+
+#placesList .item .marker_2 {
+	background-position: 0 -56px;
+}
+
+#placesList .item .marker_3 {
+	background-position: 0 -102px
+}
+
+#placesList .item .marker_4 {
+	background-position: 0 -148px;
+}
+
+#placesList .item .marker_5 {
+	background-position: 0 -194px;
+}
+
+#placesList .item .marker_6 {
+	background-position: 0 -240px;
+}
+
+#placesList .item .marker_7 {
+	background-position: 0 -286px;
+}
+
+#placesList .item .marker_8 {
+	background-position: 0 -332px;
+}
+
+#placesList .item .marker_9 {
+	background-position: 0 -378px;
+}
+
+#placesList .item .marker_10 {
+	background-position: 0 -423px;
+}
+
+#placesList .item .marker_11 {
+	background-position: 0 -470px;
+}
+
+#placesList .item .marker_12 {
+	background-position: 0 -516px;
+}
+
+#placesList .item .marker_13 {
+	background-position: 0 -562px;
+}
+
+#placesList .item .marker_14 {
+	background-position: 0 -608px;
+}
+
+#placesList .item .marker_15 {
+	background-position: 0 -654px;
+}
+
+#pagination {
+	margin: 10px auto;
+	text-align: center;
+}
+
+#pagination a {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+#pagination .on {
+	font-weight: bold;
+	cursor: default;
+	color: #777;
+}
+
 header {
 	margin-left: 5%;
 	margin-right: 5%;
@@ -89,13 +246,8 @@ main {
 
 .nav-item-p {
 	width: 25%;
-	text-align: center; . map_wrap , .map_wrap * {margin : 0;
-	padding: 0;
-	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
-	font-size: 12px;
+	text-align: center;
 }
-
-
 </style>
 
 </head>
@@ -247,82 +399,119 @@ main {
 					</div>
 				</div>
 				<div class="col-6">
-					<label for="formFile" class="form-label">상품 분류</label> <input
-						type="text" class="form-control" id="" name="" placeholder="판매여부"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="PB여부"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="카테고리"><br>
+					<label for="formFile" class="form-label">상품 분류</label> 
+				<label for="formFile" class="form-label">판매여부</label>
+							<select class="form-select" id="oyspSaleNy" name="oyspSaleNy">
+								<option value="" selected>::판매여부::</option>
+								<c:forEach items="${list}" var="item" varStatus="status">
+									<option value="<c:out value="${item.oyspSaleNy eq 1}"/>" <c:if test="${item.oyspSaleNy eq 1}">selected</c:if>>Y</option>
+									<option value="<c:out value="${item.oyspSaleNy eq 0}"/>" <c:if test="${item.oyspSaleNy eq 0}">selected</c:if>>N</option>
+								
+								</c:forEach>
+							</select>
+							<label for="formFile" class="form-label">PB여부</label>
+					<select class="form-select" id="oyspExclusiveNy" name="oyspExclusiveNy">
+								<option value="" selected>::PB::</option>
+								<c:forEach items="${list}" var="item" varStatus="status">
+									<option value="<c:out value="${item.oyspExclusiveNy eq 1}"/>" <c:if test="${item.oyspExclusiveNy eq 1}">selected</c:if>>Y</option>
+									<option value="<c:out value="${item.oyspExclusiveNy eq 0}"/>" <c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
+								
+								</c:forEach>
+							</select>
+			
+						<label for="formFile" class="form-label">카테고리</label>
+							<select class="form-select" id="oyctSeq" name="oyctSeq">
+								<option value="" selected>::카테고리::</option>
+								<c:forEach items="${list}" var="item" varStatus="status">
+
+									<option value="<c:out value="${item.oyctSeq}"/>"  <c:if test="${item.oyctSeq eq vo.oyctSeq}">selected</c:if>><c:out value="${item.oyctName}"/></option>
+								
+								</c:forEach>
+							</select>
+
+
+
+
 					<hr>
-					<label for="formFile" class="form-label">상품 상세</label> <input
-						type="text" class="form-control" id="" name="" placeholder="상품명"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="판매가"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="행사가"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="행사시작"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="행사끝"><br>
+					<label for="formFile" class="form-label">상품 상세</label>
+						<label for="formFile" class="form-label">상품명</label>
+						<input type="text" class="form-control" id="oypdName" name="oypdName" placeholder="상품명"><br>
+						<label for="formFile" class="form-label">판매가</label>
+						<input type="text" class="form-control" id="oypdPrice" name="oypdPrice" placeholder="판매가"><br>
+						<label for="formFile" class="form-label">행사가</label>
+						<input type="text" class="form-control" id="oyspSalePrice" name="oyspSalePrice" placeholder="행사가"><br>
+						<label for="formFile" class="form-label">행사시작일</label>
+						<input type="text" class="form-control" id="oyspSalePeriodStart" name="oyspSalePeriodStart" placeholder="행사시작일"><br>
+						<label for="formFile" class="form-label">행사종료일</label>
+						<input type="text" class="form-control" id="oyspSalePeriodEnd" name="oyspSalePeriodEnd" placeholder="행사종료일"><br>
 					<hr>
 					<label for="formFile" class="form-label">행사 분류</label>
 					<div class="input-group">
 						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="flexRadioDefault" id="flexRadioDefault1"> <span
-								class="badge rounded-pill bg-primary">세일</span>
+							<input class="form-check-input" type="radio" name="oyspSaleNy" id="oyspSaleNy">
+							<span class="badge rounded-pill bg-primary">세일</span>
 						</div>
 						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="flexRadioDefault" id="flexRadioDefault1"> <span
-								class="badge rounded-pill bg-secondary">쿠폰</span>
+							<input class="form-check-input" type="radio" name="oyspCouponNy" id="oyspCouponNy">
+							<span class="badge rounded-pill bg-secondary">쿠폰</span>
 						</div>
 						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="flexRadioDefault" id="flexRadioDefault1"> <span
-								class="badge rounded-pill bg-success">증정</span>
+							<input class="form-check-input" type="radio" name="oyspFreeGiftNy" id="oyspFreeGiftNy">
+							<span class="badge rounded-pill bg-success">증정</span>
 						</div>
 						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="flexRadioDefault" id="flexRadioDefault1"> <span
-								class="badge rounded-pill bg-danger">오늘드림</span>
+							<input class="form-check-input" type="radio" name="oyspTodayshipNy" id="oyspTodayshipNy">
+							<span class="badge rounded-pill bg-danger">오늘드림</span>
 						</div>
 						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="flexRadioDefault" id="flexRadioDefault1"> <span
-								class="badge rounded-pill bg-warning">1+1</span>
+							<input class="form-check-input" type="radio" name="oyspOneBuyGetOneFreeNy" id="oyspOneBuyGetOneFreeNy">
+							<span class="badge rounded-pill bg-warning">1+1</span>
 						</div>
 						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="flexRadioDefault" id="flexRadioDefault1"> <span
-								class="badge rounded-pill bg-warning">2+1</span>
+							<input class="form-check-input" type="radio" name="oyspTwoBuyGetOneFreeNy" id="oyspTwoBuyGetOneFreeNy">
+							<span class="badge rounded-pill bg-warning">2+1</span>
 						</div>
 						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="flexRadioDefault" id="flexRadioDefault1"> <span
-								class="badge rounded-pill bg-info">무배</span>
+							<input class="form-check-input" type="radio" name="oyspFreeShippingNy" id="oyspFreeShippingNy">
+							<span class="badge rounded-pill bg-info">무배</span>
 						</div>
 					</div>
 					<hr>
-					<label for="formFile" class="form-label">상품 정보</label> <input
-						type="text" class="form-control" id="" name=""
-						placeholder="용량 또는 중량"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="제품 주요 사양"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="사용기간"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="사용방법"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="화장품제조업자"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="화장품책임판매업자"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="제조국"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="모든 성분"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="기능성 화장품 심사필 여부"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="주의사항"><br>
-					<input type="text" class="form-control" id="" name=""
-						placeholder="품질보증기준"><br> <input type="text"
-						class="form-control" id="" name="" placeholder="소비자상담 전화번호"><br>
+					<label for="formFile" class="form-label">상품 정보</label>
+					<label for="formFile" class="form-label">용량 또는 중량</label>
+					<input type="text" class="form-control" id="oypdVolumeWeight" name="oypdVolumeWeight" 	placeholder="용량 또는 중량"><br>
+					<label for="formFile" class="form-label">제품 주요 사양</label>
+					<input type="text" class="form-control" id="oypdIdeal" name="oypdIdeal" placeholder="제품 주요 사양"><br>
+					<label for="formFile" class="form-label">사용기간(개봉 후 사용기간)</label>
+					<input type="text" class="form-control" id="oypdExpiraionDate" name="oypdExpiraionDate" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" placeholder="사용방법"><br>
+					<label for="formFile" class="form-label">사용방법</label>
+					<input type="text" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" placeholder="사용방법"><br> 
+					<label for="formFile" class="form-label">화장품제조업자</label>
+					<input type="text" class="form-control" id="oypdManufacturerCd" name="oypdManufacturerCd" placeholder="화장품제조업자"><br>
+					<label for="formFile" class="form-label"> 화장품책임판매업자</label>
+					<input type="text" class="form-control" id="oypdDistributorCd" name="oypdDistributorCd" placeholder="화장품책임판매업자"><br>
+					<label for="formFile" class="form-label">제조국</label>
+					<input type="text" class="form-control" id="oypdCountryCd" name="oypdCountryCd" placeholder="제조국"><br>
+					<label for="formFile" class="form-label">화장품법에 따라 기재해야 하는 모든 성분</label>
+					<input type="text" class="form-control" id="oypdIngredients" name="oypdIngredients" placeholder="모든 성분"><br>
+					<label for="formFile" class="form-label">기능성 화장품 식품의약품안전처 심사필 여부</label>
+					<select class="form-select" id="oypdFunctionalCosmetics" name="oypdFunctionalCosmetics">
+								<option value="" selected>::심사필 여부::</option>
+								<c:forEach items="${list}" var="item" varStatus="status">
+									<option value="<c:out value="${item.oypdFunctionalCosmetics eq 1}"/>" <c:if test="${item.oypdFunctionalCosmetics eq 1}">selected</c:if>>Y</option>
+									<option value="<c:out value="${item.oypdFunctionalCosmetics eq 0}"/>" <c:if test="${item.oypdFunctionalCosmetics eq 0}">selected</c:if>>N</option>
+								
+								</c:forEach>
+							</select>
+					<label for="formFile" class="form-label">사용시 주의사항</label>
+					<input type="text" class="form-control" id="oypdCautions" name="oypdCautions" placeholder="주의사항"><br>
+					<label for="formFile" class="form-label">품질보증기준</label>
+					<input type="text" class="form-control" id="oypdQaStandard" name="oypdQaStandard" placeholder="품질보증기준"><br>
+					<label for="formFile" class="form-label">소비자상담 전화번호</label>
+					<input type="text" class="form-control" id="oypdCustomerService" name="oypdCustomerService" placeholder="소비자상담 전화번호"><br>
 					<br>
 					<hr>
-					<br> <a href="/allLive/allLiveOrder"><button type="button"
+					<br> <a href="javaScript:goReg();"><button type="button"
 							class="btn btn-success btn-lg">상품등록</button></a>
 				</div>
 
@@ -666,6 +855,12 @@ main {
 				el.removeChild(el.lastChild);
 			}
 		}
+		
+		goReg = function() {
+			$("#allLiveReg").attr("action", "/allLive/allLiveInst");
+			$("#allLiveReg").submit();
+		}
+
 	</script>
 </body>
 </html>
