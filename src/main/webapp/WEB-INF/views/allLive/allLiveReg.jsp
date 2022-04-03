@@ -424,6 +424,18 @@ main {
 								
 								</c:forEach>
 							</select>
+			
+						<label for="formFile" class="form-label">브랜드</label>
+							<select class="form-select" id="oycdBrandCd" name="oycdBrandCd">
+								<option value="" selected>::브랜드::</option>
+								<c:forEach items="${codeBrand}" var="itemBrand" varStatus="statusBrand">
+
+									<option value="<c:out value="${itemBrand.oycdSeq}"/>"
+										<c:if test="${item.oycdBrandCd eq itemBrand.oycdSeq }">selected</c:if>><c:out
+											value="${itemBrand.oycdName}" /></option>
+								
+								</c:forEach>
+							</select>
 
 
 
@@ -437,9 +449,9 @@ main {
 						<label for="formFile" class="form-label">행사가</label>
 						<input type="text" class="form-control" id="oyspSalePrice" name="oyspSalePrice" placeholder="행사가"><br>
 						<label for="formFile" class="form-label">행사시작일</label>
-						<input type="text" class="form-control" id="oyspSalePeriodStart" name="oyspSalePeriodStart" placeholder="행사시작일"><br>
+						<input type="text" class="form-control" id="" name="" placeholder="행사시작일"><br>
 						<label for="formFile" class="form-label">행사종료일</label>
-						<input type="text" class="form-control" id="oyspSalePeriodEnd" name="oyspSalePeriodEnd" placeholder="행사종료일"><br>
+						<input type="text" class="form-control" id="" name="" placeholder="행사종료일"><br>
 					<hr>
 					<label for="formFile" class="form-label">행사 분류</label>
 					<div class="input-group">
@@ -482,13 +494,43 @@ main {
 					<input type="text" class="form-control" id="oypdExpiraionDate" name="oypdExpiraionDate" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" placeholder="사용방법"><br>
 					<label for="formFile" class="form-label">사용방법</label>
 					<input type="text" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" placeholder="사용방법"><br> 
-					<label for="formFile" class="form-label">화장품제조업자</label>
-					<input type="text" class="form-control" id="oypdManufacturerCd" name="oypdManufacturerCd" placeholder="화장품제조업자"><br>
-					<label for="formFile" class="form-label"> 화장품책임판매업자</label>
-					<input type="text" class="form-control" id="oypdDistributorCd" name="oypdDistributorCd" placeholder="화장품책임판매업자"><br>
-					<label for="formFile" class="form-label">제조국</label>
-					<input type="text" class="form-control" id="oypdCountryCd" name="oypdCountryCd" placeholder="제조국"><br>
-					<label for="formFile" class="form-label">화장품법에 따라 기재해야 하는 모든 성분</label>
+					<label for="formFile" class="form-label">화장품제조업자</label> <select
+						class="form-select" id="oypdManufacturerCd"
+						name="oypdManufacturerCd">
+						<option value="" selected>::제조사::</option>
+						<c:forEach items="${codeManufacturer}" var="itemManufacturer"
+							varStatus="statusManufacturer">
+
+							<option value="<c:out value="${itemManufacturer.oycdSeq}"/>"
+								<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq }">selected</c:if>><c:out
+									value="${itemManufacturer.oycdName}" /></option>
+
+						</c:forEach>
+					</select>
+					<!-- <input type="text" class="form-control" id="oypdManufacturerCd" name="oypdManufacturerCd" placeholder="화장품제조업자"><br> -->
+					<label for="formFile" class="form-label"> 화장품책임판매업자</label> <select class="form-select" id="oypdDistributorCd"
+						name="oypdDistributorCd">
+						<option value="" selected>::판매사::</option>
+						<c:forEach items="${codeDistributor}" var="itemDistributor"
+							varStatus="statusDistributor">
+
+							<option value="<c:out value="${itemDistributor.oycdSeq}"/>"
+								<c:if test="${item.oypdDistributorCd eq itemDistributor.oycdSeq }">selected</c:if>><c:out
+									value="${itemDistributor.oycdName}" /></option>
+
+						</c:forEach>
+					</select> <label for="formFile" class="form-label">제조국</label> <select
+						class="form-select" id="oypdCountryCd" name="oypdCountryCd">
+						<option value="" selected>::제조국::</option>
+						<c:forEach items="${codeCountry}" var="itemCountry"
+							varStatus="statusCountry">
+
+							<option value="<c:out value="${itemCountry.oycdSeq}"/>"
+								<c:if test="${item.oypdCountryCd eq itemCountry.oycdSeq }">selected</c:if>><c:out
+									value="${itemCountry.oycdName}" /></option>
+
+						</c:forEach>
+					</select> <label for="formFile" class="form-label">화장품법에 따라 기재해야 하는 모든 성분</label>
 					<input type="text" class="form-control" id="oypdIngredients" name="oypdIngredients" placeholder="모든 성분"><br>
 					<label for="formFile" class="form-label">기능성 화장품 식품의약품안전처 심사필 여부</label>
 					<select class="form-select" id="oypdFunctionalCosmetics" name="oypdFunctionalCosmetics">

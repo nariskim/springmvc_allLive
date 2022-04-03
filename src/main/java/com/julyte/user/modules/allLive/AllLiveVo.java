@@ -10,6 +10,7 @@ public class AllLiveVo {
 	private String oymeSeq;
 	private String oypdSeq;
 	private String oyspSeq;
+	private String oyctSeq;
 
 	// oyMemberSearch
 	private String regDateTime;
@@ -93,240 +94,249 @@ public class AllLiveVo {
 		return oymbSeq;
 	}
 
-	public void setOymbSeq(String oymbSeq) {
-		this.oymbSeq = oymbSeq;
-	}
-
 	public String getOyjqSeq() {
 		return oyjqSeq;
-	}
-
-	public void setOyjqSeq(String oyjqSeq) {
-		this.oyjqSeq = oyjqSeq;
 	}
 
 	public String getOynaSeq() {
 		return oynaSeq;
 	}
 
-	public void setOynaSeq(String oynaSeq) {
-		this.oynaSeq = oynaSeq;
-	}
-
 	public String getOymnSeq() {
 		return oymnSeq;
-	}
-
-	public void setOymnSeq(String oymnSeq) {
-		this.oymnSeq = oymnSeq;
 	}
 
 	public String getOymaSeq() {
 		return oymaSeq;
 	}
 
-	public void setOymaSeq(String oymaSeq) {
-		this.oymaSeq = oymaSeq;
-	}
-
 	public String getOympSeq() {
 		return oympSeq;
-	}
-
-	public void setOympSeq(String oympSeq) {
-		this.oympSeq = oympSeq;
 	}
 
 	public String getOymeSeq() {
 		return oymeSeq;
 	}
 
-	public void setOymeSeq(String oymeSeq) {
-		this.oymeSeq = oymeSeq;
-	}
-
 	public String getOypdSeq() {
 		return oypdSeq;
-	}
-
-	public void setOypdSeq(String oypdSeq) {
-		this.oypdSeq = oypdSeq;
 	}
 
 	public String getOyspSeq() {
 		return oyspSeq;
 	}
 
-	public void setOyspSeq(String oyspSeq) {
-		this.oyspSeq = oyspSeq;
+	public String getOyctSeq() {
+		return oyctSeq;
 	}
 
 	public String getRegDateTime() {
 		return regDateTime;
 	}
 
-	public void setRegDateTime(String regDateTime) {
-		this.regDateTime = regDateTime;
-	}
-
 	public String getModDateTime() {
 		return modDateTime;
-	}
-
-	public void setModDateTime(String modDateTime) {
-		this.modDateTime = modDateTime;
 	}
 
 	public String getOymbDob() {
 		return oymbDob;
 	}
 
-	public void setOymbDob(String oymbDob) {
-		this.oymbDob = oymbDob;
-	}
-
 	public Integer getScOptionDate() {
 		return scOptionDate;
-	}
-
-	public void setScOptionDate(Integer scOptionDate) {
-		this.scOptionDate = scOptionDate;
 	}
 
 	public String getScDateStart() {
 		return scDateStart;
 	}
 
-	public void setScDateStart(String scDateStart) {
-		this.scDateStart = scDateStart;
-	}
-
 	public String getScDateEnd() {
 		return scDateEnd;
-	}
-
-	public void setScDateEnd(String scDateEnd) {
-		this.scDateEnd = scDateEnd;
 	}
 
 	public Integer getScOymbDelNy() {
 		return scOymbDelNy;
 	}
 
-	public void setScOymbDelNy(Integer scOymbDelNy) {
-		this.scOymbDelNy = scOymbDelNy;
-	}
-
 	public Integer getScOption() {
 		return scOption;
-	}
-
-	public void setScOption(Integer scOption) {
-		this.scOption = scOption;
 	}
 
 	public String getScValue() {
 		return scValue;
 	}
 
-	public void setScValue(String scValue) {
-		this.scValue = scValue;
-	}
-
 	public int getThisPage() {
 		return thisPage;
-	}
-
-	public void setThisPage(int thisPage) {
-		this.thisPage = thisPage;
 	}
 
 	public int getRowNumToShow() {
 		return rowNumToShow;
 	}
 
-	public void setRowNumToShow(int rowNumToShow) {
-		this.rowNumToShow = rowNumToShow;
-	}
-
 	public int getPageNumToShow() {
 		return pageNumToShow;
-	}
-
-	public void setPageNumToShow(int pageNumToShow) {
-		this.pageNumToShow = pageNumToShow;
 	}
 
 	public int getTotalRows() {
 		return totalRows;
 	}
 
-	public void setTotalRows(int totalRows) {
-		this.totalRows = totalRows;
-	}
-
 	public int getTotalPages() {
 		return totalPages;
-	}
-
-	public void setTotalPages(int totalPages) {
-		this.totalPages = totalPages;
 	}
 
 	public int getStartPage() {
 		return startPage;
 	}
 
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
-	}
-
 	public int getEndPage() {
 		return endPage;
-	}
-
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
 	}
 
 	public int getStartRnumForOracle() {
 		return startRnumForOracle;
 	}
 
-	public void setStartRnumForOracle(int startRnumForOracle) {
-		this.startRnumForOracle = startRnumForOracle;
-	}
-
 	public int getEndRnumForOracle() {
 		return endRnumForOracle;
-	}
-
-	public void setEndRnumForOracle(int endRnumForOracle) {
-		this.endRnumForOracle = endRnumForOracle;
 	}
 
 	public Integer getRNUM() {
 		return RNUM;
 	}
 
-	public void setRNUM(Integer rNUM) {
-		RNUM = rNUM;
-	}
-
 	public int getStartRnumForMysql() {
 		return startRnumForMysql;
-	}
-
-	public void setStartRnumForMysql(int startRnumForMysql) {
-		this.startRnumForMysql = startRnumForMysql;
 	}
 
 	public String[] getCheckboxSeqArray() {
 		return checkboxSeqArray;
 	}
 
+	public void setOymbSeq(String oymbSeq) {
+		this.oymbSeq = oymbSeq;
+	}
+
+	public void setOyjqSeq(String oyjqSeq) {
+		this.oyjqSeq = oyjqSeq;
+	}
+
+	public void setOynaSeq(String oynaSeq) {
+		this.oynaSeq = oynaSeq;
+	}
+
+	public void setOymnSeq(String oymnSeq) {
+		this.oymnSeq = oymnSeq;
+	}
+
+	public void setOymaSeq(String oymaSeq) {
+		this.oymaSeq = oymaSeq;
+	}
+
+	public void setOympSeq(String oympSeq) {
+		this.oympSeq = oympSeq;
+	}
+
+	public void setOymeSeq(String oymeSeq) {
+		this.oymeSeq = oymeSeq;
+	}
+
+	public void setOypdSeq(String oypdSeq) {
+		this.oypdSeq = oypdSeq;
+	}
+
+	public void setOyspSeq(String oyspSeq) {
+		this.oyspSeq = oyspSeq;
+	}
+
+	public void setOyctSeq(String oyctSeq) {
+		this.oyctSeq = oyctSeq;
+	}
+
+	public void setRegDateTime(String regDateTime) {
+		this.regDateTime = regDateTime;
+	}
+
+	public void setModDateTime(String modDateTime) {
+		this.modDateTime = modDateTime;
+	}
+
+	public void setOymbDob(String oymbDob) {
+		this.oymbDob = oymbDob;
+	}
+
+	public void setScOptionDate(Integer scOptionDate) {
+		this.scOptionDate = scOptionDate;
+	}
+
+	public void setScDateStart(String scDateStart) {
+		this.scDateStart = scDateStart;
+	}
+
+	public void setScDateEnd(String scDateEnd) {
+		this.scDateEnd = scDateEnd;
+	}
+
+	public void setScOymbDelNy(Integer scOymbDelNy) {
+		this.scOymbDelNy = scOymbDelNy;
+	}
+
+	public void setScOption(Integer scOption) {
+		this.scOption = scOption;
+	}
+
+	public void setScValue(String scValue) {
+		this.scValue = scValue;
+	}
+
+	public void setThisPage(int thisPage) {
+		this.thisPage = thisPage;
+	}
+
+	public void setRowNumToShow(int rowNumToShow) {
+		this.rowNumToShow = rowNumToShow;
+	}
+
+	public void setPageNumToShow(int pageNumToShow) {
+		this.pageNumToShow = pageNumToShow;
+	}
+
+	public void setTotalRows(int totalRows) {
+		this.totalRows = totalRows;
+	}
+
+	public void setTotalPages(int totalPages) {
+		this.totalPages = totalPages;
+	}
+
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+	public void setStartRnumForOracle(int startRnumForOracle) {
+		this.startRnumForOracle = startRnumForOracle;
+	}
+
+	public void setEndRnumForOracle(int endRnumForOracle) {
+		this.endRnumForOracle = endRnumForOracle;
+	}
+
+	public void setRNUM(Integer rNUM) {
+		RNUM = rNUM;
+	}
+
+	public void setStartRnumForMysql(int startRnumForMysql) {
+		this.startRnumForMysql = startRnumForMysql;
+	}
+
 	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
 		this.checkboxSeqArray = checkboxSeqArray;
 	}
 
+	
 }

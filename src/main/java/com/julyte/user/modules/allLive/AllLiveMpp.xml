@@ -89,8 +89,8 @@
 		, oyspFreeShippingNy
 		, oyspExclusiveNy
 		, oyspSalePrice
-		, oyspSalePeriodStart
-		, oyspSalePeriodEnd
+	<!-- 	, oyspSalePeriodStart
+		, oyspSalePeriodEnd -->
 		, oyspOneBuyGetOneFreeNy
 		, oyspTwoBuyGetOneFreeNy
 		, oyspDelNy
@@ -105,8 +105,8 @@
 		, #{oyspFreeShippingNy}
 		, #{oyspExclusiveNy}
 		, #{oyspSalePrice}
-		, #{oyspSalePeriodStart}
-		, #{oyspSalePeriodEnd}
+	<!-- 	, #{oyspSalePeriodStart}
+		, #{oyspSalePeriodEnd} -->
 		, #{oyspOneBuyGetOneFreeNy}
 		, #{oyspTwoBuyGetOneFreeNy}
 		, 0
@@ -123,8 +123,7 @@
 	<select id="selectListForCache" resultMap="resultMapObj">
 		SELECT
 		oycdSeq
-		,
-		oycdName
+		, oycdName
 		, oycgSeq
 		FROM
 		oyCode
@@ -133,12 +132,24 @@
 		AND oycdUseNy = 1
 	</select>
 
+	<select id="selectListForCate" resultMap="resultMapObj">
+		SELECT
+		oyctSeq
+		, oyctName
+		, oyctParents
+		, oyctDepth
+		, oyctOrder
+		FROM
+		oyCate
+		WHERE 1=1
+		AND oyctDelNy = 0
+	</select>
+
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 		oyctSeq
 		, oyctName
-		,
-		oyctParents
+		, oyctParents
 		, oyctDepth
 		, oyctOrder
 		FROM

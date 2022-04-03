@@ -38,4 +38,9 @@ public class AllLiveDao {
 		return list;
 	}
 
+	public List<AllLive> selectListForCate() {
+		List<AllLive> list = sqlSession.selectList(namespace + ".selectListForCate", "");
+		return list;
+	}
+
 }

@@ -93,10 +93,11 @@ public class AllLiveController {
 
 	@RequestMapping(value = "/allLive/allLiveReg")
 	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
+		
 		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
-		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("23"));
-		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("18"));
-		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("17"));
+		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
+		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
+		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("103"));
 
 		List<AllLive> list = service.selectList(vo);
 		model.addAttribute("list", list);
@@ -107,15 +108,12 @@ public class AllLiveController {
 	@RequestMapping(value = "/allLive/Map")
 	public String allLiveReg2(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
-		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("23"));
-		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("18"));
-		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("17"));
-
-
+		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
+		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
+	
 		List<AllLive> list = service.selectList(vo);
 		model.addAttribute("list", list);
 
-		
 		return "allLive/Map";
 	}
 

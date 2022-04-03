@@ -52,5 +52,26 @@ public class AllLiveServiceImpl implements AllLiveService {
 		}
 		return rt;
 	}
+	
+	@PostConstruct
+	public void selectListForCate() {
+		List<AllLive> codeListFromDb = (ArrayList<AllLive>) dao.selectListForCate();
+		
+		AllLive.cachedCodeArrayList.clear();
+		AllLive.cachedCodeArrayList.addAll(codeListFromDb);
+		System.out.println("cachedCodeArrayList:" + AllLive.cachedCodeArrayList.size() + "chached !");
+	}
+	
+	public static List<AllLive> selectListForCate(String oycgSeq) throws Exception {
+		List<AllLive> rt = new ArrayList<AllLive>();
+		for (AllLive codeRow : AllLive.cachedCodeArrayList) {
+			if (codeRow.getOycgSeq().equals(oycgSeq)) {
+				rt.add(codeRow);
+			} else {
+				
+			}
+		}
+		return rt;
+	}
 
 }
