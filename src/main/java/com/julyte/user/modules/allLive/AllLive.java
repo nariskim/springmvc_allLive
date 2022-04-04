@@ -10,18 +10,18 @@ public class AllLive {
 
 	private String oyctSeq;
 	private String oyctName;
-	private Integer oyctParents;
-	private Integer oyctDepth;
-	private Integer oyctOrder;
+	private String oyctParents;
+	private String oyctDepth;
+	private String oyctOrder;
 	private Integer oyctDelNy;
 
 //	oyProduct
 
 	private String oypdSeq;
-	private Integer oypdCate;
+	private String oypdCate;
 	private Integer oypdBrandCd;
 	private String oypdName;
-	private Integer oypdPrice;
+	private String oypdPrice;
 	private String oypdVolumeWeight;
 	private String oypdIdeal;
 	private String oypdExpiraionDate;
@@ -45,7 +45,7 @@ public class AllLive {
 	private Integer oyspTodayshipNy;
 	private Integer oyspFreeShippingNy;
 	private Integer oyspExclusiveNy;
-	private Integer oyspSalePrice;
+	private String oyspSalePrice;
 	private String oyspSalePeriodStart;
 	private String oyspSalePeriodEnd;
 	private Integer oyspOneBuyGetOneFreeNy;
@@ -141,768 +141,770 @@ public class AllLive {
 //	codeGroup code 저장	cate 저장????확인하기
 	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
 
+	public static List<AllLive> cachedCateArrayList = new ArrayList<AllLive>();
+
 	public String getOyctSeq() {
 		return oyctSeq;
-	}
-
-	public void setOyctSeq(String oyctSeq) {
-		this.oyctSeq = oyctSeq;
 	}
 
 	public String getOyctName() {
 		return oyctName;
 	}
 
-	public void setOyctName(String oyctName) {
-		this.oyctName = oyctName;
-	}
-
-	public Integer getOyctParents() {
+	public String getOyctParents() {
 		return oyctParents;
 	}
 
-	public void setOyctParents(Integer oyctParents) {
-		this.oyctParents = oyctParents;
-	}
-
-	public Integer getOyctDepth() {
+	public String getOyctDepth() {
 		return oyctDepth;
 	}
 
-	public void setOyctDepth(Integer oyctDepth) {
-		this.oyctDepth = oyctDepth;
-	}
-
-	public Integer getOyctOrder() {
+	public String getOyctOrder() {
 		return oyctOrder;
-	}
-
-	public void setOyctOrder(Integer oyctOrder) {
-		this.oyctOrder = oyctOrder;
 	}
 
 	public Integer getOyctDelNy() {
 		return oyctDelNy;
 	}
 
-	public void setOyctDelNy(Integer oyctDelNy) {
-		this.oyctDelNy = oyctDelNy;
-	}
-
 	public String getOypdSeq() {
 		return oypdSeq;
 	}
 
-	public void setOypdSeq(String oypdSeq) {
-		this.oypdSeq = oypdSeq;
-	}
-
-	public Integer getOypdCate() {
+	public String getOypdCate() {
 		return oypdCate;
-	}
-
-	public void setOypdCate(Integer oypdCate) {
-		this.oypdCate = oypdCate;
 	}
 
 	public Integer getOypdBrandCd() {
 		return oypdBrandCd;
 	}
 
-	public void setOypdBrandCd(Integer oypdBrandCd) {
-		this.oypdBrandCd = oypdBrandCd;
-	}
-
 	public String getOypdName() {
 		return oypdName;
 	}
 
-	public void setOypdName(String oypdName) {
-		this.oypdName = oypdName;
-	}
-
-	public Integer getOypdPrice() {
+	public String getOypdPrice() {
 		return oypdPrice;
-	}
-
-	public void setOypdPrice(Integer oypdPrice) {
-		this.oypdPrice = oypdPrice;
 	}
 
 	public String getOypdVolumeWeight() {
 		return oypdVolumeWeight;
 	}
 
-	public void setOypdVolumeWeight(String oypdVolumeWeight) {
-		this.oypdVolumeWeight = oypdVolumeWeight;
-	}
-
 	public String getOypdIdeal() {
 		return oypdIdeal;
-	}
-
-	public void setOypdIdeal(String oypdIdeal) {
-		this.oypdIdeal = oypdIdeal;
 	}
 
 	public String getOypdExpiraionDate() {
 		return oypdExpiraionDate;
 	}
 
-	public void setOypdExpiraionDate(String oypdExpiraionDate) {
-		this.oypdExpiraionDate = oypdExpiraionDate;
-	}
-
 	public String getOypdHowtoUse() {
 		return oypdHowtoUse;
-	}
-
-	public void setOypdHowtoUse(String oypdHowtoUse) {
-		this.oypdHowtoUse = oypdHowtoUse;
 	}
 
 	public Integer getOypdManufacturerCd() {
 		return oypdManufacturerCd;
 	}
 
-	public void setOypdManufacturerCd(Integer oypdManufacturerCd) {
-		this.oypdManufacturerCd = oypdManufacturerCd;
-	}
-
 	public Integer getOypdDistributorCd() {
 		return oypdDistributorCd;
-	}
-
-	public void setOypdDistributorCd(Integer oypdDistributorCd) {
-		this.oypdDistributorCd = oypdDistributorCd;
 	}
 
 	public Integer getOypdCountryCd() {
 		return oypdCountryCd;
 	}
 
-	public void setOypdCountryCd(Integer oypdCountryCd) {
-		this.oypdCountryCd = oypdCountryCd;
-	}
-
 	public String getOypdIngredients() {
 		return oypdIngredients;
-	}
-
-	public void setOypdIngredients(String oypdIngredients) {
-		this.oypdIngredients = oypdIngredients;
 	}
 
 	public String getOypdFunctionalCosmetics() {
 		return oypdFunctionalCosmetics;
 	}
 
-	public void setOypdFunctionalCosmetics(String oypdFunctionalCosmetics) {
-		this.oypdFunctionalCosmetics = oypdFunctionalCosmetics;
-	}
-
 	public String getOypdCautions() {
 		return oypdCautions;
-	}
-
-	public void setOypdCautions(String oypdCautions) {
-		this.oypdCautions = oypdCautions;
 	}
 
 	public String getOypdQaStandard() {
 		return oypdQaStandard;
 	}
 
-	public void setOypdQaStandard(String oypdQaStandard) {
-		this.oypdQaStandard = oypdQaStandard;
-	}
-
 	public String getOypdCustomerService() {
 		return oypdCustomerService;
-	}
-
-	public void setOypdCustomerService(String oypdCustomerService) {
-		this.oypdCustomerService = oypdCustomerService;
 	}
 
 	public Integer getOypdDelNy() {
 		return oypdDelNy;
 	}
 
-	public void setOypdDelNy(Integer oypdDelNy) {
-		this.oypdDelNy = oypdDelNy;
-	}
-
 	public String getOyspSeq() {
 		return oyspSeq;
-	}
-
-	public void setOyspSeq(String oyspSeq) {
-		this.oyspSeq = oyspSeq;
 	}
 
 	public Integer getOyspSaleNy() {
 		return oyspSaleNy;
 	}
 
-	public void setOyspSaleNy(Integer oyspSaleNy) {
-		this.oyspSaleNy = oyspSaleNy;
-	}
-
 	public Integer getOyspCouponNy() {
 		return oyspCouponNy;
-	}
-
-	public void setOyspCouponNy(Integer oyspCouponNy) {
-		this.oyspCouponNy = oyspCouponNy;
 	}
 
 	public Integer getOyspFreeGiftNy() {
 		return oyspFreeGiftNy;
 	}
 
-	public void setOyspFreeGiftNy(Integer oyspFreeGiftNy) {
-		this.oyspFreeGiftNy = oyspFreeGiftNy;
-	}
-
 	public Integer getOyspTodayshipNy() {
 		return oyspTodayshipNy;
-	}
-
-	public void setOyspTodayshipNy(Integer oyspTodayshipNy) {
-		this.oyspTodayshipNy = oyspTodayshipNy;
 	}
 
 	public Integer getOyspFreeShippingNy() {
 		return oyspFreeShippingNy;
 	}
 
-	public void setOyspFreeShippingNy(Integer oyspFreeShippingNy) {
-		this.oyspFreeShippingNy = oyspFreeShippingNy;
-	}
-
 	public Integer getOyspExclusiveNy() {
 		return oyspExclusiveNy;
 	}
 
-	public void setOyspExclusiveNy(Integer oyspExclusiveNy) {
-		this.oyspExclusiveNy = oyspExclusiveNy;
-	}
-
-	public Integer getOyspSalePrice() {
+	public String getOyspSalePrice() {
 		return oyspSalePrice;
-	}
-
-	public void setOyspSalePrice(Integer oyspSalePrice) {
-		this.oyspSalePrice = oyspSalePrice;
 	}
 
 	public String getOyspSalePeriodStart() {
 		return oyspSalePeriodStart;
 	}
 
-	public void setOyspSalePeriodStart(String oyspSalePeriodStart) {
-		this.oyspSalePeriodStart = oyspSalePeriodStart;
-	}
-
 	public String getOyspSalePeriodEnd() {
 		return oyspSalePeriodEnd;
-	}
-
-	public void setOyspSalePeriodEnd(String oyspSalePeriodEnd) {
-		this.oyspSalePeriodEnd = oyspSalePeriodEnd;
 	}
 
 	public Integer getOyspOneBuyGetOneFreeNy() {
 		return oyspOneBuyGetOneFreeNy;
 	}
 
-	public void setOyspOneBuyGetOneFreeNy(Integer oyspOneBuyGetOneFreeNy) {
-		this.oyspOneBuyGetOneFreeNy = oyspOneBuyGetOneFreeNy;
-	}
-
 	public Integer getOyspTwoBuyGetOneFreeNy() {
 		return oyspTwoBuyGetOneFreeNy;
-	}
-
-	public void setOyspTwoBuyGetOneFreeNy(Integer oyspTwoBuyGetOneFreeNy) {
-		this.oyspTwoBuyGetOneFreeNy = oyspTwoBuyGetOneFreeNy;
 	}
 
 	public Integer getOyspDelNy() {
 		return oyspDelNy;
 	}
 
-	public void setOyspDelNy(Integer oyspDelNy) {
-		this.oyspDelNy = oyspDelNy;
-	}
-
 	public Integer[] getOympDefaultNyArray() {
 		return oympDefaultNyArray;
-	}
-
-	public void setOympDefaultNyArray(Integer[] oympDefaultNyArray) {
-		this.oympDefaultNyArray = oympDefaultNyArray;
 	}
 
 	public String[] getOympNumberArray() {
 		return oympNumberArray;
 	}
 
-	public void setOympNumberArray(String[] oympNumberArray) {
-		this.oympNumberArray = oympNumberArray;
-	}
-
 	public Integer[] getOympTelecomCdArray() {
 		return oympTelecomCdArray;
-	}
-
-	public void setOympTelecomCdArray(Integer[] oympTelecomCdArray) {
-		this.oympTelecomCdArray = oympTelecomCdArray;
 	}
 
 	public Integer[] getOymeDefaultNyArray() {
 		return oymeDefaultNyArray;
 	}
 
-	public void setOymeDefaultNyArray(Integer[] oymeDefaultNyArray) {
-		this.oymeDefaultNyArray = oymeDefaultNyArray;
-	}
-
 	public String[] getOymeEmailAccountArray() {
 		return oymeEmailAccountArray;
-	}
-
-	public void setOymeEmailAccountArray(String[] oymeEmailAccountArray) {
-		this.oymeEmailAccountArray = oymeEmailAccountArray;
 	}
 
 	public Integer[] getOymeEmailDomainCdArray() {
 		return oymeEmailDomainCdArray;
 	}
 
-	public void setOymeEmailDomainCdArray(Integer[] oymeEmailDomainCdArray) {
-		this.oymeEmailDomainCdArray = oymeEmailDomainCdArray;
-	}
-
 	public Integer getOymbAdminNy() {
 		return oymbAdminNy;
-	}
-
-	public void setOymbAdminNy(Integer oymbAdminNy) {
-		this.oymbAdminNy = oymbAdminNy;
 	}
 
 	public String getOymbSeq() {
 		return oymbSeq;
 	}
 
-	public void setOymbSeq(String oymbSeq) {
-		this.oymbSeq = oymbSeq;
-	}
-
 	public Integer getOymbGradeCd() {
 		return oymbGradeCd;
-	}
-
-	public void setOymbGradeCd(Integer oymbGradeCd) {
-		this.oymbGradeCd = oymbGradeCd;
 	}
 
 	public String getOymbId() {
 		return oymbId;
 	}
 
-	public void setOymbId(String oymbId) {
-		this.oymbId = oymbId;
-	}
-
 	public String getOymbName() {
 		return oymbName;
-	}
-
-	public void setOymbName(String oymbName) {
-		this.oymbName = oymbName;
 	}
 
 	public String getOymbNameEng() {
 		return oymbNameEng;
 	}
 
-	public void setOymbNameEng(String oymbNameEng) {
-		this.oymbNameEng = oymbNameEng;
-	}
-
 	public String getOymbNickName() {
 		return oymbNickName;
-	}
-
-	public void setOymbNickName(String oymbNickName) {
-		this.oymbNickName = oymbNickName;
 	}
 
 	public String getOymbPassword() {
 		return oymbPassword;
 	}
 
-	public void setOymbPassword(String oymbPassword) {
-		this.oymbPassword = oymbPassword;
-	}
-
 	public String getOymbDob() {
 		return oymbDob;
-	}
-
-	public void setOymbDob(String oymbDob) {
-		this.oymbDob = oymbDob;
 	}
 
 	public Integer getOymbGenderCd() {
 		return oymbGenderCd;
 	}
 
-	public void setOymbGenderCd(Integer oymbGenderCd) {
-		this.oymbGenderCd = oymbGenderCd;
-	}
-
 	public Integer getOymbSkinTypeCd() {
 		return oymbSkinTypeCd;
-	}
-
-	public void setOymbSkinTypeCd(Integer oymbSkinTypeCd) {
-		this.oymbSkinTypeCd = oymbSkinTypeCd;
 	}
 
 	public Integer getOymbPersonalColorCd() {
 		return oymbPersonalColorCd;
 	}
 
-	public void setOymbPersonalColorCd(Integer oymbPersonalColorCd) {
-		this.oymbPersonalColorCd = oymbPersonalColorCd;
-	}
-
 	public Integer getOymbInterestsCd() {
 		return oymbInterestsCd;
-	}
-
-	public void setOymbInterestsCd(Integer oymbInterestsCd) {
-		this.oymbInterestsCd = oymbInterestsCd;
 	}
 
 	public Integer getOymbSmsConsentNy() {
 		return oymbSmsConsentNy;
 	}
 
-	public void setOymbSmsConsentNy(Integer oymbSmsConsentNy) {
-		this.oymbSmsConsentNy = oymbSmsConsentNy;
-	}
-
 	public Integer getOymbEmailConsentNy() {
 		return oymbEmailConsentNy;
-	}
-
-	public void setOymbEmailConsentNy(Integer oymbEmailConsentNy) {
-		this.oymbEmailConsentNy = oymbEmailConsentNy;
 	}
 
 	public Integer getOymbPushConsentNy() {
 		return oymbPushConsentNy;
 	}
 
-	public void setOymbPushConsentNy(Integer oymbPushConsentNy) {
-		this.oymbPushConsentNy = oymbPushConsentNy;
-	}
-
 	public Integer getOymbSavedCd() {
 		return oymbSavedCd;
-	}
-
-	public void setOymbSavedCd(Integer oymbSavedCd) {
-		this.oymbSavedCd = oymbSavedCd;
 	}
 
 	public String getOymbDesc() {
 		return oymbDesc;
 	}
 
-	public void setOymbDesc(String oymbDesc) {
-		this.oymbDesc = oymbDesc;
-	}
-
 	public Integer getOymbDelNy() {
 		return oymbDelNy;
-	}
-
-	public void setOymbDelNy(Integer oymbDelNy) {
-		this.oymbDelNy = oymbDelNy;
 	}
 
 	public Date getRegDateTime() {
 		return regDateTime;
 	}
 
-	public void setRegDateTime(Date regDateTime) {
-		this.regDateTime = regDateTime;
-	}
-
 	public Date getModDateTime() {
 		return modDateTime;
-	}
-
-	public void setModDateTime(Date modDateTime) {
-		this.modDateTime = modDateTime;
 	}
 
 	public String getOyjqSeq() {
 		return oyjqSeq;
 	}
 
-	public void setOyjqSeq(String oyjqSeq) {
-		this.oyjqSeq = oyjqSeq;
-	}
-
 	public String getOyjqQuestionCd() {
 		return oyjqQuestionCd;
-	}
-
-	public void setOyjqQuestionCd(String oyjqQuestionCd) {
-		this.oyjqQuestionCd = oyjqQuestionCd;
 	}
 
 	public String getOyjqAnswer() {
 		return oyjqAnswer;
 	}
 
-	public void setOyjqAnswer(String oyjqAnswer) {
-		this.oyjqAnswer = oyjqAnswer;
-	}
-
 	public Integer getOyjqDelNy() {
 		return oyjqDelNy;
-	}
-
-	public void setOyjqDelNy(Integer oyjqDelNy) {
-		this.oyjqDelNy = oyjqDelNy;
 	}
 
 	public String getOymaSeq() {
 		return oymaSeq;
 	}
 
-	public void setOymaSeq(String oymaSeq) {
-		this.oymaSeq = oymaSeq;
-	}
-
 	public String getOymaZipCode() {
 		return oymaZipCode;
-	}
-
-	public void setOymaZipCode(String oymaZipCode) {
-		this.oymaZipCode = oymaZipCode;
 	}
 
 	public String getOymaAddress1() {
 		return oymaAddress1;
 	}
 
-	public void setOymaAddress1(String oymaAddress1) {
-		this.oymaAddress1 = oymaAddress1;
-	}
-
 	public String getOymaAddress2() {
 		return oymaAddress2;
-	}
-
-	public void setOymaAddress2(String oymaAddress2) {
-		this.oymaAddress2 = oymaAddress2;
 	}
 
 	public String getOymaAddress3() {
 		return oymaAddress3;
 	}
 
-	public void setOymaAddress3(String oymaAddress3) {
-		this.oymaAddress3 = oymaAddress3;
-	}
-
 	public Integer getOymaDelNy() {
 		return oymaDelNy;
-	}
-
-	public void setOymaDelNy(Integer oymaDelNy) {
-		this.oymaDelNy = oymaDelNy;
 	}
 
 	public String getOymnSeq() {
 		return oymnSeq;
 	}
 
-	public void setOymnSeq(String oymnSeq) {
-		this.oymnSeq = oymnSeq;
-	}
-
 	public Integer getOymnDelNy() {
 		return oymnDelNy;
-	}
-
-	public void setOymnDelNy(Integer oymnDelNy) {
-		this.oymnDelNy = oymnDelNy;
 	}
 
 	public String getOynaSeq() {
 		return oynaSeq;
 	}
 
-	public void setOynaSeq(String oynaSeq) {
-		this.oynaSeq = oynaSeq;
-	}
-
 	public String getOynaName() {
 		return oynaName;
-	}
-
-	public void setOynaName(String oynaName) {
-		this.oynaName = oynaName;
 	}
 
 	public Integer getOynaDelNy() {
 		return oynaDelNy;
 	}
 
-	public void setOynaDelNy(Integer oynaDelNy) {
-		this.oynaDelNy = oynaDelNy;
-	}
-
 	public String getOympSeq() {
 		return oympSeq;
-	}
-
-	public void setOympSeq(String oympSeq) {
-		this.oympSeq = oympSeq;
 	}
 
 	public Integer getOympDefaultNy() {
 		return oympDefaultNy;
 	}
 
-	public void setOympDefaultNy(Integer oympDefaultNy) {
-		this.oympDefaultNy = oympDefaultNy;
-	}
-
 	public Integer getOympTelecomCd() {
 		return oympTelecomCd;
-	}
-
-	public void setOympTelecomCd(Integer oympTelecomCd) {
-		this.oympTelecomCd = oympTelecomCd;
 	}
 
 	public String getOympNumber() {
 		return oympNumber;
 	}
 
-	public void setOympNumber(String oympNumber) {
-		this.oympNumber = oympNumber;
-	}
-
 	public Integer getOympDelNy() {
 		return oympDelNy;
-	}
-
-	public void setOympDelNy(Integer oympDelNy) {
-		this.oympDelNy = oympDelNy;
 	}
 
 	public String getOycgSeq() {
 		return oycgSeq;
 	}
 
-	public void setOycgSeq(String oycgSeq) {
-		this.oycgSeq = oycgSeq;
-	}
-
 	public String getOycgName() {
 		return oycgName;
-	}
-
-	public void setOycgName(String oycgName) {
-		this.oycgName = oycgName;
 	}
 
 	public Integer getOycgDelNy() {
 		return oycgDelNy;
 	}
 
-	public void setOycgDelNy(Integer oycgDelNy) {
-		this.oycgDelNy = oycgDelNy;
-	}
-
 	public String getOycdSeq() {
 		return oycdSeq;
-	}
-
-	public void setOycdSeq(String oycdSeq) {
-		this.oycdSeq = oycdSeq;
 	}
 
 	public String getOycdName() {
 		return oycdName;
 	}
 
-	public void setOycdName(String oycdName) {
-		this.oycdName = oycdName;
-	}
-
 	public Integer getOycdDelNy() {
 		return oycdDelNy;
-	}
-
-	public void setOycdDelNy(Integer oycdDelNy) {
-		this.oycdDelNy = oycdDelNy;
 	}
 
 	public String getOymeSeq() {
 		return oymeSeq;
 	}
 
-	public void setOymeSeq(String oymeSeq) {
-		this.oymeSeq = oymeSeq;
-	}
-
 	public Integer getOymeDefaultNy() {
 		return oymeDefaultNy;
-	}
-
-	public void setOymeDefaultNy(Integer oymeDefaultNy) {
-		this.oymeDefaultNy = oymeDefaultNy;
 	}
 
 	public String getOymeEmailFull() {
 		return oymeEmailFull;
 	}
 
-	public void setOymeEmailFull(String oymeEmailFull) {
-		this.oymeEmailFull = oymeEmailFull;
-	}
-
 	public String getOymeEmailAccount() {
 		return oymeEmailAccount;
-	}
-
-	public void setOymeEmailAccount(String oymeEmailAccount) {
-		this.oymeEmailAccount = oymeEmailAccount;
 	}
 
 	public Integer getOymeEmailDomainCd() {
 		return oymeEmailDomainCd;
 	}
 
-	public void setOymeEmailDomainCd(Integer oymeEmailDomainCd) {
-		this.oymeEmailDomainCd = oymeEmailDomainCd;
-	}
-
 	public Integer getOymeDelNy() {
 		return oymeDelNy;
+	}
+
+	public void setOyctSeq(String oyctSeq) {
+		this.oyctSeq = oyctSeq;
+	}
+
+	public void setOyctName(String oyctName) {
+		this.oyctName = oyctName;
+	}
+
+	public void setOyctParents(String oyctParents) {
+		this.oyctParents = oyctParents;
+	}
+
+	public void setOyctDepth(String oyctDepth) {
+		this.oyctDepth = oyctDepth;
+	}
+
+	public void setOyctOrder(String oyctOrder) {
+		this.oyctOrder = oyctOrder;
+	}
+
+	public void setOyctDelNy(Integer oyctDelNy) {
+		this.oyctDelNy = oyctDelNy;
+	}
+
+	public void setOypdSeq(String oypdSeq) {
+		this.oypdSeq = oypdSeq;
+	}
+
+	public void setOypdCate(String oypdCate) {
+		this.oypdCate = oypdCate;
+	}
+
+	public void setOypdBrandCd(Integer oypdBrandCd) {
+		this.oypdBrandCd = oypdBrandCd;
+	}
+
+	public void setOypdName(String oypdName) {
+		this.oypdName = oypdName;
+	}
+
+	public void setOypdPrice(String oypdPrice) {
+		this.oypdPrice = oypdPrice;
+	}
+
+	public void setOypdVolumeWeight(String oypdVolumeWeight) {
+		this.oypdVolumeWeight = oypdVolumeWeight;
+	}
+
+	public void setOypdIdeal(String oypdIdeal) {
+		this.oypdIdeal = oypdIdeal;
+	}
+
+	public void setOypdExpiraionDate(String oypdExpiraionDate) {
+		this.oypdExpiraionDate = oypdExpiraionDate;
+	}
+
+	public void setOypdHowtoUse(String oypdHowtoUse) {
+		this.oypdHowtoUse = oypdHowtoUse;
+	}
+
+	public void setOypdManufacturerCd(Integer oypdManufacturerCd) {
+		this.oypdManufacturerCd = oypdManufacturerCd;
+	}
+
+	public void setOypdDistributorCd(Integer oypdDistributorCd) {
+		this.oypdDistributorCd = oypdDistributorCd;
+	}
+
+	public void setOypdCountryCd(Integer oypdCountryCd) {
+		this.oypdCountryCd = oypdCountryCd;
+	}
+
+	public void setOypdIngredients(String oypdIngredients) {
+		this.oypdIngredients = oypdIngredients;
+	}
+
+	public void setOypdFunctionalCosmetics(String oypdFunctionalCosmetics) {
+		this.oypdFunctionalCosmetics = oypdFunctionalCosmetics;
+	}
+
+	public void setOypdCautions(String oypdCautions) {
+		this.oypdCautions = oypdCautions;
+	}
+
+	public void setOypdQaStandard(String oypdQaStandard) {
+		this.oypdQaStandard = oypdQaStandard;
+	}
+
+	public void setOypdCustomerService(String oypdCustomerService) {
+		this.oypdCustomerService = oypdCustomerService;
+	}
+
+	public void setOypdDelNy(Integer oypdDelNy) {
+		this.oypdDelNy = oypdDelNy;
+	}
+
+	public void setOyspSeq(String oyspSeq) {
+		this.oyspSeq = oyspSeq;
+	}
+
+	public void setOyspSaleNy(Integer oyspSaleNy) {
+		this.oyspSaleNy = oyspSaleNy;
+	}
+
+	public void setOyspCouponNy(Integer oyspCouponNy) {
+		this.oyspCouponNy = oyspCouponNy;
+	}
+
+	public void setOyspFreeGiftNy(Integer oyspFreeGiftNy) {
+		this.oyspFreeGiftNy = oyspFreeGiftNy;
+	}
+
+	public void setOyspTodayshipNy(Integer oyspTodayshipNy) {
+		this.oyspTodayshipNy = oyspTodayshipNy;
+	}
+
+	public void setOyspFreeShippingNy(Integer oyspFreeShippingNy) {
+		this.oyspFreeShippingNy = oyspFreeShippingNy;
+	}
+
+	public void setOyspExclusiveNy(Integer oyspExclusiveNy) {
+		this.oyspExclusiveNy = oyspExclusiveNy;
+	}
+
+	public void setOyspSalePrice(String oyspSalePrice) {
+		this.oyspSalePrice = oyspSalePrice;
+	}
+
+	public void setOyspSalePeriodStart(String oyspSalePeriodStart) {
+		this.oyspSalePeriodStart = oyspSalePeriodStart;
+	}
+
+	public void setOyspSalePeriodEnd(String oyspSalePeriodEnd) {
+		this.oyspSalePeriodEnd = oyspSalePeriodEnd;
+	}
+
+	public void setOyspOneBuyGetOneFreeNy(Integer oyspOneBuyGetOneFreeNy) {
+		this.oyspOneBuyGetOneFreeNy = oyspOneBuyGetOneFreeNy;
+	}
+
+	public void setOyspTwoBuyGetOneFreeNy(Integer oyspTwoBuyGetOneFreeNy) {
+		this.oyspTwoBuyGetOneFreeNy = oyspTwoBuyGetOneFreeNy;
+	}
+
+	public void setOyspDelNy(Integer oyspDelNy) {
+		this.oyspDelNy = oyspDelNy;
+	}
+
+	public void setOympDefaultNyArray(Integer[] oympDefaultNyArray) {
+		this.oympDefaultNyArray = oympDefaultNyArray;
+	}
+
+	public void setOympNumberArray(String[] oympNumberArray) {
+		this.oympNumberArray = oympNumberArray;
+	}
+
+	public void setOympTelecomCdArray(Integer[] oympTelecomCdArray) {
+		this.oympTelecomCdArray = oympTelecomCdArray;
+	}
+
+	public void setOymeDefaultNyArray(Integer[] oymeDefaultNyArray) {
+		this.oymeDefaultNyArray = oymeDefaultNyArray;
+	}
+
+	public void setOymeEmailAccountArray(String[] oymeEmailAccountArray) {
+		this.oymeEmailAccountArray = oymeEmailAccountArray;
+	}
+
+	public void setOymeEmailDomainCdArray(Integer[] oymeEmailDomainCdArray) {
+		this.oymeEmailDomainCdArray = oymeEmailDomainCdArray;
+	}
+
+	public void setOymbAdminNy(Integer oymbAdminNy) {
+		this.oymbAdminNy = oymbAdminNy;
+	}
+
+	public void setOymbSeq(String oymbSeq) {
+		this.oymbSeq = oymbSeq;
+	}
+
+	public void setOymbGradeCd(Integer oymbGradeCd) {
+		this.oymbGradeCd = oymbGradeCd;
+	}
+
+	public void setOymbId(String oymbId) {
+		this.oymbId = oymbId;
+	}
+
+	public void setOymbName(String oymbName) {
+		this.oymbName = oymbName;
+	}
+
+	public void setOymbNameEng(String oymbNameEng) {
+		this.oymbNameEng = oymbNameEng;
+	}
+
+	public void setOymbNickName(String oymbNickName) {
+		this.oymbNickName = oymbNickName;
+	}
+
+	public void setOymbPassword(String oymbPassword) {
+		this.oymbPassword = oymbPassword;
+	}
+
+	public void setOymbDob(String oymbDob) {
+		this.oymbDob = oymbDob;
+	}
+
+	public void setOymbGenderCd(Integer oymbGenderCd) {
+		this.oymbGenderCd = oymbGenderCd;
+	}
+
+	public void setOymbSkinTypeCd(Integer oymbSkinTypeCd) {
+		this.oymbSkinTypeCd = oymbSkinTypeCd;
+	}
+
+	public void setOymbPersonalColorCd(Integer oymbPersonalColorCd) {
+		this.oymbPersonalColorCd = oymbPersonalColorCd;
+	}
+
+	public void setOymbInterestsCd(Integer oymbInterestsCd) {
+		this.oymbInterestsCd = oymbInterestsCd;
+	}
+
+	public void setOymbSmsConsentNy(Integer oymbSmsConsentNy) {
+		this.oymbSmsConsentNy = oymbSmsConsentNy;
+	}
+
+	public void setOymbEmailConsentNy(Integer oymbEmailConsentNy) {
+		this.oymbEmailConsentNy = oymbEmailConsentNy;
+	}
+
+	public void setOymbPushConsentNy(Integer oymbPushConsentNy) {
+		this.oymbPushConsentNy = oymbPushConsentNy;
+	}
+
+	public void setOymbSavedCd(Integer oymbSavedCd) {
+		this.oymbSavedCd = oymbSavedCd;
+	}
+
+	public void setOymbDesc(String oymbDesc) {
+		this.oymbDesc = oymbDesc;
+	}
+
+	public void setOymbDelNy(Integer oymbDelNy) {
+		this.oymbDelNy = oymbDelNy;
+	}
+
+	public void setRegDateTime(Date regDateTime) {
+		this.regDateTime = regDateTime;
+	}
+
+	public void setModDateTime(Date modDateTime) {
+		this.modDateTime = modDateTime;
+	}
+
+	public void setOyjqSeq(String oyjqSeq) {
+		this.oyjqSeq = oyjqSeq;
+	}
+
+	public void setOyjqQuestionCd(String oyjqQuestionCd) {
+		this.oyjqQuestionCd = oyjqQuestionCd;
+	}
+
+	public void setOyjqAnswer(String oyjqAnswer) {
+		this.oyjqAnswer = oyjqAnswer;
+	}
+
+	public void setOyjqDelNy(Integer oyjqDelNy) {
+		this.oyjqDelNy = oyjqDelNy;
+	}
+
+	public void setOymaSeq(String oymaSeq) {
+		this.oymaSeq = oymaSeq;
+	}
+
+	public void setOymaZipCode(String oymaZipCode) {
+		this.oymaZipCode = oymaZipCode;
+	}
+
+	public void setOymaAddress1(String oymaAddress1) {
+		this.oymaAddress1 = oymaAddress1;
+	}
+
+	public void setOymaAddress2(String oymaAddress2) {
+		this.oymaAddress2 = oymaAddress2;
+	}
+
+	public void setOymaAddress3(String oymaAddress3) {
+		this.oymaAddress3 = oymaAddress3;
+	}
+
+	public void setOymaDelNy(Integer oymaDelNy) {
+		this.oymaDelNy = oymaDelNy;
+	}
+
+	public void setOymnSeq(String oymnSeq) {
+		this.oymnSeq = oymnSeq;
+	}
+
+	public void setOymnDelNy(Integer oymnDelNy) {
+		this.oymnDelNy = oymnDelNy;
+	}
+
+	public void setOynaSeq(String oynaSeq) {
+		this.oynaSeq = oynaSeq;
+	}
+
+	public void setOynaName(String oynaName) {
+		this.oynaName = oynaName;
+	}
+
+	public void setOynaDelNy(Integer oynaDelNy) {
+		this.oynaDelNy = oynaDelNy;
+	}
+
+	public void setOympSeq(String oympSeq) {
+		this.oympSeq = oympSeq;
+	}
+
+	public void setOympDefaultNy(Integer oympDefaultNy) {
+		this.oympDefaultNy = oympDefaultNy;
+	}
+
+	public void setOympTelecomCd(Integer oympTelecomCd) {
+		this.oympTelecomCd = oympTelecomCd;
+	}
+
+	public void setOympNumber(String oympNumber) {
+		this.oympNumber = oympNumber;
+	}
+
+	public void setOympDelNy(Integer oympDelNy) {
+		this.oympDelNy = oympDelNy;
+	}
+
+	public void setOycgSeq(String oycgSeq) {
+		this.oycgSeq = oycgSeq;
+	}
+
+	public void setOycgName(String oycgName) {
+		this.oycgName = oycgName;
+	}
+
+	public void setOycgDelNy(Integer oycgDelNy) {
+		this.oycgDelNy = oycgDelNy;
+	}
+
+	public void setOycdSeq(String oycdSeq) {
+		this.oycdSeq = oycdSeq;
+	}
+
+	public void setOycdName(String oycdName) {
+		this.oycdName = oycdName;
+	}
+
+	public void setOycdDelNy(Integer oycdDelNy) {
+		this.oycdDelNy = oycdDelNy;
+	}
+
+	public void setOymeSeq(String oymeSeq) {
+		this.oymeSeq = oymeSeq;
+	}
+
+	public void setOymeDefaultNy(Integer oymeDefaultNy) {
+		this.oymeDefaultNy = oymeDefaultNy;
+	}
+
+	public void setOymeEmailFull(String oymeEmailFull) {
+		this.oymeEmailFull = oymeEmailFull;
+	}
+
+	public void setOymeEmailAccount(String oymeEmailAccount) {
+		this.oymeEmailAccount = oymeEmailAccount;
+	}
+
+	public void setOymeEmailDomainCd(Integer oymeEmailDomainCd) {
+		this.oymeEmailDomainCd = oymeEmailDomainCd;
 	}
 
 	public void setOymeDelNy(Integer oymeDelNy) {

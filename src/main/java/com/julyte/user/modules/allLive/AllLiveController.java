@@ -17,18 +17,22 @@ import com.julyte.user.common.constants.Constants;
 @Controller
 public class AllLiveController {
 
-	@Autowired
+	@Autowired 
 	AllLiveServiceImpl service;
 
 	@RequestMapping(value = "/allLive/allLiveMain")
-	public String allLiveMain() {
-
+	public String allLiveMain(Model model) throws Exception {
+		model.addAttribute("cate1", AllLiveServiceImpl.selectListCachedCate("1"));
+		model.addAttribute("cate2", AllLiveServiceImpl.selectListCachedCate("2"));
+		model.addAttribute("cate3", AllLiveServiceImpl.selectListCachedCate("3"));
 		return "/allLive/allLiveMain";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveMain2")
-	public String allLiveMain2() {
-
+	public String allLiveMain2(Model model) throws Exception {
+		model.addAttribute("cate1", AllLiveServiceImpl.selectListCachedCate("1"));
+		model.addAttribute("cate2", AllLiveServiceImpl.selectListCachedCate("2"));
+		model.addAttribute("cate3", AllLiveServiceImpl.selectListCachedCate("3"));
 		return "/allLive/allLiveMain2";
 	}
 
@@ -98,6 +102,9 @@ public class AllLiveController {
 		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
 		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
 		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("103"));
+		model.addAttribute("cate1", AllLiveServiceImpl.selectListCachedCate("1"));
+		model.addAttribute("cate2", AllLiveServiceImpl.selectListCachedCate("2"));
+		model.addAttribute("cate3", AllLiveServiceImpl.selectListCachedCate("3"));
 
 		List<AllLive> list = service.selectList(vo);
 		model.addAttribute("list", list);
@@ -110,6 +117,10 @@ public class AllLiveController {
 		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
 		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
 		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
+
+
+		
+		
 	
 		List<AllLive> list = service.selectList(vo);
 		model.addAttribute("list", list);

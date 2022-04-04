@@ -11,6 +11,8 @@ public class AllLiveVo {
 	private String oypdSeq;
 	private String oyspSeq;
 	private String oyctSeq;
+	private String oyctDepth;
+	private String oyctParents;
 
 	// oyMemberSearch
 	private String regDateTime;
@@ -88,8 +90,6 @@ public class AllLiveVo {
 
 	}
 
-	private String[] checkboxSeqArray;
-
 	public String getOymbSeq() {
 		return oymbSeq;
 	}
@@ -128,6 +128,14 @@ public class AllLiveVo {
 
 	public String getOyctSeq() {
 		return oyctSeq;
+	}
+
+	public String getOyctDepth() {
+		return oyctDepth;
+	}
+
+	public String getOyctParents() {
+		return oyctParents;
 	}
 
 	public String getRegDateTime() {
@@ -210,10 +218,6 @@ public class AllLiveVo {
 		return startRnumForMysql;
 	}
 
-	public String[] getCheckboxSeqArray() {
-		return checkboxSeqArray;
-	}
-
 	public void setOymbSeq(String oymbSeq) {
 		this.oymbSeq = oymbSeq;
 	}
@@ -252,6 +256,14 @@ public class AllLiveVo {
 
 	public void setOyctSeq(String oyctSeq) {
 		this.oyctSeq = oyctSeq;
+	}
+
+	public void setOyctDepth(String oyctDepth) {
+		this.oyctDepth = oyctDepth;
+	}
+
+	public void setOyctParents(String oyctParents) {
+		this.oyctParents = oyctParents;
 	}
 
 	public void setRegDateTime(String regDateTime) {
@@ -334,9 +346,4 @@ public class AllLiveVo {
 		this.startRnumForMysql = startRnumForMysql;
 	}
 
-	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
-		this.checkboxSeqArray = checkboxSeqArray;
-	}
-
-	
 }

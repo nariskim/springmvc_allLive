@@ -47,8 +47,47 @@ text-align:center;
 
 
 <body>
+<form id="allLiveMain" name="allLiveMain" method="post" action="/allLive/allLiveMain">
 
-		<form id="allLiveMain" name="allLiveMain" method="post" action="/allLive/allLiveMain">
+
+<nav id="topBar" style="font-size: small;">
+	<ul class="m-0">
+		<li>
+			<button type="button"  class="btn btn-primary btn-lg rounded-0" style="width: 110px; height: 115px;">
+				<i class="bi bi-list fs-2"></i>
+				<div class="btnText">카테고리</div>
+			</button>
+			<ul class="subMenu p-0">
+				<c:forEach items="${cate1}" var="item1" varStatus="status1">
+					<li><a>
+							<c:out value="${item1.oyctName }" />
+						</a>
+						<ul class="subMenu p-0">
+							<c:forEach items="${cate2}" var="item2" varStatus="status2">
+								<c:if test="${item1.oyctSeq eq item2.oyctParents}">
+									<li><a>
+											<c:out value="${item2.oyctName}" />
+										</a>
+										<ul class="subMenu p-0">
+											<c:forEach items="${cate3}" var="item3" varStatus="status3">
+												<c:if test="${item2.oyctSeq eq item3.oyctParents}">
+													<li><a>
+															<c:out value="${item3.oyctName}" />
+														</a></li>
+												</c:if>
+											</c:forEach>
+										</ul></li>
+								</c:if>
+							</c:forEach>
+						</ul></li>
+				</c:forEach>
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+
+		
 
 		<header>
 			<div class="row">
