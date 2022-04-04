@@ -21,16 +21,16 @@
 <title>allLiveYoung_Main</title>
 
 <style>
-header {
-	margin-left: 5%;
-	margin-right: 5%;
+.container-header {
+	margin-left: 7%;
+	margin-right: 7%;
 }
 
-main {
+.container-main {
 	margin-top: 2%;
 	margin-bottom: 5%;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 14%;
+	margin-right: 14%;
 }
 
 .nav-top{
@@ -55,6 +55,7 @@ text-align:center;
 <form id="allLiveMain" name="allLiveMain" method="post" action="/allLive/allLiveMain">
 	
 		<header>
+		<div class="container-header">	
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav justify-content-end">
@@ -147,29 +148,7 @@ text-align:center;
 			</div>
 
 
-
-
-
-
-
-		</header>
-
-
-		<!-- <div class="row"></div> -->
-		<main>
-			
-
-			
-					
-		<div class="container">		
-<c:set var="cate1" value="${CateServiceImpl.selectListCachedCode('1')}"/>
-<c:set var="cate2" value="${CateServiceImpl.selectListCachedCode('2')}"/>
-<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
-
-			
-
-
-			<ul class="nav nav-top">
+	<ul class="nav nav-top">
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">신상</a></li>
@@ -182,6 +161,28 @@ text-align:center;
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">이벤트</a></li>
 			</ul>
 
+
+
+
+</div>
+		</header>
+
+
+		<!-- <div class="row"></div> -->
+		<main>
+			
+
+			
+					
+		<div class="container-main">		
+<c:set var="cate1" value="${CateServiceImpl.selectListCachedCode('1')}"/>
+<c:set var="cate2" value="${CateServiceImpl.selectListCachedCode('2')}"/>
+<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
+
+			
+
+
+		
 
 
 
@@ -255,180 +256,41 @@ text-align:center;
 						</div>
 					</div>
 					<div class="row mb-2">
-						<div class="col-md-6">
-							<h2>
-								유사한 고객님이<br>많이 구매했어요
-							</h2>
-							<br>
-							<div class="input-group">
+					
+							<c:forEach items="${list}" var="item" varStatus="status">
+							<div class="col-3">
+							
 								<a href="/allLive/allLiveDetail">
+								
 									<div class="card" style="width: 18rem;">
-										<img src="/resources/user/image/A00000016155902ko.jpg"
+										<img src=""
 											class="card-img-top" alt="...">
 										<div class="card-body">
 											<p class="card-text">
-												바이오힐보 프로바이오덤 리프팅<br>크림X마사저 기획(크림+마사저)...<br>51200원
-												31900원
+											
+											
+
+									<c:out value="${item.oypdName}"/>
+								
+								
+												<c:out value="${item.oypdName}"/><br><c:out value="${item.oypdPrice}"/><span>원</span>
+											
 											</p>
 										</div>
 									</div>
-								</a> <a href="#">
-									<div class="card" style="width: 18rem;">
-										<img src="/resources/user/image/A00000016230326ko.jpg"
-											class="card-img-top" alt="...">
-										<div class="card-body">
-											<p class="card-text">
-												[한정기획]라네즈 워터뱅크<br>블루히알루로닉 크림45ml_중건...<br>39000원
-												29640원
-											</p>
-										</div>
-									</div>
-								</a>
-							</div>
-
-						</div>
-						<div class="col-md-6">
-							<h2>
-								좋아하실만한<br>베스트 상품 추천해드려요
-							</h2>
-							<br>
-
-							<div class="input-group">
-								<a href="#">
-									<div class="card" style="width: 18rem;">
-										<img src="/resources/user/image/A00000014834414ko.jpg"
-											class="card-img-top" alt="...">
-										<div class="card-body">
-											<p class="card-text">
-												메디힐 레드락토 콜라겐 클리어<br>올영단독 SET (300ml+딥 해면...<br>24000원
-												13200원
-											</p>
-										</div>
-									</div>
-								</a> <a href="#">
-									<div class="card" style="width: 18rem;">
-										<img src="/resources/user/image/A00000015416912ko.jpg"
-											class="card-img-top" alt="...">
-										<div class="card-body">
-											<p class="card-text">
-												[집착헤어팩]어노브 딥 데미지<br>트리트먼트 EX...<br>22000원~
-											</p>
-										</div>
-									</div>
-								</a>
-							</div>
-
-						</div>
-						<div class="row">
-							<h2>Weekly Special</h2>
-						</div>
-						<div class="row">
-
-							<div class="col-md-6">
-
-								<a href="#"><img src="/resources/user/image/Weekly1.jpg"
-									class="img-fluid" alt="..."></a>
-							</div>
-
-
-
-							<div class="col-md-6">
-								<a href="#"><img src="/resources/user/image/Weekly2.jpg"
-									class="img-fluid" alt="..."></a>
-							</div>
-
-						</div>
-
-						<div class="row">
-							<h2>인기 행사만 모았어요!</h2>
-						</div>
-						<div class="row">
-
-							<div class="col-md-6">
-								<div class="input-group">
-									<a href="#">
-										<div class="card" style="width: 18rem;">
-											<img src="/resources/user/image/laneige1.jpg"
-												class="card-img-top" alt="...">
-											<div class="card-body">
-												<p class="card-text">
-													[한정기획]라네즈 워터뱅크<br>블루히알루로닉 크림45ml_중건성...<br>39000원
-													29640원 13200원
-												</p>
-											</div>
-										</div>
-									</a> <a href="#">
-										<div class="card" style="width: 18rem;">
-											<img src="/resources/user/image/laneige2.jpg"
-												class="card-img-top" alt="...">
-											<div class="card-body">
-												<p class="card-text">
-													[한정기획]라네즈 워터뱅크<br>블루히알루로닉 세럼 50ml 기획...<br>45000원
-													32400원
-												</p>
-											</div>
-										</div>
-									</a>
+									
+								</a> 
 								</div>
-							</div>
-
-
-
-							<div class="col-md-6">
-								<div class="input-group">
-									<a href="#">
-										<div class="card" style="width: 18rem;">
-											<img src="/resources/user/image/manyo1.jpg"
-												class="card-img-top" alt="...">
-											<div class="card-body">
-												<p class="card-text">
-													[단독기획]마녀공장 퓨어 클렌징 오일<br>300ml(+25ml+...<br>25000원
-													18900원
-												</p>
-											</div>
-										</div>
-									</a> <a href="9#">
-										<div class="card" style="width: 18rem;">
-											<img src="/resources/user/image/manyo2.jpg"
-												class="card-img-top" alt="...">
-											<div class="card-body">
-												<p class="card-text">
-													[증량]마녀공장 갈락토미 필링젤 더블<br>기획(120ml+120ml)<br>35000원
-													16900원
-												</p>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-
-							<div class="row">
-								<h2>Catch Keyword</h2>
-							</div>
-							<div class="row">
-
-								<div class="col-md-6">
-
-									<a href="#"><img src="/resources/user/image/catch1.jpg"
-										class="img-fluid" alt="..."></a>
-								</div>
-
-
-
-								<div class="col-md-6">
-									<a href="#"><img src="/resources/user/image/catch2.jpg"
-										class="img-fluid" alt="..."></a>
-								</div>
-
-							</div>
-
-						</div>
-		
+								</c:forEach>
+								
+								
+				
+							
 		</div>			</div>
 		</main>
 
 
-		<div class="container">
+		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
 					<li class="nav-item"><a href="#"

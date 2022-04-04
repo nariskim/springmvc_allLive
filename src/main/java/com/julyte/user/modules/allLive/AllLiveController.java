@@ -21,14 +21,20 @@ public class AllLiveController {
 	AllLiveServiceImpl service;
 
 	@RequestMapping(value = "/allLive/allLiveMain")
-	public String allLiveMain(AllLiveVo vo) throws Exception {
-
+	public String allLiveMain(AllLiveVo vo, Model model) throws Exception {
+		
+		List<AllLive> list = service.selectListPd(vo);
+		model.addAttribute("list", list);
+		
 		return "/allLive/allLiveMain";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveMain2")
-	public String allLiveMain2( ) throws Exception {
-
+	public String allLiveMain2(AllLiveVo vo, Model model) throws Exception {
+		
+		List<AllLive> list = service.selectListPd(vo);
+		model.addAttribute("list", list);
+		
 		return "/allLive/allLiveMain2";
 	}
 
