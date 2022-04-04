@@ -17,45 +17,41 @@ import com.julyte.user.common.constants.Constants;
 @Controller
 public class AllLiveController {
 
-	@Autowired 
+	@Autowired
 	AllLiveServiceImpl service;
 
 	@RequestMapping(value = "/allLive/allLiveMain")
-	public String allLiveMain(Model model) throws Exception {
-		model.addAttribute("cate1", AllLiveServiceImpl.selectListCachedCate("1"));
-		model.addAttribute("cate2", AllLiveServiceImpl.selectListCachedCate("2"));
-		model.addAttribute("cate3", AllLiveServiceImpl.selectListCachedCate("3"));
+	public String allLiveMain(AllLiveVo vo) throws Exception {
+
 		return "/allLive/allLiveMain";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveMain2")
-	public String allLiveMain2(Model model) throws Exception {
-		model.addAttribute("cate1", AllLiveServiceImpl.selectListCachedCate("1"));
-		model.addAttribute("cate2", AllLiveServiceImpl.selectListCachedCate("2"));
-		model.addAttribute("cate3", AllLiveServiceImpl.selectListCachedCate("3"));
+	public String allLiveMain2( ) throws Exception {
+
 		return "/allLive/allLiveMain2";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail")
-	public String allLiveDetail() {
+	public String allLiveDetail( ) throws Exception {
 
 		return "/allLive/allLiveDetail";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail2")
-	public String allLiveDetail2() {
+	public String allLiveDetail2( ) throws Exception {
 
 		return "/allLive/allLiveDetail2";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveOrder")
-	public String allLiveOrder() {
+	public String allLiveOrder( ) throws Exception {
 
 		return "/allLive/allLiveOrder";
 	}
 
 	@RequestMapping(value = "/allLive/loginForm")
-	public String loginForm() {
+	public String loginForm( ) throws Exception {
 
 		return "/allLive/loginForm";
 	}
@@ -97,15 +93,11 @@ public class AllLiveController {
 
 	@RequestMapping(value = "/allLive/allLiveReg")
 	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
-		
+
 		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
 		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
 		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
 		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("103"));
-		model.addAttribute("cate1", AllLiveServiceImpl.selectListCachedCate("1"));
-		model.addAttribute("cate2", AllLiveServiceImpl.selectListCachedCate("2"));
-		model.addAttribute("cate3", AllLiveServiceImpl.selectListCachedCate("3"));
-
 		List<AllLive> list = service.selectList(vo);
 		model.addAttribute("list", list);
 
@@ -114,14 +106,7 @@ public class AllLiveController {
 
 	@RequestMapping(value = "/allLive/Map")
 	public String allLiveReg2(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
-		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
-		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
-		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
 
-
-		
-		
-	
 		List<AllLive> list = service.selectList(vo);
 		model.addAttribute("list", list);
 

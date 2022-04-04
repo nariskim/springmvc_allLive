@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.julyte.user.modules.cate.CateMpp">
+
+	<resultMap id="resultMapObj"
+		type="com.julyte.user.modules.cate.Cate"></resultMap>
+
+	<select id="selectListForCache" resultMap="resultMapObj">
+		SELECT
+		oyctSeq
+		, oyctName
+		, oyctParents
+		, oyctDepth
+		, oyctOrder
+		, oyctDelNy
+		FROM
+		oyCate
+		WHERE 1=1
+		AND oyctDelNy = 0
+	</select>
+
+</mapper>

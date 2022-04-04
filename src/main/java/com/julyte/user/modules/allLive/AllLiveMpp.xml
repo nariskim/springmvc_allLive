@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 
 <mapper namespace="com.julyte.user.modules.allLive.AllLiveMpp">
 
-	<resultMap id="resultMapObj"
-		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
+	<resultMap id="resultMapObj" type="com.julyte.user.modules.allLive.AllLive"></resultMap>
 
 
+	<select id="selectListPd" resultMap="resultMapObj">
+
+		SELECT
+		oypdSeq
+		,oypdBrand
+		,oypdName
+		,oypdPrice
+
+		FROM oyProduct
+
+		WHERE 1=1
+		AND oypdDelNy = 0
+		
+	</select>
+	
+		
 	<select id="selectOneLogin" resultMap="resultMapObj">
 		SELECT
 		oymbSeq
@@ -36,18 +50,21 @@
 		, oypdBrandCd
 		, oypdName
 		, oypdPrice
-		, oypdVolumeWeight
+		,
+		oypdVolumeWeight
 		, oypdIdeal
 		, oypdExpiraionDate
 		, oypdHowtoUse
-		, oypdManufacturerCd
+		,
+		oypdManufacturerCd
 		, oypdDistributorCd
 		, oypdCountryCd
 		, oypdIngredients
 		, oypdFunctionalCosmetics
 		, oypdCautions
 		, oypdQaStandard
-		, oypdCustomerService
+		,
+		oypdCustomerService
 		, oypdDelNy
 		, regDateTime
 		, modDateTime
@@ -56,21 +73,26 @@
 		, #{oypdBrandCd}
 		, #{oypdName}
 		, #{oypdPrice}
-		, #{oypdVolumeWeight}
+		,
+		#{oypdVolumeWeight}
 		, #{oypdIdeal}
 		, #{oypdExpiraionDate}
-		, #{oypdHowtoUse}
+		,
+		#{oypdHowtoUse}
 		, #{oypdManufacturerCd}
 		, #{oypdDistributorCd}
-		, #{oypdCountryCd}
+		,
+		#{oypdCountryCd}
 		, #{oypdIngredients}
 		, #{oypdFunctionalCosmetics}
-		, #{oypdCautions}
+		,
+		#{oypdCautions}
 		, #{oypdQaStandard}
 		, #{oypdCustomerService}
 		, 0
 		, now()
-		, now()
+		,
+		now()
 		)
 		<selectKey resultType="String" keyProperty="oypdSeq"
 			order="AFTER">
@@ -81,7 +103,8 @@
 	<insert id="insertSalePd">
 
 		INSERT INTO oySaleProduct (
-		oypdSeq
+		oyspSeq
+		, oypdSeq
 		, oyspSaleNy
 		, oyspCouponNy
 		, oyspFreeGiftNy
@@ -89,15 +112,15 @@
 		, oyspFreeShippingNy
 		, oyspExclusiveNy
 		, oyspSalePrice
-	<!-- 	, oyspSalePeriodStart
-		, oyspSalePeriodEnd -->
+		<!-- , oyspSalePeriodStart , oyspSalePeriodEnd -->
 		, oyspOneBuyGetOneFreeNy
 		, oyspTwoBuyGetOneFreeNy
 		, oyspDelNy
 		, regDateTime
 		, modDateTime
 		) values (
-		#{oypdSeq}
+		#{oyspSeq}
+		, #{oypdSeq}
 		, #{oyspSaleNy}
 		, #{oyspCouponNy}
 		, #{oyspFreeGiftNy}
@@ -105,8 +128,7 @@
 		, #{oyspFreeShippingNy}
 		, #{oyspExclusiveNy}
 		, #{oyspSalePrice}
-	<!-- 	, #{oyspSalePeriodStart}
-		, #{oyspSalePeriodEnd} -->
+		<!-- , #{oyspSalePeriodStart} , #{oyspSalePeriodEnd} -->
 		, #{oyspOneBuyGetOneFreeNy}
 		, #{oyspTwoBuyGetOneFreeNy}
 		, 0
@@ -123,26 +145,14 @@
 	<select id="selectListForCache" resultMap="resultMapObj">
 		SELECT
 		oycdSeq
-		, oycdName
+		,
+		oycdName
 		, oycgSeq
 		FROM
 		oyCode
 		WHERE 1=1
 		AND oycdDelNy = 0
 		AND oycdUseNy = 1
-	</select>
-
-	<select id="selectListForCate" resultMap="resultMapObj">
-		SELECT
-		oyctSeq
-		, oyctName
-		, oyctParents
-		, oyctDepth
-		, oyctOrder
-		FROM
-		oyCate
-		WHERE 1=1
-		AND oyctDelNy = 0
 	</select>
 
 	<select id="selectList" resultMap="resultMapObj">

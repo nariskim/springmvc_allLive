@@ -5,12 +5,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
 
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
 <meta charset="uTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
 	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
@@ -27,7 +27,7 @@ header {
 }
 
 main {
-	margin-top: 5%;
+	margin-top: 2%;
 	margin-bottom: 5%;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -40,6 +40,10 @@ width:100%;
 width:10%;
 text-align:center;
 }
+
+
+
+
 </style>
 
 
@@ -47,48 +51,9 @@ text-align:center;
 
 
 <body>
+
 <form id="allLiveMain" name="allLiveMain" method="post" action="/allLive/allLiveMain">
-
-
-<nav id="topBar" style="font-size: small;">
-	<ul class="m-0">
-		<li>
-			<button type="button"  class="btn btn-primary btn-lg rounded-0" style="width: 110px; height: 115px;">
-				<i class="bi bi-list fs-2"></i>
-				<div class="btnText">카테고리</div>
-			</button>
-			<ul class="subMenu p-0">
-				<c:forEach items="${cate1}" var="item1" varStatus="status1">
-					<li><a>
-							<c:out value="${item1.oyctName }" />
-						</a>
-						<ul class="subMenu p-0">
-							<c:forEach items="${cate2}" var="item2" varStatus="status2">
-								<c:if test="${item1.oyctSeq eq item2.oyctParents}">
-									<li><a>
-											<c:out value="${item2.oyctName}" />
-										</a>
-										<ul class="subMenu p-0">
-											<c:forEach items="${cate3}" var="item3" varStatus="status3">
-												<c:if test="${item2.oyctSeq eq item3.oyctParents}">
-													<li><a>
-															<c:out value="${item3.oyctName}" />
-														</a></li>
-												</c:if>
-											</c:forEach>
-										</ul></li>
-								</c:if>
-							</c:forEach>
-						</ul></li>
-				</c:forEach>
-			</ul>
-		</li>
-	</ul>
-</nav>
-
-
-		
-
+	
 		<header>
 			<div class="row">
 				<div style="font-size: small;">
@@ -183,6 +148,27 @@ text-align:center;
 
 
 
+
+
+
+
+		</header>
+
+
+		<!-- <div class="row"></div> -->
+		<main>
+			
+
+			
+					
+		<div class="container">		
+<c:set var="cate1" value="${CateServiceImpl.selectListCachedCode('1')}"/>
+<c:set var="cate2" value="${CateServiceImpl.selectListCachedCode('2')}"/>
+<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
+
+			
+
+
 			<ul class="nav nav-top">
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
@@ -198,55 +184,6 @@ text-align:center;
 
 
 
-
-
-		</header>
-
-
-		<!-- <div class="row"></div> -->
-		<main>
-			<div class="row">
-				<nav id="sidebarMenu"
-					class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show">
-					<div class="position-sticky pt-3">
-
-
-						<ul class="nav flex-column">
-							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="#"> 카테고리 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 기초화장품
-							</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 더모
-									코스메틱 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 메이크업
-									/ 네일 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 바디케어
-							</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 헤어케어
-							</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 향수 /
-									디퓨저 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 미용소품
-							</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 남성 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 건강 /
-									위생용품 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 건강식품
-							</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 푸드 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 라이프 /
-									홈 </a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 반려동물
-							</a></li>
-							<li class="nav-item"><a class="nav-link" href="#"> 베이비 </a></li>
-
-						</ul>
-
-
-					</div>
-
-				</nav>
-				<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
 
 					<div id="carouselExampleIndicators" class="carousel slide"
@@ -486,7 +423,8 @@ text-align:center;
 							</div>
 
 						</div>
-					</div>
+		
+		</div>			</div>
 		</main>
 
 
@@ -499,7 +437,7 @@ text-align:center;
 						class="nav-link px-2 text-muted">Features</a></li>
 					<li class="nav-item"><a href="#"
 						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
+				 	<li class="nav-item"><a href="#"
 						class="nav-link px-2 text-muted">FAQs</a></li>
 					<li class="nav-item"><a href="#"
 						class="nav-link px-2 text-muted">About</a></li>

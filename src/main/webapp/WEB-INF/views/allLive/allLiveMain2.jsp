@@ -11,7 +11,6 @@
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
 	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -167,7 +166,7 @@ main {
 
 		<!-- <div class="row"></div> -->
 		<main>
-			<div class="row">
+		ㅋㅋ	<div class="row">
 				<nav id="sidebarMenu"
 					class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show">
 					<div class="position-sticky pt-3">

@@ -19,6 +19,7 @@ public class AllLive {
 
 	private String oypdSeq;
 	private String oypdCate;
+	private String oypdBrand;
 	private Integer oypdBrandCd;
 	private String oypdName;
 	private String oypdPrice;
@@ -138,10 +139,16 @@ public class AllLive {
 	private Integer oymeDelNy;
 //	private String oymbSeq;
 
-//	codeGroup code 저장	cate 저장????확인하기
+//	codeGroup code 저장
 	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
 
-	public static List<AllLive> cachedCateArrayList = new ArrayList<AllLive>();
+	public String getOypdBrand() {
+		return oypdBrand;
+	}
+
+	public void setOypdBrand(String oypdBrand) {
+		this.oypdBrand = oypdBrand;
+	}
 
 	public String getOyctSeq() {
 		return oyctSeq;

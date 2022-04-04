@@ -18,6 +18,11 @@ public class AllLiveServiceImpl implements AllLiveService {
 	public List<AllLive> selectList(AllLiveVo vo) throws Exception {
 		return dao.selectList(vo);
 	}
+	
+	@Override
+	public List<AllLive> selectListPd(AllLiveVo vo) throws Exception {
+		return dao.selectListPd(vo);
+	}
 
 	@Override
 	public AllLive selectOneLogin(AllLive dto) throws Exception {
@@ -31,49 +36,26 @@ public class AllLiveServiceImpl implements AllLiveService {
 		dao.insertSalePd(dto);
 		return 2;
 	}
-	
+
 	@PostConstruct
 	public void selectListForCache() {
 		List<AllLive> codeListFromDb = (ArrayList<AllLive>) dao.selectListForCache();
-		
+
 		AllLive.cachedCodeArrayList.clear();
 		AllLive.cachedCodeArrayList.addAll(codeListFromDb);
 		System.out.println("cachedCodeArrayList:" + AllLive.cachedCodeArrayList.size() + "chached !");
 	}
-	
+
 	public static List<AllLive> selectListCachedCode(String oycgSeq) throws Exception {
 		List<AllLive> rt = new ArrayList<AllLive>();
 		for (AllLive codeRow : AllLive.cachedCodeArrayList) {
 			if (codeRow.getOycgSeq().equals(oycgSeq)) {
 				rt.add(codeRow);
 			} else {
-				
-			}
-		}
-		return rt;
-	}
-
-	@PostConstruct
-	public void selectListForCate() {
-		List<AllLive> codeListFromDb = (ArrayList<AllLive>) dao.selectListForCate();
-
-		AllLive.cachedCateArrayList.clear();
-		AllLive.cachedCateArrayList.addAll(codeListFromDb);
-		System.out.println("cachedCateArrayList:" + AllLive.cachedCateArrayList.size() + "chached !");
-	}
-
-	public static List<AllLive> selectListCachedCate(String oyctDepth) throws Exception {
-		List<AllLive> rt = new ArrayList<AllLive>();
-		for (AllLive codeRow : AllLive.cachedCateArrayList) {
-			if (codeRow.getOyctDepth().equals(oyctDepth)) {
-				rt.add(codeRow);
-			} else {
 
 			}
 		}
 		return rt;
 	}
-
-	
 
 }

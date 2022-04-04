@@ -11,9 +11,7 @@ public class AllLiveVo {
 	private String oypdSeq;
 	private String oyspSeq;
 	private String oyctSeq;
-	private String oyctDepth;
-	private String oyctParents;
-
+	
 	// oyMemberSearch
 	private String regDateTime;
 	private String modDateTime;
@@ -128,14 +126,6 @@ public class AllLiveVo {
 
 	public String getOyctSeq() {
 		return oyctSeq;
-	}
-
-	public String getOyctDepth() {
-		return oyctDepth;
-	}
-
-	public String getOyctParents() {
-		return oyctParents;
 	}
 
 	public String getRegDateTime() {
@@ -256,14 +246,6 @@ public class AllLiveVo {
 
 	public void setOyctSeq(String oyctSeq) {
 		this.oyctSeq = oyctSeq;
-	}
-
-	public void setOyctDepth(String oyctDepth) {
-		this.oyctDepth = oyctDepth;
-	}
-
-	public void setOyctParents(String oyctParents) {
-		this.oyctParents = oyctParents;
 	}
 
 	public void setRegDateTime(String regDateTime) {
