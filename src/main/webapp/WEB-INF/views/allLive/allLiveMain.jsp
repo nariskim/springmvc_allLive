@@ -22,9 +22,12 @@
 
 <style>
 .container-header {
-	margin-left: 7%;
-	margin-right: 7%;
+	margin-top: 1%;
+	margin-bottom: 3%;
+	margin-left: 12%;
+	margin-right: 12%;
 }
+
 
 .container-main {
 	margin-top: 2%;
@@ -33,17 +36,61 @@
 	margin-right: 14%;
 }
 
-.nav-top{
-width:100%;
+.container-footer{
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
 }
-.nav-item-top{
-width:10%;
-text-align:center;
+
+.nav-top {
+
+	width: 100%;
+	line-height: 44px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -.04em;
 }
 
+.nav-item-top {
+	width: 10%;
+	text-align: center;
+	
+}
+.nav-link {
+    color: black;
+}
 
+a {
+	text-decoration: none;
+	color: black;
+}
 
+.priceB {
+	font-size: 14px;
+	line-height: 14px;
+	color: #a9a9a9;
+	text-decoration: line-through;
+	text-aling: right;
+}
 
+.priceR {
+	font-size: 20px;
+	color: #e02020;
+	font-weight: 500;
+	text-aling: right;
+}
+.card-body{
+text-align: right;
+box-sizing: none;
+counter-reset : ;  
+    }
+
+dl>dt:before{
+    	counter-increment: dt;
+        content: counter(dt)'.';
+	}
+}
 </style>
 
 
@@ -82,7 +129,7 @@ text-align:center;
 
 			<div class="row">
 				<div class="col-auto col-sm-5">
-					<a class="navbar-brand me-0 px-3" href="#"><img
+					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
 						src="/resources/user/image/h1_logo.png"></a>
 				</div>
 				<div class="col-auto d-md-none">
@@ -148,33 +195,35 @@ text-align:center;
 			</div>
 
 
+
+
+
+
+
+
+
+
+
+<br>
+
 	<ul class="nav nav-top">
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">신상</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">프리미엄관</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기획전</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">세일</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기프트카드</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">멤버십/쿠폰</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">이벤트</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모 코스메틱</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업 · 네일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">미용소품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
 			</ul>
 
 
 
 
 </div>
-		</header>
-
-
-		<!-- <div class="row"></div> -->
-		<main>
 			
-
-			
-					
-		<div class="container-main">		
 <c:set var="cate1" value="${CateServiceImpl.selectListCachedCode('1')}"/>
 <c:set var="cate2" value="${CateServiceImpl.selectListCachedCode('2')}"/>
 <c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
@@ -204,33 +253,54 @@ text-align:center;
 						</div>
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								<img src="/resources/user/image/pick1.jpg" class="d-block w-100"
+								<img src="/resources/user/image/1.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item">
-								<img src="/resources/user/image/pick2.jpg" class="d-block w-100"
+							<div class="carousel-item active">
+								<img src="/resources/user/image/2.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item">
-								<img src="/resources/user/image/pick3.jpg" class="d-block w-100"
+							<div class="carousel-item active">
+								<img src="/resources/user/image/3.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item">
-								<img src="/resources/user/image/pick4.jpg" class="d-block w-100"
+							<div class="carousel-item active">
+								<img src="/resources/user/image/4.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item">
-								<img src="/resources/user/image/pick6.jpg" class="d-block w-100"
+							<div class="carousel-item active">
+								<img src="/resources/user/image/5.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item">
-								<img src="/resources/user/image/pick7.jpg" class="d-block w-100"
+							<div class="carousel-item active">
+								<img src="/resources/user/image/6.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item">
-								<img src="/resources/user/image/pick8.jpg" class="d-block w-100"
+							<div class="carousel-item active">
+								<img src="/resources/user/image/7.jpg" class="d-block w-100"
 									alt="...">
 							</div>
+							<div class="carousel-item active">
+								<img src="/resources/user/image/8.jpg" class="d-block w-100"
+									alt="...">
+							</div>
+							<div class="carousel-item active">
+								<img src="/resources/user/image/9.jpg" class="d-block w-100"
+									alt="...">
+							</div>
+							<div class="carousel-item active">
+								<img src="/resources/user/image/10.jpg" class="d-block w-100"
+									alt="...">
+							</div>
+							<div class="carousel-item active">
+								<img src="/resources/user/image/11.jpg" class="d-block w-100"
+									alt="...">
+							</div>
+							<div class="carousel-item active">
+								<img src="/resources/user/image/12.jpg" class="d-block w-100"
+									alt="...">
+							</div>
+							
 						</div>
 
 						<button class="carousel-control-prev" type="button"
@@ -244,6 +314,16 @@ text-align:center;
 							<span class="visually-hidden">Next</span>
 						</button>
 					</div>
+						</header>
+
+
+		<!-- <div class="row"></div> -->
+		<main>
+			
+
+			
+					
+		<div class="container-main">
 					<br>
 					<div class="row mb-2">
 						<div class="col-md-6">
@@ -256,37 +336,44 @@ text-align:center;
 						</div>
 					</div>
 					<div class="row mb-2">
-					
+					<div class="col-12"><br><h1>인기상품</h1><br></div>
 							<c:forEach items="${list}" var="item" varStatus="status">
-							<div class="col-3">
+							<c:if test="${item.oyspTypeCd eq 1417 }">
+							<div class="col-4">
 							
-								<a href="/allLive/allLiveDetail">
+								<a href="javascript:goView(<c:out value="${item.oypdSeq}"/>);">
 								
 									<div class="card" style="width: 18rem;">
-										<img src=""
+										<img src="/resources/user/image/term.jpeg"
 											class="card-img-top" alt="...">
 										<div class="card-body">
 											<p class="card-text">
-											
-											
-
-									<c:out value="${item.oypdName}"/>
-								
-								
-												<c:out value="${item.oypdName}"/><br><c:out value="${item.oypdPrice}"/><span>원</span>
+					
+												<c:out value="${item.oypdName}"/><br>
+												<div class="priceB">
+												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
+												<div class="priceR">
+												<fmt:formatNumber value="${item.oyspSalePrice}"/>
+												<span>원</span></div>
 											
 											</p>
 										</div>
-									</div>
+									</div><br>
 									
 								</a> 
 								</div>
+								</c:if>
 								</c:forEach>
 								
 								
 				
 							
-		</div>			</div>
+		</div>	
+		
+		
+		
+				
+		</div>
 		</main>
 
 
@@ -318,6 +405,13 @@ goLogin = function() {
 	$("#allLiveMain").attr("action", "/allLive/loginForm");
 	$("#allLiveMain").submit();
 }
+
+goView = function(seq) {
+	$("#oypdSeq").val(seq);
+	$("#allLiveMain").attr("action", "/allLive/allLiveView");
+	$("#allLiveMain").submit();
+}
+
 </script>
 
 </body>

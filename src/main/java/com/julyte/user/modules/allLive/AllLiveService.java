@@ -12,4 +12,6 @@ public interface AllLiveService {
 
 	public List<AllLive> selectListPd(AllLiveVo vo) throws Exception;
 
+	public AllLive selectOne(AllLiveVo vo) throws Exception;
+
 }

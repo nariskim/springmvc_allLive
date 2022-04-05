@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.julyte.user.common.constants.Constants;
 
 @Controller
@@ -22,42 +24,42 @@ public class AllLiveController {
 
 	@RequestMapping(value = "/allLive/allLiveMain")
 	public String allLiveMain(AllLiveVo vo, Model model) throws Exception {
-		
+
 		List<AllLive> list = service.selectListPd(vo);
 		model.addAttribute("list", list);
-		
+
 		return "/allLive/allLiveMain";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveMain2")
 	public String allLiveMain2(AllLiveVo vo, Model model) throws Exception {
-		
+
 		List<AllLive> list = service.selectListPd(vo);
 		model.addAttribute("list", list);
-		
+
 		return "/allLive/allLiveMain2";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail")
-	public String allLiveDetail( ) throws Exception {
+	public String allLiveDetail() throws Exception {
 
 		return "/allLive/allLiveDetail";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail2")
-	public String allLiveDetail2( ) throws Exception {
+	public String allLiveDetail2() throws Exception {
 
 		return "/allLive/allLiveDetail2";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveOrder")
-	public String allLiveOrder( ) throws Exception {
+	public String allLiveOrder() throws Exception {
 
 		return "/allLive/allLiveOrder";
 	}
 
 	@RequestMapping(value = "/allLive/loginForm")
-	public String loginForm( ) throws Exception {
+	public String loginForm() throws Exception {
 
 		return "/allLive/loginForm";
 	}
@@ -120,12 +122,29 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveInst")
-	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo) throws Exception {
+	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo, RedirectAttributes redirectAttributes)
+			throws Exception {
 
 		service.insert(dto);
 
 		vo.setOypdSeq(dto.getOypdSeq());
 
 		return "redirect:/allLive/allLiveView";
+	}
+
+	@RequestMapping(value = "/allLive/allLiveView")
+	public String allLiveView(@ModelAttribute("vo") AllLiveVo vo, Model model) throws Exception {
+
+		AllLive rt = service.selectOne(vo);
+		model.addAttribute("item", rt);
+
+		List<AllLive> list = service.selectList(vo);
+		model.addAttribute("list", list);
+
+		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
+		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
+		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
+		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("103"));
+		return "allLive/allLiveView";
 	}
 }

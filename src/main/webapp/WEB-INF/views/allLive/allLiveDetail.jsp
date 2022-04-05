@@ -20,18 +20,6 @@
 <title>allLiveYoung_Detail</title>
 
 <style>
-header {
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-main {
-	margin-top: 5%;
-	margin-bottom: 5%;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
 .row-detail {
 	margin-top: 5%;
 	margin-left: 15%;
@@ -56,6 +44,64 @@ main {
 	width: 25%;
 	text-align: center;
 }
+.container-header {
+	margin-top: 1%;
+	margin-bottom: 3%;
+	margin-left: 12%;
+	margin-right: 12%;
+}
+
+
+.container-main {
+	margin-top: 2%;
+	margin-bottom: 5%;
+	margin-left: 14%;
+	margin-right: 14%;
+}
+
+.container-footer{
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.nav-top {
+
+	width: 100%;
+	line-height: 44px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+}
+
+.nav-item-top {
+	width: 10%;
+	text-align: center;
+	
+}
+.nav-link {
+    color: black;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.priceB {
+	font-size: 14px;
+	line-height: 14px;
+	color: #a9a9a9;
+	text-decoration: line-through;
+	text-aling: right;
+}
+
+.priceR {
+	font-size: 20px;
+	color: #e02020;
+	font-weight: 500;
+	text-aling: right;
+}
 </style>
 
 </head>
@@ -66,7 +112,7 @@ main {
 	<form id="allLiveDetail" name="allLiveDetail" method="post"
 		action="/allLive/allLiveDetail">
 		<header>
-
+<div class="container-header">
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav nav-t justify-content-end">
@@ -157,31 +203,20 @@ main {
 					</ul>
 				</div>
 			</div>
-
-
-			<div class="nav justify-content-center"">
-				<ul class="nav nav-m">
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">오특</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">신상</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">랭킹</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">프리미엄관</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">기획전</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">세일</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">기프트카드</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">멤버십/쿠폰</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">이벤트</a></li>
-				</ul>
-			</div>
-
+<br>
+	<ul class="nav nav-top">
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">신상</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">프리미엄관</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기획전</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">세일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기프트카드</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">멤버십/쿠폰</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">이벤트</a></li>
+			</ul>
+</div>
 		</header>
 
 
@@ -189,6 +224,7 @@ main {
 		<!-- <div class="row"></div> -->
 
 		<main>
+		<div class="container-main">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="#">홈</a></li>
@@ -203,14 +239,17 @@ main {
 						alt="...">
 				</div>
 				<div class="col-6">
-					바이오힐보<br>
+					<c:out value="${item.oypdBrand}"/><br>
 
 					<h2>
-						바이오힐보 프로바이오덤 리프팅 크림X마<br>사저 기획(크림+마사저)(2202)
+						<c:out value="${item.oypdName}"/>
 					</h2>
 					<br>
-					<del>51,200원</del>
-					<p>31,900원</p>
+					<div class="priceB">
+												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
+												<div class="priceR">
+												<fmt:formatNumber value="${item.oyspSalePrice}"/>
+												<span>원</span></div>
 					<b>혜택 정보</b><br> <span class="badge rounded-pill bg-danger">세일</span>
 					<span class="badge rounded-pill bg-success">쿠폰</span> <span
 						class="badge rounded-pill bg-info">오늘드림</span><br>
@@ -362,11 +401,11 @@ main {
 				<img src="/resources/user/image/bioheelbo1.jpg" class="rounded"
 					alt="...">
 			</div>
-
+</div>s
 		</main>
 
 
-		<div class="container">
+		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
 					<li class="nav-item"><a href="#"

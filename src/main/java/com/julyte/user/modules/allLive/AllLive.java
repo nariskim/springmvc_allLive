@@ -25,13 +25,13 @@ public class AllLive {
 	private String oypdPrice;
 	private String oypdVolumeWeight;
 	private String oypdIdeal;
-	private String oypdExpiraionDate;
+	private String oypdExpirationDate;
 	private String oypdHowtoUse;
 	private Integer oypdManufacturerCd;
 	private Integer oypdDistributorCd;
 	private Integer oypdCountryCd;
 	private String oypdIngredients;
-	private String oypdFunctionalCosmetics;
+	private Integer oypdFunctionalNy;
 	private String oypdCautions;
 	private String oypdQaStandard;
 	private String oypdCustomerService;
@@ -52,6 +52,7 @@ public class AllLive {
 	private Integer oyspOneBuyGetOneFreeNy;
 	private Integer oyspTwoBuyGetOneFreeNy;
 	private Integer oyspDelNy;
+	private Integer oyspTypeCd;
 //	private String oypdSeq;
 
 // multi insert시 필요
@@ -142,14 +143,6 @@ public class AllLive {
 //	codeGroup code 저장
 	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
 
-	public String getOypdBrand() {
-		return oypdBrand;
-	}
-
-	public void setOypdBrand(String oypdBrand) {
-		this.oypdBrand = oypdBrand;
-	}
-
 	public String getOyctSeq() {
 		return oyctSeq;
 	}
@@ -182,6 +175,10 @@ public class AllLive {
 		return oypdCate;
 	}
 
+	public String getOypdBrand() {
+		return oypdBrand;
+	}
+
 	public Integer getOypdBrandCd() {
 		return oypdBrandCd;
 	}
@@ -202,8 +199,8 @@ public class AllLive {
 		return oypdIdeal;
 	}
 
-	public String getOypdExpiraionDate() {
-		return oypdExpiraionDate;
+	public String getOypdExpirationDate() {
+		return oypdExpirationDate;
 	}
 
 	public String getOypdHowtoUse() {
@@ -226,8 +223,8 @@ public class AllLive {
 		return oypdIngredients;
 	}
 
-	public String getOypdFunctionalCosmetics() {
-		return oypdFunctionalCosmetics;
+	public Integer getOypdFunctionalNy() {
+		return oypdFunctionalNy;
 	}
 
 	public String getOypdCautions() {
@@ -296,6 +293,10 @@ public class AllLive {
 
 	public Integer getOyspDelNy() {
 		return oyspDelNy;
+	}
+
+	public Integer getOyspTypeCd() {
+		return oyspTypeCd;
 	}
 
 	public Integer[] getOympDefaultNyArray() {
@@ -566,6 +567,10 @@ public class AllLive {
 		this.oypdCate = oypdCate;
 	}
 
+	public void setOypdBrand(String oypdBrand) {
+		this.oypdBrand = oypdBrand;
+	}
+
 	public void setOypdBrandCd(Integer oypdBrandCd) {
 		this.oypdBrandCd = oypdBrandCd;
 	}
@@ -586,8 +591,8 @@ public class AllLive {
 		this.oypdIdeal = oypdIdeal;
 	}
 
-	public void setOypdExpiraionDate(String oypdExpiraionDate) {
-		this.oypdExpiraionDate = oypdExpiraionDate;
+	public void setOypdExpirationDate(String oypdExpirationDate) {
+		this.oypdExpirationDate = oypdExpirationDate;
 	}
 
 	public void setOypdHowtoUse(String oypdHowtoUse) {
@@ -610,8 +615,8 @@ public class AllLive {
 		this.oypdIngredients = oypdIngredients;
 	}
 
-	public void setOypdFunctionalCosmetics(String oypdFunctionalCosmetics) {
-		this.oypdFunctionalCosmetics = oypdFunctionalCosmetics;
+	public void setOypdFunctionalNy(Integer oypdFunctionalNy) {
+		this.oypdFunctionalNy = oypdFunctionalNy;
 	}
 
 	public void setOypdCautions(String oypdCautions) {
@@ -680,6 +685,10 @@ public class AllLive {
 
 	public void setOyspDelNy(Integer oyspDelNy) {
 		this.oyspDelNy = oyspDelNy;
+	}
+
+	public void setOyspTypeCd(Integer oyspTypeCd) {
+		this.oyspTypeCd = oyspTypeCd;
 	}
 
 	public void setOympDefaultNyArray(Integer[] oympDefaultNyArray) {

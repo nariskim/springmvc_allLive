@@ -20,31 +20,20 @@
 <title>allLiveYoung_Detail2</title>
 
 <style>
-header {
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-main {
-	margin-top: 5%;
-	margin-bottom: 5%;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
 .row-detail {
-	margin-top: 5%; 
+	margin-top: 5%;
 	margin-left: 15%;
 	margin-right: 15%;
 	margin-bottom: 5%;
 }
 
-.nav-m{
-width:100%;
+.nav-m {
+	width: 100%;
 }
-.nav-item-m{
-width:10%;
-text-align:center;
+
+.nav-item-m {
+	width: 10%;
+	text-align: center;
 }
 
 .nav-tabs-p {
@@ -53,7 +42,65 @@ text-align:center;
 
 .nav-item-p {
 	width: 25%;
-	text-align:center;
+	text-align: center;
+}
+.container-header {
+	margin-top: 1%;
+	margin-bottom: 3%;
+	margin-left: 12%;
+	margin-right: 12%;
+}
+
+.container-main {
+	margin-top: 2%;
+	margin-bottom: 5%;
+	margin-left: 14%;
+	margin-right: 14%;
+}
+
+.container-footer{
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.nav-top {
+
+	width: 100%;
+	line-height: 44px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+}
+
+.nav-item-top {
+	width: 10%;
+	text-align: center;
+	
+}
+.nav-link {
+    color: black;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.priceB {
+	font-size: 14px;
+	line-height: 14px;
+	color: #a9a9a9;
+	text-decoration: line-through;
+	text-aling: right;
+}
+
+.priceR {
+	font-size: 20px;
+	color: #e02020;
+	font-weight: 500;
+	text-aling: right;
 }
 </style>
 
@@ -64,7 +111,7 @@ text-align:center;
 
 	<form id="allLiveDetail2" name="allLiveDetail2" method="post" action="/allLive/allLiveDetail2">
 		<header>
-
+<div class="container-header">
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav nav-t justify-content-end">
@@ -155,31 +202,20 @@ text-align:center;
 					</ul>
 				</div>
 			</div>
-
-
-			<div class="nav justify-content-center">
-				<ul class="nav nav-m">
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">오특</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">신상</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">랭킹</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">프리미엄관</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">기획전</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">세일</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">기프트카드</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">멤버십/쿠폰</a></li>
-					<li class="nav-item nav-item-m"><a class="nav-link"
-						style="padding-left: 50px; padding-right: 50px;" href="#">이벤트</a></li>
-				</ul>
-			</div>
-
+<br>
+	<ul class="nav nav-top">
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">신상</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">프리미엄관</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기획전</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">세일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기프트카드</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">멤버십/쿠폰</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">이벤트</a></li>
+			</ul>
+</div>
 		</header>
 
 
@@ -187,6 +223,7 @@ text-align:center;
 		<!-- <div class="row"></div> -->
 
 		<main>
+		<div class="container-main">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="#">홈</a></li>
@@ -361,11 +398,11 @@ text-align:center;
 				<img src="/resources/user/image/bioheelbo1.jpg" class="rounded"
 					alt="...">
 			</div>
-
+</div>
 		</main>
 
 
-		<div class="container">
+		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
 					<li class="nav-item"><a href="#"

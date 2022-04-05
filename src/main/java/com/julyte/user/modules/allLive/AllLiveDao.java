@@ -20,6 +20,10 @@ public class AllLiveDao {
 		return sqlSession.selectOne(namespace + ".selectOneLogin", dto);
 	}
 
+	public AllLive selectOne(AllLiveVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOne", vo);
+	}
+
 	// selectList
 	public List<AllLive> selectList(AllLiveVo vo) {
 		return sqlSession.selectList(namespace + ".selectList", vo);

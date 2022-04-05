@@ -11,12 +11,28 @@
 	<select id="selectListPd" resultMap="resultMapObj">
 
 		SELECT
-		oypdSeq
-		,oypdBrand
-		,oypdName
-		,oypdPrice
+		a.oypdSeq
+        , a.oypdCate
+		, a.oypdBrand
+		, a.oypdName
+		, a.oypdPrice
+        , a.oypdDelNy
+        , b.oyspSeq
+        , b.oyspSaleNy
+        , b.oyspCouponNy
+        , b.oyspFreeGiftNy
+		, b.oyspTodayshipNy
+		, b.oyspFreeShippingNy
+		, b. oyspOneBuyGetOneFreeNy
+		, b.oyspTwoBuyGetOneFreeNy
+		, b.oyspSalePrice
+        , b.oyspDelNy
+        , b.oyspExclusiveNy
+        , b.oyspTypeCd
 
-		FROM oyProduct
+
+		FROM oyProduct a
+        LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
 
 		WHERE 1=1
 		AND oypdDelNy = 0
@@ -50,21 +66,18 @@
 		, oypdBrandCd
 		, oypdName
 		, oypdPrice
-		,
-		oypdVolumeWeight
+		, oypdVolumeWeight
 		, oypdIdeal
-		, oypdExpiraionDate
+		, oypdExpirationDate
 		, oypdHowtoUse
-		,
-		oypdManufacturerCd
+		, oypdManufacturerCd
 		, oypdDistributorCd
 		, oypdCountryCd
 		, oypdIngredients
-		, oypdFunctionalCosmetics
+		, oypdFunctionalNy
 		, oypdCautions
 		, oypdQaStandard
-		,
-		oypdCustomerService
+		, oypdCustomerService
 		, oypdDelNy
 		, regDateTime
 		, modDateTime
@@ -73,26 +86,21 @@
 		, #{oypdBrandCd}
 		, #{oypdName}
 		, #{oypdPrice}
-		,
-		#{oypdVolumeWeight}
+		, #{oypdVolumeWeight}
 		, #{oypdIdeal}
-		, #{oypdExpiraionDate}
-		,
-		#{oypdHowtoUse}
+		, #{oypdExpirationDate}
+		, #{oypdHowtoUse}
 		, #{oypdManufacturerCd}
 		, #{oypdDistributorCd}
-		,
-		#{oypdCountryCd}
+		, #{oypdCountryCd}
 		, #{oypdIngredients}
-		, #{oypdFunctionalCosmetics}
-		,
-		#{oypdCautions}
+		, #{oypdFunctionalNy}
+		, #{oypdCautions}
 		, #{oypdQaStandard}
 		, #{oypdCustomerService}
 		, 0
 		, now()
-		,
-		now()
+		, now()
 		)
 		<selectKey resultType="String" keyProperty="oypdSeq"
 			order="AFTER">
@@ -103,8 +111,7 @@
 	<insert id="insertSalePd">
 
 		INSERT INTO oySaleProduct (
-		oyspSeq
-		, oypdSeq
+		oypdSeq
 		, oyspSaleNy
 		, oyspCouponNy
 		, oyspFreeGiftNy
@@ -119,8 +126,7 @@
 		, regDateTime
 		, modDateTime
 		) values (
-		#{oyspSeq}
-		, #{oypdSeq}
+		#{oypdSeq}
 		, #{oyspSaleNy}
 		, #{oyspCouponNy}
 		, #{oyspFreeGiftNy}
@@ -145,8 +151,7 @@
 	<select id="selectListForCache" resultMap="resultMapObj">
 		SELECT
 		oycdSeq
-		,
-		oycdName
+		, oycdName
 		, oycgSeq
 		FROM
 		oyCode
@@ -169,6 +174,39 @@
 		AND oyctUseNy = 1
 		AND oyctDepth = 3
 	</select>
+
+<select id="selectOne" resultMap="resultMapObj">
+SELECT 
+a.oypdSeq
+, a.oypdCate
+, a.oypdBrand
+, a.oypdBrandCd
+, a.oypdName
+, a.oyPdPrice
+, a.oypdCountryCd
+, a.oypdDistributorCd
+, a.oypdManufacturerCd
+, a.oypdVolumeWeight
+, a.oypdIdeal
+, a.oypdExpirationDate
+, a.oypdHowtoUse
+, a.oypdIngredients
+, a.oypdFunctionalNy
+, a.oypdCautions
+, a.oypdCustomerService
+, a.oypdQaStandard
+, b.oyspSeq
+, b.oyspSalePrice
+FROM oyProduct a
+LEFT JOIN oySaleProduct b on a.oypdSeq = b.oypdSeq
+
+WHERE 1=1
+AND a.oypdSeq = #{oypdSeq}
+</select>
+
+
+
+
 
 
 </mapper>

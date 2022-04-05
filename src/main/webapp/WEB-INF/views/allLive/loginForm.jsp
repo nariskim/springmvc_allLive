@@ -47,7 +47,7 @@ a {
 
 		<div class="position-absolute top-50 start-50 translate-middle">
 			<div style="text-align: center;">
-				<img src="/resources/common/xdmin/image/xdmin/oy_lg.jpg" alt="..."
+				<img src="/resources/user/image/oy_lg.jpg" alt="..."
 					width="200px">
 			</div>
 			<div class="container">

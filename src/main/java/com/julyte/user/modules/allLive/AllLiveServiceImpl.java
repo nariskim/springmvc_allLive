@@ -18,7 +18,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 	public List<AllLive> selectList(AllLiveVo vo) throws Exception {
 		return dao.selectList(vo);
 	}
-	
+
 	@Override
 	public List<AllLive> selectListPd(AllLiveVo vo) throws Exception {
 		return dao.selectListPd(vo);
@@ -56,6 +56,11 @@ public class AllLiveServiceImpl implements AllLiveService {
 			}
 		}
 		return rt;
+	}
+
+	@Override
+	public AllLive selectOne(AllLiveVo vo) throws Exception {
+		return dao.selectOne(vo);
 	}
 
 }

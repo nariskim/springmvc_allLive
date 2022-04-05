@@ -255,9 +255,8 @@ main {
 
 <body>
 
-	<form id="allLiveView" name="allLiveView" method="post"
-		action="/allLive/allLiveView">
-
+	<form id="allLiveView" name="allLiveView" method="post" action="/allLive/allLiveView">
+<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${vo.oypdSeq}"/>">
 		<header>
 
 			<div class="row">
@@ -417,33 +416,43 @@ main {
 									<option value="<c:out value="${item.oyspExclusiveNy eq 0}"/>" <c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
 								
 								</c:forEach>
-							</select>
-			
-						<label for="formFile" class="form-label">카테고리</label>
-							<select class="form-select" id="oyctSeq" name="oyctSeq">
-								<option value="" selected>::카테고리::</option>
-								<c:forEach items="${list}" var="item" varStatus="status">
+							</select> <label for="formFile" class="form-label">카테고리</label>
+					<select class="form-select" id="oyctSeq" name="oyctSeq">
+						<option value="" selected>::카테고리::</option>
+						<c:forEach items="${list}" var="item" varStatus="status">
 
-									<option value="<c:out value="${item.oyctSeq}"/>"  <c:if test="${item.oyctSeq eq vo.oyctSeq}">selected</c:if>><c:out value="${item.oyctName}"/></option>
-								
-								</c:forEach>
-							</select>
+							<option value="<c:out value="${item.oyctSeq}"/>"
+								<c:if test="${item.oyctSeq eq vo.oyctSeq}">selected</c:if>><c:out
+									value="${item.oyctName}" /></option>
 
+						</c:forEach>
+					</select> <label for="formFile" class="form-label">브랜드</label> <select
+						class="form-select" id="oycdBrandCd" name="oycdBrandCd">
+						<option value="" selected>::브랜드::</option>
+						<c:forEach items="${codeBrand}" var="itemBrand"
+							varStatus="statusBrand">
+
+							<option value="<c:out value="${itemBrand.oycdSeq}"/>"
+								<c:if test="${item.oycdBrandCd eq itemBrand.oycdSeq }">selected</c:if>><c:out
+									value="${itemBrand.oycdName}" /></option>
+
+						</c:forEach>
+					</select>
 
 
 
 					<hr>
 					<label for="formFile" class="form-label">상품 상세</label>
 						<label for="formFile" class="form-label">상품명</label>
-						<input type="text" class="form-control" id="oypdName" name="oypdName" placeholder="상품명"><br>
+						<input type="text" class="form-control" id="oypdName" name="oypdName" value="<c:out value="${item.oypdName}"/>"><br>
 						<label for="formFile" class="form-label">판매가</label>
-						<input type="text" class="form-control" id="oypdPrice" name="oypdPrice" placeholder="판매가"><br>
+						<input type="text" class="form-control" id="oypdPrice" name="oypdPrice" value="<c:out value="${item.oypdPrice}"/>"><br>
 						<label for="formFile" class="form-label">행사가</label>
-						<input type="text" class="form-control" id="oyspSalePrice" name="oyspSalePrice" placeholder="행사가"><br>
+						<input type="text" class="form-control" id="oyspSalePrice" name="oyspSalePrice" value="<c:out value="${item.oyspSalePrice}"/>"><br>
 						<label for="formFile" class="form-label">행사시작일</label>
-						<input type="text" class="form-control" id="oyspSalePeriodStart" name="oyspSalePeriodStart" placeholder="행사시작일"><br>
+						<input type="text" class="form-control" id="oyspSalePeriodStart" name="oyspSalePeriodStart" value="<c:out value="${item.oyspSalePeriodStart}"/>"><br>
 						<label for="formFile" class="form-label">행사종료일</label>
-						<input type="text" class="form-control" id="oyspSalePeriodEnd" name="oyspSalePeriodEnd" placeholder="행사종료일"><br>
+						<input type="text" class="form-control" id="oyspSalePeriodEnd" name="oyspSalePeriodEnd" value="<c:out value="${item.oyspSalePeriodEnd}"/>"><br>
 					<hr>
 					<label for="formFile" class="form-label">행사 분류</label>
 					<div class="input-group">
@@ -479,40 +488,40 @@ main {
 					<hr>
 					<label for="formFile" class="form-label">상품 정보</label>
 					<label for="formFile" class="form-label">용량 또는 중량</label>
-					<input type="text" class="form-control" id="oypdVolumeWeight" name="oypdVolumeWeight" 	placeholder="용량 또는 중량"><br>
+					<input type="text" class="form-control" id="oypdVolumeWeight" name="oypdVolumeWeight" value="<c:out value="${item.oypdVolumeWeight}"/>"><br>
 					<label for="formFile" class="form-label">제품 주요 사양</label>
-					<input type="text" class="form-control" id="oypdIdeal" name="oypdIdeal" placeholder="제품 주요 사양"><br>
+					<input type="text" class="form-control" id="oypdIdeal" name="oypdIdeal" value="<c:out value="${item.oypdIdeal}"/>"><br>
 					<label for="formFile" class="form-label">사용기간(개봉 후 사용기간)</label>
-					<input type="text" class="form-control" id="oypdExpiraionDate" name="oypdExpiraionDate" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" placeholder="사용방법"><br>
+					<input type="text" class="form-control" id="oypdExpirationDate" name="oypdExpirationDate" value="<c:out value="${item.oypdExpirationDate}"/>"><br>
 					<label for="formFile" class="form-label">사용방법</label>
-					<input type="text" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" placeholder="사용방법"><br> 
+					<input type="text" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" value="<c:out value="${item.oypdHowtoUse}"/>"><br> 
 					<label for="formFile" class="form-label">화장품제조업자</label>
-					<input type="text" class="form-control" id="oypdManufacturerCd" name="oypdManufacturerCd" placeholder="화장품제조업자"><br>
+					<input type="text" class="form-control" id="oypdManufacturerCd" name="oypdManufacturerCd" value="<c:out value="${item.oypdManufacturerCd}"/>"><br>
 					<label for="formFile" class="form-label"> 화장품책임판매업자</label>
-					<input type="text" class="form-control" id="oypdDistributorCd" name="oypdDistributorCd" placeholder="화장품책임판매업자"><br>
+					<input type="text" class="form-control" id="oypdDistributorCd" name="oypdDistributorCd" value="<c:out value="${item.oypdDistributorCd}"/>"><br>
 					<label for="formFile" class="form-label">제조국</label>
-					<input type="text" class="form-control" id="oypdCountryCd" name="oypdCountryCd" placeholder="제조국"><br>
+					<input type="text" class="form-control" id="oypdCountryCd" name="oypdCountryCd" value="<c:out value="${item.oypdCountryCd}"/>"><br>
 					<label for="formFile" class="form-label">화장품법에 따라 기재해야 하는 모든 성분</label>
-					<input type="text" class="form-control" id="oypdIngredients" name="oypdIngredients" placeholder="모든 성분"><br>
+					<input type="text" class="form-control" id="oypdIngredients" name="oypdIngredients" value="<c:out value="${item.oypdIngredients}"/>"><br>
 					<label for="formFile" class="form-label">기능성 화장품 식품의약품안전처 심사필 여부</label>
-					<select class="form-select" id="oypdFunctionalCosmetics" name="oypdFunctionalCosmetics">
+					<select class="form-select" id="oypdFunctionalNy" name="oypdFunctionalNy">
 								<option value="" selected>::심사필 여부::</option>
 								<c:forEach items="${list}" var="item" varStatus="status">
-									<option value="<c:out value="${item.oypdFunctionalCosmetics eq 1}"/>" <c:if test="${item.oypdFunctionalCosmetics eq 1}">selected</c:if>>Y</option>
-									<option value="<c:out value="${item.oypdFunctionalCosmetics eq 0}"/>" <c:if test="${item.oypdFunctionalCosmetics eq 0}">selected</c:if>>N</option>
+									<option value="<c:out value="${item.oypdFunctionalNy eq 1}"/>" <c:if test="${item.oypdFunctionalNy eq 1}">selected</c:if>>Y</option>
+									<option value="<c:out value="${item.oypdFunctionalNy eq 0}"/>" <c:if test="${item.oypdFunctionalNy eq 0}">selected</c:if>>N</option>
 								
 								</c:forEach>
 							</select>
 					<label for="formFile" class="form-label">사용시 주의사항</label>
-					<input type="text" class="form-control" id="oypdCautions" name="oypdCautions" placeholder="주의사항"><br>
+					<input type="text" class="form-control" id="oypdCautions" name="oypdCautions" value="<c:out value="${item.oypdCautions}"/>"><br>
 					<label for="formFile" class="form-label">품질보증기준</label>
-					<input type="text" class="form-control" id="oypdQaStandard" name="oypdQaStandard" placeholder="품질보증기준"><br>
+					<input type="text" class="form-control" id="oypdQaStandard" name="oypdQaStandard" value="<c:out value="${item.oypdQaStandard}"/>"><br>
 					<label for="formFile" class="form-label">소비자상담 전화번호</label>
-					<input type="text" class="form-control" id="oypdCustomerService" name="oypdCustomerService" placeholder="소비자상담 전화번호"><br>
+					<input type="text" class="form-control" id="oypdCustomerService" name="oypdCustomerService" value="<c:out value="${item.oypdCustomerService}"/>"><br>
 					<br>
 					<hr>
-					<br> <a href="javaScript:goReg();"><button type="button"
-							class="btn btn-success btn-lg">상품등록</button></a>
+					<br> <a href="javaScript:goUpdt();"><button type="button"
+							class="btn btn-success btn-lg">상품수정</button></a>
 				</div>
 
 			</div>
@@ -856,9 +865,9 @@ main {
 			}
 		}
 		
-		goReg = function() {
-			$("#allLiveReg").attr("action", "/allLive/allLiveInst");
-			$("#allLiveReg").submit();
+		goUpdt = function() {
+			$("#allLiveView").attr("action", "/allLive/allLiveUpdt");
+			$("#allLiveView").submit();
 		}
 
 	</script>
