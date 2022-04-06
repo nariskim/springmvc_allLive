@@ -24,11 +24,6 @@ public class AllLiveDao {
 		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
 
-	// selectList
-	public List<AllLive> selectList(AllLiveVo vo) {
-		return sqlSession.selectList(namespace + ".selectList", vo);
-	}
-
 	public List<AllLive> selectListPd(AllLiveVo vo) {
 		return sqlSession.selectList(namespace + ".selectListPd", vo);
 	}
@@ -41,9 +36,12 @@ public class AllLiveDao {
 		return sqlSession.insert(namespace + ".insertSalePd", dto);
 	}
 
-	public List<AllLive> selectListForCache() {
-		List<AllLive> list = sqlSession.selectList(namespace + ".selectListForCache", "");
-		return list;
+	public int updatePd(AllLive dto) {
+		return sqlSession.update(namespace + ".updatePd", dto);
+	}
+
+	public int updateSalePd(AllLive dto) {
+		return sqlSession.update(namespace + ".updateSalePd", dto);
 	}
 
 }

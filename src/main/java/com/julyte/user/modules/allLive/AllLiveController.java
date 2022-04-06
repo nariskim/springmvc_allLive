@@ -102,21 +102,11 @@ public class AllLiveController {
 	@RequestMapping(value = "/allLive/allLiveReg")
 	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 
-		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
-		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
-		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
-		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("103"));
-		List<AllLive> list = service.selectList(vo);
-		model.addAttribute("list", list);
-
 		return "allLive/allLiveReg";
 	}
 
 	@RequestMapping(value = "/allLive/Map")
 	public String allLiveReg2(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
-
-		List<AllLive> list = service.selectList(vo);
-		model.addAttribute("list", list);
 
 		return "allLive/Map";
 	}
@@ -138,13 +128,25 @@ public class AllLiveController {
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
-		List<AllLive> list = service.selectList(vo);
+		List<AllLive> list = service.selectListPd(vo);
 		model.addAttribute("list", list);
 
-		model.addAttribute("codeBrand", AllLiveServiceImpl.selectListCachedCode("16"));
-		model.addAttribute("codeManufacturer", AllLiveServiceImpl.selectListCachedCode("101"));
-		model.addAttribute("codeDistributor", AllLiveServiceImpl.selectListCachedCode("102"));
-		model.addAttribute("codeCountry", AllLiveServiceImpl.selectListCachedCode("103"));
 		return "allLive/allLiveView";
+	}
+
+	@RequestMapping(value = "/allLive/allLiveUpdt")
+	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model,
+			RedirectAttributes redirectAttributes) throws Exception {
+
+		service.update(dto);
+
+		List<AllLive> list = service.selectListPd(vo);
+		model.addAttribute("list", list);
+
+		vo.setOypdSeq(dto.getOypdSeq());
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/allLive/allLiveView";
 	}
 }

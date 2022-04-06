@@ -2,58 +2,45 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <mapper namespace="com.julyte.user.modules.allLive.AllLiveMpp">
 
-	<resultMap id="resultMapObj" type="com.julyte.user.modules.allLive.AllLive"></resultMap>
+	<resultMap id="resultMapObj"
+		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
 
 
-	<select id="selectListPd" resultMap="resultMapObj">
-
+<select id="selectListPd" resultMap="resultMapObj">
 		SELECT
 		a.oypdSeq
-        , a.oypdCate
+		, a.oypdCate
 		, a.oypdBrand
 		, a.oypdName
 		, a.oypdPrice
-        , a.oypdDelNy
-        , b.oyspSeq
-        , b.oyspSaleNy
-        , b.oyspCouponNy
-        , b.oyspFreeGiftNy
-		, b.oyspTodayshipNy
-		, b.oyspFreeShippingNy
-		, b. oyspOneBuyGetOneFreeNy
-		, b.oyspTwoBuyGetOneFreeNy
+		, a.oypdDelNy
+		, b.oyspSeq
 		, b.oyspSalePrice
-        , b.oyspDelNy
-        , b.oyspExclusiveNy
-        , b.oyspTypeCd
-
+		, b.oyspDelNy
+		, b.oyspTypeCd
 
 		FROM oyProduct a
-        LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
-
+		LEFT JOIN
+		oySaleProduct b on b.oypdSeq = a.oypdSeq
 		WHERE 1=1
 		AND oypdDelNy = 0
-		
+
 	</select>
-	
-		
+
+
 	<select id="selectOneLogin" resultMap="resultMapObj">
 		SELECT
 		oymbSeq
 		, oymbId
-		,
-		oymbPassword
+		, oymbPassword
 		, oymbDesc
 		, oymbName
 		FROM oyMember
 		WHERE 1=1
-		AND
-		oymbId=#{oymbId}
-		AND
-		oymbPassword=#{oymbPassword}
+		AND oymbId=#{oymbId}
+		AND oymbPassword=#{oymbPassword}
 
 
 
@@ -102,17 +89,18 @@
 		, now()
 		, now()
 		)
+		
 		<selectKey resultType="String" keyProperty="oypdSeq"
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
+	
 	</insert>
 
 	<insert id="insertSalePd">
 
 		INSERT INTO oySaleProduct (
-		oypdSeq
-		, oyspSaleNy
+		oyspSaleNy
 		, oyspCouponNy
 		, oyspFreeGiftNy
 		, oyspTodayshipNy
@@ -126,8 +114,7 @@
 		, regDateTime
 		, modDateTime
 		) values (
-		#{oypdSeq}
-		, #{oyspSaleNy}
+		#{oyspSaleNy}
 		, #{oyspCouponNy}
 		, #{oyspFreeGiftNy}
 		, #{oyspTodayshipNy}
@@ -148,65 +135,76 @@
 
 	</insert>
 
-	<select id="selectListForCache" resultMap="resultMapObj">
+
+
+
+
+
+	<select id="selectOne" resultMap="resultMapObj">
+
+
+
 		SELECT
-		oycdSeq
-		, oycdName
-		, oycgSeq
-		FROM
-		oyCode
+		a.oypdSeq
+		, a.oypdCate
+		, a.oypdBrand
+		, a.oypdName
+		, a.oypdPrice
+		, a.oypdDelNy
+		, b.oyspSeq
+		, b.oyspSalePrice
+		, b.oyspDelNy
+		, b.oyspTypeCd
+		
+		FROM oyProduct a
+		LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
 		WHERE 1=1
-		AND oycdDelNy = 0
-		AND oycdUseNy = 1
+		AND oypdDelNy = 0
+		AND a.oypdSeq = #{oypdSeq}
 	</select>
 
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-		oyctSeq
-		, oyctName
-		, oyctParents
-		, oyctDepth
-		, oyctOrder
-		FROM
-		oyCate
+	<update id="updatePd">
+
+		UPDATE
+		oyProduct
+		SET
+		oypdCate = #{oypdCate}
+		, oypdBrandCd = #{oypdBrandCd}
+		, oypdName = #{oypdName}
+		, oypdPrice = #{oypdPrice}
+		, oypdCountryCd = #{oypdCountryCd}
+		, oypdDistributorCd = #{oypdDistributorCd}
+		, oypdManufacturerCd = #{oypdManufacturerCd}
+		, oypdVolumeWeight = #{oypdVolumeWeight}
+		, oypdIdeal = #{oypdIdeal}
+		, oypdExpirationDate = #{oypdExpirationDate}
+		, oypdHowtoUse = #{oypdHowtoUse}
+		, oypdIngredients = #{oypdIngredients}
+		, oypdFunctionalNy = #{oypdFunctionalNy}
+		, oypdCautions = #{oypdCautions}
+		, oypdCustomerService = #{oypdCustomerService}
+		, oypdQaStandard = #{oypdQaStandard}
+		, oypdDistributorCd = #{oypdDistributorCd}
+
 		WHERE 1=1
-		AND oyctDelNy = 0
-		AND oyctUseNy = 1
-		AND oyctDepth = 3
-	</select>
-
-<select id="selectOne" resultMap="resultMapObj">
-SELECT 
-a.oypdSeq
-, a.oypdCate
-, a.oypdBrand
-, a.oypdBrandCd
-, a.oypdName
-, a.oyPdPrice
-, a.oypdCountryCd
-, a.oypdDistributorCd
-, a.oypdManufacturerCd
-, a.oypdVolumeWeight
-, a.oypdIdeal
-, a.oypdExpirationDate
-, a.oypdHowtoUse
-, a.oypdIngredients
-, a.oypdFunctionalNy
-, a.oypdCautions
-, a.oypdCustomerService
-, a.oypdQaStandard
-, b.oyspSeq
-, b.oyspSalePrice
-FROM oyProduct a
-LEFT JOIN oySaleProduct b on a.oypdSeq = b.oypdSeq
-
-WHERE 1=1
-AND a.oypdSeq = #{oypdSeq}
-</select>
+		AND oypdSeq = #{oypdSeq}
 
 
+	</update>
+
+	<update id="updateSalePd">
+
+		UPDATE
+		oySaleProduct
+		SET
+		oyspSaleNy = #{oyspSaleNy}
+		, oyspSalePrice = #{oyspSalePrice}
+
+		WHERE 1=1
+		AND oypdSeq = #{oypdSeq}
 
 
+	</update>
 
 
 </mapper>

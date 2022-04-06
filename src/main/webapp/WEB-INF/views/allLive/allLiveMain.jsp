@@ -6,6 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 <jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
 
 <!DOCTYPE HTML>
 <html lang="ko">
@@ -28,7 +29,6 @@
 	margin-right: 12%;
 }
 
-
 .container-main {
 	margin-top: 2%;
 	margin-bottom: 5%;
@@ -36,7 +36,7 @@
 	margin-right: 14%;
 }
 
-.container-footer{
+.container-footer {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	margin-left: 1%;
@@ -44,21 +44,20 @@
 }
 
 .nav-top {
-
 	width: 100%;
 	line-height: 44px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -.04em;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: -.04em;
 }
 
 .nav-item-top {
 	width: 10%;
 	text-align: center;
-	
 }
+
 .nav-link {
-    color: black;
+	color: black;
 }
 
 a {
@@ -71,25 +70,37 @@ a {
 	line-height: 14px;
 	color: #a9a9a9;
 	text-decoration: line-through;
-	text-aling: right;
+	text-align: right;
 }
 
 .priceR {
 	font-size: 20px;
 	color: #e02020;
 	font-weight: 500;
-	text-aling: right;
+	text-align: right;
 }
-.card-body{
-text-align: right;
-box-sizing: none;
-counter-reset : ;  
-    }
 
-dl>dt:before{
-    	counter-increment: dt;
-        content: counter(dt)'.';
-	}
+dl>dt:before {
+	counter-increment: dt;
+	content: counter(dt) '.';
+}
+
+.pdbrand {
+	height: 20px;
+	line-height: 20px;
+	color: #777777;
+	font-weight: 700;
+}
+
+.pdNameB {
+	height: 40px;
+	color: #000000;
+	font-size: 14px;
+	text-align: center;
+}
+
+.pdText {
+	text-align: center;
 }
 </style>
 
@@ -100,6 +111,8 @@ dl>dt:before{
 <body>
 
 <form id="allLiveMain" name="allLiveMain" method="post" action="/allLive/allLiveMain">
+	<input type="hidden" id="oypdSeq" name="oypdSeq">
+	
 	
 		<header>
 		<div class="container-header">	
@@ -224,9 +237,6 @@ dl>dt:before{
 
 </div>
 			
-<c:set var="cate1" value="${CateServiceImpl.selectListCachedCode('1')}"/>
-<c:set var="cate2" value="${CateServiceImpl.selectListCachedCode('2')}"/>
-<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
 
 			
 
@@ -347,16 +357,15 @@ dl>dt:before{
 										<img src="/resources/user/image/term.jpeg"
 											class="card-img-top" alt="...">
 										<div class="card-body">
-											<p class="card-text">
-					
-												<c:out value="${item.oypdName}"/><br>
+											
+												<div class="pdText"><div class="pdbrand"><c:out value="${item.oypdBrand}"/></div><br>
+												<div class="pdNameB"><c:out value="${item.oypdName}"/></div></div><br>
 												<div class="priceB">
 												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
 												<div class="priceR">
 												<fmt:formatNumber value="${item.oyspSalePrice}"/>
 												<span>원</span></div>
 											
-											</p>
 										</div>
 									</div><br>
 									

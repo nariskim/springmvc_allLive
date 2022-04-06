@@ -5,7 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -303,10 +304,13 @@ a {
 
 <body>
 
-	<form id="allLiveReg" name="allLiveReg" method="post"
-		action="/allLive/allLiveReg">
-<input type="hidden"
-			id="oypdSeq" name="oypdSeq" value="<c:out value="${item.oypdSeq}"/>">
+	<form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg">
+<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${item.oypdSeq}"/>">
+<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
+	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
+	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
+	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
+	<c:set var="codeCountry" value="${CodeServiceImpl.selectListCachedCode('103')}" />
 		<header>
 			<div class="container-header">
 				<div class="row">
@@ -418,9 +422,6 @@ a {
 
 			</div>
 
-
-
-
 		</header>
 
 
@@ -428,6 +429,7 @@ a {
 		<!-- <div class="row"></div> -->
 
 		<main>
+		<div class="container-main">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="#">홈</a></li>
@@ -461,20 +463,20 @@ a {
 					</select> <label for="formFile" class="form-label">카테고리</label> <select
 						class="form-select" id="oyctSeq" name="oyctSeq">
 						<option value="" selected>::카테고리::</option>
-						<c:forEach items="${list}" var="item" varStatus="status">
+						<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
 
-							<option value="<c:out value="${item.oyctSeq}"/>"><c:out
-									value="${item.oyctName}" /></option>
+							<option value="<c:out value="${itemCate3.oyctSeq}"/>" <c:if test="${item.oyctSeq eq itemCate3.oyctSeq }">selected</c:if>><c:out
+									value="${itemCate3.oyctName}" /></option>
 
 						</c:forEach>
 					</select> <label for="formFile" class="form-label">브랜드</label> <select
-						class="form-select" id="oycdBrandCd" name="oycdBrandCd">
+						class="form-select" id="oypdBrandCd" name="oypdBrandCd">
 						<option value="" selected>::브랜드::</option>
 						<c:forEach items="${codeBrand}" var="itemBrand"
 							varStatus="statusBrand">
 
 							<option value="<c:out value="${itemBrand.oycdSeq}"/>"
-								<c:if test="${item.oycdBrandCd eq itemBrand.oycdSeq }">selected</c:if>><c:out
+								<c:if test="${item.oypdBrandCd eq itemBrand.oycdSeq }">selected</c:if>><c:out
 									value="${itemBrand.oycdName}" /></option>
 
 						</c:forEach>
@@ -559,7 +561,7 @@ a {
 							varStatus="statusManufacturer">
 
 							<option value="<c:out value="${itemManufacturer.oycdSeq}"/>"
-								<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq }">selected</c:if>><c:out
+								<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq}">selected</c:if>><c:out
 									value="${itemManufacturer.oycdName}" /></option>
 
 						</c:forEach>
@@ -573,7 +575,7 @@ a {
 							varStatus="statusDistributor">
 
 							<option value="<c:out value="${itemDistributor.oycdSeq}"/>"
-								<c:if test="${item.oypdDistributorCd eq itemDistributor.oycdSeq }">selected</c:if>><c:out
+								<c:if test="${item.oypdDistributorCd eq itemDistributor.oycdSeq}">selected</c:if>><c:out
 									value="${itemDistributor.oycdName}" /></option>
 
 						</c:forEach>
@@ -584,7 +586,7 @@ a {
 							varStatus="statusCountry">
 
 							<option value="<c:out value="${itemCountry.oycdSeq}"/>"
-								<c:if test="${item.oypdCountryCd eq itemCountry.oycdSeq }">selected</c:if>><c:out
+								<c:if test="${item.oypdCountryCd eq itemCountry.oycdSeq}">selected</c:if>><c:out
 									value="${itemCountry.oycdName}" /></option>
 
 						</c:forEach>
@@ -614,7 +616,7 @@ a {
 				</div>
 
 			</div>
-	</form>
+	
 	<br>
 	<hr>
 	<br>
@@ -639,8 +641,7 @@ a {
 		</div>
 
 	</div>
-	<form id="allLiveReg" name="allLiveReg" method="post"
-		action="/allLive/allLiveReg">
+	
 		<hr>
 		<h2>이런 에센스 / 크림 상품은 어떠세요?</h2>
 		<div class="row">
@@ -681,7 +682,7 @@ a {
 				<p>29800원</p>
 			</div>
 		</div>
-		</div>
+		
 		<ul class="nav nav-tabs nav-tabs-p">
 			<li class="nav-item nav-item-p"><a class="nav-link active"
 				aria-current="page" href="#">상품설명</a></li>
@@ -695,6 +696,7 @@ a {
 				<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
 					class="form-control form-control-lg" id="formFileLg" type="file">
 			</div>
+		</div>
 		</div>
 		</main>
 

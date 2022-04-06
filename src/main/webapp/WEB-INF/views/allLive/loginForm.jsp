@@ -6,7 +6,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -43,7 +44,7 @@ a {
 <body>
 	<form id="loginForm" name="loginForm" method="post"
 		action="/allLive/loginForm">
-		<!--  -->
+		
 
 		<div class="position-absolute top-50 start-50 translate-middle">
 			<div style="text-align: center;">

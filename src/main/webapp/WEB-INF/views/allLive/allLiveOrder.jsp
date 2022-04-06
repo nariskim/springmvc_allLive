@@ -5,7 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -222,7 +223,7 @@ a {
 				<div class="col-3">배송지선택</div>
 				<div class="col-9">
 					<div class="row">
-						<div class="col-6 form-check">
+					<div class="col-6 form-check">
 							<input class="form-check-input" type="radio" name="" id=""
 								checked> <label class="form-check-label"
 								for="flexRadioDefault1"> 기본배송지 </label>
@@ -247,7 +248,7 @@ a {
 			<div class="col-9"></div>
 			<div class="col-3">받는분</div>
 			<div class="col-9 input-group">
-				<input type="text" class="form-control" id="" name="">
+				<input type="text" class="form-control" id="oymaTitle" name="oymaTitle" value="<c:out value="${item.oymaTitle}"/>">
 
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" value="" id=""
@@ -255,35 +256,43 @@ a {
 						for="defaultCheck1"> 주문자정보와 동일 </label>
 				</div>
 			</div>
+
+			
 			<div class="col-3">연락처1</div>
 			<div class="col-9 input-group">
-				<input type="text" class="form-control" id="" name="">-<input
-					type="text" class="form-control" id="" name="">-<input
-					type="text" class="form-control" id="" name="">
+				<input type="hidden" id="oympDefaultNyArray0" name="oympDefaultNyArray" value="1">
+	<select class="form-select" id="oympTelecomCdArray0" name="oympTelecomCdArray">
+		<option selected>::통신사::</option>
+		<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
+<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
+<c:if test="${oympTelecom1 eq itemTelecom.oycdSeq }">selected</c:if>>
+<c:out value="${itemTelecom.oycdName}" /></option>
+</c:forEach></select>
+<input type="text" class="form-control" id="oympNumberArray0" name="oympNumberArray" value="<c:out value="${oympNumber1}"/>" placeholder="'-'제외">
 			</div>
 
 
 			<div class="col-3">연락처2</div>
 			<div class="col-9 input-group">
-				<input type="text" class="form-control" id="" name="">-<input
-					type="text" class="form-control" id="" name="">-<input
-					type="text" class="form-control" id="" name="">
-
+				<input type="hidden" id="oympDefaultNyArray1" name="oympDefaultNyArray" value="0">
+	<select class="form-select" id="oympTelecomCdArray1" name="oympTelecomCdArray">
+		<option selected>::통신사::</option>
+		<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
+<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
+<c:if test="${oympTelecom0 eq itemTelecom.oycdSeq }">selected</c:if>>
+<c:out value="${itemTelecom.oycdName}" /></option>
+</c:forEach></select>
+<input type="text" class="form-control" id="oympNumberArray1" name="oympNumberArray" value="<c:out value="${oympNumber0}"/>" placeholder="'-'제외">
 
 			</div>
 			<div class="col-3">주소</div>
 			<div class="input-group col-9">
 				<div class=input-group>
-					<input type="text" class="form-control" id="oymaZipCode"
-						name="oymaZipCode" placeholder="우편번호"> <input
-						type="button" class="btn btn-outline-dark"
-						onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-				</div>
-				<input type="text" class="form-control" id="oymaAddress1"
-					name="oymaAddress1" placeholder="주소"> <input type="text"
-					class="form-control" id="oymaAddress2" name="oymaAddress2"
-					placeholder="상세주소"> <input type="text" class="form-control"
-					id="oymaAddress3" name="oymaAddress3" placeholder="참고항목">
+			<input type="text" class="form-control" id="oymaZipCode" name="oymaZipCode" placeholder="우편번호" value="<c:out value="${item.oymaZipCode}"/>">
+			<input type="button" class="btn btn-outline-dark" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></div>
+			<input type="text" class="form-control" id="oymaAddress1" name="oymaAddress1" placeholder="주소" value="<c:out value="${item.oymaAddress1}"/>">
+			<input type="text" class="form-control" id="oymaAddress2" name="oymaAddress2" placeholder="상세주소" value="<c:out value="${item.oymaAddress2}"/>">
+			<input type="text" class="form-control" id="oymaAddress3" name="oymaAddress3" placeholder="참고항목" value="<c:out value="${item.oymaAddress3}"/>">
 			</div>
 			<br>
 			<div class="row">
@@ -318,14 +327,18 @@ a {
 								height="100px">
 						</div>
 						<div class="col-8">
-							바이오힐보<br> 바이오힐보 프로바이오덤 리프팅 크림X마 사저 기획(크림+마사저)(2202)
+							<div class="pdText"><div class="pdbrand"><c:out value="${item.oypdBrand}"/></div><br>
+												<div class="pdNameB"><c:out value="${item.oypdName}"/></div></div><br>
+											
 						</div>
 					</div>
 				</div>
-				<div class="col-1">51,200원</div>
+				<div class="col-1"><fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
 				<div class="col-1">1</div>
 				<div class="col-1">
-					<del>51,200원</del><br> 31,900원
+					<div class="priceB">
+												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div><br><fmt:formatNumber value="${item.oyspSalePrice}"/>
+												<span>원</span>
 				</div>
 			</div>
 			<div class="row">
@@ -570,7 +583,7 @@ a {
 						</div>
 					</div>
 			</div>
-				</div>
+				</div></div>
 		</main>
 
 

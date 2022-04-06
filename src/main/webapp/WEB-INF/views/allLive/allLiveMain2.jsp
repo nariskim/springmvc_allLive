@@ -5,7 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -27,7 +28,6 @@
 	margin-right: 12%;
 }
 
-
 .container-main {
 	margin-top: 2%;
 	margin-bottom: 5%;
@@ -35,7 +35,7 @@
 	margin-right: 14%;
 }
 
-.container-footer{
+.container-footer {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	margin-left: 1%;
@@ -43,21 +43,20 @@
 }
 
 .nav-top {
-
 	width: 100%;
 	line-height: 44px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -.04em;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: -.04em;
 }
 
 .nav-item-top {
 	width: 10%;
 	text-align: center;
-	
 }
+
 .nav-link {
-    color: black;
+	color: black;
 }
 
 a {
@@ -70,12 +69,37 @@ a {
 	line-height: 14px;
 	color: #a9a9a9;
 	text-decoration: line-through;
+	text-align: right;
 }
 
 .priceR {
 	font-size: 20px;
 	color: #e02020;
 	font-weight: 500;
+	text-align: right;
+}
+
+dl>dt:before {
+	counter-increment: dt;
+	content: counter(dt) '.';
+}
+
+.pdbrand {
+	height: 20px;
+	line-height: 20px;
+	color: #777777;
+	font-weight: 700;
+}
+
+.pdNameB {
+	height: 40px;
+	color: #000000;
+	font-size: 14px;
+	text-align: center;
+}
+
+.pdText {
+	text-align: center;
 }
 </style>
 
@@ -87,7 +111,7 @@ a {
 
 	<form id="allLiveMain2" name="allLiveMain2" method="post"
 		action="/allLive/allLiveMain2">
-
+<input type="hidden" id="oypdSeq" name="oypdSeq">
 		<header>
 		<div class="container-header">
 			<div class="row">
@@ -294,41 +318,39 @@ a {
 
 
 		<!-- <div class="row"></div> -->
-		<main>
-			
-
-			
-					
-		<div class="container-main">		
-<c:set var="cate1" value="${CateServiceImpl.selectListCachedCode('1')}"/>
-<c:set var="cate2" value="${CateServiceImpl.selectListCachedCode('2')}"/>
-<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
-
-			
-
-
-
-
+		<div class="container-main">
 					<br>
-										<div class="row mb-2">
+					<div class="row mb-2">
+						<div class="col-md-6">
+							<a href="#"><img src="/resources/user/image/todayShip.jpg"
+								class="img-fluid" alt="..."></a>
+						</div>
+						<div class="col-md-6">
+							<a href="#"><img src="/resources/user/image/topCoupon.jpg"
+								class="img-fluid" alt="..."></a>
+						</div>
+					</div>
+					<div class="row mb-2">
 					<div class="col-12"><br><h1>인기상품</h1><br></div>
 							<c:forEach items="${list}" var="item" varStatus="status">
 							<c:if test="${item.oyspTypeCd eq 1417 }">
-							<div class="col-3">
+							<div class="col-4">
 							
-								<a href="/allLive/allLiveDetail">
+								<a href="javascript:goView(<c:out value="${item.oypdSeq}"/>);">
 								
 									<div class="card" style="width: 18rem;">
 										<img src="/resources/user/image/term.jpeg"
 											class="card-img-top" alt="...">
 										<div class="card-body">
-											<p class="card-text">
-					
-												<c:out value="${item.oypdName}"/><br>
-												<div class="priceB"><c:out value="${item.oypdPrice}"/><span>원</span></div>
-												<div class="priceR"><c:out value="${item.oyspSalePrice}"/><span>원</span></div>
 											
-											</p>
+												<div class="pdText"><div class="pdbrand"><c:out value="${item.oypdBrand}"/></div><br>
+												<div class="pdNameB"><c:out value="${item.oypdName}"/></div></div><br>
+												<div class="priceB">
+												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
+												<div class="priceR">
+												<fmt:formatNumber value="${item.oyspSalePrice}"/>
+												<span>원</span></div>
+											
 										</div>
 									</div><br>
 									
@@ -340,9 +362,13 @@ a {
 								
 				
 							
-		</div>			</div>
+		</div>	
+		
+		
+		
+				
+		</div>
 		</main>
-
 		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -367,6 +393,12 @@ a {
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<script type="text/javascript">
+	goView = function(seq) {
+		$("#oypdSeq").val(seq);
+		$("#allLiveMain2").attr("action", "/allLive/allLiveView");
+		$("#allLiveMain2").submit();
+	}
+	
 		goLogout = function() {
 			/* 	if(validation()==false) return false; */
 			$.ajax({
