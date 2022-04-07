@@ -304,9 +304,10 @@ a {
 
 <body>
 
-	<form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg">
+<!-- <form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg"> -->	
+	<form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg" enctype="multipart/form-data" >
 <input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${item.oypdSeq}"/>">
-<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
+	 <c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
 	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
 	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
 	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
@@ -443,7 +444,8 @@ a {
 
 					<div>
 						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
-							class="form-control form-control-lg" id="formFileLg" type="file">
+							class="form-control form-control-lg" id="mainFile" name="file0" type="file">
+							<input class="form-control form-control-sm" id="subFile" name="file1" type="file">
 					</div>
 				</div>
 				<div class="col-6">
@@ -695,6 +697,7 @@ a {
 			<div>
 				<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
 					class="form-control form-control-lg" id="formFileLg" type="file">
+
 			</div>
 		</div>
 		</div>

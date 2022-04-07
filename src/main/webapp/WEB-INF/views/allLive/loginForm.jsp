@@ -104,8 +104,8 @@ a {
 					<div class="col-3"></div>
 					<div class="col-4">
 						<div class="input-group" style="text-align: right;">
-							<a href="javascript:kakaoLogin();"><img src="/resources/common/xdmin/image/kako.png"></a>
-							<a href=""><img src="/resources/common/xdmin/image/aple.png"></a>
+							<a href="javascript:kakaoLogin();"><img src="/resources/user/image/kako.png"></a>
+							<a href=""><img src="/resources/user/image/aple.png"></a>
 						</div>
 					</div>
 				</div>
@@ -145,7 +145,7 @@ a {
 
         function kakaoLogin() {
             window.Kakao.Auth.login({
-                scope: 'profile, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+            	scope:'profile_image, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
                 success: function(response) {
                     console.log(response) // 로그인 성공하면 받아오는 데이터
                     window.Kakao.API.request({ // 사용자 정보 가져오기 
@@ -159,7 +159,8 @@ a {
                 },
                 fail: function(error) {
                     console.log(error);
-                }
+                },
+                redirectUri: 'http://localhost:8080/allLive/allLiveMain'
             });
         }
 

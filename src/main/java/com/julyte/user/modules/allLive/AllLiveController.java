@@ -1,5 +1,6 @@
 package com.julyte.user.modules.allLive;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.julyte.user.common.constants.Constants;
@@ -102,6 +104,8 @@ public class AllLiveController {
 	@RequestMapping(value = "/allLive/allLiveReg")
 	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 
+		
+		
 		return "allLive/allLiveReg";
 	}
 
@@ -115,6 +119,8 @@ public class AllLiveController {
 	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo, RedirectAttributes redirectAttributes)
 			throws Exception {
 
+		MultipartFile multipartFile = dto.getFile0();
+		multipartFile.transferTo(new File("C:/factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/" + multipartFile.getOriginalFilename()));
 		service.insert(dto);
 
 		vo.setOypdSeq(dto.getOypdSeq());
