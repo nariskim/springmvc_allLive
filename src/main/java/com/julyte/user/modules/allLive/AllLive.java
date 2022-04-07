@@ -6,6 +6,9 @@ import java.util.List;
 
 public class AllLive {
 
+	private Double stlcIat;
+	private Double stlcIng;
+
 // oyCate
 
 	private String oyctSeq;
@@ -142,6 +145,22 @@ public class AllLive {
 
 //	codeGroup code 저장
 	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
+
+	public Double getStlcIat() {
+		return stlcIat;
+	}
+
+	public Double getStlcIng() {
+		return stlcIng;
+	}
+
+	public void setStlcIat(Double stlcIat) {
+		this.stlcIat = stlcIat;
+	}
+
+	public void setStlcIng(Double stlcIng) {
+		this.stlcIng = stlcIng;
+	}
 
 	public String getOyctSeq() {
 		return oyctSeq;
