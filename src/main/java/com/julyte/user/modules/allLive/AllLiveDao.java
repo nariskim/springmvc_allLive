@@ -44,4 +44,8 @@ public class AllLiveDao {
 		return sqlSession.update(namespace + ".updateSalePd", dto);
 	}
 
+	public List<AllLive> selectListCate(AllLiveVo vo) {
+		return sqlSession.selectList(namespace + ".selectListCate", vo);
+	}
+
 }

@@ -13,4 +13,6 @@ public interface AllLiveService {
 	public AllLive selectOne(AllLiveVo vo) throws Exception;
 
 	public int update(AllLive dto) throws Exception;
+
+	public List<AllLive> selectListCate(AllLiveVo vo) throws Exception;
 }

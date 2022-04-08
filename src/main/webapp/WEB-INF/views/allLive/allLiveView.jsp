@@ -257,13 +257,9 @@ main {
 
 <body>
 
-<form id="allLiveView" name="allLiveView" method="post" action="/allLive/allLiveView">
+<form id="allLiveView" name="allLiveView" method="post" action="/allLive/allLiveView" enctype="multipart/form-data">
 	<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${vo.oypdSeq}"/>">
-<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
-	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
-	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
-	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
-	<c:set var="codeCountry" value="${CodeServiceImpl.selectListCachedCode('103')}" />
+
 		<header>
 
 			<div class="row">
@@ -389,8 +385,13 @@ main {
 				<div class="col-6">
 
 					<div>
-						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
-							class="form-control form-control-lg" id="formFileLg" type="file">
+						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label>
+							<a href="/resources/uploaded/<c:out value="${item.uuidFilePd}"/>"/>
+							
+							<img src="/resources/uploaded/<c:out value="${item.uuidFilePd}"/>"/>
+							
+							</a><br> 
+						<input class="form-control form-control-lg" id="formFileLg" type="file">
 					</div>
 				</div>
 				<div class="col-6">
@@ -408,7 +409,9 @@ main {
 									<option value="1" <c:if test="${item.oyspExclusiveNy eq 1}">selected</c:if>>Y</option>
 									<option value="0" <c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
 								
-							</select> <label for="formFile" class="form-label">카테고리</label>
+							</select>
+							
+							 <label for="formFile" class="form-label">카테고리</label>
 					<select class="form-select" id="oypdCate" name="oypdCate">
 						<option value="" selected>::카테고리::</option>
 							<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
@@ -417,7 +420,14 @@ main {
 									value="${itemCate3.oyctName}" /></option>
 
 						</c:forEach>
-					</select> <label for="formFile" class="form-label">브랜드</label> <select
+					</select> 
+		
+ 	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
+	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
+	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
+	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('103')}" />
+					
+					<label for="formFile" class="form-label">브랜드</label> <select
 						class="form-select" id="oypdBrandCd" name="oypdBrandCd">
 						<option value="" selected>::브랜드::</option>
 						<c:forEach items="${codeBrand}" var="itemBrand"

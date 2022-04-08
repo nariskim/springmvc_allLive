@@ -65,6 +65,8 @@
 		, oypdCautions
 		, oypdQaStandard
 		, oypdCustomerService
+		, originalFilePd
+		, uuidFilePd
 		, oypdDelNy
 		, regDateTime
 		, modDateTime
@@ -85,6 +87,8 @@
 		, #{oypdCautions}
 		, #{oypdQaStandard}
 		, #{oypdCustomerService}
+		, #{originalFilePd}
+		, #{uuidFilePd}
 		, 0
 		, now()
 		, now()
@@ -101,29 +105,19 @@
 
 		INSERT INTO oySaleProduct (
 		oyspSaleNy
-		, oyspCouponNy
-		, oyspFreeGiftNy
-		, oyspTodayshipNy
-		, oyspFreeShippingNy
 		, oyspExclusiveNy
 		, oyspSalePrice
+		, oypdSeq
 		<!-- , oyspSalePeriodStart , oyspSalePeriodEnd -->
-		, oyspOneBuyGetOneFreeNy
-		, oyspTwoBuyGetOneFreeNy
 		, oyspDelNy
 		, regDateTime
 		, modDateTime
 		) values (
 		#{oyspSaleNy}
-		, #{oyspCouponNy}
-		, #{oyspFreeGiftNy}
-		, #{oyspTodayshipNy}
-		, #{oyspFreeShippingNy}
 		, #{oyspExclusiveNy}
 		, #{oyspSalePrice}
+		, #{oypdSeq}
 		<!-- , #{oyspSalePeriodStart} , #{oyspSalePeriodEnd} -->
-		, #{oyspOneBuyGetOneFreeNy}
-		, #{oyspTwoBuyGetOneFreeNy}
 		, 0
 		, now()
 		, now()
@@ -150,6 +144,8 @@
 		, a.oypdBrand
 		, a.oypdName
 		, a.oypdPrice
+		, a.originalFilePd
+		, a.uuidFilePd
 		, a.oypdDelNy
 		, b.oyspSeq
 		, b.oyspSalePrice
@@ -205,6 +201,19 @@
 
 
 	</update>
-
+	
+	<select id="selectListCate" resultMap="resultMapObj">
+		SELECT
+		oyctSeq
+		, oyctName
+		, oyctParents
+		, oyctDepth
+		, oyctOrder
+		, oyctDelNy
+		FROM
+		oyCate
+		WHERE 1=1
+		AND oyctDelNy = 0
+	</select>
 
 </mapper>

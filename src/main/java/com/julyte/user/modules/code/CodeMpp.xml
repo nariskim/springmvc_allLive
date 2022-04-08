@@ -11,8 +11,7 @@
 	<select id="selectListForCache" resultMap="resultMapObj">
 		SELECT
 		oycdSeq
-		,
-		oycdName
+		, oycdName
 		, oycgSeq
 		FROM
 		oyCode

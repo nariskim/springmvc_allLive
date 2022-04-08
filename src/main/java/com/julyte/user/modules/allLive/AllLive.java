@@ -8,8 +8,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class AllLive {
 
-	private MultipartFile file0;
+	private MultipartFile file;
 	private MultipartFile file1;
+
+	private String originalFilePd;
+	private String uuidFilePd;
 
 	private Double stlcIat;
 	private Double stlcIng;
@@ -151,20 +154,28 @@ public class AllLive {
 //	codeGroup code 저장
 	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
 
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public MultipartFile getFile1() {
+		return file1;
+	}
+
+	public String getOriginalFilePd() {
+		return originalFilePd;
+	}
+
+	public String getUuidFilePd() { 
+		return uuidFilePd;
+	}
+
 	public Double getStlcIat() {
 		return stlcIat;
 	}
 
 	public Double getStlcIng() {
 		return stlcIng;
-	}
-
-	public void setStlcIat(Double stlcIat) {
-		this.stlcIat = stlcIat;
-	}
-
-	public void setStlcIng(Double stlcIng) {
-		this.stlcIng = stlcIng;
 	}
 
 	public String getOyctSeq() {
@@ -559,6 +570,30 @@ public class AllLive {
 		return oymeDelNy;
 	}
 
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}
+
+	public void setOriginalFilePd(String originalFilePd) {
+		this.originalFilePd = originalFilePd;
+	}
+
+	public void setUuidFilePd(String uuidFilePd) {
+		this.uuidFilePd = uuidFilePd;
+	}
+
+	public void setStlcIat(Double stlcIat) {
+		this.stlcIat = stlcIat;
+	}
+
+	public void setStlcIng(Double stlcIng) {
+		this.stlcIng = stlcIng;
+	}
+
 	public void setOyctSeq(String oyctSeq) {
 		this.oyctSeq = oyctSeq;
 	}
@@ -949,22 +984,6 @@ public class AllLive {
 
 	public void setOymeDelNy(Integer oymeDelNy) {
 		this.oymeDelNy = oymeDelNy;
-	}
-
-	public MultipartFile getFile0() {
-		return file0;
-	}
-
-	public MultipartFile getFile1() {
-		return file1;
-	}
-
-	public void setFile0(MultipartFile file0) {
-		this.file0 = file0;
-	}
-
-	public void setFile1(MultipartFile file1) {
-		this.file1 = file1;
 	}
 
 }

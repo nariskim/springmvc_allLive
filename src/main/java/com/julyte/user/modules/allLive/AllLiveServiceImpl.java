@@ -42,4 +42,9 @@ public class AllLiveServiceImpl implements AllLiveService {
 		return 2;
 	}
 
+	@Override
+	public List<AllLive> selectListCate(AllLiveVo vo) throws Exception {
+		return dao.selectListCate(vo);
+	}
+
 }

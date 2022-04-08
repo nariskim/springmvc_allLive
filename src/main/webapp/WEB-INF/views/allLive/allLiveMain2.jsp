@@ -223,16 +223,6 @@ dl>dt:before {
 
 </div>
 			
-<c:set var="cate1" value="${CateServiceImpl.selectListCachedCode('1')}"/>
-<c:set var="cate2" value="${CateServiceImpl.selectListCachedCode('2')}"/>
-<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
-
-			
-
-
-		
-
-
 
 
 					<div id="carouselExampleIndicators" class="carousel slide"

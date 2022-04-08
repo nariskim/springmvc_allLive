@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -104,8 +105,6 @@ public class AllLiveController {
 	@RequestMapping(value = "/allLive/allLiveReg")
 	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 
-		
-		
 		return "allLive/allLiveReg";
 	}
 
@@ -119,8 +118,22 @@ public class AllLiveController {
 	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo, RedirectAttributes redirectAttributes)
 			throws Exception {
 
-		MultipartFile multipartFile = dto.getFile0();
-		multipartFile.transferTo(new File("C:/factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/" + multipartFile.getOriginalFilename()));
+		// MultipartFile multipartFile = dto.getFile0();
+		// multipartFile.transferTo(new
+		// File("C:/factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/"
+		// + multipartFile.getOriginalFilename()));
+
+		MultipartFile multipartFile = dto.getFile();
+		String fileName = multipartFile.getOriginalFilename();
+		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+		String uuid = UUID.randomUUID().toString();
+		String uuidFileName = uuid + "." + ext;
+
+		dto.setOriginalFilePd(fileName);
+		dto.setUuidFilePd(uuidFileName);
+		
+		multipartFile.transferTo(new File("C:/factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/" + uuidFileName));
+
 		service.insert(dto);
 
 		vo.setOypdSeq(dto.getOypdSeq());

@@ -307,7 +307,6 @@ a {
 <!-- <form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg"> -->	
 	<form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg" enctype="multipart/form-data" >
 <input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${item.oypdSeq}"/>">
-	 <c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}"/>
 	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
 	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
 	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
@@ -444,8 +443,8 @@ a {
 
 					<div>
 						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
-							class="form-control form-control-lg" id="mainFile" name="file0" type="file">
-							<input class="form-control form-control-sm" id="subFile" name="file1" type="file">
+							class="form-control form-control-lg" id="originalFilePd" name="file" type="file">
+							<input class="form-control form-control-sm" id="uuidFilePd" name="file1" type="file">
 					</div>
 				</div>
 				<div class="col-6">
@@ -462,15 +461,16 @@ a {
 						<option value="1">Y</option>
 						<option value="0">N</option>
 
-					</select> <label for="formFile" class="form-label">카테고리</label> <select
-						class="form-select" id="oyctSeq" name="oyctSeq">
+					</select> 
+					
+					
+					<label for="formFile" class="form-label">카테고리</label> <select
+						class="form-select" id="" name="">
 						<option value="" selected>::카테고리::</option>
-						<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
+						
+							<option value=""></option>
 
-							<option value="<c:out value="${itemCate3.oyctSeq}"/>" <c:if test="${item.oyctSeq eq itemCate3.oyctSeq }">selected</c:if>><c:out
-									value="${itemCate3.oyctName}" /></option>
-
-						</c:forEach>
+						
 					</select> <label for="formFile" class="form-label">브랜드</label> <select
 						class="form-select" id="oypdBrandCd" name="oypdBrandCd">
 						<option value="" selected>::브랜드::</option>
