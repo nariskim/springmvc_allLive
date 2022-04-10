@@ -1,10 +1,8 @@
 package com.julyte.user.modules.allLive;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.julyte.user.common.constants.Constants;
@@ -123,16 +120,20 @@ public class AllLiveController {
 		// File("C:/factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/"
 		// + multipartFile.getOriginalFilename()));
 
-		MultipartFile multipartFile = dto.getFile();
-		String fileName = multipartFile.getOriginalFilename();
-		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
-		String uuid = UUID.randomUUID().toString();
-		String uuidFileName = uuid + "." + ext;
+		/*
+		 * MultipartFile multipartFile = dto.getFile(); String fileName =
+		 * multipartFile.getOriginalFilename(); String ext =
+		 * fileName.substring(fileName.lastIndexOf(".") + 1); String uuid =
+		 * UUID.randomUUID().toString(); String uuidFileName = uuid + "." + ext;
+		 * 
+		 * dto.setOriginalFilePd(fileName); dto.setUuidFilePd(uuidFileName);
+		 * 
+		 * multipartFile.transferTo(new File(
+		 * "C:/factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/"
+		 * + uuidFileName));
+		 */
 
-		dto.setOriginalFilePd(fileName);
-		dto.setUuidFilePd(uuidFileName);
-		
-		multipartFile.transferTo(new File("C:/factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/" + uuidFileName));
+		dto.getSeq();
 
 		service.insert(dto);
 
@@ -142,13 +143,10 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveView")
-	public String allLiveView(@ModelAttribute("vo") AllLiveVo vo, Model model) throws Exception {
+	public String allLiveView(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
-
-		List<AllLive> list = service.selectListPd(vo);
-		model.addAttribute("list", list);
 
 		return "allLive/allLiveView";
 	}
@@ -158,9 +156,6 @@ public class AllLiveController {
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		service.update(dto);
-
-		List<AllLive> list = service.selectListPd(vo);
-		model.addAttribute("list", list);
 
 		vo.setOypdSeq(dto.getOypdSeq());
 

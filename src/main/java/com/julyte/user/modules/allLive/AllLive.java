@@ -1,22 +1,30 @@
 package com.julyte.user.modules.allLive;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
 import org.springframework.web.multipart.MultipartFile;
 
 public class AllLive {
 
-	private MultipartFile file;
-	private MultipartFile file1;
+	private String tableName;
+	private Integer type;
+	private String seq;
+	private Integer sort;
+	private Integer defaultNy;
+	private String originalName;
+	private String uuidName;
+	private String ext;
+	private long size;
+	private Integer delNy;
+	private String pseq;
 
-	private String originalFilePd;
-	private String uuidFilePd;
+	private MultipartFile[] file0;
+	private MultipartFile[] file1;
 
-	private Double stlcIat;
-	private Double stlcIng;
+	private String originalFileName;
+	private String uuidFileName;
 
+	private Double oymaLat;
+	private Double oymaLng;
 // oyCate
 
 	private String oyctSeq;
@@ -34,13 +42,13 @@ public class AllLive {
 	private Integer oypdBrandCd;
 	private String oypdName;
 	private String oypdPrice;
+	private Integer oypdCountryCd;
+	private Integer oypdDistributorCd;
+	private Integer oypdManufacturerCd;
 	private String oypdVolumeWeight;
 	private String oypdIdeal;
 	private String oypdExpirationDate;
 	private String oypdHowtoUse;
-	private Integer oypdManufacturerCd;
-	private Integer oypdDistributorCd;
-	private Integer oypdCountryCd;
 	private String oypdIngredients;
 	private Integer oypdFunctionalNy;
 	private String oypdCautions;
@@ -149,33 +157,74 @@ public class AllLive {
 	private String oymeEmailAccount;
 	private Integer oymeEmailDomainCd;
 	private Integer oymeDelNy;
+
 //	private String oymbSeq;
-
-//	codeGroup code 저장
-	public static List<AllLive> cachedCodeArrayList = new ArrayList<AllLive>();
-
-	public MultipartFile getFile() {
-		return file;
+	public String getTableName() {
+		return tableName;
 	}
 
-	public MultipartFile getFile1() {
+	public Integer getType() {
+		return type;
+	}
+
+	public String getSeq() {
+		return seq;
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+
+	public String getOriginalName() {
+		return originalName;
+	}
+
+	public String getUuidName() {
+		return uuidName;
+	}
+
+	public String getExt() {
+		return ext;
+	}
+
+	public long getSize() {
+		return size;
+	}
+
+	public Integer getDelNy() {
+		return delNy;
+	}
+
+	public String getPseq() {
+		return pseq;
+	}
+
+	public MultipartFile[] getFile0() {
+		return file0;
+	}
+
+	public MultipartFile[] getFile1() {
 		return file1;
 	}
 
-	public String getOriginalFilePd() {
-		return originalFilePd;
+	public String getOriginalFileName() {
+		return originalFileName;
 	}
 
-	public String getUuidFilePd() { 
-		return uuidFilePd;
+	public String getUuidFileName() {
+		return uuidFileName;
 	}
 
-	public Double getStlcIat() {
-		return stlcIat;
+	public Double getOymaLat() {
+		return oymaLat;
 	}
 
-	public Double getStlcIng() {
-		return stlcIng;
+	public Double getOymaLng() {
+		return oymaLng;
 	}
 
 	public String getOyctSeq() {
@@ -570,28 +619,72 @@ public class AllLive {
 		return oymeDelNy;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
 	}
 
-	public void setFile1(MultipartFile file1) {
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
+	}
+
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+
+	public void setSize(long size) {
+		this.size = size;
+	}
+
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+
+	public void setPseq(String pseq) {
+		this.pseq = pseq;
+	}
+
+	public void setFile0(MultipartFile[] file0) {
+		this.file0 = file0;
+	}
+
+	public void setFile1(MultipartFile[] file1) {
 		this.file1 = file1;
 	}
 
-	public void setOriginalFilePd(String originalFilePd) {
-		this.originalFilePd = originalFilePd;
+	public void setOriginalFileName(String originalFileName) {
+		this.originalFileName = originalFileName;
 	}
 
-	public void setUuidFilePd(String uuidFilePd) {
-		this.uuidFilePd = uuidFilePd;
+	public void setUuidFileName(String uuidFileName) {
+		this.uuidFileName = uuidFileName;
 	}
 
-	public void setStlcIat(Double stlcIat) {
-		this.stlcIat = stlcIat;
+	public void setOymaLat(Double oymaLat) {
+		this.oymaLat = oymaLat;
 	}
 
-	public void setStlcIng(Double stlcIng) {
-		this.stlcIng = stlcIng;
+	public void setOymaLng(Double oymaLng) {
+		this.oymaLng = oymaLng;
 	}
 
 	public void setOyctSeq(String oyctSeq) {

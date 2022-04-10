@@ -357,6 +357,8 @@ dl>dt:before {
 								<a href="javascript:goView(<c:out value="${item.oypdSeq}"/>);">
 								
 									<div class="card" style="width: 18rem;">
+									<img src="<c:out value="${item.uuidName}"/>"/>
+				<img src="<c:out value="${item.originalName}"/>"/>
 										<img src="/resources/user/image/term.jpeg"
 											class="card-img-top" alt="...">
 										<div class="card-body">

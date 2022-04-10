@@ -8,7 +8,7 @@
 		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
 
 
-<select id="selectListPd" resultMap="resultMapObj">
+	<select id="selectListPd" resultMap="resultMapObj">
 		SELECT
 		a.oypdSeq
 		, a.oypdCate
@@ -20,10 +20,13 @@
 		, b.oyspSalePrice
 		, b.oyspDelNy
 		, b.oyspTypeCd
-
+		, c.originalName
+		, c.uuidName
+		, c.delNy
+		
 		FROM oyProduct a
-		LEFT JOIN
-		oySaleProduct b on b.oypdSeq = a.oypdSeq
+		LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
+		LEFT JOIN oymbUploaded c on c.pseq = a.oypdSeq
 		WHERE 1=1
 		AND oypdDelNy = 0
 
@@ -39,7 +42,8 @@
 		, oymbName
 		FROM oyMember
 		WHERE 1=1
-		AND oymbId=#{oymbId}
+		AND
+		oymbId=#{oymbId}
 		AND oymbPassword=#{oymbPassword}
 
 
@@ -65,12 +69,11 @@
 		, oypdCautions
 		, oypdQaStandard
 		, oypdCustomerService
-		, originalFilePd
-		, uuidFilePd
 		, oypdDelNy
 		, regDateTime
 		, modDateTime
-		) values (
+		)
+		values (
 		#{oypdCate}
 		, #{oypdBrandCd}
 		, #{oypdName}
@@ -87,18 +90,16 @@
 		, #{oypdCautions}
 		, #{oypdQaStandard}
 		, #{oypdCustomerService}
-		, #{originalFilePd}
-		, #{uuidFilePd}
 		, 0
 		, now()
 		, now()
 		)
-		
+
 		<selectKey resultType="String" keyProperty="oypdSeq"
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-	
+
 	</insert>
 
 	<insert id="insertSalePd">
@@ -129,6 +130,31 @@
 
 	</insert>
 
+	<insert id="insertUploaded">
+
+		INSERT INTO ${tableName} (
+		type
+		, defaultNy
+		,
+		originalName
+		, uuidName
+		, ext
+		, size
+		, delNy
+		, pseq
+		) values (
+		#{type}
+		,#{defaultNy}
+		,#{originalName}
+		,#{uuidName}
+		,#{ext}
+		,#{size}
+		,0
+		,#{pseq}
+		)
+
+	</insert>
+
 
 
 
@@ -141,22 +167,36 @@
 		SELECT
 		a.oypdSeq
 		, a.oypdCate
-		, a.oypdBrand
+		, a.oypdBrandCd
 		, a.oypdName
 		, a.oypdPrice
-		, a.originalFilePd
+		, a.oypdCountryCd
+		, a.oypdDistributorCd
+		, a.oypdManufacturerCd
+		, a.oypdVolumeWeight
+		, a.oypdIdeal
+		, a.oypdExpirationDate
+		, a.oypdHowtoUse
+		, a.oypdIngredients
+		, a.oypdFunctionalNy
+		, a.oypdCautions
+		, a.oypdCustomerService
+		, a.oypdQaStandard
 		, a.uuidFilePd
 		, a.oypdDelNy
-		, b.oyspSeq
 		, b.oyspSalePrice
 		, b.oyspDelNy
-		, b.oyspTypeCd
-		
+		, b.oyspSaleNy
+		, b.oyspExclusiveNy
+
 		FROM oyProduct a
-		LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
-		WHERE 1=1
+		LEFT JOIN
+		oySaleProduct b on b.oypdSeq = a.oypdSeq
+		WHERE
+		1=1
 		AND oypdDelNy = 0
-		AND a.oypdSeq = #{oypdSeq}
+		AND
+		a.oypdSeq = #{oypdSeq}
 	</select>
 
 	<update id="updatePd">
@@ -195,25 +235,35 @@
 		SET
 		oyspSaleNy = #{oyspSaleNy}
 		, oyspSalePrice = #{oyspSalePrice}
+		, oyspSaleNy = #{oyspSaleNy}
+		, oyspExclusiveNy = #{oyspExclusiveNy}
 
 		WHERE 1=1
 		AND oypdSeq = #{oypdSeq}
 
 
 	</update>
-	
-	<select id="selectListCate" resultMap="resultMapObj">
-		SELECT
-		oyctSeq
-		, oyctName
-		, oyctParents
-		, oyctDepth
-		, oyctOrder
-		, oyctDelNy
-		FROM
-		oyCate
+
+	<update id="updateUploaded">
+
+
+		UPDATE
+		${tableName}
+		SET
+		type = #{type}
+		, defaultNy = #{defaultNy}
+		, originalName
+		= #{originalName}
+		, uuidName = #{uuidName}
+		, ext = #{uuidName}
+		, size =
+		#{size}
+
 		WHERE 1=1
-		AND oyctDelNy = 0
-	</select>
+		AND pseq = #{pseq}
+
+
+	</update>
+
 
 </mapper>

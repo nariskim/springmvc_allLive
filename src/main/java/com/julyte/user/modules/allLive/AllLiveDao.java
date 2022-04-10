@@ -36,6 +36,10 @@ public class AllLiveDao {
 		return sqlSession.insert(namespace + ".insertSalePd", dto);
 	}
 
+	public int insertUploaded(AllLive dto) {
+		return sqlSession.insert(namespace + ".insertUploaded", dto);
+	}
+
 	public int updatePd(AllLive dto) {
 		return sqlSession.update(namespace + ".updatePd", dto);
 	}
@@ -43,9 +47,9 @@ public class AllLiveDao {
 	public int updateSalePd(AllLive dto) {
 		return sqlSession.update(namespace + ".updateSalePd", dto);
 	}
-
-	public List<AllLive> selectListCate(AllLiveVo vo) {
-		return sqlSession.selectList(namespace + ".selectListCate", vo);
+	
+	public int updateUploaded(AllLive dto) {
+		return sqlSession.update(namespace + ".updateUploaded", dto);
 	}
 
 }

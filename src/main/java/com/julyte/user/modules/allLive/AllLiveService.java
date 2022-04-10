@@ -14,5 +14,4 @@ public interface AllLiveService {
 
 	public int update(AllLive dto) throws Exception;
 
-	public List<AllLive> selectListCate(AllLiveVo vo) throws Exception;
 }

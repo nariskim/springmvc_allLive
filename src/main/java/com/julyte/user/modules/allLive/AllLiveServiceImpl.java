@@ -4,6 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.julyte.user.common.util.UtilDateTime;
+import com.julyte.user.common.util.UtilUpload;
 
 @Service
 public class AllLiveServiceImpl implements AllLiveService {
@@ -24,8 +28,25 @@ public class AllLiveServiceImpl implements AllLiveService {
 	@Override
 	public int insert(AllLive dto) throws Exception {
 
+		dto.setRegDateTime(UtilDateTime.nowDate());
+		dto.setModDateTime(UtilDateTime.nowDate());
 		dao.insertPd(dto);
 		dao.insertSalePd(dto);
+
+		int j = 0;
+		for (MultipartFile multipartFile : dto.getFile0()) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");
+			UtilUpload.upload(multipartFile, pathModule, dto);
+
+			dto.setTableName("oymbUploaded");
+			dto.setType(0);
+			dto.setSort(j);
+			dto.setDefaultNy(0);
+			dto.setPseq(dto.getOypdSeq());
+
+			dao.insertUploaded(dto);
+			j++;
+		}
 		return 2;
 	}
 
@@ -39,12 +60,22 @@ public class AllLiveServiceImpl implements AllLiveService {
 
 		dao.updatePd(dto);
 		dao.updateSalePd(dto);
-		return 2;
-	}
+		
+		int j = 0;
+		for (MultipartFile multipartFile : dto.getFile0()) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");
+			UtilUpload.upload(multipartFile, pathModule, dto);
 
-	@Override
-	public List<AllLive> selectListCate(AllLiveVo vo) throws Exception {
-		return dao.selectListCate(vo);
+			dto.setTableName("oymbUploaded");
+			dto.setType(0);
+			dto.setSort(j);
+			dto.setDefaultNy(0);
+			dto.setPseq(dto.getOypdSeq());
+
+			dao.insertUploaded(dto);
+			j++;
+		}
+		return 2;
 	}
 
 }

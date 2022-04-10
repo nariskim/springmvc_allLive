@@ -384,15 +384,13 @@ main {
 			<div class="row">
 				<div class="col-6">
 
-					<div>
-						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label>
-							<a href="/resources/uploaded/<c:out value="${item.uuidFilePd}"/>"/>
-							
-							<img src="/resources/uploaded/<c:out value="${item.uuidFilePd}"/>"/>
-							
-							</a><br> 
-						<input class="form-control form-control-lg" id="formFileLg" type="file">
+								
+						<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
+					<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);"style="display: none;" >
+					<div class="addScroll">
+						<ul id="ulFile0" class="list-group" ></ul>
 					</div>
+				
 				</div>
 				<div class="col-6">
 					<label for="formFile" class="form-label">상품 분류</label> 
@@ -410,7 +408,7 @@ main {
 									<option value="0" <c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
 								
 							</select>
-							
+							<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}" />
 							 <label for="formFile" class="form-label">카테고리</label>
 					<select class="form-select" id="oypdCate" name="oypdCate">
 						<option value="" selected>::카테고리::</option>
@@ -423,9 +421,6 @@ main {
 					</select> 
 		
  	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
-	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
-	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
-	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('103')}" />
 					
 					<label for="formFile" class="form-label">브랜드</label> <select
 						class="form-select" id="oypdBrandCd" name="oypdBrandCd">
@@ -433,7 +428,9 @@ main {
 						<c:forEach items="${codeBrand}" var="itemBrand"
 							varStatus="statusBrand">
 
-							<option value="<c:out value="${itemBrand.oycdSeq}"/>"<c:if test="${item.oypdBrandCd eq itemBrand.oycdSeq }">selected</c:if>><c:out value="${itemBrand.oycdName}"/></option>
+							<option value="<c:out value="${itemBrand.oycdSeq}"/>"
+							<c:if test="${item.oypdBrandCd eq itemBrand.oycdSeq }">selected</c:if>>
+							<c:out value="${itemBrand.oycdName}"/></option>
 
 						</c:forEach>
 					</select>
@@ -494,20 +491,20 @@ main {
 					<input type="text" class="form-control" id="oypdExpirationDate" name="oypdExpirationDate" value="<c:out value="${item.oypdExpirationDate}"/>"><br>
 					<label for="formFile" class="form-label">사용방법</label>
 					<input type="text" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" value="<c:out value="${item.oypdHowtoUse}"/>"><br> 
+					
+	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}"/>
 					<label for="formFile" class="form-label">화장품제조업자</label>
-					<select
-						class="form-select" id="oypdManufacturerCd"
-						name="oypdManufacturerCd">
-						<option value="" selected>::제조사::</option>
+					<select class="form-select" id="oypdManufacturerCd" name="oypdManufacturerCd">
+					<option value="" selected>::제조사::</option>
 						<c:forEach items="${codeManufacturer}" var="itemManufacturer"
 							varStatus="statusManufacturer">
 
 							<option value="<c:out value="${itemManufacturer.oycdSeq}"/>"
 								<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq }">selected</c:if>><c:out
 									value="${itemManufacturer.oycdName}" /></option>
-
 						</c:forEach>
 					</select><br>
+	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
 					<label for="formFile" class="form-label"> 화장품책임판매업자</label>
 					<select
 						class="form-select" id="oypdDistributorCd"
@@ -522,6 +519,8 @@ main {
 
 						</c:forEach>
 					</select><br>
+					
+	<c:set var="codeCountry" value="${CodeServiceImpl.selectListCachedCode('103')}" />
 					<label for="formFile" class="form-label">제조국</label>
 					<select
 						class="form-select" id="oypdCountryCd" name="oypdCountryCd">
@@ -635,8 +634,8 @@ main {
 
 		<div class="row row-detail">
 			<div>
-				<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
-					class="form-control form-control-lg" id="formFileLg" type="file">
+				<label for="formFileLg" class="form-label">메인 상품 사진 등록</label>
+				<!-- <input class="form-control form-control-lg" id="formFileLg" type="file"> -->
 			</div>
 		</div>
 		</div>
@@ -672,6 +671,9 @@ main {
 		src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/resources/js/validation.js"></script>
+	<script src="/resources/js/commonXdmin.js"></script>
+	<script src="/resources/js/common.js"></script>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=041ca094f388711dee3ba9ae04f3fb99&libraries=services"></script>
@@ -903,6 +905,69 @@ main {
 			$("#allLiveView").submit();
 		}
 
+	</script>
+	<script>
+		upload = function(seq, div) {
+
+			$("#ulFile" + seq).children().remove();
+
+			var fileCount = $("input[type=file]")[seq].files.length;
+
+			if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
+				return false;
+			}
+
+			var totalFileSize;
+			for (var i = 0; i < fileCount; i++) {
+				if (div == 1) {
+					if (checkUploadedAllExt(
+							$("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else if (div == 2) {
+					if (checkUploadedImageExt(
+							$("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else {
+					return false;
+				}
+
+				if (checkUploadedEachFileSize(
+						$("input[type=file]")[seq].files[i].name, seq) == false) {
+					return false;
+				}
+				totalFileSize += $("input[type=file]")[seq].files[i].size;
+			}
+			if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
+				return false;
+			}
+
+			for (var i = 0; i < fileCount; i++) {
+				addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+			}
+		}
+
+		addUploadLi = function(seq, index, name) {
+
+			var ul_list = $("#ulFile0");
+
+			li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+			li = li + name;
+			li = li
+					+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
+					+ seq
+					+ ','
+					+ index
+					+ ')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
+			li = li + '</li>';
+
+			$("#ulFile" + seq).append(li);
+		}
+
+		delLi = function(seq, index) {
+			$("#li_" + seq + "_" + index).remove();
+		}
 	</script>
 </body>
 </html>
