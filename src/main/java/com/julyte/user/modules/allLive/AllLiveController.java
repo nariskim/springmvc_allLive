@@ -43,7 +43,10 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail")
-	public String allLiveDetail() throws Exception {
+	public String allLiveDetail(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
+
+		AllLive rt = service.selectOne(vo);
+		model.addAttribute("item", rt);
 
 		return "/allLive/allLiveDetail";
 	}
@@ -150,6 +153,7 @@ public class AllLiveController {
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
+		
 		return "allLive/allLiveView";
 	}
 

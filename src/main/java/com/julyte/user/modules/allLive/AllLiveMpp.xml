@@ -27,8 +27,8 @@
 
 		FROM oyProduct a
 		LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
-		LEFT
-		JOIN oymbUploaded c on c.pseq = a.oypdSeq
+		LEFT JOIN oymbUploaded c on c.pseq = a.oypdSeq
+	
 		WHERE 1=1
 		AND oypdDelNy = 0
 
@@ -185,6 +185,7 @@
 		a.oypdSeq
 		, a.oypdCate
 		, a.oypdBrandCd
+		, a.oypdBrand
 		, a.oypdName
 		, a.oypdPrice
 		, a.oypdCountryCd
@@ -205,10 +206,14 @@
 		, b.oyspDelNy
 		, b.oyspSaleNy
 		, b.oyspExclusiveNy
+		, c.uuidName
+		, c.path
 
 		FROM oyProduct a
 		LEFT JOIN
 		oySaleProduct b on b.oypdSeq = a.oypdSeq
+		LEFT JOIN
+		oymbUploaded c on c.pseq = a.oypdSeq
 		WHERE
 		1=1
 		AND oypdDelNy = 0

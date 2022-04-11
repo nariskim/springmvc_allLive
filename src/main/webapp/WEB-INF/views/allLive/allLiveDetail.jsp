@@ -15,8 +15,7 @@
 <link
 	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <title>allLiveYoung_Detail</title>
 
@@ -45,13 +44,13 @@
 	width: 25%;
 	text-align: center;
 }
+
 .container-header {
 	margin-top: 1%;
 	margin-bottom: 3%;
 	margin-left: 12%;
 	margin-right: 12%;
 }
-
 
 .container-main {
 	margin-top: 2%;
@@ -60,7 +59,7 @@
 	margin-right: 14%;
 }
 
-.container-footer{
+.container-footer {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	margin-left: 1%;
@@ -68,22 +67,22 @@
 }
 
 .nav-top {
-
 	width: 100%;
 	line-height: 44px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -.04em;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: -.04em;
 }
 
 .nav-item-top {
 	width: 10%;
 	text-align: center;
-	
 }
+
 .nav-link {
-    color: black;
+	color: black;
 }
+
 a {
 	text-decoration: none;
 	color: black;
@@ -102,6 +101,41 @@ a {
 	color: #e02020;
 	font-weight: 500;
 	text-aling: right;
+}
+
+#mainimage {
+	width: 510px;
+	height: 510px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#brand {
+	display: inline-block;
+	color: #000;
+	line-height: 24px;
+	padding-right: 13px;
+}
+
+#pdname {
+	margin-top: 10px;
+	font-size: 26px;
+	line-height: 34px;
+	color: #000;
+}
+#priceB {
+	font-size: 16px;
+	line-height: 20px;
+	color: #a9a9a9;
+	text-decoration: line-through;
+}
+
+#priceR {
+	font-size: 28px;
+	color: #e02020;
+	font-weight: 500;
 }
 </style>
 
@@ -205,16 +239,16 @@ a {
 			</div>
 <br>
 	<ul class="nav nav-top">
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">신상</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">프리미엄관</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기획전</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">세일</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기프트카드</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">멤버십/쿠폰</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">이벤트</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모 코스메틱</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업 · 네일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">미용소품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
 			</ul>
 </div>
 		</header>
@@ -235,22 +269,21 @@ a {
 			</nav>
 			<div class="row">
 				<div class="col-6">
-					<img src="/resources/user/image/bioheelbo.jpg" class="rounded"
-						alt="...">
+					<img id="mainimage" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>">
 				</div>
 				<div class="col-6">
-					<c:out value="${item.oypdBrandCd}"/>
+					<div id="brand"><c:out value="${item.oypdBrand}"/></div>
 					<br>
-					<h2>
-					<c:out value="${item.oypdName}"/>
-					</h2>
+					
+					<div id="pdname"><c:out value="${item.oypdName}"/></div>
+					
 					<br>
-					<div class="priceB">
+					<div id="priceB">
 					<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
-					<div class="priceR">
-					<fmt:formatNumber value="${item.oyspSalePrice}"/>
-					<span>원</span>
-					</div>
+					<div id="priceR"><strong>
+					<fmt:formatNumber value="${item.oyspSalePrice}"/></strong>
+					<span>원</span></div>
+					
 					<b>혜택 정보</b>
 					<br>
 					<span class="badge rounded-pill bg-danger">세일</span>
@@ -323,7 +356,7 @@ a {
 					<div class="input-group">
 						<button type="button" class="btn btn-outline-success">장바구니</button>
 						<a href="/allLive/allLiveOrder"><button type="button"
-								class="btn btn-success">바로구매</button></a>;;
+								class="btn btn-success">바로구매</button></a>
 					</div>
 
 				</div>

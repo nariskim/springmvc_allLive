@@ -475,19 +475,20 @@ a {
 					</select> 
 					
 <c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}" />
-<label for="formFile" class="form-label">카테고리</label>
-<select class="form-select" id="oypdCate" name="oypdCate">
-<option value="" selected>::카테고리::</option>
-<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
-<option value="<c:out value="${item.oypdCate}"/>">
-<c:out value="${itemCate3.oyctName}" /></option>
-</c:forEach>
-</select> 
+ <label for="formFile" class="form-label">카테고리</label>
+					<select class="form-select" id="oypdCate" name="oypdCate">
+						<option value="" selected>::카테고리::</option>
+							<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
+							<option value="<c:out value="${itemCate3.oyctSeq}"/>"
+								<c:if test="${item.oypdCate eq itemCate3.oyctSeq }">selected</c:if>>
+								<c:out value="${itemCate3.oyctName}" /></option>
+						</c:forEach>
+					</select> 
 					
 	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
 	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
 	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
-	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('103')}" />
+	<c:set var="codeCountry" value="${CodeServiceImpl.selectListCachedCode('103')}" />
 					
 <label for="formFile" class="form-label">브랜드</label>
 <select class="form-select" id="oypdBrandCd" name="oypdBrandCd">

@@ -6,8 +6,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
-<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
+<jsp:useBean id="CateServiceImpl"
+	class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl"
+	class="com.julyte.user.modules.code.CodeServiceImpl" />
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -42,14 +44,17 @@ a {
 </style>
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous"
+		src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0"
+		nonce="Cns189mM"></script>
 	<form id="loginForm" name="loginForm" method="post"
 		action="/allLive/loginForm">
-		
+
 
 		<div class="position-absolute top-50 start-50 translate-middle">
 			<div style="text-align: center;">
-				<img src="/resources/user/image/oy_lg.jpg" alt="..."
-					width="200px">
+				<img src="/resources/user/image/oy_lg.jpg" alt="..." width="200px">
 			</div>
 			<div class="container">
 				<div class="form-floating mb-3" style="font-size: small;">
@@ -104,8 +109,10 @@ a {
 					<div class="col-3"></div>
 					<div class="col-4">
 						<div class="input-group" style="text-align: right;">
-							<a href="javascript:KakaoLogin();"><img src="/resources/user/image/kako.png"></a>
-							<a href=""><img src="/resources/user/image/aple.png"></a>
+							<a href="javascript:KakaoLogin();"><img
+								src="/resources/user/image/kako.png"></a> <a href=""><img
+								src="/resources/user/image/aple.png"></a>
+							<button class="btn btn-facebook" type="button" id="btn-facebook" onclick="fnFbCustomLogin();">페이스북</button>
 						</div>
 					</div>
 				</div>
@@ -138,7 +145,68 @@ a {
 	<script
 		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script async defer crossorigin="anonymous"
+		src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=3080144482236880
+&autoLogAppEvents=1"
+		nonce="AMpiVJN3">
+		
+	</script>
 
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=2175623275927646" nonce="JutAfaKH"></script><!-- &autoLogAppEvents=1 -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+
+<script type="text/javascript">
+
+//페이스북 (로그인) 기본 설정
+
+ 	function checkLoginState() {               					//로그인 클릭시 호출
+ 	    FB.getLoginStatus(function(response) {  
+ 	      statusChangeCallback(response);
+ 	    });
+ 	  }
+
+	function statusChangeCallback(response) { 					// FB.getLoginStatus()의 결과호출
+		
+	 console.log(response);             			 			//사용자의 현재 로그인 상태.
+		if (response.status === 'connected') {   				// 웹페이지와 페이스북에 로그인이 되어있다면
+			testAPI();  
+		} else {         			                       		// 웹페이지와 페이스북에 로그인이 되어있지 않다면
+			console.log('Please log into this webpage.'); 
+		}
+	}
+	
+ 	function fnFbCustomLogin(){
+		FB.login(function(response) {
+			if (response.status === 'connected') {
+				FB.api('/me', 'get', {fields: 'name,email'}, function(r) {
+					console.log(r);
+					console.log('Successful login for: ' + r.name);
+				/* 	console.log(testAPI(response)); */
+				})
+			} 
+		}, {scope: 'public_profile,email'});		//profile, email 권한을 나중에 추가하려는 경우 FB.login() 함수로 다시 실행할 수 있다.
+	}
+	
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '3080144482236880', // 내 앱 ID.
+			cookie     : true,
+			xfbml      : true,
+			version    : 'v13.0'
+		});
+		FB.getLoginStatus(function(response) {   
+			statusChangeCallback(response);        // 로그인 상태를 말해줌
+		});
+	}; 
+
+ 	function testAPI(response) {                      
+		console.log('Welcome!  Fetching your information.... ');
+		FB.api('/me', function(response) {
+			console.log('Thanks for logging in ' + response.name);
+		});
+	} 
+</script>
 
 	<script type="text/javascript">
 		Kakao.init('041ca094f388711dee3ba9ae04f3fb99');

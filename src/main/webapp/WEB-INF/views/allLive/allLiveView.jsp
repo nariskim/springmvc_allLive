@@ -384,11 +384,10 @@ main {
 			<div class="row">
 				<div class="col-6">
 
-								
-						<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
+					<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
 					<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);"style="display: none;" >
 					<div class="addScroll">
-						<ul id="ulFile0" class="list-group" ></ul>
+					<ul id="ulFile0" class="list-group"></ul>
 					</div>
 				
 				</div>
@@ -397,36 +396,34 @@ main {
 				<label for="formFile" class="form-label">판매여부</label>
 							<select class="form-select" id="oyspSaleNy" name="oyspSaleNy">
 								<option value="" selected>::판매여부::</option>
-									<option value="1" <c:if test="${item.oyspSaleNy eq 1}">selected</c:if>>Y</option>
-									<option value="0" <c:if test="${item.oyspSaleNy eq 0}">selected</c:if>>N</option>
+								<option value="1" <c:if test="${item.oyspSaleNy eq 1}">selected</c:if>>Y</option>
+								<option value="0" <c:if test="${item.oyspSaleNy eq 0}">selected</c:if>>N</option>
 							</select>
 							
-							<label for="formFile" class="form-label">PB여부</label>
-					<select class="form-select" id="oyspExclusiveNy" name="oyspExclusiveNy">
+				<label for="formFile" class="form-label">PB여부</label>
+							<select class="form-select" id="oyspExclusiveNy" name="oyspExclusiveNy">
 								<option value="" selected>::PB::</option>
-									<option value="1" <c:if test="${item.oyspExclusiveNy eq 1}">selected</c:if>>Y</option>
-									<option value="0" <c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
-								
+								<option value="1" <c:if test="${item.oyspExclusiveNy eq 1}">selected</c:if>>Y</option>
+								<option value="0" <c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
 							</select>
+							
 							<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}" />
 							 <label for="formFile" class="form-label">카테고리</label>
 					<select class="form-select" id="oypdCate" name="oypdCate">
 						<option value="" selected>::카테고리::</option>
 							<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
 							<option value="<c:out value="${itemCate3.oyctSeq}"/>"
-								<c:if test="${item.oypdCate eq itemCate3.oyctSeq }">selected</c:if>><c:out
-									value="${itemCate3.oyctName}" /></option>
-
+								<c:if test="${item.oypdCate eq itemCate3.oyctSeq }">selected</c:if>>
+								<c:out value="${itemCate3.oyctName}" /></option>
 						</c:forEach>
 					</select> 
 		
  	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
 					
-					<label for="formFile" class="form-label">브랜드</label> <select
-						class="form-select" id="oypdBrandCd" name="oypdBrandCd">
+					<label for="formFile" class="form-label">브랜드</label>
+					<select class="form-select" id="oypdBrandCd" name="oypdBrandCd">
 						<option value="" selected>::브랜드::</option>
-						<c:forEach items="${codeBrand}" var="itemBrand"
-							varStatus="statusBrand">
+						<c:forEach items="${codeBrand}" var="itemBrand" varStatus="statusBrand">
 
 							<option value="<c:out value="${itemBrand.oycdSeq}"/>"
 							<c:if test="${item.oypdBrandCd eq itemBrand.oycdSeq }">selected</c:if>>
@@ -496,41 +493,36 @@ main {
 					<label for="formFile" class="form-label">화장품제조업자</label>
 					<select class="form-select" id="oypdManufacturerCd" name="oypdManufacturerCd">
 					<option value="" selected>::제조사::</option>
-						<c:forEach items="${codeManufacturer}" var="itemManufacturer"
-							varStatus="statusManufacturer">
+						<c:forEach items="${codeManufacturer}" var="itemManufacturer" varStatus="statusManufacturer">
 
 							<option value="<c:out value="${itemManufacturer.oycdSeq}"/>"
-								<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq }">selected</c:if>><c:out
-									value="${itemManufacturer.oycdName}" /></option>
+								<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq }">selected</c:if>>
+								<c:out value="${itemManufacturer.oycdName}" /></option>
 						</c:forEach>
 					</select><br>
+					
 	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
 					<label for="formFile" class="form-label"> 화장품책임판매업자</label>
-					<select
-						class="form-select" id="oypdDistributorCd"
-						name="oypdDistributorCd">
+					<select class="form-select" id="oypdDistributorCd" name="oypdDistributorCd">
 						<option value="" selected>::판매사::</option>
-						<c:forEach items="${codeDistributor}" var="itemDistributor"
-							varStatus="statusDistributor">
+						<c:forEach items="${codeDistributor}" var="itemDistributor" varStatus="statusDistributor">
 
 							<option value="<c:out value="${itemDistributor.oycdSeq}"/>"
-								<c:if test="${item.oypdDistributorCd eq itemDistributor.oycdSeq }">selected</c:if>><c:out
-									value="${itemDistributor.oycdName}" /></option>
+								<c:if test="${item.oypdDistributorCd eq itemDistributor.oycdSeq }">selected</c:if>>
+								<c:out value="${itemDistributor.oycdName}" /></option>
 
 						</c:forEach>
 					</select><br>
 					
 	<c:set var="codeCountry" value="${CodeServiceImpl.selectListCachedCode('103')}" />
 					<label for="formFile" class="form-label">제조국</label>
-					<select
-						class="form-select" id="oypdCountryCd" name="oypdCountryCd">
+					<select class="form-select" id="oypdCountryCd" name="oypdCountryCd">
 						<option value="" selected>::제조국::</option>
-						<c:forEach items="${codeCountry}" var="itemCountry"
-							varStatus="statusCountry">
+						<c:forEach items="${codeCountry}" var="itemCountry" varStatus="statusCountry">
 
 							<option value="<c:out value="${itemCountry.oycdSeq}"/>"
-								<c:if test="${item.oypdCountryCd eq itemCountry.oycdSeq }">selected</c:if>><c:out
-									value="${itemCountry.oycdName}" /></option>
+								<c:if test="${item.oypdCountryCd eq itemCountry.oycdSeq }">selected</c:if>>
+								<c:out value="${itemCountry.oycdName}" /></option>
 
 						</c:forEach>
 					</select><br>
@@ -543,7 +535,6 @@ main {
 									<option value="1" <c:if test="${item.oypdFunctionalNy eq 1}">selected</c:if>>Y</option>
 									<option value="0" <c:if test="${item.oypdFunctionalNy eq 0}">selected</c:if>>N</option>
 								
-								
 							</select>
 					<label for="formFile" class="form-label">사용시 주의사항</label>
 					<input type="text" class="form-control" id="oypdCautions" name="oypdCautions" value="<c:out value="${item.oypdCautions}"/>"><br>
@@ -553,8 +544,8 @@ main {
 					<input type="text" class="form-control" id="oypdCustomerService" name="oypdCustomerService" value="<c:out value="${item.oypdCustomerService}"/>"><br>
 					<br>
 					<hr>
-					<br> <a href="javaScript:goUpdt();"><button type="button"
-							class="btn btn-success btn-lg">상품수정</button></a>
+					<br> <a href="javaScript:goUpdt();">
+					<button type="button" class="btn btn-success btn-lg">상품수정</button></a>
 				</div>
 
 			</div>
@@ -565,8 +556,7 @@ main {
 	<div class="row">
 		<div class="map_wrap">
 
-			<div id="map"
-				style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+			<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 			<div id="menu_wrap" class="bg_white">
 				<div class="option">
 					<div>
@@ -588,8 +578,7 @@ main {
 		<h2>이런 에센스 / 크림 상품은 어떠세요?</h2>
 		<div class="row">
 			<div class="col-2">
-				<img src="/resources/user/image/this1jpg.jpg" class="rounded"
-					alt="..." width="100px" height="100px">
+				<img src="/resources/user/image/this1jpg.jpg" class="rounded" alt="..." width="100px" height="100px">
 			</div>
 			<div class="col-2">
 				<p>
@@ -625,8 +614,7 @@ main {
 			</div>
 		</div>
 		<ul class="nav nav-tabs nav-tabs-p">
-			<li class="nav-item nav-item-p"><a class="nav-link active"
-				aria-current="page" href="#">상품설명</a></li>
+			<li class="nav-item nav-item-p"><a class="nav-link active" aria-current="page" href="#">상품설명</a></li>
 			<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
 			<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰</a></li>
 			<li class="nav-item nav-item-p"><a class="nav-link">Q&A</a></li>
