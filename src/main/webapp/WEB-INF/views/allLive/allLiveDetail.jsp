@@ -173,7 +173,6 @@ a {
 									class="btn btn-outline-primary">
 									<i class="fa-solid fa-cart-shopping"></i>
 								</button></a>
-
 						</nav>
 					</div>
 				</div>
@@ -240,26 +239,27 @@ a {
 						alt="...">
 				</div>
 				<div class="col-6">
-					<c:out value="${item.oypdBrand}"/><br>
-
+					<c:out value="${item.oypdBrandCd}"/>
+					<br>
 					<h2>
-						<c:out value="${item.oypdName}"/>
+					<c:out value="${item.oypdName}"/>
 					</h2>
 					<br>
 					<div class="priceB">
-												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
-												<div class="priceR">
-												<fmt:formatNumber value="${item.oyspSalePrice}"/>
-												<span>원</span></div>
-					<b>혜택 정보</b><br> <span class="badge rounded-pill bg-danger">세일</span>
-					<span class="badge rounded-pill bg-success">쿠폰</span> <span
-						class="badge rounded-pill bg-info">오늘드림</span><br>
-
-					<p>
-						231명이 보고있어요 <br>
+					<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
+					<div class="priceR">
+					<fmt:formatNumber value="${item.oyspSalePrice}"/>
+					<span>원</span>
+					</div>
+					<b>혜택 정보</b>
+					<br>
+					<span class="badge rounded-pill bg-danger">세일</span>
+					<span class="badge rounded-pill bg-success">쿠폰</span>
+					<span class="badge rounded-pill bg-info">오늘드림</span>
+					<br>
+					<p>231명이 보고있어요<br>
 					<hr>
 					<br>
-
 
 					<div class="col-12">
 						<b>배송정보</b>

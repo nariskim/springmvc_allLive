@@ -104,7 +104,7 @@ a {
 					<div class="col-3"></div>
 					<div class="col-4">
 						<div class="input-group" style="text-align: right;">
-							<a href="javascript:kakaoLogin();"><img src="/resources/user/image/kako.png"></a>
+							<a href="javascript:KakaoLogin();"><img src="/resources/user/image/kako.png"></a>
 							<a href=""><img src="/resources/user/image/aple.png"></a>
 						</div>
 					</div>
@@ -137,33 +137,39 @@ a {
 	<!-- jquery ui -->
 	<script
 		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
-		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
-    
-    <script>
-        window.Kakao.init('041ca094f388711dee3ba9ae04f3fb99');
 
-        function kakaoLogin() {
-            window.Kakao.Auth.login({
-            	scope:'profile_image, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-                success: function(response) {
-                    console.log(response) // 로그인 성공하면 받아오는 데이터
-                    window.Kakao.API.request({ // 사용자 정보 가져오기 
-                        url: '/v2/user/me',
-                        success: (res) => {
-                            const kakao_account = res.kakao_account;
-                            console.log(kakao_account)
-                        }
-                    });
-                    // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
-                },
-                fail: function(error) {
-                    console.log(error);
-                },
-                redirectUri: 'http://localhost:8080/allLive/allLiveMain'
-            });
-        }
+	<script type="text/javascript">
+		Kakao.init('041ca094f388711dee3ba9ae04f3fb99');
+		console.log(Kakao.isInitialized());
 
+		KakaoLogin = function() {
+			Kakao.Auth.loginForm({ // Kakao.Auth.loginForm도 사용가능 (login은 카카오 로그인 세션이 존재하는 경우 로그인 팝업을 띄우지 않음)
+				success : function(authObj) {
+					console.log(authObj);
+
+					Kakao.API.request({
+						url : '/v2/user/me',
+						success : function(res) {
+							console.log(res);
+						}
+					})
+				}
+			})
+		}
+
+		/* function kakaoLogin() { window.Kakao.Auth.login({
+		scope:'profile_image, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된
+		ID값을 넣습니다. success: function(response) { console.log(response) // 로그인
+		성공하면 받아오는 데이터 window.Kakao.API.request({ // 사용자 정보 가져오기 url:
+		'/v2/user/me', success: (res) => { const kakao_account =
+		res.kakao_account; console.log(kakao_account) } }); //
+		window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드 }, fail:
+		function(error) { console.log(error); }, redirectUri:
+		'http://localhost:8080/allLive/allLiveMain' }); } */
+	</script>
+	<script>
 		$("#btnLogin").on(
 				"click",
 				function() {

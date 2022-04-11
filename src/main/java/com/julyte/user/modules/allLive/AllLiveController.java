@@ -24,7 +24,9 @@ public class AllLiveController {
 
 	@RequestMapping(value = "/allLive/allLiveMain")
 	public String allLiveMain(AllLiveVo vo, Model model) throws Exception {
-
+		
+		model.addAttribute("listUploaded", service.selectListUploaded(vo));
+		
 		List<AllLive> list = service.selectListPd(vo);
 		model.addAttribute("list", list);
 
@@ -152,8 +154,7 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveUpdt")
-	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model,
-			RedirectAttributes redirectAttributes) throws Exception {
+	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
 
 		service.update(dto);
 

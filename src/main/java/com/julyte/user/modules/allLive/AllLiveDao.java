@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -25,6 +26,10 @@ public class AllLiveDao {
 	}
 
 	public List<AllLive> selectListPd(AllLiveVo vo) {
+		return sqlSession.selectList(namespace + ".selectListPd", vo);
+	}
+	
+	public List<AllLive> selectListUploaded(AllLiveVo vo) {
 		return sqlSession.selectList(namespace + ".selectListPd", vo);
 	}
 

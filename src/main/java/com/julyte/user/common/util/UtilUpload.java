@@ -29,6 +29,7 @@ public class UtilUpload {
 		dto.setUuidName(uuidFileName);
 		dto.setExt(ext);
 		dto.setSize(multipartFile.getSize());
+		dto.setPath("/resources/uploaded/" + pathModule + "/" + pathDate + "/");
 	}
 
 	public static void createPath(String path) {

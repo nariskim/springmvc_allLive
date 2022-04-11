@@ -21,6 +21,11 @@ public class AllLiveServiceImpl implements AllLiveService {
 	}
 
 	@Override
+	public List<AllLive> selectListUploaded(AllLiveVo vo) throws Exception {
+		return dao.selectListUploaded(vo);
+	}
+
+	@Override
 	public AllLive selectOneLogin(AllLive dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
@@ -60,7 +65,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 
 		dao.updatePd(dto);
 		dao.updateSalePd(dto);
-		
+
 		int j = 0;
 		for (MultipartFile multipartFile : dto.getFile0()) {
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");

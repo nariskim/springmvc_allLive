@@ -16,6 +16,7 @@ public class AllLive {
 	private long size;
 	private Integer delNy;
 	private String pseq;
+	private String path;
 
 	private MultipartFile[] file0;
 	private MultipartFile[] file1;
@@ -201,6 +202,14 @@ public class AllLive {
 
 	public String getPseq() {
 		return pseq;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	public MultipartFile[] getFile0() {

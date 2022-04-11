@@ -10,6 +10,8 @@ public interface AllLiveService {
 
 	public List<AllLive> selectListPd(AllLiveVo vo) throws Exception;
 
+	public List<AllLive> selectListUploaded(AllLiveVo vo) throws Exception;
+
 	public AllLive selectOne(AllLiveVo vo) throws Exception;
 
 	public int update(AllLive dto) throws Exception;
