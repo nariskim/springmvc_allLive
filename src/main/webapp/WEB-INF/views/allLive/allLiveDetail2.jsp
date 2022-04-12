@@ -89,19 +89,42 @@ a {
 	color: black;
 }
 
-.priceB {
-	font-size: 14px;
-	line-height: 14px;
-	color: #a9a9a9;
-	text-decoration: line-through;
-	text-aling: right;
+#mainimage {
+	width: 510px;
+	height: 510px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	margin-botton: auto;
+	display: block;
 }
 
-.priceR {
-	font-size: 20px;
+#brand {
+	display: inline-block;
+	color: #000;
+	line-height: 24px;
+	padding-right: 13px;
+}
+
+#pdname {
+	margin-top: 10px;
+	font-size: 26px;
+	line-height: 34px;
+	color: #000;
+}
+
+#priceB {
+	font-size: 16px;
+	line-height: 20px;
+	color: #a9a9a9;
+	text-decoration: line-through;
+}
+
+#priceR {
+	font-size: 28px;
 	color: #e02020;
 	font-weight: 500;
-	text-aling: right;
 }
 </style>
 
@@ -204,26 +227,28 @@ a {
 				</div>
 			</div>
 <br>
-	<ul class="nav nav-top">
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">신상</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">프리미엄관</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기획전</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">세일</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기프트카드</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">멤버십/쿠폰</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">이벤트</a></li>
-			</ul>
-</div>
-		</header>
+
+		
 
 
 
 		<!-- <div class="row"></div> -->
 
-		<main>
+		<ul class="nav nav-top">
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모 코스메틱</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업 · 네일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">미용소품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
+			</ul>
+			</div>
+			</header>
+<main>
 		<div class="container-main">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
@@ -235,27 +260,30 @@ a {
 			</nav>
 			<div class="row">
 				<div class="col-6">
-					<img src="/resources/user/image/bioheelbo.jpg" class="rounded"
-						alt="...">
+					<img id="mainimage" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>">
 				</div>
 				<div class="col-6">
-					바이오힐보<br>
-
-					<h2>
-						바이오힐보 프로바이오덤 리프팅 크림X마<br>사저 기획(크림+마사저)(2202)
-					</h2>
+					<div id="brand"><c:out value="${item.oypdBrand}"/></div>
 					<br>
-					<del>51,200원</del>
-					<p>31,900원</p>
-					<b>혜택 정보</b><br> <span class="badge rounded-pill bg-danger">세일</span>
-					<span class="badge rounded-pill bg-success">쿠폰</span> <span
-						class="badge rounded-pill bg-info">오늘드림</span><br>
-
-					<p>231명이 보고있어요
+					
+					<div id="pdname"><c:out value="${item.oypdName}"/></div>
+					
 					<br>
+					<div id="priceB">
+					<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
+					<div id="priceR"><strong>
+					<fmt:formatNumber value="${item.oyspSalePrice}"/></strong>
+					<span>원</span></div>
+					
+					<b>혜택 정보</b>
+					<br>
+					<span class="badge rounded-pill bg-danger">세일</span>
+					<span class="badge rounded-pill bg-success">쿠폰</span>
+					<span class="badge rounded-pill bg-info">오늘드림</span>
+					<br>
+					<p>231명이 보고있어요<br>
 					<hr>
 					<br>
-
 
 					<div class="col-12">
 						<b>배송정보</b>
@@ -313,22 +341,21 @@ a {
 					</div>
 					<br>
 					<hr>
-					<br>
-
-					<input type="checkbox" id="deliveDay" name="qDelive" value="Y"
-						class="o2oDeliveDay " data-attr="상품상세^오늘드림신청여부^오늘드림신청"><label
+					<br> <input type="checkbox" id="deliveDay" name="qDelive"
+						value="Y" class="o2oDeliveDay " data-attr="상품상세^오늘드림신청여부^오늘드림신청"><label
 						for="deliveDay">오늘드림으로 받아 보시겠어요?</label><br>
 					<div class="input-group">
 						<button type="button" class="btn btn-outline-success">장바구니</button>
-						<a href="/allLive/allLiveOrder"><button type="button" class="btn btn-success">바로구매</button></a>;;
+						<a href="/allLive/allLiveOrder"><button type="button"
+								class="btn btn-success">바로구매</button></a>
 					</div>
 
 				</div>
-				
+
 			</div>
 			<br>
-					<hr>
-					<br>
+			<hr>
+			<br>
 			<div class="row">
 				<div class="col-3">
 					<p class="title">증정품 안내</p>
@@ -399,10 +426,8 @@ a {
 				<img src="/resources/user/image/bioheelbo1.jpg" class="rounded"
 					alt="...">
 			</div>
-</div>
+</div>s
 		</main>
-
-
 		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">

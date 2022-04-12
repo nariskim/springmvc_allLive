@@ -44,10 +44,7 @@ a {
 </style>
 </head>
 <body>
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous"
-		src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0"
-		nonce="Cns189mM"></script>
+
 	<form id="loginForm" name="loginForm" method="post"
 		action="/allLive/loginForm">
 
@@ -112,8 +109,11 @@ a {
 							<a href="javascript:KakaoLogin();"><img
 								src="/resources/user/image/kako.png"></a> <a href=""><img
 								src="/resources/user/image/aple.png"></a>
-							<button class="btn btn-facebook" type="button" id="btn-facebook" onclick="fnFbCustomLogin();">페이스북</button>
-						</div>
+	<button class="btn btn-facebook" type="button" id="btn-facebook" onclick="fnFbCustomLogin();"><b> 페이스북</b> 로그인</button>
+						 <div id="naver_id_login"></div>
+
+
+ <div style="text-align:center"><a href="${url}">NaverIdLogin</a></div></div>
 					</div>
 				</div>
 
@@ -145,17 +145,21 @@ a {
 	<script
 		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-	<script async defer crossorigin="anonymous"
-		src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=3080144482236880
-&autoLogAppEvents=1"
-		nonce="AMpiVJN3">
-		
-	</script>
-
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=2175623275927646" nonce="JutAfaKH"></script><!-- &autoLogAppEvents=1 -->
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=4427218787378399" nonce="JutAfaKH"></script><!-- &autoLogAppEvents=1 -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
+<script type="text/javascript">
 
+	var naver_id_login = new naver_id_login("Yr9iP4o9mCjNYcIIv2yF", "http://localhost:8080/allLive/callback");
+	var state = naver_id_login.getUniqState();
+	naver_id_login.setButton("white", 2,40);
+	naver_id_login.setDomain("http://localhost:8080/allLive/loginForm");
+	naver_id_login.setState(state);
+	naver_id_login.setPopup();
+	naver_id_login.init_naver_id_login();
+
+
+</script>
 <script type="text/javascript">
 
 //페이스북 (로그인) 기본 설정
@@ -190,7 +194,7 @@ a {
 	
 	window.fbAsyncInit = function() {
 		FB.init({
-			appId      : '3080144482236880', // 내 앱 ID.
+			appId      : '4427218787378399', // 내 앱 ID.
 			cookie     : true,
 			xfbml      : true,
 			version    : 'v13.0'
@@ -207,6 +211,9 @@ a {
 		});
 	} 
 </script>
+
+
+
 
 	<script type="text/javascript">
 		Kakao.init('041ca094f388711dee3ba9ae04f3fb99');

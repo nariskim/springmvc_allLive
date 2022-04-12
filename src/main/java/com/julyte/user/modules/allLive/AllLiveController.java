@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.julyte.user.common.constants.Constants;
@@ -24,9 +25,9 @@ public class AllLiveController {
 
 	@RequestMapping(value = "/allLive/allLiveMain")
 	public String allLiveMain(AllLiveVo vo, Model model) throws Exception {
-		
+
 		model.addAttribute("listUploaded", service.selectListUploaded(vo));
-		
+
 		List<AllLive> list = service.selectListPd(vo);
 		model.addAttribute("list", list);
 
@@ -35,6 +36,8 @@ public class AllLiveController {
 
 	@RequestMapping(value = "/allLive/allLiveMain2")
 	public String allLiveMain2(AllLiveVo vo, Model model) throws Exception {
+
+		model.addAttribute("listUploaded", service.selectListUploaded(vo));
 
 		List<AllLive> list = service.selectListPd(vo);
 		model.addAttribute("list", list);
@@ -52,7 +55,10 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail2")
-	public String allLiveDetail2() throws Exception {
+	public String allLiveDetail2(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
+
+		AllLive rt = service.selectOne(vo);
+		model.addAttribute("item", rt);
 
 		return "/allLive/allLiveDetail2";
 	}
@@ -153,12 +159,12 @@ public class AllLiveController {
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
-		
 		return "allLive/allLiveView";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveUpdt")
-	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model,
+			RedirectAttributes redirectAttributes) throws Exception {
 
 		service.update(dto);
 
@@ -168,4 +174,5 @@ public class AllLiveController {
 
 		return "redirect:/allLive/allLiveView";
 	}
+
 }

@@ -88,27 +88,14 @@ a {
 	color: black;
 }
 
-.priceB {
-	font-size: 14px;
-	line-height: 14px;
-	color: #a9a9a9;
-	text-decoration: line-through;
-	text-aling: right;
-}
-
-.priceR {
-	font-size: 20px;
-	color: #e02020;
-	font-weight: 500;
-	text-aling: right;
-}
-
 #mainimage {
 	width: 510px;
 	height: 510px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 100px;
+	margin-botton: auto;
 	display: block;
 }
 
@@ -125,6 +112,7 @@ a {
 	line-height: 34px;
 	color: #000;
 }
+
 #priceB {
 	font-size: 16px;
 	line-height: 20px;

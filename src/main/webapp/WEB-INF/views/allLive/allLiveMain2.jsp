@@ -101,6 +101,31 @@ dl>dt:before {
 .pdText {
 	text-align: center;
 }
+
+#mainimage {
+	width: auto !important;
+	max-width: 215px;
+	height: auto !important;
+	max-height: 215px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mainall {
+	width: auto !important;
+	width: 430px;
+	height: auto !important;
+	height: 430px;
+	padding: 20px;
+	margin: 20px;
+	border-style: none;
+}
+
+#adbanner {
+	margin-left: auto;
+	margin-right: auto;
+}
 </style>
 
 
@@ -206,16 +231,16 @@ dl>dt:before {
 
 <br>
 	<ul class="nav nav-top">
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">홈</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">오특</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">신상</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">프리미엄관</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기획전</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">세일</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기프트카드</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">멤버십/쿠폰</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">이벤트</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모 코스메틱</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업 · 네일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">미용소품</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
 			</ul>
 
 
@@ -307,57 +332,65 @@ dl>dt:before {
 
 
 
-		<!-- <div class="row"></div> -->
-		<div class="container-main">
-					<br>
-					<div class="row mb-2">
-						<div class="col-md-6">
-							<a href="#"><img src="/resources/user/image/todayShip.jpg"
-								class="img-fluid" alt="..."></a>
-						</div>
-						<div class="col-md-6">
-							<a href="#"><img src="/resources/user/image/topCoupon.jpg"
-								class="img-fluid" alt="..."></a>
-						</div>
+			<main>
+
+
+
+
+			<div class="container-main">
+				<br>
+				<div class="row mb-2">
+					<div class="col-md-6">
+						<a href="#"><img src="/resources/user/image/todayShip.jpg"
+							class="img-fluid" alt="..."></a>
 					</div>
-					<div class="row mb-2">
-					<div class="col-12"><br><h1>인기상품</h1><br></div>
-							<c:forEach items="${list}" var="item" varStatus="status">
-							<c:if test="${item.oyspTypeCd eq 1417 }">
-							<div class="col-4">
-							
+					<div class="col-md-6">
+						<a href="#"><img src="/resources/user/image/topCoupon.jpg"
+							class="img-fluid" alt="..."></a>
+					</div>
+				</div>
+				
+				<div class="row mb-2">
+					<div class="col-12">
+						<br>
+						<h1>인기상품</h1>
+						<br>
+					</div>
+					<c:forEach items="${list}" var="item" varStatus="status">
+						<c:if test="${item.oyspTypeCd eq 1417 }">
+							<div class="col-3">
 								<a href="javascript:goView(<c:out value="${item.oypdSeq}"/>);">
-								
-									<div class="card" style="width: 18rem;">
-										<img src="/resources/user/image/term.jpeg"
-											class="card-img-top" alt="...">
+									<div class="card" id="mainall">
+										<img id="mainimage" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>">
 										<div class="card-body">
-											
-												<div class="pdText"><div class="pdbrand"><c:out value="${item.oypdBrand}"/></div><br>
-												<div class="pdNameB"><c:out value="${item.oypdName}"/></div></div><br>
-												<div class="priceB">
-												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
-												<div class="priceR">
+											<div class="pdText">
+												<div class="pdbrand">
+													<c:out value="${item.oypdBrand}"/>
+												</div>
+												<br>
+												<div class="pdNameB">
+													<c:out value="${item.oypdName}"/>
+												</div>
+											</div>
+											<br>
+											<div class="priceB">
+												<fmt:formatNumber value="${item.oypdPrice}"/>
+												<span>원</span>
+											</div>
+											<div class="priceR">
 												<fmt:formatNumber value="${item.oyspSalePrice}"/>
-												<span>원</span></div>
-											
+												<span>원</span>
+											</div>
 										</div>
-									</div><br>
-									
-								</a> 
+									</div>
+								</a>
 								</div>
-								</c:if>
-								</c:forEach>
-								
-								
-				
-							
-		</div>	
+							<br>
+						</c:if>
+					</c:forEach>
+				</div>
+			</div>
 		
-		
-		
-				
-		</div>
 		</main>
 		<div class="container-footer">
 			<footer class="py-3 my-4">
@@ -385,7 +418,7 @@ dl>dt:before {
 	<script type="text/javascript">
 	goView = function(seq) {
 		$("#oypdSeq").val(seq);
-		$("#allLiveMain2").attr("action", "/allLive/allLiveView");
+		$("#allLiveMain2").attr("action", "/allLive/allLiveDetail2");
 		$("#allLiveMain2").submit();
 	}
 	
