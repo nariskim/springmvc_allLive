@@ -6,6 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <jsp:useBean id="CateServiceImpl"
 	class="com.julyte.user.modules.cate.CateServiceImpl" />
 <jsp:useBean id="CodeServiceImpl"
@@ -15,13 +16,13 @@
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link
+	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <script src="https://kit.fontawesome.com/893e1f7eb8.js"
 	crossorigin="anonymous"></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
 
 <!-- jquery ui CSS -->
 <link
@@ -42,6 +43,11 @@ a {
 	font-size: 13px;
 }
 </style>
+<!-- content에 자신의 OAuth2.0 클라이언트ID를 넣습니다. -->
+<!-- google -->
+<meta name="google-signin-client_id"
+	content="128484483787-h95dbrgr17toacol178o5dh0j82e8fj5.apps.googleusercontent.com">
+
 </head>
 <body>
 
@@ -106,19 +112,31 @@ a {
 					<div class="col-3"></div>
 					<div class="col-4">
 						<div class="input-group" style="text-align: right;">
-							<a href="javascript:KakaoLogin();"><img
-								src="/resources/user/image/kako.png"></a> <a href=""><img
-								src="/resources/user/image/aple.png"></a>
+							<!-- kakao -->
+							<a href="javascript:kakaoLogin()"><img
+								src="/resources/user/image/kako.png"></a>
+							<!-- apple -->
+							<a href=""><img src="/resources/user/image/aple.png"></a>
+							<!-- facebook -->
 							<button class="btn btn-facebook" type="button" id="btn-facebook"
 								onclick="fnFbCustomLogin();">
-								<b> 페이스북</b> 로그인
+								<img src="/resources/user/image/facebookicon.png">
 							</button>
-							<div id="naver_id_login"></div>
-
-
-							<div style="text-align: center">
-								<a href="${url}">NaverIdLogin</a>
+							<!-- google -->
+							<button class="btn btn-lg" id="GgCustomLogin"
+								onclick="javascript:void(0)">구글</button>
+							<!-- naver -->
+							<div class="col-auto linksq" style="margin-left: auto;"
+								onclick="location.href='${url}';">
+								<div id="naver_id_login" style="display: none;"></div>
+								<div class="circle linksns naverlogin" style="float: none;">
+								</div>
+								<div class="linksns linksen">
+									<div>네이버 로그인</div>
+								</div>
 							</div>
+
+
 						</div>
 					</div>
 				</div>
@@ -137,27 +155,57 @@ a {
 	<!--  -->
 
 
-
+	<!-- bootstrap -->
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
+		src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
-
+	<!-- ajax -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- validation -->
 	<script src="/resources/js/validation.js"></script>
+
 	<!-- jquery ui -->
 	<script
 		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+	<!-- kakao -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+	<!-- facebook -->
 	<script async defer crossorigin="anonymous"
 		src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=4427218787378399"
 		nonce="JutAfaKH"></script>
+
 	<!-- &autoLogAppEvents=1 -->
 	<script async defer crossorigin="anonymous"
 		src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+	<!-- google -->
+	<script src="https://apis.google.com/js/platform.js?onload=init" async
+		defer></script>
+
+
+	<!-- naver -->
+	<script type="text/javascript"
+		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+		charset="utf-8"></script>
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<!-- 네이버로그인 -->
+	<script type="text/javascript">
+ 	//네이버
+  	var naver_id_login = new naver_id_login("Yr9iP4o9mCjNYcIIv2yF", "http://localhost/allLive/NaverProc"); // client ID, callBack URL
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("http://localhost/allLive/loginForm");	// service URL
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+</script>
+
 
 	<script type="text/javascript">
 		//페이스북 (로그인) 기본 설정
@@ -217,35 +265,126 @@ a {
 
 
 
-	<script type="text/javascript">
-		Kakao.init('041ca094f388711dee3ba9ae04f3fb99');
-		console.log(Kakao.isInitialized());
+	<script>
+window.Kakao.init('09c29750f01b8ca73dc6135b998baf4b');	// 자바스크립트 키 입력
+console.log(Kakao.isInitialized()); 
+function kakaoLogin() {
+    window.Kakao.Auth.login({
+        scope: 'profile_nickname', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+        success: function(response) {
+            console.log(response) // 로그인 성공하면 받아오는 데이터
+            window.Kakao.API.request({ // 사용자 정보 가져오기 
+                url: '/v2/user/me',
+                success: (res) => {
+                    const kakao_account = res.kakao_account; 
+                    const profile_nickname = res.properties.nickname; 
+                    console.log(kakao_account)		// 받아온 정보들을 출력
+                    console.log(profile_nickname)		// 받아온 정보들을 출력
+                    $.ajax({
+            			async: true 
+            			,cache: false
+            			,type: "post"
+            			,url: "/allLive/KakaoProc"
+            			,data : {"oymbName" : profile_nickname}
+            			,success: function(response) {
+            				if(response.item == "success") {
+            					location.href = "/allLive/allLiveMain";
+            				} else {
+            					alert("카카오 로그인 실패");
+            				}
+            			}
+            			,error : function(jqXHR, textStatus, errorThrown){
+            				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+            			}
+            		})
+                }
+            });
+            // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
+        }, fail: function(err) { //다른 로그인 일때 실행
+    	    $.ajax({
+        		
+        		type: "post"
+        		,url: "/allLive/logoutProc"
+        		
+        		,success: function(response) {
+        			if(response.rt == "success") {
+        				location.href = "/allLive/KakaoProc";
+        			} 
+        		}
+        		,error : function(jqXHR, textStatus, errorThrown){
+        			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+        		}
+        		
+        	}); 
+      }
+      
+    })
 
-		KakaoLogin = function() {
-			Kakao.Auth.loginForm({ // Kakao.Auth.loginForm도 사용가능 (login은 카카오 로그인 세션이 존재하는 경우 로그인 팝업을 띄우지 않음)
-				success : function(authObj) {
-					console.log(authObj);
+}
 
-					Kakao.API.request({
-						url : '/v2/user/me',
-						success : function(res) {
-							console.log(res);
-						}
-					})
+</script>
+
+	<!-- 구글로그인 -->
+	<script>
+
+//처음 실행하는 함수
+function init() {
+	gapi.load('auth2', function() {
+		gapi.auth2.init();
+		options = new gapi.auth2.SigninOptionsBuilder();
+		options.setPrompt('select_account');
+        // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+		options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+        // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+	})
+}
+
+function onSignIn(googleUser) {
+	var access_token = googleUser.getAuthResponse().access_token
+	$.ajax({
+        // key에 자신의 API 키를 넣습니다.
+		 data: {personFields:'birthdays', key:'AIzaSyADnSRkHji_5mqq1KC9hPqX05B0F8Ngxbg', 'access_token': access_token}
+		, method:'GET'
+	})
+	.done(function(e){
+        //프로필을 가져온다.
+     
+		 var profile = googleUser.getBasicProfile();
+		var id= profile.getId();
+		var username = profile.getName();
+		
+		console.log(username);
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/allLive/GoogleProc"	// controller의 loginProc value (url)
+			,data : {"oymbName" : profile.getName()}	// mvmmName : 회원 이름 컬럼 (맞게 수정하세요)
+			,success: function(response) {
+				if(response.rt == "success") {
+					location.href = "/allLive/allLiveMain2"; //로그인 완료 후 진입 화면 (홈화면이나 indexView)
+				} else {
+					alert("구글 로그인 실패");
 				}
-			})
-		}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		})
+	})
+	.fail(function(e){
+		console.log(e);
+	})
+}
 
-		/* function kakaoLogin() { window.Kakao.Auth.login({
-		scope:'profile_image, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된
-		ID값을 넣습니다. success: function(response) { console.log(response) // 로그인
-		성공하면 받아오는 데이터 window.Kakao.API.request({ // 사용자 정보 가져오기 url:
-		'/v2/user/me', success: (res) => { const kakao_account =
-		res.kakao_account; console.log(kakao_account) } }); //
-		window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드 }, fail:
-		function(error) { console.log(error); }, redirectUri:
-		'http://localhost:8080/allLive/allLiveMain' }); } */
-	</script>
+function onSignInFailure(t){	
+	console.log(t);
+}
+</script>
+
+
 	<script>
 		$("#btnLogin").on(
 				"click",
@@ -262,7 +401,7 @@ a {
 						},
 						success : function(response) {
 							if (response.rt == "success") {
-								location.href = "/allLive/allLiveMain2";
+								location.href = "/allLive/allLiveMain";
 							} else {
 								alert("회원없음");
 							}

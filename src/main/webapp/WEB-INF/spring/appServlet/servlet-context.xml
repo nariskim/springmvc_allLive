@@ -36,6 +36,7 @@
 			<exclude-mapping path="/resources/**" />
 			<exclude-mapping path="/allLive/loginForm" />
 			<exclude-mapping path="/allLive/loginProc" />
+			<exclude-mapping path="/allLive/GoogleProc" />
 			<exclude-mapping path="/allLive/allLiveMain" />
 			<exclude-mapping path="/allLive/allLiveDetail" />
 
@@ -53,5 +54,10 @@
 		<!-- <beans:property name="maxInMemorySize" value="1048576"/> --> <!-- 1MB -->
 	</beans:bean>
 	<!-- fileUpload e 2022.03.30 -->
-	
+
+	<beans:bean id="naverLoginBO"
+		class="com.julyte.user.modules.naver.NaverLoginBO" />
+	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
+
+
 </beans:beans>
