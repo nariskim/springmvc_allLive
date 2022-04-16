@@ -5,8 +5,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
-<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
+<jsp:useBean id="CateServiceImpl"
+	class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl"
+	class="com.julyte.user.modules.code.CodeServiceImpl" />
 <!DOCTYPE HTML>
 
 <html lang="ko">
@@ -257,8 +259,10 @@ main {
 
 <body>
 
-<form id="allLiveView" name="allLiveView" method="post" action="/allLive/allLiveView" enctype="multipart/form-data">
-	<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${vo.oypdSeq}"/>">
+	<form id="allLiveView" name="allLiveView" method="post"
+		action="/allLive/allLiveView" enctype="multipart/form-data">
+		<input type="hidden" id="oypdSeq" name="oypdSeq"
+			value="<c:out value="${vo.oypdSeq}"/>">
 
 		<header>
 
@@ -353,11 +357,13 @@ main {
 				</div>
 			</div>
 
-	<ul class="nav nav-top">
+			<ul class="nav nav-top">
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모 코스메틱</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업 · 네일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모
+						코스메틱</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업
+						· 네일</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
@@ -372,266 +378,339 @@ main {
 		<!-- <div class="row"></div> -->
 
 		<main>
-		<div class="container-main">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#">홈</a></li>
-					<li class="breadcrumb-item">관리자</li>
-					<li class="breadcrumb-item active">상품관리</li>
-					<li class="breadcrumb-item active" aria-current="page">상품등록</li>
-				</ol>
-			</nav>
-			<div class="row">
-				<div class="col-6">
+			<div class="container-main">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">홈</a></li>
+						<li class="breadcrumb-item">관리자</li>
+						<li class="breadcrumb-item active">상품관리</li>
+						<li class="breadcrumb-item active" aria-current="page">상품등록</li>
+					</ol>
+				</nav>
+				<div class="row">
+					<div class="col-6">
 
-					<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
-					<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);"style="display: none;" >
-					<div class="addScroll">
-					<ul id="ulFile0" class="list-group"></ul>
+
+
+						<div class="col-md-6">
+							<label for="file0" class="form-label input-file-button">메인
+								상품 사진 등록</label><input type="file"
+								class="form-control form-control-sm mb-1" id="file0"
+								name="file0" multiple onChange="upload(0,2);"
+								style="display: none;">
+							<div class="addScroll">
+								<ul id="ulFile0" class="list-group"></ul>
+							</div>
+							<c:forEach items="${listUploaded}" var="itemUploaded"
+								varStatus="statusUploaded">
+								<c:if test="${itemUploaded.type eq 0}">
+									<img id="mainimage"
+										src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"
+										style="width: 100px;">
+								</c:if>
+							</c:forEach>
+						</div>
+
+						<div class="col-md-6">
+							<label for="file1" class="form-label input-file-button">(상세)메인
+								상품 사진 등록</label> <input type="file"
+								class="form-control form-control-sm mb-1" id="file1"
+								name="file1" multiple onChange="upload(1,2);"
+								style="display: none;">
+							<div class="addScroll">
+								<ul id="ulFile1" class="list-group"></ul>
+							</div>
+							<c:forEach items="${listUploaded}" var="itemUploaded"
+								varStatus="statusUploaded">
+								<c:if test="${itemUploaded.type eq 1}">
+									<img id="mainimage2"
+										src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"
+										style="width: 100px;">
+								</c:if>
+							</c:forEach>
+						</div>
+
 					</div>
-				
-				</div>
-				<div class="col-6">
-					<label for="formFile" class="form-label">상품 분류</label> 
-				<label for="formFile" class="form-label">판매여부</label>
-							<select class="form-select" id="oyspSaleNy" name="oyspSaleNy">
-								<option value="" selected>::판매여부::</option>
-								<option value="1" <c:if test="${item.oyspSaleNy eq 1}">selected</c:if>>Y</option>
-								<option value="0" <c:if test="${item.oyspSaleNy eq 0}">selected</c:if>>N</option>
-							</select>
-							
-				<label for="formFile" class="form-label">PB여부</label>
-							<select class="form-select" id="oyspExclusiveNy" name="oyspExclusiveNy">
-								<option value="" selected>::PB::</option>
-								<option value="1" <c:if test="${item.oyspExclusiveNy eq 1}">selected</c:if>>Y</option>
-								<option value="0" <c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
-							</select>
-							
-							<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}" />
-							 <label for="formFile" class="form-label">카테고리</label>
-					<select class="form-select" id="oypdCate" name="oypdCate">
-						<option value="" selected>::카테고리::</option>
-							<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
-							<option value="<c:out value="${itemCate3.oyctSeq}"/>"
-								<c:if test="${item.oypdCate eq itemCate3.oyctSeq }">selected</c:if>>
-								<c:out value="${itemCate3.oyctName}" /></option>
-						</c:forEach>
-					</select> 
-		
- 	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
-					
-					<label for="formFile" class="form-label">브랜드</label>
-					<select class="form-select" id="oypdBrandCd" name="oypdBrandCd">
-						<option value="" selected>::브랜드::</option>
-						<c:forEach items="${codeBrand}" var="itemBrand" varStatus="statusBrand">
+					<div class="col-6">
+						<label for="formFile" class="form-label">상품 분류</label> <label
+							for="formFile" class="form-label">판매여부</label> <select
+							class="form-select" id="oyspSaleNy" name="oyspSaleNy">
+							<option value="" selected>::판매여부::</option>
+							<option value="1"
+								<c:if test="${item.oyspSaleNy eq 1}">selected</c:if>>Y</option>
+							<option value="0"
+								<c:if test="${item.oyspSaleNy eq 0}">selected</c:if>>N</option>
+						</select> <label for="formFile" class="form-label">PB여부</label> <select
+							class="form-select" id="oyspExclusiveNy" name="oyspExclusiveNy">
+							<option value="" selected>::PB::</option>
+							<option value="1"
+								<c:if test="${item.oyspExclusiveNy eq 1}">selected</c:if>>Y</option>
+							<option value="0"
+								<c:if test="${item.oyspExclusiveNy eq 0}">selected</c:if>>N</option>
+						</select>
 
-							<option value="<c:out value="${itemBrand.oycdSeq}"/>"
-							<c:if test="${item.oypdBrandCd eq itemBrand.oycdSeq }">selected</c:if>>
-							<c:out value="${itemBrand.oycdName}"/></option>
+						<c:set var="cate3"
+							value="${CateServiceImpl.selectListCachedCode('3')}" />
+						<label for="formFile" class="form-label">카테고리</label> <select
+							class="form-select" id="oypdCate" name="oypdCate">
+							<option value="" selected>::카테고리::</option>
+							<c:forEach items="${cate3}" var="itemCate3"
+								varStatus="statusCate3">
+								<option value="<c:out value="${itemCate3.oyctSeq}"/>"
+									<c:if test="${item.oypdCate eq itemCate3.oyctSeq }">selected</c:if>>
+									<c:out value="${itemCate3.oyctName}" /></option>
+							</c:forEach>
+						</select>
 
-						</c:forEach>
-					</select>
+						<c:set var="codeBrand"
+							value="${CodeServiceImpl.selectListCachedCode('16')}" />
+
+						<label for="formFile" class="form-label">브랜드</label> <select
+							class="form-select" id="oypdBrandCd" name="oypdBrandCd">
+							<option value="" selected>::브랜드::</option>
+							<c:forEach items="${codeBrand}" var="itemBrand"
+								varStatus="statusBrand">
+
+								<option value="<c:out value="${itemBrand.oycdSeq}"/>"
+									<c:if test="${item.oypdBrandCd eq itemBrand.oycdSeq }">selected</c:if>>
+									<c:out value="${itemBrand.oycdName}" /></option>
+
+							</c:forEach>
+						</select>
 
 
 
-					<hr>
-					<label for="formFile" class="form-label">상품 상세</label>
-						<label for="formFile" class="form-label">상품명</label>
-						<input type="text" class="form-control" id="oypdName" name="oypdName" value="<c:out value="${item.oypdName}"/>"><br>
-						<label for="formFile" class="form-label">판매가</label>
-						<input type="text" class="form-control" id="oypdPrice" name="oypdPrice" value="<c:out value="${item.oypdPrice}"/>"><br>
-						<label for="formFile" class="form-label">행사가</label>
-						<input type="text" class="form-control" id="oyspSalePrice" name="oyspSalePrice" value="<c:out value="${item.oyspSalePrice}"/>"><br>
-						<label for="formFile" class="form-label">행사시작일</label>
-						<input type="text" class="form-control" id="oyspSalePeriodStart" name="oyspSalePeriodStart" value="<c:out value="${item.oyspSalePeriodStart}"/>"><br>
-						<label for="formFile" class="form-label">행사종료일</label>
-						<input type="text" class="form-control" id="oyspSalePeriodEnd" name="oyspSalePeriodEnd" value="<c:out value="${item.oyspSalePeriodEnd}"/>"><br>
-					<hr>
-					<label for="formFile" class="form-label">행사 분류</label>
-					<div class="input-group">
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="" id="">
-							<span class="badge rounded-pill bg-primary">세일</span>
+						<hr>
+						<label for="formFile" class="form-label">상품 상세</label> <label
+							for="formFile" class="form-label">상품명</label> <input type="text"
+							class="form-control" id="oypdName" name="oypdName"
+							value="<c:out value="${item.oypdName}"/>"><br> <label
+							for="formFile" class="form-label">판매가</label> <input type="text"
+							class="form-control" id="oypdPrice" name="oypdPrice"
+							value="<c:out value="${item.oypdPrice}"/>"><br> <label
+							for="formFile" class="form-label">행사가</label> <input type="text"
+							class="form-control" id="oyspSalePrice" name="oyspSalePrice"
+							value="<c:out value="${item.oyspSalePrice}"/>"><br>
+						<label for="formFile" class="form-label">행사시작일</label> <input
+							type="text" class="form-control" id="oyspSalePeriodStart"
+							name="oyspSalePeriodStart"
+							value="<c:out value="${item.oyspSalePeriodStart}"/>"><br>
+						<label for="formFile" class="form-label">행사종료일</label> <input
+							type="text" class="form-control" id="oyspSalePeriodEnd"
+							name="oyspSalePeriodEnd"
+							value="<c:out value="${item.oyspSalePeriodEnd}"/>"><br>
+						<hr>
+						<label for="formFile" class="form-label">행사 분류</label>
+						<div class="input-group">
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="" id="">
+								<span class="badge rounded-pill bg-primary">세일</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="" id="">
+								<span class="badge rounded-pill bg-secondary">쿠폰</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="" id="">
+								<span class="badge rounded-pill bg-success">증정</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="" id="">
+								<span class="badge rounded-pill bg-danger">오늘드림</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="" id="">
+								<span class="badge rounded-pill bg-warning">1+1</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="" id="">
+								<span class="badge rounded-pill bg-warning">2+1</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="" id="">
+								<span class="badge rounded-pill bg-info">무배</span>
+							</div>
 						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="" id="">
-							<span class="badge rounded-pill bg-secondary">쿠폰</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="" id="">
-							<span class="badge rounded-pill bg-success">증정</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="" id="">
-							<span class="badge rounded-pill bg-danger">오늘드림</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="" id="">
-							<span class="badge rounded-pill bg-warning">1+1</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="" id="">
-							<span class="badge rounded-pill bg-warning">2+1</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="" id="">
-							<span class="badge rounded-pill bg-info">무배</span>
-						</div>
+						<hr>
+						<label for="formFile" class="form-label">상품 정보</label> <label
+							for="formFile" class="form-label">용량 또는 중량</label> <input
+							type="text" class="form-control" id="oypdVolumeWeight"
+							name="oypdVolumeWeight"
+							value="<c:out value="${item.oypdVolumeWeight}"/>"><br>
+						<label for="formFile" class="form-label">제품 주요 사양</label> <input
+							type="text" class="form-control" id="oypdIdeal" name="oypdIdeal"
+							value="<c:out value="${item.oypdIdeal}"/>"><br> <label
+							for="formFile" class="form-label">사용기간(개봉 후 사용기간)</label> <input
+							type="text" class="form-control" id="oypdExpirationDate"
+							name="oypdExpirationDate"
+							value="<c:out value="${item.oypdExpirationDate}"/>"><br>
+						<label for="formFile" class="form-label">사용방법</label> <input
+							type="text" class="form-control" id="oypdHowtoUse"
+							name="oypdHowtoUse" value="<c:out value="${item.oypdHowtoUse}"/>"><br>
+
+						<c:set var="codeManufacturer"
+							value="${CodeServiceImpl.selectListCachedCode('101')}" />
+						<label for="formFile" class="form-label">화장품제조업자</label> <select
+							class="form-select" id="oypdManufacturerCd"
+							name="oypdManufacturerCd">
+							<option value="" selected>::제조사::</option>
+							<c:forEach items="${codeManufacturer}" var="itemManufacturer"
+								varStatus="statusManufacturer">
+
+								<option value="<c:out value="${itemManufacturer.oycdSeq}"/>"
+									<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq }">selected</c:if>>
+									<c:out value="${itemManufacturer.oycdName}" /></option>
+							</c:forEach>
+						</select><br>
+
+						<c:set var="codeDistributor"
+							value="${CodeServiceImpl.selectListCachedCode('102')}" />
+						<label for="formFile" class="form-label"> 화장품책임판매업자</label> <select
+							class="form-select" id="oypdDistributorCd"
+							name="oypdDistributorCd">
+							<option value="" selected>::판매사::</option>
+							<c:forEach items="${codeDistributor}" var="itemDistributor"
+								varStatus="statusDistributor">
+
+								<option value="<c:out value="${itemDistributor.oycdSeq}"/>"
+									<c:if test="${item.oypdDistributorCd eq itemDistributor.oycdSeq }">selected</c:if>>
+									<c:out value="${itemDistributor.oycdName}" /></option>
+
+							</c:forEach>
+						</select><br>
+
+						<c:set var="codeCountry"
+							value="${CodeServiceImpl.selectListCachedCode('103')}" />
+						<label for="formFile" class="form-label">제조국</label> <select
+							class="form-select" id="oypdCountryCd" name="oypdCountryCd">
+							<option value="" selected>::제조국::</option>
+							<c:forEach items="${codeCountry}" var="itemCountry"
+								varStatus="statusCountry">
+
+								<option value="<c:out value="${itemCountry.oycdSeq}"/>"
+									<c:if test="${item.oypdCountryCd eq itemCountry.oycdSeq }">selected</c:if>>
+									<c:out value="${itemCountry.oycdName}" /></option>
+
+							</c:forEach>
+						</select><br> <label for="formFile" class="form-label">화장품법에
+							따라 기재해야 하는 모든 성분</label> <input type="text" class="form-control"
+							id="oypdIngredients" name="oypdIngredients"
+							value="<c:out value="${item.oypdIngredients}"/>"><br>
+						<label for="formFile" class="form-label">기능성 화장품 식품의약품안전처
+							심사필 여부</label> <select class="form-select" id="oypdFunctionalNy"
+							name="oypdFunctionalNy">
+							<option value="" selected>::심사필 여부::</option>
+
+							<option value="1"
+								<c:if test="${item.oypdFunctionalNy eq 1}">selected</c:if>>Y</option>
+							<option value="0"
+								<c:if test="${item.oypdFunctionalNy eq 0}">selected</c:if>>N</option>
+
+						</select> <label for="formFile" class="form-label">사용시 주의사항</label> <input
+							type="text" class="form-control" id="oypdCautions"
+							name="oypdCautions" value="<c:out value="${item.oypdCautions}"/>"><br>
+						<label for="formFile" class="form-label">품질보증기준</label> <input
+							type="text" class="form-control" id="oypdQaStandard"
+							name="oypdQaStandard"
+							value="<c:out value="${item.oypdQaStandard}"/>"><br>
+						<label for="formFile" class="form-label">소비자상담 전화번호</label> <input
+							type="text" class="form-control" id="oypdCustomerService"
+							name="oypdCustomerService"
+							value="<c:out value="${item.oypdCustomerService}"/>"><br>
+						<br>
+						<hr>
+						<br> <a href="javaScript:goUpdt();">
+							<button type="button" class="btn btn-success btn-lg">상품수정</button>
+						</a>
 					</div>
-					<hr>
-					<label for="formFile" class="form-label">상품 정보</label>
-					<label for="formFile" class="form-label">용량 또는 중량</label>
-					<input type="text" class="form-control" id="oypdVolumeWeight" name="oypdVolumeWeight" value="<c:out value="${item.oypdVolumeWeight}"/>"><br>
-					<label for="formFile" class="form-label">제품 주요 사양</label>
-					<input type="text" class="form-control" id="oypdIdeal" name="oypdIdeal" value="<c:out value="${item.oypdIdeal}"/>"><br>
-					<label for="formFile" class="form-label">사용기간(개봉 후 사용기간)</label>
-					<input type="text" class="form-control" id="oypdExpirationDate" name="oypdExpirationDate" value="<c:out value="${item.oypdExpirationDate}"/>"><br>
-					<label for="formFile" class="form-label">사용방법</label>
-					<input type="text" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" value="<c:out value="${item.oypdHowtoUse}"/>"><br> 
-					
-	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}"/>
-					<label for="formFile" class="form-label">화장품제조업자</label>
-					<select class="form-select" id="oypdManufacturerCd" name="oypdManufacturerCd">
-					<option value="" selected>::제조사::</option>
-						<c:forEach items="${codeManufacturer}" var="itemManufacturer" varStatus="statusManufacturer">
 
-							<option value="<c:out value="${itemManufacturer.oycdSeq}"/>"
-								<c:if test="${item.oypdManufacturerCd eq itemManufacturer.oycdSeq }">selected</c:if>>
-								<c:out value="${itemManufacturer.oycdName}" /></option>
-						</c:forEach>
-					</select><br>
-					
-	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
-					<label for="formFile" class="form-label"> 화장품책임판매업자</label>
-					<select class="form-select" id="oypdDistributorCd" name="oypdDistributorCd">
-						<option value="" selected>::판매사::</option>
-						<c:forEach items="${codeDistributor}" var="itemDistributor" varStatus="statusDistributor">
-
-							<option value="<c:out value="${itemDistributor.oycdSeq}"/>"
-								<c:if test="${item.oypdDistributorCd eq itemDistributor.oycdSeq }">selected</c:if>>
-								<c:out value="${itemDistributor.oycdName}" /></option>
-
-						</c:forEach>
-					</select><br>
-					
-	<c:set var="codeCountry" value="${CodeServiceImpl.selectListCachedCode('103')}" />
-					<label for="formFile" class="form-label">제조국</label>
-					<select class="form-select" id="oypdCountryCd" name="oypdCountryCd">
-						<option value="" selected>::제조국::</option>
-						<c:forEach items="${codeCountry}" var="itemCountry" varStatus="statusCountry">
-
-							<option value="<c:out value="${itemCountry.oycdSeq}"/>"
-								<c:if test="${item.oypdCountryCd eq itemCountry.oycdSeq }">selected</c:if>>
-								<c:out value="${itemCountry.oycdName}" /></option>
-
-						</c:forEach>
-					</select><br>
-					<label for="formFile" class="form-label">화장품법에 따라 기재해야 하는 모든 성분</label>
-					<input type="text" class="form-control" id="oypdIngredients" name="oypdIngredients" value="<c:out value="${item.oypdIngredients}"/>"><br>
-					<label for="formFile" class="form-label">기능성 화장품 식품의약품안전처 심사필 여부</label>
-					<select class="form-select" id="oypdFunctionalNy" name="oypdFunctionalNy">
-								<option value="" selected>::심사필 여부::</option>
-								
-									<option value="1" <c:if test="${item.oypdFunctionalNy eq 1}">selected</c:if>>Y</option>
-									<option value="0" <c:if test="${item.oypdFunctionalNy eq 0}">selected</c:if>>N</option>
-								
-							</select>
-					<label for="formFile" class="form-label">사용시 주의사항</label>
-					<input type="text" class="form-control" id="oypdCautions" name="oypdCautions" value="<c:out value="${item.oypdCautions}"/>"><br>
-					<label for="formFile" class="form-label">품질보증기준</label>
-					<input type="text" class="form-control" id="oypdQaStandard" name="oypdQaStandard" value="<c:out value="${item.oypdQaStandard}"/>"><br>
-					<label for="formFile" class="form-label">소비자상담 전화번호</label>
-					<input type="text" class="form-control" id="oypdCustomerService" name="oypdCustomerService" value="<c:out value="${item.oypdCustomerService}"/>"><br>
-					<br>
-					<hr>
-					<br> <a href="javaScript:goUpdt();">
-					<button type="button" class="btn btn-success btn-lg">상품수정</button></a>
 				</div>
 
-			</div>
-	
-	<br>
-	<hr>
-	<br>
-	<div class="row">
-		<div class="map_wrap">
-
-			<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-			<div id="menu_wrap" class="bg_white">
-				<div class="option">
-					<div>
-						<form onsubmit="searchPlaces(); return false;">
-							키워드 : <input type="text" value="올리브영" id="keyword" size="15">
-							<button type="submit">검색하기</button>
-						</form>
-					</div>
-				</div>
+				<br>
 				<hr>
-				<ul id="placesList"></ul>
-				<div id="pagination"></div>
-			</div>
-		</div>
-
-	</div>
-
-		<hr>
-		<h2>이런 에센스 / 크림 상품은 어떠세요?</h2>
-		<div class="row">
-			<div class="col-2">
-				<img src="/resources/user/image/this1jpg.jpg" class="rounded" alt="..." width="100px" height="100px">
-			</div>
-			<div class="col-2">
-				<p>
-					[단독기획]구달 청귤 비타C잡티케<br>어 크림 75ml 기획(+크림...
-				</p>
 				<br>
-				<del>27000원</del>
-				<p>21600원</p>
-			</div>
-			<div class="col-2">
-				<img src="/resources/user/image/this2.jpg" class="rounded" alt="..."
-					width="100px" height="100px">
-			</div>
-			<div class="col-2">
-				<p>
-					[한정기획]라네즈 워터뱅크 블루히<br>알루로닉 크림 45ml_중건성...
-				</p>
-				<br>
-				<del>39000원</del>
-				<p>28400원</p>
-			</div>
-			<div class="col-2">
-				<img src="/resources/user/image/this3.jpg" class="rounded" alt="..."
-					width="100px">
-			</div>
-			<div class="col-2">
-				<p>
-					[단독기획]라운드랩 자작나무 수분<br>크림 더블기획 (80ml+80ml)
-				</p>
-				<br>
-				<del>32000원</del>
-				<p>29800원</p>
-			</div>
-		</div>
-		<ul class="nav nav-tabs nav-tabs-p">
-			<li class="nav-item nav-item-p"><a class="nav-link active" aria-current="page" href="#">상품설명</a></li>
-			<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
-			<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰</a></li>
-			<li class="nav-item nav-item-p"><a class="nav-link">Q&A</a></li>
-		</ul>
+				<div class="row">
+					<div class="map_wrap">
 
-		<div class="row row-detail">
-			<div>
-				<label for="formFileLg" class="form-label">메인 상품 사진 등록</label>
-				<!-- <input class="form-control form-control-lg" id="formFileLg" type="file"> -->
+						<div id="map"
+							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+						<div id="menu_wrap" class="bg_white">
+							<div class="option">
+								<div>
+									<form onsubmit="searchPlaces(); return false;">
+										키워드 : <input type="text" value="올리브영" id="keyword" size="15">
+										<button type="submit">검색하기</button>
+									</form>
+								</div>
+							</div>
+							<hr>
+							<ul id="placesList"></ul>
+							<div id="pagination"></div>
+						</div>
+					</div>
+
+				</div>
+
+				<hr>
+				<h2>이런 에센스 / 크림 상품은 어떠세요?</h2>
+				<div class="row">
+					<div class="col-2">
+						<img src="/resources/user/image/this1jpg.jpg" class="rounded"
+							alt="..." width="100px" height="100px">
+					</div>
+					<div class="col-2">
+						<p>
+							[단독기획]구달 청귤 비타C잡티케<br>어 크림 75ml 기획(+크림...
+						</p>
+						<br>
+						<del>27000원</del>
+						<p>21600원</p>
+					</div>
+					<div class="col-2">
+						<img src="/resources/user/image/this2.jpg" class="rounded"
+							alt="..." width="100px" height="100px">
+					</div>
+					<div class="col-2">
+						<p>
+							[한정기획]라네즈 워터뱅크 블루히<br>알루로닉 크림 45ml_중건성...
+						</p>
+						<br>
+						<del>39000원</del>
+						<p>28400원</p>
+					</div>
+					<div class="col-2">
+						<img src="/resources/user/image/this3.jpg" class="rounded"
+							alt="..." width="100px">
+					</div>
+					<div class="col-2">
+						<p>
+							[단독기획]라운드랩 자작나무 수분<br>크림 더블기획 (80ml+80ml)
+						</p>
+						<br>
+						<del>32000원</del>
+						<p>29800원</p>
+					</div>
+				</div>
+				<ul class="nav nav-tabs nav-tabs-p">
+					<li class="nav-item nav-item-p"><a class="nav-link active"
+						aria-current="page" href="#">상품설명</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link">Q&A</a></li>
+				</ul>
+
+				<div class="row row-detail">
+					<div>
+						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label>
+						<!-- <input class="form-control form-control-lg" id="formFileLg" type="file"> -->
+					</div>
+				</div>
 			</div>
-		</div>
-		</div>
 		</main>
 
-<footer class="py-3 my-4">
-		<div class="container-footer">
-			
+		<footer class="py-3 my-4">
+			<div class="container-footer">
+
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
 					<li class="nav-item"><a href="#"
 						class="nav-link px-2 text-muted">Home</a></li>
@@ -645,10 +724,10 @@ main {
 						class="nav-link px-2 text-muted">About</a></li>
 				</ul>
 				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
-			
-		</div>
 
-</footer>
+			</div>
+
+		</footer>
 
 
 
@@ -887,13 +966,15 @@ main {
 				el.removeChild(el.lastChild);
 			}
 		}
-		
+	</script>
+
+	<script type="text/javascript">
 		goUpdt = function() {
 			$("#allLiveView").attr("action", "/allLive/allLiveUpdt");
 			$("#allLiveView").submit();
 		}
-
 	</script>
+
 	<script>
 		upload = function(seq, div) {
 
@@ -957,5 +1038,6 @@ main {
 			$("#li_" + seq + "_" + index).remove();
 		}
 	</script>
+
 </body>
 </html>

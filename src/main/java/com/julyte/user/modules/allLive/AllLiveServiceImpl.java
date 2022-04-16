@@ -52,6 +52,21 @@ public class AllLiveServiceImpl implements AllLiveService {
 			dao.insertUploaded(dto);
 			j++;
 		}
+
+		j = 0;
+		for (MultipartFile multipartFile : dto.getFile1()) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");
+			UtilUpload.upload(multipartFile, pathModule, dto);
+
+			dto.setTableName("oymbUploaded");
+			dto.setType(1);
+			dto.setSort(j);
+			dto.setDefaultNy(0);
+			dto.setPseq(dto.getOypdSeq());
+
+			dao.insertUploaded(dto);
+			j++;
+		}
 		return 2;
 	}
 
@@ -73,6 +88,20 @@ public class AllLiveServiceImpl implements AllLiveService {
 
 			dto.setTableName("oymbUploaded");
 			dto.setType(0);
+			dto.setSort(j);
+			dto.setDefaultNy(0);
+			dto.setPseq(dto.getOypdSeq());
+
+			dao.insertUploaded(dto);
+			j++;
+		}
+		j = 0;
+		for (MultipartFile multipartFile : dto.getFile1()) {
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");
+			UtilUpload.upload(multipartFile, pathModule, dto);
+
+			dto.setTableName("oymbUploaded");
+			dto.setType(1);
 			dto.setSort(j);
 			dto.setDefaultNy(0);
 			dto.setPseq(dto.getOypdSeq());

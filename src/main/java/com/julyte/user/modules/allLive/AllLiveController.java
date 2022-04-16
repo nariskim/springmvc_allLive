@@ -55,6 +55,9 @@ public class AllLiveController {
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
+		List<AllLive> list = service.selectListUploaded(vo);
+		model.addAttribute("listUploaded", list);
+		
 		return "/allLive/allLiveDetail";
 	}
 
@@ -63,7 +66,10 @@ public class AllLiveController {
 
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
-
+		
+		List<AllLive> list = service.selectListUploaded(vo);
+		model.addAttribute("listUploaded", list);
+		
 		return "/allLive/allLiveDetail2";
 	}
 
@@ -239,6 +245,9 @@ public class AllLiveController {
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
+		List<AllLive> list = service.selectListUploaded(vo);
+		model.addAttribute("listUploaded", list);
+		
 		return "allLive/allLiveView";
 	}
 

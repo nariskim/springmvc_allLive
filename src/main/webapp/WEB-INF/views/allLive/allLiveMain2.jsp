@@ -357,7 +357,7 @@ dl>dt:before {
 						<br>
 					</div>
 					<c:forEach items="${list}" var="item" varStatus="status">
-						<c:if test="${item.oyspTypeCd eq 1417 }">
+						<c:if test="${item.oyspTypeCd eq 1417 and item.type eq 0}">
 							<div class="col-3">
 								<a href="javascript:goView(<c:out value="${item.oypdSeq}"/>);">
 									<div class="card" id="mainall">
@@ -418,7 +418,7 @@ dl>dt:before {
 	<script type="text/javascript">
 	goView = function(seq) {
 		$("#oypdSeq").val(seq);
-		$("#allLiveMain2").attr("action", "/allLive/allLiveDetail2");
+		$("#allLiveMain2").attr("action", "/allLive/allLiveDetail");
 		$("#allLiveMain2").submit();
 	}
 	

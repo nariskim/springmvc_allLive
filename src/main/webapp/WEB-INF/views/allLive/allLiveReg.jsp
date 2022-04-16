@@ -455,6 +455,12 @@ a {
 					<div class="addScroll">
 						<ul id="ulFile0" class="list-group" ></ul>
 					</div>
+
+						<label for="file1" class="form-label input-file-button">(상세)메인 상품 사진 등록</label>
+					<input type="file" class="form-control form-control-sm mb-1" id="file1" name="file1" multiple onChange="upload(1,2);"style="display: none;" >
+					<div class="addScroll">
+						<ul id="ulFile1" class="list-group" ></ul>
+					</div>
 				
 					
 				</div>
@@ -1013,74 +1019,57 @@ a {
 				el.removeChild(el.lastChild);
 			}
 		}
-
+		</script>
+		<script type="text/javascript">
 		goReg = function() {
 			$("#allLiveReg").attr("action", "/allLive/allLiveInst");
 			$("#allLiveReg").submit();
 		}
-	</script>
+		</script>
 	<script>
-		upload = function(seq, div) {
-
-			$("#ulFile" + seq).children().remove();
-
-			var fileCount = $("input[type=file]")[seq].files.length;
-
-			if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
+	upload = function(seq,div){
+		
+		$("#ulFile" + seq).children().remove();
+		
+		var fileCount = $("input[type=file]")[seq].files.length;
+		
+		if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+		
+		var totalFileSize;
+		for(var i = 0; i < fileCount; i++){
+			if(div==1){
+				if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else if(div==2){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else {
 				return false;
 			}
-
-			var totalFileSize;
-			for (var i = 0; i < fileCount; i++) {
-				if (div == 1) {
-					if (checkUploadedAllExt(
-							$("input[type=file]")[seq].files[i].name, seq) == false) {
-						return false;
-					}
-				} else if (div == 2) {
-					if (checkUploadedImageExt(
-							$("input[type=file]")[seq].files[i].name, seq) == false) {
-						return false;
-					}
-				} else {
-					return false;
-				}
-
-				if (checkUploadedEachFileSize(
-						$("input[type=file]")[seq].files[i].name, seq) == false) {
-					return false;
-				}
-				totalFileSize += $("input[type=file]")[seq].files[i].size;
-			}
-			if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
-				return false;
-			}
-
-			for (var i = 0; i < fileCount; i++) {
-				addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
-			}
+			
+			if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			totalFileSize += $("input[type=file]")[seq].files[i].size;
 		}
-
-		addUploadLi = function(seq, index, name) {
-
-			var ul_list = $("#ulFile0");
-
-			li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
-			li = li + name;
-			li = li
-					+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
-					+ seq
-					+ ','
-					+ index
-					+ ')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
-			li = li + '</li>';
-
-			$("#ulFile" + seq).append(li);
+		if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+		
+		for(var i=0; i<fileCount; i++){
+			addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
 		}
+	}
 
-		delLi = function(seq, index) {
-			$("#li_" + seq + "_" + index).remove();
-		}
+	addUploadLi = function(seq,index,name){
+		
+		var ul_list = $("#ulFile0");
+		
+		li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+		li = li + name;
+		li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
+		li = li + '</li>';
+		
+		$("#ulFile"+seq).append(li);
+	}
+	
+	delLi = function(seq, index){
+		$("#li_"+seq+"_"+index).remove();
+	}
 	</script>
 </body>
 </html>

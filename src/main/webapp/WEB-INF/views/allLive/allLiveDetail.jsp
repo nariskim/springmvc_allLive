@@ -257,7 +257,8 @@ a {
 			</nav>
 			<div class="row">
 				<div class="col-6">
-					<img id="mainimage" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>">
+				<c:if test="${item.type eq 0}">
+					<img id="mainimage" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>"></c:if>
 				</div>
 				<div class="col-6">
 					<div id="brand"><c:out value="${item.oypdBrand}"/></div>
@@ -420,8 +421,8 @@ a {
 			</ul>
 
 			<div class="row row-detail">
-				<img src="/resources/user/image/bioheelbo1.jpg" class="rounded"
-					alt="...">
+				<c:if test="${item.type eq 1}">
+					<img id="mainimage" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>"></c:if>
 			</div>
 </div>s
 		</main>

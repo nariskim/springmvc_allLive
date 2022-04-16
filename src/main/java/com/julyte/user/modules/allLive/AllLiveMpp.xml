@@ -23,6 +23,7 @@
 		, c.originalName
 		, c.uuidName
 		, c.path
+		, c.type
 		, c.delNy
 
 		FROM oyProduct a
@@ -206,6 +207,7 @@
 		, b.oyspDelNy
 		, b.oyspSaleNy
 		, b.oyspExclusiveNy
+		, c.type
 		, c.uuidName
 		, c.path
 
@@ -274,7 +276,7 @@
 		, defaultNy = #{defaultNy}
 		, originalName = #{originalName}
 		, uuidName = #{uuidName}
-		, ext = #{uuidName}
+		, ext = #{ext}
 		, size = #{size}
 		, path = #{path}
 
