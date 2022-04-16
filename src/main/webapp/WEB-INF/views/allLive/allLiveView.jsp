@@ -215,42 +215,110 @@
 	cursor: default;
 	color: #777;
 }
-
-header {
-	margin-left: 5%;
-	margin-right: 5%;
+.container-header {
+	margin-top: 1%;
+	margin-bottom: 3%;
+	margin-left: 6%;
+	margin-right: 6%;
 }
 
-main {
-	margin-top: 5%;
+.container-main {
+	margin-top: 2%;
 	margin-bottom: 5%;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 14%;
+	margin-right: 14%;
 }
 
-.row-detail {
-	margin-top: 5%;
-	margin-left: 15%;
-	margin-right: 15%;
-	margin-bottom: 5%;
+.container-footer {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
 }
 
-.nav-m {
+.nav-top {
 	width: 100%;
+	line-height: 50px;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: -.04em;
 }
 
-.nav-item-m {
+.nav-item-top {
 	width: 10%;
 	text-align: center;
 }
 
-.nav-tabs-p {
-	width: 100%;
+.nav-link {
+	color: black;
 }
 
-.nav-item-p {
-	width: 25%;
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.priceB {
+	font-size: 14px;
+	line-height: 14px;
+	color: #a9a9a9;
+	text-decoration: line-through;
+	text-align: right;
+}
+
+.priceR {
+	font-size: 20px;
+	color: #e02020;
+	font-weight: 500;
+	text-align: right;
+}
+
+dl>dt:before {
+	counter-increment: dt;
+	content: counter(dt) '.';
+}
+
+.pdbrand {
+	height: 20px;
+	line-height: 20px;
+	color: #777777;
+	font-weight: 700;
+}
+
+.pdNameB {
+	height: 40px;
+	color: #000000;
+	font-size: 14px;
 	text-align: center;
+}
+
+.pdText {
+	text-align: center;
+}
+
+#mainimage {
+	width: auto !important;
+	max-width: 215px;
+	height: auto !important;
+	max-height: 215px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mainall {
+	width: auto !important;
+	width: 430px;
+	height: auto !important;
+	height: 430px;
+	padding: 20px;
+	margin: 20px;
+	border-style: none;
+}
+
+#adbanner {
+	margin-left: auto;
+	margin-right: auto;
 }
 </style>
 
@@ -259,20 +327,19 @@ main {
 
 <body>
 
-	<form id="allLiveView" name="allLiveView" method="post"
-		action="/allLive/allLiveView" enctype="multipart/form-data">
-		<input type="hidden" id="oypdSeq" name="oypdSeq"
-			value="<c:out value="${vo.oypdSeq}"/>">
+	<form id="allLiveView" name="allLiveView" method="post" action="/allLive/allLiveView" enctype="multipart/form-data">
+		<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${vo.oypdSeq}"/>">
 
 		<header>
 
+					<div class="container-header">	
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav justify-content-end">
-						<li class="nav-item"><a class="nav-link text-dark" href="#">로그아웃</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark"
-							href="../xdmin/loginout/login.html">관리자</a></li>
+							href="javascript:goLogin();">로그인</a></li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
@@ -293,7 +360,7 @@ main {
 			<div class="row">
 				<div class="col-auto col-sm-5">
 					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
-						src="/resources/user/image/h1_logo.png"></a>
+						src="/resources/user/image/h1_logo.png" width="90%"></a>
 				</div>
 				<div class="col-auto d-md-none">
 
@@ -332,7 +399,7 @@ main {
 
 
 
-				<div class="col-6 col-sm-3" style="margin-top: 30px;">
+				<div class="col-6 col-sm-2" style="margin-top: 30px;">
 
 					<input type="text" class="form-control search-input"
 						placeholder="Search...">
@@ -344,26 +411,22 @@ main {
 
 				</div>
 
-				<div class="col-auto col-sm-3" style="margin-top: 30px;">
-
+				<div class="col-auto col-sm-4" style="margin-top: 30px;">
 					<ul class="nav">
 						<li class="nav-item"><a href="#" class="nav-link">오늘드림</a></li>
-
-
 						<li class="nav-item"><a href="#" class="nav-link">관심 매장소식</a></li>
-
 						<li class="nav-item"><a href="#" class="nav-link">방금 본 상품</a></li>
 					</ul>
 				</div>
 			</div>
 
-			<ul class="nav nav-top">
+<br>
+
+	<ul class="nav nav-top">
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모
-						코스메틱</a></li>
-				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업
-						· 네일</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모 코스메틱</a></li>
+				<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업 · 네일</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
@@ -371,6 +434,7 @@ main {
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
 			</ul>
+</div>
 		</header>
 
 
@@ -387,50 +451,47 @@ main {
 						<li class="breadcrumb-item active" aria-current="page">상품등록</li>
 					</ol>
 				</nav>
-				<div class="row">
-					<div class="col-6">
+
+<div class="row">
+	<div class="col-6">
+
+		<c:forEach items="${listUploaded}" var="item" varStatus="statusUploaded">
+			<c:choose>
+				<c:when test="${item.type eq 0}">
+					<c:set var="uuidName0" value="${item.uuidName}"/>
+					<c:set var="path0" value="${item.path}"/>
+				</c:when>
+				<c:when test="${item.type eq 1}">
+					<c:set var="uuidName1" value="${item.uuidName}"/>
+					<c:set var="path1" value="${item.path}"/>
+				</c:when>
+				<c:otherwise></c:otherwise>
+			</c:choose>
+		</c:forEach>
+
+		<div class="col-md-6">
+			<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
+			<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);" style="display: none;">
+			<div class="addScroll">
+				<ul id="ulFile0" class="list-group"></ul>
+			</div>
+					<img id="mainimage" src="<c:out value="${path0}"/><c:out value="${uuidName0}"/>">
+		</div>
 
 
 
-						<div class="col-md-6">
-							<label for="file0" class="form-label input-file-button">메인
-								상품 사진 등록</label><input type="file"
-								class="form-control form-control-sm mb-1" id="file0"
-								name="file0" multiple onChange="upload(0,2);"
-								style="display: none;">
-							<div class="addScroll">
-								<ul id="ulFile0" class="list-group"></ul>
-							</div>
-							<c:forEach items="${listUploaded}" var="itemUploaded"
-								varStatus="statusUploaded">
-								<c:if test="${itemUploaded.type eq 0}">
-									<img id="mainimage"
-										src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"
-										style="width: 100px;">
-								</c:if>
-							</c:forEach>
-						</div>
-
-						<div class="col-md-6">
-							<label for="file1" class="form-label input-file-button">(상세)메인
-								상품 사진 등록</label> <input type="file"
-								class="form-control form-control-sm mb-1" id="file1"
-								name="file1" multiple onChange="upload(1,2);"
-								style="display: none;">
-							<div class="addScroll">
-								<ul id="ulFile1" class="list-group"></ul>
-							</div>
-							<c:forEach items="${listUploaded}" var="itemUploaded"
-								varStatus="statusUploaded">
-								<c:if test="${itemUploaded.type eq 1}">
-									<img id="mainimage2"
-										src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"
-										style="width: 100px;">
-								</c:if>
-							</c:forEach>
-						</div>
-
-					</div>
+		<div class="col-md-6">
+			<label for="file1" class="form-label input-file-button">(상세)메인 상품 사진 등록</label>
+			<input type="file" class="form-control form-control-sm mb-1" id="file1" name="file1" multiple onChange="upload(1,2);" style="display: none;">
+			<div class="addScroll">
+				<ul id="ulFile1" class="list-group"></ul>
+			</div>
+					<img id="mainimage2" src="<c:out value="${path1}"/> <c:out value="${uuidName1}"/>">
+		</div>
+	</div>
+					
+					
+					
 					<div class="col-6">
 						<label for="formFile" class="form-label">상품 분류</label> <label
 							for="formFile" class="form-label">판매여부</label> <select
@@ -976,67 +1037,49 @@ main {
 	</script>
 
 	<script>
-		upload = function(seq, div) {
-
-			$("#ulFile" + seq).children().remove();
-
-			var fileCount = $("input[type=file]")[seq].files.length;
-
-			if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
+	upload = function(seq,div){
+		
+		$("#ulFile" + seq).children().remove();
+		
+		var fileCount = $("input[type=file]")[seq].files.length;
+		
+		if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
+		
+		var totalFileSize;
+		for(var i = 0; i < fileCount; i++){
+			if(div==1){
+				if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else if(div==2){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else {
 				return false;
 			}
-
-			var totalFileSize;
-			for (var i = 0; i < fileCount; i++) {
-				if (div == 1) {
-					if (checkUploadedAllExt(
-							$("input[type=file]")[seq].files[i].name, seq) == false) {
-						return false;
-					}
-				} else if (div == 2) {
-					if (checkUploadedImageExt(
-							$("input[type=file]")[seq].files[i].name, seq) == false) {
-						return false;
-					}
-				} else {
-					return false;
-				}
-
-				if (checkUploadedEachFileSize(
-						$("input[type=file]")[seq].files[i].name, seq) == false) {
-					return false;
-				}
-				totalFileSize += $("input[type=file]")[seq].files[i].size;
-			}
-			if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
-				return false;
-			}
-
-			for (var i = 0; i < fileCount; i++) {
-				addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
-			}
+			
+			if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			totalFileSize += $("input[type=file]")[seq].files[i].size;
 		}
-
-		addUploadLi = function(seq, index, name) {
-
-			var ul_list = $("#ulFile0");
-
-			li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
-			li = li + name;
-			li = li
-					+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
-					+ seq
-					+ ','
-					+ index
-					+ ')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
-			li = li + '</li>';
-
-			$("#ulFile" + seq).append(li);
+		if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
+		
+		for(var i=0; i<fileCount; i++){
+			addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
 		}
+	}
 
-		delLi = function(seq, index) {
-			$("#li_" + seq + "_" + index).remove();
-		}
+	addUploadLi = function(seq,index,name){
+		
+		var ul_list = $("#ulFile0");
+		
+		li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+		li = li + name;
+		li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
+		li = li + '</li>';
+		
+		$("#ulFile"+seq).append(li);
+	}
+	
+	delLi = function(seq, index){
+		$("#li_"+seq+"_"+index).remove();
+	}
 	</script>
 
 </body>

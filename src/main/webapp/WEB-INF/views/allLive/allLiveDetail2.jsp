@@ -48,8 +48,8 @@
 .container-header {
 	margin-top: 1%;
 	margin-bottom: 3%;
-	margin-left: 12%;
-	margin-right: 12%;
+	margin-left: 6%;
+	margin-right: 6%;
 }
 
 .container-main {
@@ -135,23 +135,23 @@ a {
 
 	<form id="allLiveDetail2" name="allLiveDetail2" method="post" action="/allLive/allLiveDetail2">
 		<header>
-<div class="container-header">
+		<div class="container-header">	
 			<div class="row">
 				<div style="font-size: small;">
-					<ul class="nav nav-t justify-content-end">
-						<li class="nav-item"><a class="nav-link text-dark" href="javascript:goLogout();">로그아웃</a>
+					<ul class="nav justify-content-end">
+						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
 						</li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark"
-							href="#">마이페이지</a></li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">장바구니</a>
+						<li class="nav-item"><a class="nav-link text-dark"
+							href="javascript:goLogin();">로그인</a></li>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
 						</li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">주문배송</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
 						</li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">고객센터</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">고객센터</a>
 						</li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">매장안내</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">매장안내</a>
 						</li>
-						<li class="nav-item nav-item-t"><a class="nav-link text-dark" href="#">Global</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#">Global</a>
 						</li>
 
 					</ul>
@@ -162,8 +162,8 @@ a {
 
 			<div class="row">
 				<div class="col-auto col-sm-5">
-					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain2"><img
-						src="/resources/user/image/h1_logo.png"></a>
+					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
+						src="/resources/user/image/h1_logo.png" width="90%"></a>
 				</div>
 				<div class="col-auto d-md-none">
 
@@ -202,7 +202,7 @@ a {
 
 
 
-				<div class="col-6 col-sm-3" style="margin-top: 30px;">
+				<div class="col-6 col-sm-2" style="margin-top: 30px;">
 
 					<input type="text" class="form-control search-input"
 						placeholder="Search...">
@@ -214,27 +214,18 @@ a {
 
 				</div>
 
-				<div class="col-auto col-sm-3" style="margin-top: 30px;">
-
+				<div class="col-auto col-sm-4" style="margin-top: 30px;">
 					<ul class="nav">
 						<li class="nav-item"><a href="#" class="nav-link">오늘드림</a></li>
-
-
 						<li class="nav-item"><a href="#" class="nav-link">관심 매장소식</a></li>
-
 						<li class="nav-item"><a href="#" class="nav-link">방금 본 상품</a></li>
 					</ul>
 				</div>
 			</div>
+
 <br>
 
-		
-
-
-
-		<!-- <div class="row"></div> -->
-
-		<ul class="nav nav-top">
+	<ul class="nav nav-top">
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모 코스메틱</a></li>
@@ -246,7 +237,8 @@ a {
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
 			</ul>
-			</div>
+</div>
+	
 			</header>
 <main>
 		<div class="container-main">

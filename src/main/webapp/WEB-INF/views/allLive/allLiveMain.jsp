@@ -25,8 +25,8 @@
 .container-header {
 	margin-top: 1%;
 	margin-bottom: 3%;
-	margin-left: 12%;
-	margin-right: 12%;
+	margin-left: 6%;
+	margin-right: 6%;
 }
 
 .container-main {
@@ -45,8 +45,8 @@
 
 .nav-top {
 	width: 100%;
-	line-height: 44px;
-	font-size: 20px;
+	line-height: 50px;
+	font-size: 15px;
 	font-weight: 700;
 	letter-spacing: -.04em;
 }
@@ -171,7 +171,7 @@ dl>dt:before {
 			<div class="row">
 				<div class="col-auto col-sm-5">
 					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
-						src="/resources/user/image/h1_logo.png"></a>
+						src="/resources/user/image/h1_logo.png" width="90%"></a>
 				</div>
 				<div class="col-auto d-md-none">
 
@@ -210,7 +210,7 @@ dl>dt:before {
 
 
 
-				<div class="col-6 col-sm-3" style="margin-top: 30px;">
+				<div class="col-6 col-sm-2" style="margin-top: 30px;">
 
 					<input type="text" class="form-control search-input"
 						placeholder="Search...">
@@ -222,14 +222,10 @@ dl>dt:before {
 
 				</div>
 
-				<div class="col-auto col-sm-3" style="margin-top: 30px;">
-
+				<div class="col-auto col-sm-4" style="margin-top: 30px;">
 					<ul class="nav">
 						<li class="nav-item"><a href="#" class="nav-link">오늘드림</a></li>
-
-
 						<li class="nav-item"><a href="#" class="nav-link">관심 매장소식</a></li>
-
 						<li class="nav-item"><a href="#" class="nav-link">방금 본 상품</a></li>
 					</ul>
 				</div>
@@ -250,15 +246,7 @@ dl>dt:before {
 				<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
 			</ul>
 </div>
-			
-
-			
-
-
-		
-
-
-
+	
 
 					<div id="carouselExampleIndicators" class="carousel slide"
 						data-bs-ride="carousel">
@@ -274,53 +262,68 @@ dl>dt:before {
 								data-bs-slide-to="3" aria-label="Slide 4"></button>
 							<button type="button" data-bs-target="#carouselExampleIndicators"
 								data-bs-slide-to="4" aria-label="Slide 5"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="5" aria-label="Slide 6"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="6" aria-label="Slide 7"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="7" aria-label="Slide 8"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="8" aria-label="Slide 9"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="9" aria-label="Slide 10"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="10" aria-label="Slide 11"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="11" aria-label="Slide 12"></button>
 						</div>
+						
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<img src="/resources/user/image/1.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/2.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/3.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/4.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/5.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/6.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/7.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/8.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/9.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/10.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/11.jpg" class="d-block w-100"
 									alt="...">
 							</div>
-							<div class="carousel-item active">
+							<div class="carousel-item">
 								<img src="/resources/user/image/12.jpg" class="d-block w-100"
 									alt="...">
 							</div>
@@ -352,11 +355,11 @@ dl>dt:before {
 				<div class="row mb-2">
 					<div class="col-md-6">
 						<a href="#"><img src="/resources/user/image/todayShip.jpg"
-							class="img-fluid" alt="..."></a>
+							class="img-fluid" width="100%"></a>
 					</div>
 					<div class="col-md-6">
 						<a href="#"><img src="/resources/user/image/topCoupon.jpg"
-							class="img-fluid" alt="..."></a>
+							class="img-fluid" width="100%"></a>
 					</div>
 				</div>
 				
@@ -368,7 +371,7 @@ dl>dt:before {
 					</div>
 					<c:forEach items="${list}" var="item" varStatus="status">
 						<c:if test="${item.oyspTypeCd eq 1417 and item.type eq 0}">
-							<div class="col-3">
+							<div class="col-12 col-sm-3">
 								<a href="javascript:goView(<c:out value="${item.oypdSeq}"/>);">
 									<div class="card" id="mainall">
 										<img id="mainimage" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>">

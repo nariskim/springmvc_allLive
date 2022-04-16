@@ -41,10 +41,11 @@ public class AllLiveController {
 	@RequestMapping(value = "/allLive/allLiveMain2")
 	public String allLiveMain2(AllLiveVo vo, Model model) throws Exception {
 
-		model.addAttribute("listUploaded", service.selectListUploaded(vo));
+		List<AllLive> list = service.selectListUploaded(vo);
+		model.addAttribute("listUploaded", list);
 
-		List<AllLive> list = service.selectListPd(vo);
-		model.addAttribute("list", list);
+		List<AllLive> list2 = service.selectListPd(vo);
+		model.addAttribute("list", list2);
 
 		return "/allLive/allLiveMain2";
 	}
