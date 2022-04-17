@@ -30,7 +30,7 @@ public class AllLiveDao {
 	}
 	
 	public List<AllLive> selectListUploaded(AllLiveVo vo) {
-		return sqlSession.selectList(namespace + ".selectListPd", vo);
+		return sqlSession.selectList(namespace + ".selectListUploaded", vo);
 	}
 
 	public int insertPd(AllLive dto) {

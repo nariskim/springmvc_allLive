@@ -296,30 +296,6 @@ dl>dt:before {
 	text-align: center;
 }
 
-#mainimage {
-	width: auto !important;
-	max-width: 215px;
-	height: auto !important;
-	max-height: 215px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#mainall {
-	width: auto !important;
-	width: 430px;
-	height: auto !important;
-	height: 430px;
-	padding: 20px;
-	margin: 20px;
-	border-style: none;
-}
-
-#adbanner {
-	margin-left: auto;
-	margin-right: auto;
-}
 </style>
 
 </head>
@@ -453,45 +429,29 @@ dl>dt:before {
 				</nav>
 
 <div class="row">
-	<div class="col-6">
-
-		<c:forEach items="${listUploaded}" var="item" varStatus="statusUploaded">
-			<c:choose>
-				<c:when test="${item.type eq 0}">
-					<c:set var="uuidName0" value="${item.uuidName}"/>
-					<c:set var="path0" value="${item.path}"/>
-				</c:when>
-				<c:when test="${item.type eq 1}">
-					<c:set var="uuidName1" value="${item.uuidName}"/>
-					<c:set var="path1" value="${item.path}"/>
-				</c:when>
-				<c:otherwise></c:otherwise>
-			</c:choose>
-		</c:forEach>
-
-		<div class="col-md-6">
-			<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
-			<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);" style="display: none;">
-			<div class="addScroll">
-				<ul id="ulFile0" class="list-group"></ul>
-			</div>
-					<img id="mainimage" src="<c:out value="${path0}"/><c:out value="${uuidName0}"/>">
-		</div>
 
 
+				<div class="col-6">
+				
+							<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
+							    <img style="width: 500px;" id="preview-image0" src="">
+					<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);"style="display: none;" >
+					<div class="addScroll">
+						<ul id="ulFile0" class="list-group" ></ul>
+					</div>
 
-		<div class="col-md-6">
-			<label for="file1" class="form-label input-file-button">(상세)메인 상품 사진 등록</label>
-			<input type="file" class="form-control form-control-sm mb-1" id="file1" name="file1" multiple onChange="upload(1,2);" style="display: none;">
-			<div class="addScroll">
-				<ul id="ulFile1" class="list-group"></ul>
-			</div>
-					<img id="mainimage2" src="<c:out value="${path1}"/> <c:out value="${uuidName1}"/>">
-		</div>
-	</div>
-					
-					
-					
+		
+				
+					<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
+						<c:choose>
+							<c:when test="${itemUploaded.type eq 0 && itemUploaded.size ne 0}"><img id="mainimage" src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"></c:when>
+							<c:when test="${itemUploaded.type eq 0 && itemUploaded.size eq 0}"><p style="font-size: 13px; font-style: italic;">선택된 파일이 없습니다!</p></c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</div>
+				
+		
 					<div class="col-6">
 						<label for="formFile" class="form-label">상품 분류</label> <label
 							for="formFile" class="form-label">판매여부</label> <select
@@ -761,12 +721,26 @@ dl>dt:before {
 				</ul>
 
 				<div class="row row-detail">
-					<div>
-						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label>
-						<!-- <input class="form-control form-control-lg" id="formFileLg" type="file"> -->
+				
+								<label for="file1" class="form-label input-file-button">(상세)메인 상품 사진 등록</label>
+								<img style="width: 500px;" id="preview-image1" src="">
+					<input type="file" class="form-control form-control-sm mb-1" id="file1" name="file1" multiple onChange="upload(1,2);"style="display: none;" >
+					<div class="addScroll">
+						<ul id="ulFile1" class="list-group" ></ul>
 					</div>
+				
+				
+					<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
+						<c:choose>
+							<c:when test="${itemUploaded.type eq 1 && itemUploaded.size ne 0}"><img id="mainImage" src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>" width="510px"></c:when>
+							
+							<c:when test="${itemUploaded.type eq 1 && itemUploaded.size eq 0}"><p style="font-size: 13px; font-style: italic;">선택된 파일이 없습니다!</p></c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
 				</div>
-			</div>
+					</div>
+			
 		</main>
 
 		<footer class="py-3 my-4">
@@ -1028,6 +1002,30 @@ dl>dt:before {
 			}
 		}
 	</script>
+
+	<script type="text/javascript">
+	function readImage(input) {
+	    // 인풋 태그에 파일이 있는 경우
+	    if(input.files && input.files[0]) {
+	        // 이미지 파일인지 검사 (생략)
+	        // FileReader 인스턴스 생성
+	        const reader = new FileReader()
+	        // 이미지가 로드가 된 경우
+	        reader.onload = e => {
+	            const previewImage0 = document.getElementById("preview-image0")
+	            previewImage0.src = e.target.result
+	        }
+	        // reader가 이미지 읽도록 하기
+	        reader.readAsDataURL(input.files[0])
+	    }
+	}
+	// input file에 change 이벤트 부여
+	const inputImage = document.getElementById("file0")
+	inputImagess.addEventListener("change", e => {
+	    readImage(e.target)
+	})
+</script>
+
 
 	<script type="text/javascript">
 		goUpdt = function() {

@@ -258,29 +258,13 @@ a {
 				<div class="row">
 					<div class="col-6">
 					
-					<c:if test="${item.type eq 0}">
-				<img id="mainImage0" src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>">
-						</c:if>
-						
-						<c:forEach items="${listUploaded}" var="item"
-							varStatus="statusUploaded">
-							<c:choose>
-								<c:when test="${item.type eq 0}">
-									<c:set var="uuidName0" value="${item.uuidName}" />
-									<c:set var="path0" value="${item.path}" />
-								</c:when>
-								<c:when test="${item.type eq 1}">
-									<c:set var="uuidName1" value="${item.uuidName}" />
-									<c:set var="path1" value="${item.path}" />
-								</c:when>
-								<c:otherwise></c:otherwise>
-							</c:choose>
-						</c:forEach>
-
-						<div class="col-md-6">
-
-							<img id="mainImage1" src="<c:out value="${path0}"/><c:out value="${uuidName0}"/>">
-						</div>
+					<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
+						<c:choose>
+							<c:when test="${itemUploaded.type eq 0 && itemUploaded.size ne 0}"><img id="mainimage" src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"></c:when>
+							<c:when test="${itemUploaded.type eq 0 && itemUploaded.size eq 0}"><p style="font-size: 13px; font-style: italic;">선택된 파일이 없습니다!</p></c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
 
 					</div>
 					<div class="col-6">
@@ -450,13 +434,14 @@ a {
 				</ul>
 
 				<div class="row row-detail">
-					<c:if test="${item.type eq 1}">
-						<img id="mainImage2"
-							src="<c:out value="${item.path}"/><c:out value="${item.uuidName}"/>">
-					</c:if>
-					<img id="mainImage2"
-						src="<c:out value="${path1}"/> <c:out value="${uuidName1}"/>">
-
+						<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
+						<c:choose>
+							<c:when test="${itemUploaded.type eq 1 && itemUploaded.size ne 0}"><img id="mainImage" src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>" width="510px"></c:when>
+							
+							<c:when test="${itemUploaded.type eq 1 && itemUploaded.size eq 0}"><p style="font-size: 13px; font-style: italic;">선택된 파일이 없습니다!</p></c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
 				</div>
 			</div>
 		</main>

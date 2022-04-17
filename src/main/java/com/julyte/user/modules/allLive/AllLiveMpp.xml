@@ -4,11 +4,12 @@
 
 <mapper namespace="com.julyte.user.modules.allLive.AllLiveMpp">
 
-	<resultMap id="resultMapObj" type="com.julyte.user.modules.allLive.AllLive"></resultMap>
+	<resultMap id="resultMapObj"
+		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
 
 
 	<select id="selectListPd" resultMap="resultMapObj">
-		
+
 		SELECT
 		a.oypdSeq
 		, a.oypdCate
@@ -28,15 +29,16 @@
 
 		FROM oyProduct a
 		LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
-		LEFT JOIN oymbUploaded c on c.pseq = a.oypdSeq
-	
+		LEFT JOIN
+		oymbUploaded c on c.pseq = a.oypdSeq
+
 		WHERE 1=1
 		AND oypdDelNy = 0
 
 	</select>
 
 	<select id="selectOneLogin" resultMap="resultMapObj">
-		
+
 		SELECT
 		oymbSeq
 		, oymbId
@@ -44,13 +46,14 @@
 		, oymbDesc
 		, oymbName
 		FROM oyMember
-		WHERE 1=1
+		WHERE
+		1=1
 		AND
 		oymbId=#{oymbId}
 		AND oymbPassword=#{oymbPassword}
 
 	</select>
-	
+
 	<select id="selectListUploaded" resultMap="resultMapObj">
 
 		SELECT
@@ -72,7 +75,7 @@
 		ORDER BY sort
 
 	</select>
-	
+
 	<insert id="insertPd">
 
 		INSERT INTO oyProduct (
@@ -206,19 +209,15 @@
 		, b.oyspDelNy
 		, b.oyspSaleNy
 		, b.oyspExclusiveNy
-		, c.type
-		, c.uuidName
-		, c.path
+
 
 		FROM oyProduct a
 		LEFT JOIN
 		oySaleProduct b ON b.oypdSeq = a.oypdSeq
-		LEFT JOIN
-		oymbUploaded c ON c.type=0 AND c.pseq = a.oypdSeq
 		WHERE 1=1
-		AND oypdDelNy = 0
-		AND a.oypdSeq = #{oypdSeq}
-		
+		AND a.oypdSeq =
+		#{oypdSeq}
+
 	</select>
 
 	<update id="updatePd">
@@ -269,8 +268,7 @@
 		UPDATE
 		${tableName}
 		SET
-		type = #{type}
-		, defaultNy = #{defaultNy}
+		defaultNy = #{defaultNy}
 		, uuidName = #{uuidName}
 		, ext = #{ext}
 		, size = #{size}
@@ -278,6 +276,7 @@
 
 		WHERE 1=1
 		AND pseq = #{pseq}
+		AND type = #{type}
 
 	</update>
 

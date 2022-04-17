@@ -11,7 +11,9 @@ public class AllLiveVo {
 	private String oypdSeq;
 	private String oyspSeq;
 	private String oyctSeq;
-	
+	private String pseq;
+	private String seq;
+
 	// oyMemberSearch
 	private String regDateTime;
 	private String modDateTime;
@@ -86,6 +88,22 @@ public class AllLiveVo {
 		System.out.println("getEndRnumForOracle():" + endRnumForOracle);
 		System.out.println("getStartRnumForMysql(): " + startRnumForMysql);
 
+	}
+
+	public String getSeq() {
+		return seq;
+	}
+
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+
+	public String getPseq() {
+		return pseq;
+	}
+
+	public void setPseq(String pseq) {
+		this.pseq = pseq;
 	}
 
 	public String getOymbSeq() {

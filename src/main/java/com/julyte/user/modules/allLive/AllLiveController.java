@@ -237,6 +237,8 @@ public class AllLiveController {
 
 		vo.setOypdSeq(dto.getOypdSeq());
 
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
 		return "redirect:/allLive/allLiveView";
 	}
 

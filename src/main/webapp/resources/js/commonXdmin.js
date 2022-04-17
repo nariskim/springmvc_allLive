@@ -2,11 +2,11 @@ document.write("<script src='/resources/js/common.js'></script>");
 
 const MAX_EACH_FILE_SIZE = 1 * 1024 * 1024;		// 1M
 const MAX_TOTAL_FILE_SIZE = 10 * 1024 * 1024;	// 10M
-const MAX_TOTAL_FILE_NUMBER = 5;				// 5개
+const MAX_TOTAL_FILE_NUMBER = 30;				// 5개
 
 checkUploadedTotalFileNumber = function(totalSize, seq){
 	if(totalSize > MAX_TOTAL_FILE_NUMBER){
-		alert("전체 파일개수는 5개까지 허용됩니다.");
+		alert("전체 파일개수는 30개까지 허용됩니다.");
 		$("#file"+seq).val("");
 		return false;
 	}
