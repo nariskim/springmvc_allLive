@@ -370,7 +370,7 @@ dl>dt:before {
 						<br>
 					</div>
 					<c:forEach items="${list}" var="item" varStatus="status">
-						<c:if test="${item.oyspTypeCd eq 1417 and item.type eq 0}">
+						<c:if test="${item.oyspTypeCd eq 1417}">
 							<div class="col-12 col-sm-3">
 								<a href="javascript:goView(<c:out value="${item.oypdSeq}"/>);">
 									<div class="card" id="mainall">

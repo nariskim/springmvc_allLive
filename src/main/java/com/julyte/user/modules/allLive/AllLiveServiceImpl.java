@@ -89,10 +89,10 @@ public class AllLiveServiceImpl implements AllLiveService {
 			dto.setTableName("oymbUploaded");
 			dto.setType(0);
 			dto.setSort(j);
-			dto.setDefaultNy(0);
+			dto.setDefaultNy(1);
 			dto.setPseq(dto.getOypdSeq());
 
-			dao.updateUploaded(dto);
+			dao.insertUploaded(dto);
 			j++;
 		}
 		
@@ -104,10 +104,10 @@ public class AllLiveServiceImpl implements AllLiveService {
 			dto.setTableName("oymbUploaded");
 			dto.setType(1);
 			dto.setSort(j);
-			dto.setDefaultNy(1);
+			dto.setDefaultNy(0);
 			dto.setPseq(dto.getOypdSeq());
 
-			dao.updateUploaded(dto);
+			dao.insertUploaded(dto);
 			j++;
 		}
 		return 2;

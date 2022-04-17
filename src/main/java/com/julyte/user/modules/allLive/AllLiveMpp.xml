@@ -29,8 +29,7 @@
 
 		FROM oyProduct a
 		LEFT JOIN oySaleProduct b on b.oypdSeq = a.oypdSeq
-		LEFT JOIN
-		oymbUploaded c on c.pseq = a.oypdSeq
+		LEFT JOIN oymbUploaded c on c.type = 0 AND c.pseq = a.oypdSeq
 
 		WHERE 1=1
 		AND oypdDelNy = 0
@@ -203,7 +202,6 @@
 		, a.oypdCautions
 		, a.oypdCustomerService
 		, a.oypdQaStandard
-		, a.uuidFilePd
 		, a.oypdDelNy
 		, b.oyspSalePrice
 		, b.oyspDelNy
