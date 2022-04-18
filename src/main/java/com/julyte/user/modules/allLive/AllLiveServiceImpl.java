@@ -92,7 +92,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 			dto.setDefaultNy(1);
 			dto.setPseq(dto.getOypdSeq());
 
-			dao.insertUploaded(dto);
+			dao.updateUploaded(dto);
 			j++;
 		}
 		
@@ -107,7 +107,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 			dto.setDefaultNy(0);
 			dto.setPseq(dto.getOypdSeq());
 
-			dao.insertUploaded(dto);
+			dao.updateUploaded(dto);
 			j++;
 		}
 		return 2;
