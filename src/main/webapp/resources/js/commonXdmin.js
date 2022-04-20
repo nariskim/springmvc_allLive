@@ -1,8 +1,8 @@
 document.write("<script src='/resources/js/common.js'></script>");
 
-const MAX_EACH_FILE_SIZE = 1 * 1024 * 1024;		// 1M
-const MAX_TOTAL_FILE_SIZE = 10 * 1024 * 1024;	// 10M
-const MAX_TOTAL_FILE_NUMBER = 30;				// 5개
+const MAX_EACH_FILE_SIZE = 15 * 1024 * 1024;		// 1M
+const MAX_TOTAL_FILE_SIZE = 300 * 1024 * 1024;	// 300M
+const MAX_TOTAL_FILE_NUMBER = 30;				// 30개
 
 checkUploadedTotalFileNumber = function(totalSize, seq){
 	if(totalSize > MAX_TOTAL_FILE_NUMBER){

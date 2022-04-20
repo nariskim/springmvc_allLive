@@ -427,7 +427,7 @@ dl>dt:before {
 	<script type="text/javascript">
 	goView = function(seq) {
 		$("#oypdSeq").val(seq);
-		$("#allLiveMain2").attr("action", "/allLive/allLiveDetail");
+		$("#allLiveMain2").attr("action", "/allLive/allLiveView");
 		$("#allLiveMain2").submit();
 	}
 	
