@@ -439,7 +439,7 @@ goLogin = function() {
 
 goView = function(seq) {
 	$("#oypdSeq").val(seq);
-	$("#allLiveMain").attr("action", "/allLive/allLiveView");
+	$("#allLiveMain").attr("action", "/allLive/allLiveDetail");
 	$("#allLiveMain").submit();
 }
 
