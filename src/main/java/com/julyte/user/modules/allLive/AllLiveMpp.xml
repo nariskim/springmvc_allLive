@@ -55,23 +55,23 @@
 
 	<select id="selectListUploaded" resultMap="resultMapObj">
 
-		SELECT
-		seq
-		, type
-		, defaultNy
-		, sort
-		, originalName
-		, uuidName
-		, ext
-		, size
-		, delNy
-		, pseq
-		, path
-		FROM
-		oymbUploaded
-		WHERE 1=1
-		AND pseq = #{oypdSeq}
-		ORDER BY sort
+	SELECT
+	seq
+	, type
+	, defaultNy
+	, sort
+	, originalName
+	, uuidName
+	, ext
+	, size
+	, delNy
+	, pseq
+	, path
+	FROM
+	oymbUploaded
+	WHERE 1=1
+	AND pseq = #{oypdSeq}
+	ORDER BY sort
 
 	</select>
 
@@ -213,8 +213,7 @@
 		LEFT JOIN
 		oySaleProduct b ON b.oypdSeq = a.oypdSeq
 		WHERE 1=1
-		AND a.oypdSeq =
-		#{oypdSeq}
+		AND a.oypdSeq = #{oypdSeq}
 
 	</select>
 
