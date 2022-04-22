@@ -53,6 +53,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 			j++;
 		}
 
+
 		j = 0;
 		for (MultipartFile multipartFile : dto.getFile1()) {
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");

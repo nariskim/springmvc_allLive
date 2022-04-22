@@ -9,8 +9,13 @@ public class MemberVo {
 	private String oymaSeq;
 	private String oympSeq;
 	private String oymeSeq;
-
-	
+	private Integer oymbSkinTypeCd;
+	private Integer oymbPersonalColorCd;
+	private Integer oymbSavedCd;
+	private Integer oymbInterestsCd;
+	private Integer oymbEmailConsentNy;
+	private Integer oymbSmsConsentNy;
+	private Integer oymbPushConsentNy;
 
 	// oyMemberSearch
 	private String regDateTime;
@@ -20,7 +25,7 @@ public class MemberVo {
 	private Integer scOptionDate;
 	private String scDateStart;
 	private String scDateEnd;
-	private Integer scOymbDelNy; 
+	private Integer scOymbDelNy;
 
 	// common
 	private Integer scOption;
@@ -70,9 +75,9 @@ public class MemberVo {
 		if (startRnumForOracle < 1)
 			startRnumForOracle = 1;
 
-		if(thisPage == 1 || thisPage == 0) {
+		if (thisPage == 1 || thisPage == 0) {
 			startRnumForMysql = 0;
-		}else {
+		} else {
 			startRnumForMysql = ((rowNumToShow * (thisPage - 1)));
 		}
 
@@ -89,7 +94,7 @@ public class MemberVo {
 	}
 
 	private String[] checkboxSeqArray;
-	
+
 	public String[] getCheckboxSeqArray() {
 		return checkboxSeqArray;
 	}
@@ -312,6 +317,62 @@ public class MemberVo {
 
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+
+	public Integer getOymbSkinTypeCd() {
+		return oymbSkinTypeCd;
+	}
+
+	public void setOymbSkinTypeCd(Integer oymbSkinTypeCd) {
+		this.oymbSkinTypeCd = oymbSkinTypeCd;
+	}
+
+	public Integer getOymbPersonalColorCd() {
+		return oymbPersonalColorCd;
+	}
+
+	public void setOymbPersonalColorCd(Integer oymbPersonalColorCd) {
+		this.oymbPersonalColorCd = oymbPersonalColorCd;
+	}
+
+	public Integer getOymbSavedCd() {
+		return oymbSavedCd;
+	}
+
+	public void setOymbSavedCd(Integer oymbSavedCd) {
+		this.oymbSavedCd = oymbSavedCd;
+	}
+
+	public Integer getOymbInterestsCd() {
+		return oymbInterestsCd;
+	}
+
+	public void setOymbInterestsCd(Integer oymbInterestsCd) {
+		this.oymbInterestsCd = oymbInterestsCd;
+	}
+
+	public Integer getOymbEmailConsentNy() {
+		return oymbEmailConsentNy;
+	}
+
+	public void setOymbEmailConsentNy(Integer oymbEmailConsentNy) {
+		this.oymbEmailConsentNy = oymbEmailConsentNy;
+	}
+
+	public Integer getOymbSmsConsentNy() {
+		return oymbSmsConsentNy;
+	}
+
+	public void setOymbSmsConsentNy(Integer oymbSmsConsentNy) {
+		this.oymbSmsConsentNy = oymbSmsConsentNy;
+	}
+
+	public Integer getOymbPushConsentNy() {
+		return oymbPushConsentNy;
+	}
+
+	public void setOymbPushConsentNy(Integer oymbPushConsentNy) {
+		this.oymbPushConsentNy = oymbPushConsentNy;
 	}
 
 }

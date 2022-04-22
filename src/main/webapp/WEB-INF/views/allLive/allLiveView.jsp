@@ -1101,6 +1101,14 @@ dl>dt:before {
 				if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
 			}else if(div==2){
 				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else if(div==3){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else if(div==4){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else if(div==5){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
+			}else if(div==6){
+				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
 			}else {
 				return false;
 			}

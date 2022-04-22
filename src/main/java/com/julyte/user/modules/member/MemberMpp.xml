@@ -53,6 +53,43 @@
 
 		</choose>
 
+<!-- 		<choose>
+			<when test="oymbSkinTypeCd == 141">AND oymbSkinTypeCd = 141</when>
+			<when test="oymbSkinTypeCd == 142">AND oymbSkinTypeCd = 142</when>
+			<when test="oymbSkinTypeCd == 143">AND oymbSkinTypeCd = 143</when>
+			<when test="oymbSkinTypeCd == 144">AND oymbSkinTypeCd = 144</when>
+		</choose>
+		<choose>
+			<when test="oymbPersonalColorCd == 146">AND oymbPersonalColorCd = 146</when>
+			<when test="oymbPersonalColorCd == 147">AND oymbPersonalColorCd = 147</when>
+			<when test="oymbPersonalColorCd == 148">AND oymbPersonalColorCd = 148</when>
+			<when test="oymbPersonalColorCd == 149">AND oymbPersonalColorCd = 149</when>
+		</choose>
+		<choose>
+			<when test="oymbInterestsCd == 150">AND oymbInterestsCd = 150</when>
+			<when test="oymbInterestsCd == 151">AND oymbInterestsCd = 151</when>
+			<when test="oymbInterestsCd == 152">AND oymbInterestsCd = 152</when>
+			<when test="oymbInterestsCd == 153">AND oymbInterestsCd = 153</when>
+			<when test="oymbInterestsCd == 154">AND oymbInterestsCd = 154</when>
+		</choose>
+		<choose>
+			<when test="oymbSmsConsentNy == 1">AND oymbSmsConsentNy = 1</when>
+			<when test="oymbSmsConsentNy == 0">AND oymbSmsConsentNy = 0</when>
+		</choose>
+		<choose>
+			<when test="oymbEmailConsentNy == 1">AND oymbEmailConsentNy = 1</when>
+			<when test="oymbEmailConsentNy == 0">AND oymbEmailConsentNy = 0</when>
+		</choose>
+		<choose>
+			<when test="oymbPushConsentNy == 1">AND oymbPushConsentNy = 1</when>
+			<when test="oymbPushConsentNy == 0">AND oymbPushConsentNy = 0</when>
+		</choose>
+		<choose>
+			<when test="oymbSavedCd == 6">AND oymbSavedCd = 6</when>
+			<when test="oymbSavedCd == 8">AND oymbSavedCd = 8</when>
+			<when test="oymbSavedCd == 9">AND oymbSavedCd = 9</when>
+			<when test="oymbSavedCd == 10">AND oymbSavedCd = 10</when>
+		</choose> -->
 
 	</sql>
 
@@ -72,12 +109,14 @@
 		, a.oymbNameEng
 		, a.oymbId
 		, a.oymbGenderCd
-		, a.oymbGradeCd
+		,
+		a.oymbGradeCd
 		, a.oymbDelNy
 		, a.oymbDob
 		, a.regDateTime
 		, a.modDateTime
-		, f.oympNumber
+		,
+		f.oympNumber
 		, g.oymeEmailFull
 
 		<include refid="selectCommon" />
@@ -99,12 +138,19 @@
 		, oymbGenderCd
 		, originalFileName
 		, uuidFileName
+		, oymbSkinTypeCd
+		, oymbPersonalColorCd
+		, oymbSavedCd
+		, oymbInterestsCd
+		, oymbEmailConsentNy
+		, oymbSmsConsentNy
+		, oymbPushConsentNy
 		, oymbDelNy
 		, regDateTime
 		, modDateTime
 		) values (
 		#{oymbName}
-		, #{oymbNameEng}
+		,#{oymbNameEng}
 		, #{oymbId}
 		, #{oymbNickName}
 		<!-- <choose> <when test="oymbDob.equals('')">,NULL</when> <otherwise>,#{oymbDob}</otherwise> 
@@ -112,7 +158,14 @@
 		, #{oymbPassword}
 		, #{oymbGenderCd}
 		, #{originalFileName}
-		, #{uuidFileName}
+		,#{uuidFileName}
+		,#{oymbSkinTypeCd}
+		,#{oymbPersonalColorCd}
+		,#{oymbSavedCd}
+		,#{oymbInterestsCd}
+		,#{oymbEmailConsentNy}
+		,#{oymbSmsConsentNy}
+		,#{oymbPushConsentNy}
 		, 0
 		, now()
 		, now()
@@ -129,7 +182,8 @@
 		oyjqQuestionCd
 		, oyjqAnswer
 		, oyjqDelNy
-		, regDateTime
+		,
+		regDateTime
 		, modDateTime
 		, oymbSeq
 		) values (
@@ -151,13 +205,15 @@
 		oymaZipCode
 		, oymaAddress1
 		, oymaAddress2
-		, oymaAddress3
+		,
+		oymaAddress3
 		, oymaLat
 		, oymaLng
 		, oymaDelNy
 		, oymbSeq
 		, regDateTime
-		, modDateTime
+		,
+		modDateTime
 		) values (
 		#{oymaZipCode}
 		, #{oymaAddress1}
@@ -202,7 +258,8 @@
 		INSERT INTO ${tableName} (
 		type
 		, defaultNy
-		, originalName
+		,
+		originalName
 		, uuidName
 		, ext
 		, size
@@ -226,7 +283,8 @@
 		oympTelecomCd
 		, oympDefaultNy
 		, oympNumber
-		, oympDelNy
+		,
+		oympDelNy
 		, oymbSeq
 		, regDateTime
 		, modDateTime
@@ -250,7 +308,8 @@
 		INSERT INTO oymbEmail (
 		oymeDefaultNy
 		, oymeEmailAccount
-		, oymeEmailDomainCd
+		,
+		oymeEmailDomainCd
 		, oymeDelNy
 		, oymbSeq
 		, regDateTime
@@ -285,12 +344,14 @@
 		SELECT
 		oymbSeq
 		, oymbId
-		, oymbPassword
+		,
+		oymbPassword
 		, oymbDesc
 		, oymbName
 		FROM oyMember
 		WHERE 1=1
-		AND oymbId=#{oymbId}
+		AND
+		oymbId=#{oymbId}
 		AND oymbPassword=#{oymbPassword}
 
 	</select>
@@ -307,6 +368,13 @@
 		, a.oymbPassword
 		, a.oymbDelNy
 		, a.oymbGenderCd
+		, a.oymbSkinTypeCd
+		, a.oymbPersonalColorCd
+		, a.oymbSavedCd
+		, a.oymbInterestsCd
+		, a.oymbEmailConsentNy
+		, a.oymbSmsConsentNy
+		, a.oymbPushConsentNy
 		, b.oyjqQuestionCd
 		, b.oyjqAnswer
 		, b.oyjqDelNy
@@ -352,7 +420,8 @@
 	<select id="selectListPhone" resultMap="resultMapObj">
 		SELECT
 		oympSeq
-		, oympDefaultNy
+		,
+		oympDefaultNy
 		, oympTypeCd
 		, oympTelecomCd
 		, oympNumber
@@ -369,11 +438,13 @@
 	<select id="selectListEmail" resultMap="resultMapObj">
 		SELECT
 		oymeSeq
-		, oymeDefaultNy
+		,
+		oymeDefaultNy
 		, oymeTypeCd
 		, oymeEmailDomainCd
 		, oymeEmailAccount
-		, oymeEmailFull
+		,
+		oymeEmailFull
 
 		FROM oymbEmail
 
@@ -390,10 +461,12 @@
 		oyMember
 		SET
 		oymbName = #{oymbName}
-		, oymbNameEng = #{oymbNameEng}
+		, oymbNameEng
+		= #{oymbNameEng}
 		, oymbId = #{oymbId}
 		, oymbNickName = #{oymbNickName}
-		, oymbPassword = #{oymbPassword}
+		,
+		oymbPassword = #{oymbPassword}
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
@@ -408,9 +481,11 @@
 		oymbAddress
 		SET
 		oymaZipCode = #{oymaZipCode}
-		, oymaAddress1 = #{oymaAddress1}
+		,
+		oymaAddress1 = #{oymaAddress1}
 		, oymaAddress2 = #{oymaAddress2}
-		, oymaAddress3 = #{oymaAddress3}
+		,
+		oymaAddress3 = #{oymaAddress3}
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
@@ -424,9 +499,11 @@
 		UPDATE
 		oymbJoinQna
 		SET
-		oyjqQuestionCd = #{oyjqQuestionCd}
+		oyjqQuestionCd =
+		#{oyjqQuestionCd}
 		, oyjqAnswer = #{oyjqAnswer}
-		, modDateTime = #{modDateTime}
+		, modDateTime =
+		#{modDateTime}
 
 		WHERE 1=1
 		AND oymbSeq = #{oymbSeq}
@@ -441,7 +518,8 @@
 		oymbNationality
 		SET
 		oynaSeq = #{oynaSeq}
-		, modDateTime = #{modDateTime}
+		,
+		modDateTime = #{modDateTime}
 
 		WHERE 1=1
 		AND oymbSeq = #{oymbSeq}
@@ -460,7 +538,8 @@
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
-		AND oymbSeq = #{oymbSeq}
+		AND
+		oymbSeq = #{oymbSeq}
 		AND oympDefaultNy = #{oympDefaultNy}
 
 	</update>
@@ -471,12 +550,15 @@
 		oymbEmail
 		SET
 		oymeEmailFull = #{oymeEmailFull}
-		, 	oymeEmailAccount = #{oymeEmailAccount}
-		, oymeEmailDomainCd = #{oymeEmailDomainCd}
+		,
+		oymeEmailAccount = #{oymeEmailAccount}
+		, oymeEmailDomainCd =
+		#{oymeEmailDomainCd}
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
-		AND oymbSeq = #{oymbSeq}
+		AND oymbSeq
+		= #{oymbSeq}
 		AND oymeDefaultNy = #{oymeDefaultNy}
 
 	</update>

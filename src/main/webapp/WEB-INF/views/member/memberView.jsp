@@ -543,143 +543,128 @@ main {
 						<hr>
 						<br>
 
-						<div class="row">
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<label for="formFile" class="form-label">피부타입</label>
-							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="radio" class="btn-check" id="" name=""
-									autocomplete="off" value="141"> <label
-									class="btn btn-outline-dark" for="민감">민감성</label> <input
-									type="radio" class="btn-check" id="" name="" autocomplete="off"
-									value="142"> <label class="btn btn-outline-dark"
-									for="지성">지성</label> <input type="radio" class="btn-check" id=""
-									name="" autocomplete="off" value="143"> <label
-									class="btn btn-outline-dark" for="중성">중성</label> <input
-									type="radio" class="btn-check" id="" name="" autocomplete="off"
-									value="144"> <label class="btn btn-outline-dark"
-									for="건성">건성</label> <input type="radio" class="btn-check" id=""
-									name="" autocomplete="off" value="145"> <label
-									class="btn btn-outline-dark" for="복합성">트러블</label>
-							</div>
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<label for="formFile" class="form-label">퍼스널컬러</label>
-							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="radio" class="btn-check" id="" name=""
-									autocomplete="off" value="146"> <label
-									class="btn btn-outline-dark" for="spring">봄 웜</label> <input
-									type="radio" class="btn-check" id="" name="" autocomplete="off"
-									value="147"> <label class="btn btn-outline-dark"
-									for="summer">여름 쿨</label> <input type="radio" class="btn-check"
-									id="" name="" autocomplete="off" value="148"> <label
-									class="btn btn-outline-dark" for="fall">가을 웜</label> <input
-									type="radio" class="btn-check" id="" name="" autocomplete="off"
-									value="149"> <label class="btn btn-outline-dark"
-									for="winter">겨울 쿨</label>
-							</div>
+	<div class="row">
+					<div class="col-12 col-sm-4 col-lg-2"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<label for="formFile" class="form-label">피부타입</label>
+					</div>
+					<div class="col-12 col-sm-8 col-lg-4"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<input type="radio" class="btn-check" id="oymbSkinTypeCd141" name="oymbSkinTypeCd" autocomplete="off" value="141" <c:if test="${item.oymbSkinTypeCd eq 141}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSkinTypeCd141">민감성</label>
+						<input type="radio" class="btn-check" id="oymbSkinTypeCd142" name="oymbSkinTypeCd" autocomplete="off" value="142" <c:if test="${item.oymbSkinTypeCd eq 142}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSkinTypeCd142">지성</label>
+						<input type="radio" class="btn-check" id="oymbSkinTypeCd143" name="oymbSkinTypeCd" autocomplete="off" value="143" <c:if test="${item.oymbSkinTypeCd eq 143}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSkinTypeCd143">중성</label>
+						<input type="radio" class="btn-check" id="oymbSkinTypeCd144" name="oymbSkinTypeCd" autocomplete="off" value="144" <c:if test="${item.oymbSkinTypeCd eq 144}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSkinTypeCd144">건성</label>
+						<input type="radio" class="btn-check" id="oymbSkinTypeCd145" name="oymbSkinTypeCd" autocomplete="off" value="145" <c:if test="${item.oymbSkinTypeCd eq 145}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSkinTypeCd145">트러블</label>
+					</div>
+					<div class="col-12 col-sm-4 col-lg-2"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<label for="formFile" class="form-label">퍼스널컬러</label>
+					</div>
+					<div class="col-12 col-sm-8 col-lg-4"
+						style="margin-top: 20px; margin-bottom: 20px;">
+
+						<input type="radio" class="btn-check" id="oymbPersonalColorCd146" name="oymbPersonalColorCd" autocomplete="off" value="146" <c:if test="${item.oymbPersonalColorCd eq 146}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbPersonalColorCd146">봄 웜</label>
+						<input type="radio" class="btn-check" id="oymbPersonalColorCd147" name="oymbPersonalColorCd" autocomplete="off" value="147" <c:if test="${item.oymbPersonalColorCd eq 147}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbPersonalColorCd147">여름 쿨</label>
+						<input type="radio" class="btn-check" id="oymbPersonalColorCd148" name="oymbPersonalColorCd" autocomplete="off" value="148" <c:if test="${item.oymbPersonalColorCd eq 148}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbPersonalColorCd148">가을 웜</label>
+						<input type="radio" class="btn-check" id="oymbPersonalColorCd149" name="oymbPersonalColorCd" autocomplete="off" value="149" <c:if test="${item.oymbPersonalColorCd eq 149}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbPersonalColorCd149">겨울 쿨</label>
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 col-sm-4 col-lg-2"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<label for="formFile" class="form-label">관심 분야</label>
+					</div>
+					<div class="col-12 col-sm-8 col-lg-4"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<input type="checkbox" class="btn-check" id="oymbInterestsCd150" name="oymbInterestsCd" autocomplete="off" value="150" <c:if test="${item.oymbInterestsCd eq 150}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbInterestsCd150">스킨 케어</label>
+						<input type="checkbox" class="btn-check" id="oymbInterestsCd151" name="oymbInterestsCd" autocomplete="off" value="151" <c:if test="${item.oymbInterestsCd eq 151}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbInterestsCd151">메이크업</label>
+						<input type="checkbox" class="btn-check" id="oymbInterestsCd152" name="oymbInterestsCd" autocomplete="off" value="152" <c:if test="${item.oymbInterestsCd eq 152}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbInterestsCd152">헤어 케어</label>
+						<input type="checkbox" class="btn-check" id="oymbInterestsCd135" name="oymbInterestsCd" autocomplete="off" value="153" <c:if test="${item.oymbInterestsCd eq 153}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbInterestsCd135">바디 케어</label>
+						<input type="checkbox" class="btn-check" id="oymbInterestsCd154" name="oymbInterestsCd" autocomplete="off" value="154" <c:if test="${item.oymbInterestsCd eq 154}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbInterestsCd154">이너 케어</label>
+					</div>
+				</div>
+				<br>
+				<hr>
+				<br>
+				<div class="row">
+
+					<div class="col-12 col-sm-4 col-lg-2"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<label for="formFile" class="form-label">모바일 수신동의</label>
+					</div>
+
+					<div class="col-12 col-sm-8 col-lg-4"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<div class="input-group">
+							<input type="radio" class="btn-check" id="oymbSmsConsent1" name="oymbSmsConsentNy" autocomplete="off" value="1" <c:if test="${item.oymbSmsConsentNy eq 1}">checked</c:if>>
+							<label class="btn btn-outline-dark" for="oymbSmsConsent1">동의</label>
+							<input type="radio" class="btn-check" id="oymbSmsConsent0" name="oymbSmsConsentNy" autocomplete="off" value="0" <c:if test="${item.oymbSmsConsentNy eq 0  || item.oymbSmsConsentNy eq null}">checked</c:if>>
+							<label class="btn btn-outline-dark" for="oymbSmsConsent0">비동의</label>
 						</div>
+					</div>
 
-						<div class="row">
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<label for="formFile" class="form-label">관심 분야</label>
-							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="checkbox" class="btn-check" id="" name=""
-									autocomplete="off" value="150"> <label
-									class="btn btn-outline-dark" for="skinCare">스킨 케어</label> <input
-									type="checkbox" class="btn-check" id="" name=""
-									autocomplete="off" value="151"> <label
-									class="btn btn-outline-dark" for="makeUp">메이크업</label> <input
-									type="checkbox" class="btn-check" id="" name=""
-									autocomplete="off" value="152"> <label
-									class="btn btn-outline-dark" for="hairCare">헤어 케어</label> <input
-									type="checkbox" class="btn-check" id="" name=""
-									autocomplete="off" value="153"> <label
-									class="btn btn-outline-dark" for="bodyCare">바디 케어</label> <input
-									type="checkbox" class="btn-check" id="" name=""
-									autocomplete="off" value="154"> <label
-									class="btn btn-outline-dark" for="innerCare">이너 케어</label>
-							</div>
+					<div class="col-12 col-sm-4 col-lg-2"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<label for="formFile" class="form-label">이메일 수신동의</label>
+					</div>
+
+					<div class="col-12 col-sm-8 col-lg-4"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<div class="input-group">
+							<input type="radio" class="btn-check" id="oymbEmailConsent1" name="oymbEmailConsentNy" autocomplete="off" value="1" <c:if test="${item.oymbEmailConsentNy eq 1}">checked</c:if>>
+							<label class="btn btn-outline-dark" for="oymbEmailConsent1">동의</label>
+							<input type="radio" class="btn-check" id="oymbEmailConsent0" name="oymbEmailConsentNy" autocomplete="off" value="0" <c:if test="${item.oymbEmailConsentNy eq 0  || item.oymbEmailConsentNy eq null}">checked</c:if>>
+							<label class="btn btn-outline-dark" for="oymbEmailConsent0">비동의</label>
 						</div>
-						<br>
-						<hr>
-						<br>
-						<div class="row">
+					</div>
+				</div>
 
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<label for="formFile" class="form-label">모바일 수신동의</label>
-							</div>
-
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<div class="input-group">
-									<input type="radio" class="btn-check" id="" name=""
-										autocomplete="off" value="1"> <label
-										class="btn btn-outline-dark">동의</label> <input type="radio"
-										class="btn-check" id="" name="" autocomplete="off" value="0">
-									<label class="btn btn-outline-dark">비동의</label>
-								</div>
-							</div>
-
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<label for="formFile" class="form-label">이메일 수신동의</label>
-							</div>
-
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<div class="input-group">
-									<input type="radio" class="btn-check" id="" name=""
-										autocomplete="off" value="1"> <label
-										class="btn btn-outline-dark">동의</label> <input type="radio"
-										class="btn-check" id="" name="" autocomplete="off" value="0">
-									<label class="btn btn-outline-dark">비동의</label>
-								</div>
-							</div>
+				<div class="row">
+					<div class="col-12 col-sm-4 col-lg-2"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<label for="formFile" class="form-label">PUSH 수신동의</label>
+					</div>
+					<div class="col-12 col-sm-8 col-lg-4"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<div class="input-group">
+							<input type="radio" class="btn-check" id="oymbPushConsent1" name="oymbPushConsentNy" autocomplete="off" value="1" <c:if test="${item.oymbPushConsentNy eq 1}">checked</c:if>>
+							<label class="btn btn-outline-dark" for="oymbPushConsent1">동의</label>
+							<input type="radio" class="btn-check" id="oymbPushConsent0" name="oymbPushConsentNy" autocomplete="off" value="0" <c:if test="${item.oymbPushConsentNy eq 0  || item.oymbPushConsentNy eq null}">checked</c:if>>
+							<label class="btn btn-outline-dark" for="oymbPushConsent0">비동의</label>
 						</div>
-
-						<div class="row">
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<label for="formFile" class="form-label">PUSH 수신동의</label>
-							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<div class="input-group">
-									<input type="radio" class="btn-check" id="" name=""
-										autocomplete="off" value="1"> <label
-										class="btn btn-outline-dark">동의</label> <input type="radio"
-										class="btn-check" id="" name="" autocomplete="off" value="0">
-									<label class="btn btn-outline-dark">비동의</label>
-								</div>
-							</div>
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<label for="formFile" class="form-label">개인정보 유효기간</label>
-							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="radio" class="btn-check" id="" name=""
-									autocomplete="off" value="6"> <label
-									class="btn btn-outline-dark" for="1년">1년</label> <input
-									type="radio" class="btn-check" id="" name="" autocomplete="off"
-									value="8"> <label class="btn btn-outline-dark" for="5년">5년</label>
-								<input type="radio" class="btn-check" id="" name=""
-									autocomplete="off" value="9"> <label
-									class="btn btn-outline-dark" for="10년">10년</label> <input
-									type="radio" class="btn-check" id="" name="" autocomplete="off"
-									value="10"> <label class="btn btn-outline-dark"
-									for="평생회원">평생회원</label>
-							</div>
-						</div>
+					</div>
+					<div class="col-12 col-sm-4 col-lg-2"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<label for="formFile" class="form-label">개인정보 유효기간</label>
+					</div>
+					<div class="col-12 col-sm-8 col-lg-4"
+						style="margin-top: 20px; margin-bottom: 20px;">
+						<input type="radio" class="btn-check" id="oymbSavedCd1" name="oymbSavedCd" value="6" <c:if test="${item.oymbSavedCd eq 6}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSavedCd1">1년</label>
+						<input type="radio" class="btn-check" id="oymbSavedCd5" name="oymbSavedCd" value="8" <c:if test="${item.oymbSavedCd eq 8}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSavedCd5">5년</label>
+						<input type="radio" class="btn-check" id="oymbSavedCd10" name="oymbSavedCd" value="9" <c:if test="${item.oymbSavedCd eq 9}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSavedCd10">10년</label>
+						<input type="radio" class="btn-check" id="oymbSavedCd4" name="oymbSavedCd" value="10" <c:if test="${item.oymbSavedCd eq 10}">checked</c:if>>
+						<label class="btn btn-outline-dark" for="oymbSavedCd4">평생회원</label>
+					</div>
+				</div>
 					</div>
 				</div>
 			</main>

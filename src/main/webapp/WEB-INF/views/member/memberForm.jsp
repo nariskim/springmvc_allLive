@@ -532,7 +532,7 @@ main {
 				<br>
 				
 				
-				<label for="file0" class="form-label input-file-button">이미지 파일</label>
+<!-- 				<label for="file0" class="form-label input-file-button">이미지 파일</label>
 					<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);"style="display: none;" >
 					<div class="addScroll">
 						<ul id="ulFile0" class="list-group" ></ul>
@@ -543,7 +543,7 @@ main {
 				<div class="addScroll">
 				<ul id="ulField" class="list-group">
 				</ul>
-				</div>
+				</div> -->jty
 			
 				
 				
@@ -554,19 +554,16 @@ main {
 					</div>
 					<div class="col-12 col-sm-8 col-lg-4"
 						style="margin-top: 20px; margin-bottom: 20px;">
-						<input type="radio" class="btn-check" id="" name=""
-							autocomplete="off" value="141"> <label
-							class="btn btn-outline-dark" for="민감">민감성</label> <input
-							type="radio" class="btn-check" id="" name="" autocomplete="off"
-							value="142"> <label class="btn btn-outline-dark" for="지성">지성</label>
-						<input type="radio" class="btn-check" id="" name=""
-							autocomplete="off" value="143"> <label
-							class="btn btn-outline-dark" for="중성">중성</label> <input
-							type="radio" class="btn-check" id="" name="" autocomplete="off"
-							value="144"> <label class="btn btn-outline-dark" for="건성">건성</label>
-						<input type="radio" class="btn-check" id="" name=""
-							autocomplete="off" value="145"> <label
-							class="btn btn-outline-dark" for="복합성">트러블</label>
+						<input type="radio" class="btn-check" id="oymbSkinType141" name="oymbSkinTypeCd" value="141">
+						<label class="btn btn-outline-dark" for="oymbSkinType141">민감성</label>
+						<input type="radio" class="btn-check" id="oymbSkinType142" name="oymbSkinTypeCd" value="142">
+						<label class="btn btn-outline-dark" for="oymbSkinType142">지성</label>
+						<input type="radio" class="btn-check" id="oymbSkinType143" name="oymbSkinTypeCd" value="143">
+						<label class="btn btn-outline-dark" for="oymbSkinType143">중성</label>
+						<input type="radio" class="btn-check" id="oymbSkinType144" name="oymbSkinTypeCd" value="144">
+						<label class="btn btn-outline-dark" for="oymbSkinType144">건성</label>
+						<input type="radio" class="btn-check" id="oymbSkinType145" name="oymbSkinTypeCd" value="145">
+						<label class="btn btn-outline-dark" for="oymbSkinType145">트러블</label>
 					</div>
 					<div class="col-12 col-sm-4 col-lg-2"
 						style="margin-top: 20px; margin-bottom: 20px;">
@@ -575,18 +572,14 @@ main {
 					<div class="col-12 col-sm-8 col-lg-4"
 						style="margin-top: 20px; margin-bottom: 20px;">
 
-						<input type="radio" class="btn-check" id="pcSpring"
-							name="oymbPersonalColorCd" autocomplete="off" value="146">
-						<label class="btn btn-outline-dark" for="spring">봄 웜</label> <input
-							type="radio" class="btn-check" id="pcSummer"
-							name="oymbPersonalColorCd" autocomplete="off" value="147">
-						<label class="btn btn-outline-dark" for="summer">여름 쿨</label> <input
-							type="radio" class="btn-check" id="pcFall"
-							name="oymbPersonalColorCd" autocomplete="off" value="148">
-						<label class="btn btn-outline-dark" for="fall">가을 웜</label> <input
-							type="radio" class="btn-check" id="pcWinter"
-							name="oymbPersonalColorCd" autocomplete="off" value="149">
-						<label class="btn btn-outline-dark" for="winter">겨울 쿨</label>
+						<input type="radio" class="btn-check" id="oymbPersonalColor146" name="oymbPersonalColorCd" value="146">
+						<label class="btn btn-outline-dark" for="oymbPersonalColor146">봄 웜</label>
+						<input type="radio" class="btn-check" id="oymbPersonalColor147" name="oymbPersonalColorCd" value="147">
+						<label class="btn btn-outline-dark" for="oymbPersonalColor147">여름 쿨</label>
+						<input type="radio" class="btn-check" id="oymbPersonalColor148" name="oymbPersonalColorCd" value="148">
+						<label class="btn btn-outline-dark" for="oymbPersonalColor148">가을 웜</label>
+						<input type="radio" class="btn-check" id="oymbPersonalColor149" name="oymbPersonalColorCd" value="149">
+						<label class="btn btn-outline-dark" for="oymbPersonalColor149">겨울 쿨</label>
 
 					</div>
 				</div>
@@ -598,21 +591,16 @@ main {
 					</div>
 					<div class="col-12 col-sm-8 col-lg-4"
 						style="margin-top: 20px; margin-bottom: 20px;">
-						<input type="checkbox" class="btn-check" id="" name=""
-							autocomplete="off" value="150"> <label
-							class="btn btn-outline-dark" for="skinCare">스킨 케어</label> <input
-							type="checkbox" class="btn-check" id="" name=""
-							autocomplete="off" value="151"> <label
-							class="btn btn-outline-dark" for="makeUp">메이크업</label> <input
-							type="checkbox" class="btn-check" id="" name=""
-							autocomplete="off" value="152"> <label
-							class="btn btn-outline-dark" for="hairCare">헤어 케어</label> <input
-							type="checkbox" class="btn-check" id="" name=""
-							autocomplete="off" value="153"> <label
-							class="btn btn-outline-dark" for="bodyCare">바디 케어</label> <input
-							type="checkbox" class="btn-check" id="" name=""
-							autocomplete="off" value="154"> <label
-							class="btn btn-outline-dark" for="innerCare">이너 케어</label>
+						<input type="checkbox" class="btn-check" id="oymbInterests150" name="oymbInterestsCd" value="150">
+						<label class="btn btn-outline-dark" for="oymbInterests150">스킨 케어</label>
+						<input type="checkbox" class="btn-check" id="oymbInterests151" name="oymbInterestsCd" value="151">
+						<label class="btn btn-outline-dark" for="oymbInterests151">메이크업</label>
+						<input type="checkbox" class="btn-check" id="oymbInterests152" name="oymbInterestsCd" value="152">
+						<label class="btn btn-outline-dark" for="oymbInterests152">헤어 케어</label>
+						<input type="checkbox" class="btn-check" id="oymbInterests153" name="oymbInterestsCd" value="153">
+						<label class="btn btn-outline-dark" for="oymbInterests153">바디 케어</label>
+						<input type="checkbox" class="btn-check" id="oymbInterests154" name="oymbInterestsCd" value="154">
+						<label class="btn btn-outline-dark" for="oymbInterests154">이너 케어</label>
 					</div>
 				</div>
 				<br>
@@ -628,11 +616,10 @@ main {
 					<div class="col-12 col-sm-8 col-lg-4"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
-							<input type="radio" class="btn-check" id="" name=""
-								autocomplete="off" value="1"> <label
-								class="btn btn-outline-dark">동의</label> <input type="radio"
-								class="btn-check" id="" name="" autocomplete="off" value="0">
-							<label class="btn btn-outline-dark">비동의</label>
+							<input type="radio" class="btn-check" id="oymbSmsConsent1" name="oymbSmsConsentNy" value="1">
+							<label class="btn btn-outline-dark" for="oymbSmsConsent1">동의</label>
+							<input type="radio" class="btn-check" id="oymbSmsConsent0" name="oymbSmsConsentNy" value="0">
+							<label class="btn btn-outline-dark" for="oymbSmsConsent0">비동의</label>
 						</div>
 					</div>
 
@@ -644,11 +631,10 @@ main {
 					<div class="col-12 col-sm-8 col-lg-4"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
-							<input type="radio" class="btn-check" id="" name=""
-								autocomplete="off" value="1"> <label
-								class="btn btn-outline-dark">동의</label> <input type="radio"
-								class="btn-check" id="" name="" autocomplete="off" value="0">
-							<label class="btn btn-outline-dark">비동의</label>
+							<input type="radio" class="btn-check" id="oymbEmailConsent1" name="oymbEmailConsentNy" value="1">
+							<label class="btn btn-outline-dark" for="oymbEmailConsent1">동의</label>
+							<input type="radio" class="btn-check" id="oymbEmailConsent0" name="oymbEmailConsentNy" value="0">
+							<label class="btn btn-outline-dark" for="oymbEmailConsent0">비동의</label>
 						</div>
 					</div>
 				</div>
@@ -661,11 +647,10 @@ main {
 					<div class="col-12 col-sm-8 col-lg-4"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
-							<input type="radio" class="btn-check" id="" name=""
-								autocomplete="off" value="1"> <label
-								class="btn btn-outline-dark">동의</label> <input type="radio"
-								class="btn-check" id="" name="" autocomplete="off" value="0">
-							<label class="btn btn-outline-dark">비동의</label>
+							<input type="radio" class="btn-check" id="oymbPushConsent1" name="oymbPushConsentNy" value="1">
+							<label class="btn btn-outline-dark" for="oymbPushConsent1">동의</label>
+							<input type="radio" class="btn-check" id="oymbPushConsent0" name="oymbPushConsentNy" value="0">
+							<label class="btn btn-outline-dark" for="oymbPushConsent0">비동의</label>
 						</div>
 					</div>
 					<div class="col-12 col-sm-4 col-lg-2"
@@ -674,17 +659,14 @@ main {
 					</div>
 					<div class="col-12 col-sm-8 col-lg-4"
 						style="margin-top: 20px; margin-bottom: 20px;">
-						<input type="radio" class="btn-check" id="" name=""
-							autocomplete="off" value="6"> <label
-							class="btn btn-outline-dark" for="1년">1년</label> <input
-							type="radio" class="btn-check" id="" name="" autocomplete="off"
-							value="8"> <label class="btn btn-outline-dark" for="5년">5년</label>
-						<input type="radio" class="btn-check" id="" name=""
-							autocomplete="off" value="9"> <label
-							class="btn btn-outline-dark" for="10년">10년</label> <input
-							type="radio" class="btn-check" id="" name="" autocomplete="off"
-							value="10"> <label class="btn btn-outline-dark"
-							for="평생회원">평생회원</label>
+						<input type="radio" class="btn-check" id="oymbSavedCd1" name="oymbSavedCd" value="6">
+						<label class="btn btn-outline-dark" for="oymbSavedCd1">1년</label>
+						<input type="radio" class="btn-check" id="oymbSavedCd5" name="oymbSavedCd" value="8">
+						<label class="btn btn-outline-dark" for="oymbSavedCd5">5년</label>
+						<input type="radio" class="btn-check" id="oymbSavedCd10" name="oymbSavedCd" value="9">
+						<label class="btn btn-outline-dark" for="oymbSavedCd10">10년</label>
+						<input type="radio" class="btn-check" id="oymbSavedCd4" name="oymbSavedCd" value="10">
+						<label class="btn btn-outline-dark" for="oymbSavedCd4">평생회원</label>
 					</div>
 				</div>
 				
