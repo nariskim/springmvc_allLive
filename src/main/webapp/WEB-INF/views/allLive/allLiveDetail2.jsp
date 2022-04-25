@@ -9,7 +9,7 @@
 <jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
 <!DOCTYPE HTML>
 <html lang="ko">
-<head>
+<head> 
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link

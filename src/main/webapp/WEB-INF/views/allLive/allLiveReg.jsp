@@ -7,7 +7,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 <jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
 <jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
-<!DOCTYPE HTML>
+<!DOCTYPE HTML>   
 <html lang="ko">
 <head>
 <meta charset="uTF-8">
