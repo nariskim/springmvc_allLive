@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.julyte.user.common.util.UtilDateTime;
 import com.julyte.user.common.util.UtilUpload;
-
+ 
 @Service
 public class AllLiveServiceImpl implements AllLiveService {
 

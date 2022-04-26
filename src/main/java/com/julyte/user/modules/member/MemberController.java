@@ -21,7 +21,7 @@ import com.julyte.user.modules.code.CodeServiceImpl;
 
 @Controller
 public class MemberController {
-
+ 
 	@Autowired
 	MemberServiceImpl service;
 

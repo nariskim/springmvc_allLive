@@ -7,7 +7,7 @@ public class CateVo {
 	public String getOyctSeq() {
 		return oyctSeq;
 	}
-
+ 
 	public void setOyctSeq(String oyctSeq) {
 		this.oyctSeq = oyctSeq;
 	}

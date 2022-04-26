@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> selectListEmail(MemberVo vo) throws Exception {
 		return dao.selectListEmail(vo);
 	}
-
+ 
 	@Override
 	public int insert(Member dto) throws Exception {
 

@@ -24,7 +24,7 @@ public class Member {
 	private MultipartFile[] file1;
 	
 
-
+ 
 	private String originalFileName;
 	private String uuidFileName;
 

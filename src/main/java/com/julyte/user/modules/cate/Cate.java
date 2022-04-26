@@ -6,7 +6,7 @@ import java.util.List;
 public class Cate {
 
 	public static List<Cate> cachedCodeArrayList = new ArrayList<Cate>();
-
+ 
 // oyCate
 
 	private String oyctSeq;

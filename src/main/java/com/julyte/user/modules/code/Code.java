@@ -24,7 +24,7 @@ public class Code {
 	public String getOycgSeq() {
 		return oycgSeq;
 	}
-
+ 
 	public String getOycgName() {
 		return oycgName;
 	}

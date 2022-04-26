@@ -23,7 +23,7 @@
 			<when test="scOymbDelNy == 1">AND a.oymbDelNy = 1</when>
 			<when test="scOymbDelNy == 0">AND a.oymbDelNy = 0</when>
 		</choose>
-
+ 
 		<!-- <if test="scOymbName != null and !scOymbName.equals('')"> AND a.oymbName 
 			LIKE concat('%',#{scOymbName},'%')</if> -->
 		<choose>

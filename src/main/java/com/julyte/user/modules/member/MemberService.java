@@ -27,4 +27,4 @@ public interface MemberService {
 	public int delete(MemberVo vo) throws Exception;
 	
 
-}
+} 

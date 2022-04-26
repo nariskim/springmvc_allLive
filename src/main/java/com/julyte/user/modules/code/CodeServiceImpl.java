@@ -17,7 +17,7 @@ public class CodeServiceImpl implements CodeService {
 	@PostConstruct
 	public void selectListForCache() {
 		List<Code> codeListFromDb = (ArrayList<Code>) dao.selectListForCache();
-
+ 
 		Code.cachedCodeArrayList.clear();
 		Code.cachedCodeArrayList.addAll(codeListFromDb);
 		System.out.println("cachedCodeArrayList:" + Code.cachedCodeArrayList.size() + "chached !");

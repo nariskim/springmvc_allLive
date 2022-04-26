@@ -26,7 +26,7 @@ public class MemberVo {
 	private String scDateStart;
 	private String scDateEnd;
 	private Integer scOymbDelNy;
-
+ 
 	// common
 	private Integer scOption;
 	private String scValue;
