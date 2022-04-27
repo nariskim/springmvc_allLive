@@ -13,7 +13,7 @@ public class IndexController {
 
 
 
-
+ 
 	@RequestMapping(value = "/index/indexView", method = RequestMethod.GET)
 	public String indexView(Locale locale, Model model) {
 		

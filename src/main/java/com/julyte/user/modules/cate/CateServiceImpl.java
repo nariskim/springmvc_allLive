@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CateServiceImpl implements CateService {
 
-	@Autowired
+	@Autowired 
 	CateDao dao;
 
 	@PostConstruct

@@ -7,7 +7,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<jsp:useBean id="CateServiceImpl"
+<jsp:useBean id="CateServiceImpl" 
 	class="com.julyte.user.modules.cate.CateServiceImpl" />
 <jsp:useBean id="CodeServiceImpl"
 	class="com.julyte.user.modules.code.CodeServiceImpl" />

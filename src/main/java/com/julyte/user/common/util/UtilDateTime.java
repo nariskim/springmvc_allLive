@@ -12,7 +12,7 @@ public class UtilDateTime {
 	public static LocalDateTime nowLocalDateTime() throws Exception {
 		LocalDateTime localDateTime = LocalDateTime.now();
 		return localDateTime;
-	}
+	} 
 
 	public static Date nowDate() throws Exception {
 		LocalDateTime localDateTime = LocalDateTime.now();

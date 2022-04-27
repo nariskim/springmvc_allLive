@@ -13,7 +13,7 @@ public class Cate {
 	private String oyctName;
 	private String oyctParents;
 	private String oyctDepth;
-	private String oyctOrder;
+	private String oyctOrder; 
 	private Integer oyctDelNy;
 
 	public String getOyctSeq() {

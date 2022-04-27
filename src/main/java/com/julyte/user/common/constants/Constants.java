@@ -11,3 +11,4 @@ public class Constants {
 
 	public static final String UPLOAD_PATH_PREFIX = "C://factory/ws_sts_4130/springmvc_allLive/src/main/webapp/resources/uploaded/";
 }
+ 

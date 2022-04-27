@@ -12,7 +12,7 @@ public class Member {
 	private Integer type;
 	private String seq;
 	private Integer sort;
-	private Integer defaultNy;
+	private Integer defaultNy; 
 	private String originalName;
 	private String uuidName;
 	private String ext;

@@ -11,7 +11,7 @@ public interface MemberService {
 	public List<Member> selectListPhone(MemberVo vo) throws Exception;
 
 	public List<Member> selectListEmail(MemberVo vo) throws Exception;
-	
+	 
 	public int insert(Member dto) throws Exception;
 	
 	public Member selectOne(MemberVo vo) throws Exception;

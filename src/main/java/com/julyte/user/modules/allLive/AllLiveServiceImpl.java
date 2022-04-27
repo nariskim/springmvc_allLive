@@ -14,7 +14,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 
 	@Autowired
 	AllLiveDao dao;
-
+ 
 	@Override
 	public List<AllLive> selectListPd(AllLiveVo vo) throws Exception {
 		return dao.selectListPd(vo);

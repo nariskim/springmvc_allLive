@@ -9,7 +9,7 @@ import com.julyte.user.common.constants.Constants;
 import com.julyte.user.modules.allLive.AllLive;
 
 public class UtilUpload {
-
+ 
 	public static void upload(MultipartFile multipartFile, String className, AllLive dto) throws Exception {
 		String fileName = multipartFile.getOriginalFilename();
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);

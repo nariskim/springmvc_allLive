@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class MemberDao {
 
 	@Inject
-//	@Resource(name = "sqlSession")
+//	@Resource(name = "sqlSession") 
 	private SqlSession sqlSession;
 
 	private static String namespace = "com.julyte.user.modules.member.MemberMpp";

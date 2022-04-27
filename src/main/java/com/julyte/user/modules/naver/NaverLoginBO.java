@@ -13,7 +13,7 @@ import com.github.scribejava.core.oauth.OAuth20Service;
 import com.julyte.user.modules.naver.NaverLoginApi;
 
 public class NaverLoginBO {
-
+ 
 	private final static String CLIENT_ID = "Yr9iP4o9mCjNYcIIv2yF";
 	private final static String CLIENT_SECRET = "iQILf6Wp0c";
 	private final static String REDIRECT_URI = "http://localhost/allLive/callback";

@@ -12,7 +12,7 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	MemberDao dao;
 
-	@Override
+	@Override 
 	public List<Member> selectList(MemberVo vo) throws Exception {
 		return dao.selectList(vo);
 	}

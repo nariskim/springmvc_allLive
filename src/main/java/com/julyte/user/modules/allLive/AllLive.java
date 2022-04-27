@@ -15,7 +15,7 @@ public class AllLive {
 	private String ext;
 	private long size;
 	private Integer delNy;
-	private String pseq;
+	private String pseq; 
 	private String path;
 
 	private MultipartFile[] file0;

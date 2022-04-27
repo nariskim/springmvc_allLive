@@ -9,7 +9,7 @@ public class MemberVo {
 	private String oymaSeq;
 	private String oympSeq;
 	private String oymeSeq;
-	private Integer oymbSkinTypeCd;
+	private Integer oymbSkinTypeCd; 
 	private Integer oymbPersonalColorCd;
 	private Integer oymbSavedCd;
 	private Integer oymbInterestsCd;

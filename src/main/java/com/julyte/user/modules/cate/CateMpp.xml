@@ -10,7 +10,7 @@
 
 	<select id="selectListForCache" resultMap="resultMapObj">
 		SELECT
-		oyctSeq
+		oyctSeq 
 		, oyctName
 		, oyctParents
 		, oyctDepth

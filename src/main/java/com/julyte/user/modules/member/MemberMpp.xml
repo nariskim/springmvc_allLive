@@ -9,7 +9,7 @@
 
 
 	<sql id="selectCommon">
-
+ 
 
 		FROM oyMember a
 		LEFT JOIN oymbPhone f on f.oympDefaultNy=1 AND

@@ -12,7 +12,7 @@
 		SELECT
 		oycdSeq
 		, oycdName
-		, oycgSeq
+		, oycgSeq 
 		FROM
 		oyCode
 		WHERE 1=1

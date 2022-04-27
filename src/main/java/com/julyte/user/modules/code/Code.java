@@ -11,7 +11,7 @@ public class Code {
 	private String oycgName = "";
 	private String oycgNameEng;
 	private Integer oycgDelNy;
-	// oyCode
+	// oyCode 
 
 	private String oycdSeq = "";
 	private String oycdName = "";

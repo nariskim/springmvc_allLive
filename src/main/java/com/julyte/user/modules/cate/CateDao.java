@@ -13,7 +13,7 @@ public class CateDao {
 	@Inject
 //	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
-
+ 
 	private static String namespace = "com.julyte.user.modules.cate.CateMpp";
 
 	public List<Cate> selectListForCache() {

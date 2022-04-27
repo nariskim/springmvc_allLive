@@ -7,7 +7,7 @@
 	<resultMap id="resultMapObj"
 		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
 
-
+ 
 	<select id="selectListPd" resultMap="resultMapObj">
  
 		SELECT

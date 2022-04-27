@@ -10,7 +10,7 @@ public class CodeVo {
 	public String getOycgSeq() {
 		return oycgSeq;
 	}
-
+ 
 	public String getOycdSeq() {
 		return oycdSeq;
 	}
