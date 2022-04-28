@@ -18,7 +18,7 @@
 <script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <title>allLiveYoung_Detail</title>
-
+ 
 <style>
 .row-detail {
 	margin-top: 5%;
