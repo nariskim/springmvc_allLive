@@ -8,7 +8,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE HTML>
-<html lang="ko">
+<html lang="ko"> 
 <head>  
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
