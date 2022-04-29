@@ -269,13 +269,19 @@ main {
 
 .nav-top {
 	width: 100%;
+	line-height: 50px;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: -.04em;
 }
 
 .nav-item-top {
 	width: 10%;
 	text-align: center;
 }
-
+.nav-link {
+	color: black;
+}
 a {
 	text-decoration: none;
 	color: black;
@@ -346,7 +352,7 @@ a {
 				<div class="row">
 					<div class="col-auto col-sm-5">
 						<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
-							src="/resources/user/image/h1_logo.png"></a>
+							src="/resources/user/image/h1_logo.png" width="90%"></a>
 					</div>
 					<div class="col-auto d-md-none">
 
@@ -385,7 +391,7 @@ a {
 
 
 
-					<div class="col-6 col-sm-3" style="margin-top: 30px;">
+					<div class="col-6 col-sm-2" style="margin-top: 30px;">
 
 						<input type="text" class="form-control search-input"
 							placeholder="Search...">
@@ -397,7 +403,7 @@ a {
 
 					</div>
 
-					<div class="col-auto col-sm-3" style="margin-top: 30px;">
+					<div class="col-auto col-sm-4" style="margin-top: 30px;">
 
 						<ul class="nav">
 							<li class="nav-item"><a href="#" class="nav-link">오늘드림</a></li>

@@ -461,13 +461,18 @@
 		oyMember
 		SET
 		oymbName = #{oymbName}
-		, oymbNameEng
-		= #{oymbNameEng}
+		, oymbNameEng = #{oymbNameEng}
 		, oymbId = #{oymbId}
 		, oymbNickName = #{oymbNickName}
-		,
-		oymbPassword = #{oymbPassword}
+		, oymbPassword = #{oymbPassword}
 		, modDateTime = #{modDateTime}
+		, oymbSkinTypeCd = #{oymbSkinTypeCd}
+		, oymbPersonalColorCd = #{oymbPersonalColorCd}
+		, oymbSavedCd = #{oymbSavedCd}
+		, oymbInterestsCd = #{oymbInterestsCd}
+		, oymbEmailConsentNy = #{oymbEmailConsentNy}
+		, oymbSmsConsentNy = #{oymbSmsConsentNy}
+		, oymbPushConsentNy = #{oymbPushConsentNy}
 
 		WHERE 1=1
 		AND oymbSeq = #{oymbSeq}
@@ -481,11 +486,9 @@
 		oymbAddress
 		SET
 		oymaZipCode = #{oymaZipCode}
-		,
-		oymaAddress1 = #{oymaAddress1}
+		, oymaAddress1 = #{oymaAddress1}
 		, oymaAddress2 = #{oymaAddress2}
-		,
-		oymaAddress3 = #{oymaAddress3}
+		, oymaAddress3 = #{oymaAddress3}
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
@@ -499,11 +502,9 @@
 		UPDATE
 		oymbJoinQna
 		SET
-		oyjqQuestionCd =
-		#{oyjqQuestionCd}
+		oyjqQuestionCd = #{oyjqQuestionCd}
 		, oyjqAnswer = #{oyjqAnswer}
-		, modDateTime =
-		#{modDateTime}
+		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
 		AND oymbSeq = #{oymbSeq}
@@ -518,8 +519,7 @@
 		oymbNationality
 		SET
 		oynaSeq = #{oynaSeq}
-		,
-		modDateTime = #{modDateTime}
+		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
 		AND oymbSeq = #{oymbSeq}
@@ -533,8 +533,7 @@
 		oymbPhone
 		SET
 		oympTelecomCd = #{oympTelecomCd}
-		,
-		oympNumber = #{oympNumber}
+		, oympNumber = #{oympNumber}
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
@@ -550,15 +549,13 @@
 		oymbEmail
 		SET
 		oymeEmailFull = #{oymeEmailFull}
-		,
-		oymeEmailAccount = #{oymeEmailAccount}
+		, oymeEmailAccount = #{oymeEmailAccount}
 		, oymeEmailDomainCd =
 		#{oymeEmailDomainCd}
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
-		AND oymbSeq
-		= #{oymbSeq}
+		AND oymbSeq = #{oymbSeq}
 		AND oymeDefaultNy = #{oymeDefaultNy}
 
 	</update>
@@ -576,8 +573,7 @@
 	<select id="selectListForCache" resultMap="resultMapObj">
 		SELECT
 		oycdSeq
-		,
-		oycdName
+		, oycdName
 		, oycgSeq
 		FROM
 		oyCode
@@ -589,8 +585,7 @@
 	<select id="selectListForCacheNation" resultMap="resultMapObj">
 		SELECT
 		oynaSeq
-		,
-		oynaName
+		, oynaName
 		, oymnSeq
 		FROM
 		oyNationality

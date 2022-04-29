@@ -142,7 +142,7 @@ main {
 			<header class="navbar navbar-dark sticky-top bg-light ml-auto">
 
 				<div class="col-auto col-sm-5">
-					<h1>ALL LIVE YOUNG</h1>
+					<img src="/resources/xdmin/image/oliveimage.PNG" width="600px">
 				</div>
 
 				<div class="col-auto d-md-none">

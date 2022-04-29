@@ -7,21 +7,25 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
 
-<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
+<jsp:useBean id="CodeServiceImpl"
+	class="com.julyte.user.modules.code.CodeServiceImpl" />
 
 
-<!DOCTYPE html>  
-<html lang="ko"> 
+<!DOCTYPE html>
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Form.AllLiveYoung</title>
 
- 
-<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
 
-<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
+<link
+	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/893e1f7eb8.js"
+	crossorigin="anonymous"></script>
 
 <style type="text/css">
 main {
@@ -110,15 +114,15 @@ main {
 }
 
 .addScroll {
-		overflow: auto;
-		height : 90px;
-		background-color: #F0F8FF;
-	}
-	
-	.input-file-button {
-		padding : auto;
-		cursor : pointer;
-	}
+	overflow: auto;
+	height: 90px;
+	background-color: #F0F8FF;
+}
+
+.input-file-button {
+	padding: auto;
+	cursor: pointer;
+}
 </style>
 
 </head>
@@ -126,16 +130,21 @@ main {
 	<form id="memberForm" name="memberForm" method="post"
 		action="/member/memberInst" enctype="multipart/form-data">
 
-						
 
-							<c:set var="codeGender" value="${CodeServiceImpl.selectListCachedCode('2')}" />
-							<c:set var="codeJoinQna" value="${CodeServiceImpl.selectListCachedCode('6')}" />
-							<c:set var="codeTelecom" value="${CodeServiceImpl.selectListCachedCode('9')}" />
-							<c:set var="codeEmail" value="${CodeServiceImpl.selectListCachedCode('11')}" />
-							<c:set var="codeGrade" value="${CodeServiceImpl.selectListCachedCode('19')}" />
-		
-		
-		
+
+		<c:set var="codeGender"
+			value="${CodeServiceImpl.selectListCachedCode('2')}" />
+		<c:set var="codeJoinQna"
+			value="${CodeServiceImpl.selectListCachedCode('6')}" />
+		<c:set var="codeTelecom"
+			value="${CodeServiceImpl.selectListCachedCode('9')}" />
+		<c:set var="codeEmail"
+			value="${CodeServiceImpl.selectListCachedCode('11')}" />
+		<c:set var="codeGrade"
+			value="${CodeServiceImpl.selectListCachedCode('19')}" />
+
+
+
 		<input type="hidden" id="thisPage" name="thisPage"
 			value="<c:out value="${vo.thisPage}"/>"> <input type="hidden"
 			id="scOption" name="scOption" value="<c:out value="${vo.scOption}"/>">
@@ -153,7 +162,7 @@ main {
 			<header class="navbar navbar-dark sticky-top bg-light ml-auto">
 
 				<div class="col-auto col-sm-5">
-					<h1>&nbsp&nbsp&nbspALL LIVE YOUNG</h1>
+				<img src="/resources/xdmin/image/oliveimage.PNG" width="600px">
 				</div>
 
 				<div class="col-auto d-md-none">
@@ -358,9 +367,9 @@ main {
 							class="form-control" id="oymaAddress2" name="oymaAddress2"
 							placeholder="상세주소"> <input type="text"
 							class="form-control" id="oymaAddress3" name="oymaAddress3"
-							placeholder="참고항목">
-<input class="field form-control" id="oymaLat" name="oymaLat"/>
-<input class="field form-control" id="oymaLng" name="oymaLng"/>
+							placeholder="참고항목"> <input class="field form-control"
+							id="oymaLat" name="oymaLat" /> <input class="field form-control"
+							id="oymaLng" name="oymaLng" />
 					</div>
 					<div class="col-12 col-sm-4 col-lg-2"
 						style="margin-top: 20px; margin-bottom: 20px;">
@@ -530,9 +539,9 @@ main {
 				<br>
 				<hr>
 				<br>
-				
-				
-<!-- 				<label for="file0" class="form-label input-file-button">이미지 파일</label>
+
+
+				<!-- 				<label for="file0" class="form-label input-file-button">이미지 파일</label>
 					<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);"style="display: none;" >
 					<div class="addScroll">
 						<ul id="ulFile0" class="list-group" ></ul>
@@ -543,10 +552,11 @@ main {
 				<div class="addScroll">
 				<ul id="ulField" class="list-group">
 				</ul>
-				</div> -->jty
-			
-				
-				
+				</div> -->
+				jty
+
+
+
 				<div class="row">
 					<div class="col-12 col-sm-4 col-lg-2"
 						style="margin-top: 20px; margin-bottom: 20px;">
@@ -589,8 +599,7 @@ main {
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">관심 분야</label>
 					</div>
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<input type="checkbox" class="btn-check" id="oymbInterests150" name="oymbInterestsCd" value="150">
 						<label class="btn btn-outline-dark" for="oymbInterests150">스킨 케어</label>
 						<input type="checkbox" class="btn-check" id="oymbInterests151" name="oymbInterestsCd" value="151">
@@ -613,23 +622,20 @@ main {
 						<label for="formFile" class="form-label">모바일 수신동의</label>
 					</div>
 
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
 							<input type="radio" class="btn-check" id="oymbSmsConsent1" name="oymbSmsConsentNy" value="1">
-							<label class="btn btn-outline-dark" for="oymbSmsConsent1">동의</label>
+							<label class="btn btn-outline-dark" for="oymbSmsConsent1">동의</label> 
 							<input type="radio" class="btn-check" id="oymbSmsConsent0" name="oymbSmsConsentNy" value="0">
 							<label class="btn btn-outline-dark" for="oymbSmsConsent0">비동의</label>
 						</div>
 					</div>
 
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">이메일 수신동의</label>
 					</div>
 
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
 							<input type="radio" class="btn-check" id="oymbEmailConsent1" name="oymbEmailConsentNy" value="1">
 							<label class="btn btn-outline-dark" for="oymbEmailConsent1">동의</label>
@@ -640,12 +646,10 @@ main {
 				</div>
 
 				<div class="row">
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">PUSH 수신동의</label>
 					</div>
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
 							<input type="radio" class="btn-check" id="oymbPushConsent1" name="oymbPushConsentNy" value="1">
 							<label class="btn btn-outline-dark" for="oymbPushConsent1">동의</label>
@@ -653,12 +657,10 @@ main {
 							<label class="btn btn-outline-dark" for="oymbPushConsent0">비동의</label>
 						</div>
 					</div>
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">개인정보 유효기간</label>
 					</div>
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<input type="radio" class="btn-check" id="oymbSavedCd1" name="oymbSavedCd" value="6">
 						<label class="btn btn-outline-dark" for="oymbSavedCd1">1년</label>
 						<input type="radio" class="btn-check" id="oymbSavedCd5" name="oymbSavedCd" value="8">
@@ -669,9 +671,9 @@ main {
 						<label class="btn btn-outline-dark" for="oymbSavedCd4">평생회원</label>
 					</div>
 				</div>
-				
-				<input type="file" id="originalFileName" name="file">
-				<input type="file" id="uuidFileName" name="file1">
+
+				<input type="file" id="originalFileName" name="file"> <input
+					type="file" id="uuidFileName" name="file1">
 			</main>
 		</div>
 
@@ -698,17 +700,21 @@ main {
 
 
 	</form>
-	<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/resources/js/validation.js"></script>
-<script src="/resources/js/commonXdmin.js"></script>
-<script src="/resources/js/common.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/resources/js/validation.js"></script>
+	<script src="/resources/js/commonXdmin.js"></script>
+	<script src="/resources/js/common.js"></script>
 
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=041ca094f388711dee3ba9ae04f3fb99&libraries=services"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=041ca094f388711dee3ba9ae04f3fb99&libraries=services"></script>
 
 	<script>
 		upload = function(seq, div) {

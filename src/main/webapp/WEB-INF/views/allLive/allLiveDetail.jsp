@@ -18,7 +18,7 @@
 <script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <title>allLiveYoung_Detail</title>
- 
+
 <style>
 .row-detail {
 	margin-top: 5%;
@@ -46,10 +46,8 @@
 }
 
 .container-header {
-	margin-top: 1%;
-	margin-bottom: 3%;
-	margin-left: 6%;
-	margin-right: 6%;
+	margin-left: 7%;
+	margin-right: 7%;
 }
 
 .container-main {
@@ -66,10 +64,11 @@
 	margin-right: 1%;
 }
 
+
 .nav-top {
 	width: 100%;
-	line-height: 44px;
-	font-size: 20px;
+	line-height: 50px;
+	font-size: 15px;
 	font-weight: 700;
 	letter-spacing: -.04em;
 }
@@ -89,8 +88,8 @@ a {
 }
 
 #mainimage {
-	width: 510px;
-	height: 510px;
+	width: 400px;
+	height: 400px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;

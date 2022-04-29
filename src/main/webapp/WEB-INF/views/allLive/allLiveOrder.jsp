@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -7,18 +6,14 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%> 
 <jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
 <jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
-<!DOCTYPE HTML>   
+  
+<!DOCTYPE HTML>
 <html lang="ko">
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
  
 <title>allLiveYoung_Order</title>
 
@@ -26,10 +21,9 @@
 .container-header {
 	margin-top: 1%;
 	margin-bottom: 3%;
-	margin-left: 12%;
-	margin-right: 12%;
+	margin-left: 6%;
+	margin-right: 6%;
 }
-
 
 .container-main {
 	margin-top: 2%;
@@ -37,7 +31,8 @@
 	margin-left: 14%;
 	margin-right: 14%;
 }
-.container-footer{
+
+.container-footer {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	margin-left: 1%;
@@ -45,21 +40,20 @@
 }
 
 .nav-top {
-
 	width: 100%;
-	line-height: 44px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -.04em;
+	line-height: 50px;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: -.04em;
 }
 
 .nav-item-top {
 	width: 10%;
 	text-align: center;
-	
 }
+
 .nav-link {
-    color: black;
+	color: black;
 }
 
 a {
@@ -72,12 +66,62 @@ a {
 	line-height: 14px;
 	color: #a9a9a9;
 	text-decoration: line-through;
+	text-align: right;
 }
 
 .priceR {
 	font-size: 20px;
 	color: #e02020;
 	font-weight: 500;
+	text-align: right;
+}
+
+dl>dt:before {
+	counter-increment: dt;
+	content: counter(dt) '.';
+}
+
+.pdbrand {
+	height: 20px;
+	line-height: 20px;
+	color: #777777;
+	font-weight: 700;
+}
+
+.pdNameB {
+	height: 40px;
+	color: #000000;
+	font-size: 14px;
+	text-align: center;
+}
+
+.pdText {
+	text-align: center;
+}
+
+#mainimage {
+	width: auto !important;
+	max-width: 215px;
+	height: auto !important;
+	max-height: 215px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mainall {
+	width: auto !important;
+	width: 430px;
+	height: auto !important;
+	height: 430px;
+	padding: 20px;
+	margin: 20px;
+	border-style: none;
+}
+
+#adbanner {
+	margin-left: auto;
+	margin-right: auto;
 }
 </style>
 
@@ -117,8 +161,8 @@ a {
 
 			<div class="row">
 				<div class="col-auto col-sm-5">
-					<a class="navbar-brand me-0 px-3" href="#"><img
-						src="/resources/user/image/h1_logo.png"></a>
+					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
+						src="/resources/user/image/h1_logo.png" width="90%"></a>
 				</div>
 				<div class="col-auto d-md-none">
 
@@ -157,7 +201,7 @@ a {
 
 
 
-				<div class="col-6 col-sm-3" style="margin-top: 30px;">
+				<div class="col-6 col-sm-2" style="margin-top: 30px;">
 
 					<input type="text" class="form-control search-input"
 						placeholder="Search...">
@@ -169,14 +213,10 @@ a {
 
 				</div>
 
-				<div class="col-auto col-sm-3" style="margin-top: 30px;">
-
+				<div class="col-auto col-sm-4" style="margin-top: 30px;">
 					<ul class="nav">
 						<li class="nav-item"><a href="#" class="nav-link">오늘드림</a></li>
-
-
 						<li class="nav-item"><a href="#" class="nav-link">관심 매장소식</a></li>
-
 						<li class="nav-item"><a href="#" class="nav-link">방금 본 상품</a></li>
 					</ul>
 				</div>
