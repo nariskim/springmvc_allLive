@@ -123,6 +123,63 @@ dl>dt:before {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.headline {
+	margin: 40px auto 10px;
+	color: #333;
+	font-size: 20px;
+	font-weight: 400;
+	border-bottom: 1px solid #e6e6e6;
+	padding-bottom: 20px;
+	margin-bottom: 0px;
+}
+
+.headline2 {
+	margin: 40px auto 10px;
+	color: #333;
+	font-weight: 400;
+	border-bottom: 1px solid #e6e6e6;
+	padding-bottom: 20px;
+	margin-bottom: 0px;
+}
+
+.headname {
+	background: #f4f4f4;
+	padding: 15px 0 15px 18px;
+	text-align: center;
+	color: #222;
+	border-bottom: 1px solid #e6e6e6;
+	vertical-align: middle;
+}
+
+.contents {
+	padding: 15px 20px;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 14px;
+	color: #222;
+	line-height: 28px;
+	vertical-align: middle;
+}
+
+.payarea {
+	background: #fcfcfc;
+	padding: 10px 0;
+	border-top: 0;
+	color: #666;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.paybenefit {
+	font-size: 12px;
+	line-height: 18px;
+	color: #888;
+}
+
+.totalbox {
+	padding: 10px 0;
+	border: 2px solid #666;
+}
 </style>
 
 
@@ -249,29 +306,29 @@ dl>dt:before {
 			<div class="p-1">
 				<p>주문/결제</p>
 			</div>
+			
 			<div class="row">
 
-				<div class="col-10">배송지정보</div>
-				<div class="col-2">
+				<div class="col-10 headline">배송지정보</div>
+				<div class="col-2 headline2">
 					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id=""
-							name="" checked> <label class="form-check-label"
-							for="defaultCheck1"> 기본 배송지 설정 </label>
+						<input class="form-check-input" type="checkbox" value="" id="" name="" checked>
+						<label class="form-check-label" for="defaultCheck1"> 기본 배송지 설정 </label>
 					</div>
 				</div>
+<br>
 
-				<div class="col-3">배송지선택</div>
-				<div class="col-9">
+				<div class="col-3 headname">배송지선택</div>
+				
+				<div class="col-9 contents">
 					<div class="row">
 					<div class="col-6 form-check">
-							<input class="form-check-input" type="radio" name="" id=""
-								checked> <label class="form-check-label"
-								for="flexRadioDefault1"> 기본배송지 </label>
+							<input class="form-check-input" type="radio" name="address" id="addressDefault" value="1">
+							<label class="form-check-label" for="addressDefault"> 기본배송지 </label>
 						</div>
 						<div class="col-6 form-check">
-							<input class="form-check-input" type="radio" name="" id="">
-							<label class="form-check-label" for="flexRadioDefault1">
-								신규배송지 </label>
+							<input class="form-check-input" type="radio" name="address" id="addressNew" value="0">
+							<label class="form-check-label" for="addressNew"> 신규배송지 </label>
 						</div>
 
 						<div class="col-12">
@@ -283,50 +340,65 @@ dl>dt:before {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-3">배송지명</div>
-			<div class="col-9"></div>
-			<div class="col-3">받는분</div>
-			<div class="col-9 input-group">
+			
+			
+			<div class="col-3 headname">배송지명</div>
+			<div class="col-9 contents"></div>
+	
+			
+			
+			<div class="col-3 headname">받는분</div>
+			<div class="col-9 contents">
+			<div class="input-group">
 				<input type="text" class="form-control" id="oymaTitle" name="oymaTitle" value="<c:out value="${item.oymaTitle}"/>">
 
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="" id=""
-						name=""> <label class="form-check-label"
-						for="defaultCheck1"> 주문자정보와 동일 </label>
+					<input class="form-check-input" type="checkbox" value="" id="" name="">
+					<label class="form-check-label" for="defaultCheck1"> 주문자정보와 동일 </label>
 				</div>
 			</div>
-
-			
-			<div class="col-3">연락처1</div>
-			<div class="col-9 input-group">
-				<input type="hidden" id="oympDefaultNyArray0" name="oympDefaultNyArray" value="1">
-	<select class="form-select" id="oympTelecomCdArray0" name="oympTelecomCdArray">
-		<option selected>::통신사::</option>
-		<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
-<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
-<c:if test="${oympTelecom1 eq itemTelecom.oycdSeq }">selected</c:if>>
-<c:out value="${itemTelecom.oycdName}" /></option>
-</c:forEach></select>
-<input type="text" class="form-control" id="oympNumberArray0" name="oympNumberArray" value="<c:out value="${oympNumber1}"/>" placeholder="'-'제외">
 			</div>
 
 
-			<div class="col-3">연락처2</div>
-			<div class="col-9 input-group">
-				<input type="hidden" id="oympDefaultNyArray1" name="oympDefaultNyArray" value="0">
-	<select class="form-select" id="oympTelecomCdArray1" name="oympTelecomCdArray">
-		<option selected>::통신사::</option>
-		<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
-<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
-<c:if test="${oympTelecom0 eq itemTelecom.oycdSeq }">selected</c:if>>
-<c:out value="${itemTelecom.oycdName}" /></option>
-</c:forEach></select>
-<input type="text" class="form-control" id="oympNumberArray1" name="oympNumberArray" value="<c:out value="${oympNumber0}"/>" placeholder="'-'제외">
+				<div class="col-3 headname">연락처1</div>
+				<div class="col-9 contents">
+				<div class="input-group">
+					<input type="hidden" id="oympDefaultNyArray0" name="oympDefaultNyArray" value="1">
+					<select class="form-select" id="oympTelecomCdArray0" name="oympTelecomCdArray">
+						<option selected>::통신사::</option>
+						<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
+							<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
+								<c:if test="${oympTelecom1 eq itemTelecom.oycdSeq }">selected</c:if>>
+								<c:out value="${itemTelecom.oycdName}" /></option>
+						</c:forEach>
+					</select>
+					<input type="text" class="form-control" id="oympNumberArray0"
+						name="oympNumberArray" value="<c:out value="${oympNumber1}"/>"
+						placeholder="'-'제외">
+				</div>
+				</div>
 
-			</div>
-			<div class="col-3">주소</div>
-			<div class="input-group col-9">
+
+				<div class="col-3 headname">연락처2</div>
+				<div class="col-9 contents">
+				<div class="input-group">
+					<input type="hidden" id="oympDefaultNyArray1" name="oympDefaultNyArray" value="0">
+					<select class="form-select" id="oympTelecomCdArray1" name="oympTelecomCdArray">
+						<option selected>::통신사::</option>
+						<c:forEach items="${codeTelecom}" var="itemTelecom"
+							varStatus="statusTelecom">
+							<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
+								<c:if test="${oympTelecom0 eq itemTelecom.oycdSeq }">selected</c:if>>
+								<c:out value="${itemTelecom.oycdName}" /></option>
+						</c:forEach>
+					</select>
+					<input type="text" class="form-control" id="oympNumberArray1" name="oympNumberArray" value="<c:out value="${oympNumber0}"/>" placeholder="'-'제외">
+
+				</div>
+				</div>
+				
+				<div class="col-3 headname">주소</div>
+			<div class="col-9 contents">
 				<div class=input-group>
 			<input type="text" class="form-control" id="oymaZipCode" name="oymaZipCode" placeholder="우편번호" value="<c:out value="${item.oymaZipCode}"/>">
 			<input type="button" class="btn btn-outline-dark" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></div>
@@ -334,13 +406,17 @@ dl>dt:before {
 			<input type="text" class="form-control" id="oymaAddress2" name="oymaAddress2" placeholder="상세주소" value="<c:out value="${item.oymaAddress2}"/>">
 			<input type="text" class="form-control" id="oymaAddress3" name="oymaAddress3" placeholder="참고항목" value="<c:out value="${item.oymaAddress3}"/>">
 			</div>
+			</div>
+			
+			
 			<br>
 			<div class="row">
-				<div class="col">배송 요청사항</div>
+				<div class="col headline">배송 요청사항</div>
 			</div>
+			
 			<div class="row">
-				<div class="col-3">배송메시지</div>
-				<div class="col-9">
+				<div class="col-3 headname">배송메시지</div>
+				<div class="col-9 contents">
 					<select class="form-select" aria-label="Default select example">
 						<option value="" selected>배송메시지를 선택해주세요.</option>
 						<option value="">부재시 경비실에 맡겨주세요.</option>
@@ -351,16 +427,17 @@ dl>dt:before {
 					</select>
 				</div>
 			</div>
+			
 			<br>
 			<div class="row">
 
-				<div class="col-9">상품정보</div>
-				<div class="col-1">판매가</div>
-				<div class="col-1">수량</div>
-				<div class="col-1">구매가</div>
+				<div class="col-9 headname">상품정보</div>
+				<div class="col-1 headname">판매가</div>
+				<div class="col-1 headname">수량</div>
+				<div class="col-1 headname">구매가</div>
 
 
-				<div class="col-9">
+				<div class="col-9 contents">
 					<div class="row">
 						<div class="col-4">
 							<img src="/resources/user/image/bioheelbo.jpg" width="100px"
@@ -373,74 +450,32 @@ dl>dt:before {
 						</div>
 					</div>
 				</div>
-				<div class="col-1"><fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
-				<div class="col-1">1</div>
-				<div class="col-1">
+				<div class="col-1 contents"><fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div>
+				<div class="col-1 contents"></div>
+				<div class="col-1 contents">
 					<div class="priceB">
 												<fmt:formatNumber value="${item.oypdPrice}"/><span>원</span></div><br><fmt:formatNumber value="${item.oyspSalePrice}"/>
 												<span>원</span>
 				</div>
 			</div>
+			<br>
 			<div class="row">
-				<div class="col-9">
+			<div class="col-8">
+			<div class="row">
+					<div class="col-12 headline">포인트/기프트카드사용</div>
+					<div class="col-3 headname">올리브영 기프트카드</div>
+					<div class="col-9 contents"></div>
+					<div class="col-3 headname">CJ 기프트카드</div>
+					<div class="col-9 contents"></div>
+					<div class="col-3 headname">CJ ONE 포인트</div>
+					<div class="col-9 contents"></div>
+					<div class="col-3 headname">예치금</div>
+					<div class="col-9 contents"></div>
+					</div>
+					<br>
 					<div class="row">
-						<div class="col-12">
-							쿠폰할인정보
-							<button type="button" id="" name=""
-								class="btn btn-outline-light btn-sm text-dark">보유쿠폰</button>
-						</div>
-						<div class="col-9">
-							<div class="input-group">
-								<div class="form-check" style="padding-right: 150px;">
-									<input class="form-check-input" type="radio"
-										name="flexRadioDefault" id="flexRadioDefault1" checked>
-									<label class="form-check-label" for="flexRadioDefault1">
-										최대 할인 추천받기 </label>
-								</div>
-								<div class="form-check " style="padding-right: 150px;">
-									<input class="form-check-input" type="radio"
-										name="flexRadioDefault" id="flexRadioDefault1"> <label
-										class="form-check-label" for="flexRadioDefault1"> 혜택
-										직접 선택하기 </label>
-								</div>
-							</div>
-						</div>
-						<div class="col-3">
-							<input type="text" class="form-control" id="" name="" value="">
-						</div>
-						<div class="col-3">상품별 할인</div>
-						<div class="col-9">
-							<select class="form-select" id="coupon01" name="coupon01"
-								aria-label="Default select example">
-								<option value="" selected>적용할 수 있는 쿠폰이 없습니다.</option>
-							</select>
-							<div id="coupon01" class="form-text">즉시할인쿠폰은 상품금액에 자동적용
-								되어있습니다.</div>
-						</div>
-					</div>
-					<div class="col-3">주문별 할인</div>
-					<div class="col-9">
-						<select class="form-select" aria-label="Default select example">
-							<option value="" selected>적용할 수 있는 쿠폰이 없습니다.</option>
-						</select>
-					</div>
-					<div class="col-3">배송비 쿠폰</div>
-					<div class="col-9">
-						<select class="form-select" aria-label="Default select example">
-							<option value="" selected>적용할 수 있는 쿠폰이 없습니다.</option>
-						</select>
-					</div>
-					<div class="col-12">포인트/기프트카드사용</div>
-					<div class="col-3">올리브영 기프트카드</div>
-					<div class="col-9"></div>
-					<div class="col-3">CJ 기프트카드</div>
-					<div class="col-9"></div>
-					<div class="col-3">CJ ONE 포인트</div>
-					<div class="col-9"></div>
-					<div class="col-3">예치금</div>
-					<div class="col-9"></div>
-					<div class="col-12">결제수단 선택</div>
-					<div class="col-12">
+					<div class="col-12 headline">결제수단 선택</div>
+					<div class="col-12 payarea">
 						<div class="input-group">
 							<div class="form-check" style="padding-right: 150px;">
 								<input class="form-check-input" type="radio"
@@ -499,13 +534,15 @@ dl>dt:before {
 						</div>
 
 					</div>
-					<div class="col-3">카드종류</div>
-					<div class="col-9"></div>
+					<div class="col-3 headname">카드종류</div>
+					<div class="col-9 contents"></div>
 
-					<div class="col-3">할부분류</div>
-					<div class="col-9"></div>
-
-					<div class="col-12">
+					<div class="col-3 headname">할부분류</div>
+					<div class="col-9 contents"></div>
+</div>
+<br>
+<div class="row">
+					<div class="col-12 paybenefit">
 						<ul>
 							<li><카카오뱅크 체크카트 혜택></카카오뱅크></li>
 							<li>3만원 이상 결제 시 2천원 캐시백</li>
@@ -515,12 +552,13 @@ dl>dt:before {
 						</ul>
 					</div>
 				</div>
+</div>
 
-
-
+<div class="col"></div>
 				<div class="col-3">
 					<div class="row">
-						<div class="col-12">최종 결제정보</div>
+						<div class="col-12 headline">최종 결제정보</div>
+						<div class="row totalbox">
 						<div class="col-9">총 상품금액</div>
 						<div class="col-3">
 							<input type="text" class="form-control" id="" name="" value="">
@@ -550,6 +588,7 @@ dl>dt:before {
 								class="btn btn-danger btn-lg text-light">
 								결제하기<br> (증정품은 결제 시 확인 가능합니다)
 							</button>
+						</div>
 						</div>
 						<div class="col-12">
 							<div class="form-check">
@@ -623,7 +662,9 @@ dl>dt:before {
 						</div>
 					</div>
 			</div>
-				</div></div>
+				</div>
+				</div>
+				
 		</main>
 
 
