@@ -1,7 +1,7 @@
 package com.julyte.user.common.util;
 
 public class UtilRandomPd {
-
+ 
 	public static int f;
 	public static int t;
 	public static int n;
