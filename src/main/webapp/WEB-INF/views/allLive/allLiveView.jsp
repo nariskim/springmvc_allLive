@@ -18,7 +18,7 @@
 <link
 	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
 	rel="stylesheet">
-
+ 
 
 <title>allLiveYoung_View</title>
 

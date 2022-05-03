@@ -16,7 +16,7 @@
 
  
 <title>allLiveYoung_Reg</title>
-
+ 
 <style>
 .map_wrap, .map_wrap * {
 	margin: 0;

@@ -17,7 +17,7 @@
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/893e1f7eb8.js"
 	crossorigin="anonymous"></script>
- 
+  
 <title>allLiveYoung_Main2</title>
 
 <style>
