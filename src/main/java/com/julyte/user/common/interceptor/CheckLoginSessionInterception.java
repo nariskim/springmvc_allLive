@@ -1,10 +1,10 @@
 package com.julyte.user.common.interceptor;
- 
+  
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
+ 
 import com.julyte.user.common.constants.Constants;
  
 public class CheckLoginSessionInterception extends HandlerInterceptorAdapter {
