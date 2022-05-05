@@ -2,7 +2,7 @@ package com.julyte.user.common.base;
  
 import java.util.Date;
    
-public class Base {  
+public class Base {   
 
 	private String regIp;
 	private String regSeq;
