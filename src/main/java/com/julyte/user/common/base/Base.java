@@ -1,7 +1,7 @@
 package com.julyte.user.common.base;
  
 import java.util.Date;
-  
+   
 public class Base {  
 
 	private String regIp;
