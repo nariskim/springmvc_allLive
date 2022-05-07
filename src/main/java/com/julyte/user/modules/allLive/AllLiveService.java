@@ -7,7 +7,7 @@ public interface AllLiveService {
 	public AllLive selectOneLogin(AllLive dto) throws Exception;
 
 	public int insert(AllLive dto) throws Exception;
-
+ 
 	public List<AllLive> selectListPd(AllLiveVo vo) throws Exception;
 
 	public List<AllLive> selectListUploaded(AllLiveVo vo) throws Exception;

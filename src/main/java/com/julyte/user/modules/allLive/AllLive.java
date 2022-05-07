@@ -13,7 +13,7 @@ public class AllLive {
 	private String originalName;
 	private String uuidName;
 	private String ext;
-	private long size;
+	private long size; 
 	private Integer delNy;
 	private String pseq; 
 	private String path;

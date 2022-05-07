@@ -11,7 +11,7 @@ import com.julyte.user.common.util.UtilUpload;
  
 @Service
 public class AllLiveServiceImpl implements AllLiveService {
-
+ 
 	@Autowired
 	AllLiveDao dao;
  

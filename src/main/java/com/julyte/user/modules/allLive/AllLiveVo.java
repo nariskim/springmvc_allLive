@@ -13,7 +13,7 @@ public class AllLiveVo {
 	private String oyctSeq;
 	private String pseq;
 	private String seq;
-  
+   
 	// oyMemberSearch
 	private String regDateTime;
 	private String modDateTime;
