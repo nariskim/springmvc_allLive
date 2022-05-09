@@ -4,7 +4,7 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class AllLive {
- 
+  
 	private String tableName;
 	private Integer type;
 	private String seq;
