@@ -132,8 +132,9 @@
 		oymbName
 		, oymbNameEng
 		, oymbId
-		, oymbNickName
-		<!-- , oymbDob -->
+		, oymbDelNy
+<!-- 		, oymbNickName
+		, oymbDob 
 		, oymbPassword
 		, oymbGenderCd
 		, originalFileName
@@ -145,16 +146,17 @@
 		, oymbEmailConsentNy
 		, oymbSmsConsentNy
 		, oymbPushConsentNy
-		, oymbDelNy
+		
 		, regDateTime
-		, modDateTime
+		, modDateTime-->
 		) values (
 		#{oymbName}
 		,#{oymbNameEng}
 		, #{oymbId}
-		, #{oymbNickName}
-		<!-- <choose> <when test="oymbDob.equals('')">,NULL</when> <otherwise>,#{oymbDob}</otherwise> 
-			</choose> -->
+		, 0
+		<!--, #{oymbNickName}
+		 <choose> <when test="oymbDob.equals('')">,NULL</when> <otherwise>,#{oymbDob}</otherwise> 
+			</choose> 
 		, #{oymbPassword}
 		, #{oymbGenderCd}
 		, #{originalFileName}
@@ -166,9 +168,9 @@
 		,#{oymbEmailConsentNy}
 		,#{oymbSmsConsentNy}
 		,#{oymbPushConsentNy}
-		, 0
+		
 		, now()
-		, now()
+		, now()-->
 		)
 		<selectKey resultType="String" keyProperty="oymbSeq"
 			order="AFTER">
@@ -177,7 +179,7 @@
 
 	</insert>
 
-	<insert id="insertJoinQna">
+<!-- <insert id="insertJoinQna">
 		INSERT INTO oymbJoinQna (
 		oyjqQuestionCd
 		, oyjqAnswer
@@ -328,7 +330,7 @@
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-	</insert>
+	</insert> -->	
 
 	<select id="selectOneId" resultMap="resultMapObj">
 		SELECT
@@ -463,7 +465,7 @@
 		oymbName = #{oymbName}
 		, oymbNameEng = #{oymbNameEng}
 		, oymbId = #{oymbId}
-		, oymbNickName = #{oymbNickName}
+<!-- 	, oymbNickName = #{oymbNickName}
 		, oymbPassword = #{oymbPassword}
 		, modDateTime = #{modDateTime}
 		, oymbSkinTypeCd = #{oymbSkinTypeCd}
@@ -472,7 +474,7 @@
 		, oymbInterestsCd = #{oymbInterestsCd}
 		, oymbEmailConsentNy = #{oymbEmailConsentNy}
 		, oymbSmsConsentNy = #{oymbSmsConsentNy}
-		, oymbPushConsentNy = #{oymbPushConsentNy}
+		, oymbPushConsentNy = #{oymbPushConsentNy} -->		
 
 		WHERE 1=1
 		AND oymbSeq = #{oymbSeq}
@@ -480,7 +482,7 @@
 
 	</update>
 
-	<update id="updateAddress">
+<!-- 	<update id="updateAddress">
 
 		UPDATE
 		oymbAddress
@@ -563,7 +565,7 @@
 	<update id="uelete">
 		UPDATE oyMember SET oymbDelNy = 1 WHERE 1=1 AND
 		oymbSeq = #{oymbSeq}
-	</update>
+	</update> -->
 
 	<delete id="delete">
 		DELETE FROM oyMember WHERE 1=1 AND oymbSeq =

@@ -19,7 +19,6 @@
 		, a.oypdDelNy
 		, b.oyspSeq
 		, b.oyspSalePrice
-		, b.oyspDelNy
 		, b.oyspTypeCd
 		, c.originalName
 		, c.uuidName

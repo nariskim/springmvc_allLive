@@ -39,6 +39,7 @@
 			<exclude-mapping path="/allLive/GoogleProc" />
 			<exclude-mapping path="/allLive/allLiveMain" />
 			<exclude-mapping path="/allLive/allLiveDetail" />
+			<exclude-mapping path="/rest/**" />
 
 			<beans:bean id="checkLoginSessionInterception"
 				class="com.julyte.user.common.interceptor.CheckLoginSessionInterception" />
