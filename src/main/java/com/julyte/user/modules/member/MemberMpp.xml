@@ -133,7 +133,7 @@
 		, oymbNameEng
 		, oymbId
 		, oymbDelNy
-<!-- 		, oymbNickName
+ 		, oymbNickName
 		, oymbDob 
 		, oymbPassword
 		, oymbGenderCd
@@ -148,13 +148,13 @@
 		, oymbPushConsentNy
 		
 		, regDateTime
-		, modDateTime-->
+		, modDateTime
 		) values (
 		#{oymbName}
 		,#{oymbNameEng}
 		, #{oymbId}
 		, 0
-		<!--, #{oymbNickName}
+		, #{oymbNickName}
 		 <choose> <when test="oymbDob.equals('')">,NULL</when> <otherwise>,#{oymbDob}</otherwise> 
 			</choose> 
 		, #{oymbPassword}
@@ -170,7 +170,7 @@
 		,#{oymbPushConsentNy}
 		
 		, now()
-		, now()-->
+		, now()
 		)
 		<selectKey resultType="String" keyProperty="oymbSeq"
 			order="AFTER">
@@ -179,13 +179,12 @@
 
 	</insert>
 
-<!-- <insert id="insertJoinQna">
+	 <insert id="insertJoinQna">
 		INSERT INTO oymbJoinQna (
 		oyjqQuestionCd
 		, oyjqAnswer
 		, oyjqDelNy
-		,
-		regDateTime
+		, regDateTime
 		, modDateTime
 		, oymbSeq
 		) values (
@@ -207,15 +206,13 @@
 		oymaZipCode
 		, oymaAddress1
 		, oymaAddress2
-		,
-		oymaAddress3
+		, oymaAddress3
 		, oymaLat
 		, oymaLng
 		, oymaDelNy
 		, oymbSeq
 		, regDateTime
-		,
-		modDateTime
+		, modDateTime
 		) values (
 		#{oymaZipCode}
 		, #{oymaAddress1}
@@ -330,7 +327,7 @@
 			order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
-	</insert> -->	
+	</insert>	
 
 	<select id="selectOneId" resultMap="resultMapObj">
 		SELECT
@@ -482,7 +479,7 @@
 
 	</update>
 
-<!-- 	<update id="updateAddress">
+ 	<update id="updateAddress">
 
 		UPDATE
 		oymbAddress
@@ -565,7 +562,7 @@
 	<update id="uelete">
 		UPDATE oyMember SET oymbDelNy = 1 WHERE 1=1 AND
 		oymbSeq = #{oymbSeq}
-	</update> -->
+	</update>
 
 	<delete id="delete">
 		DELETE FROM oyMember WHERE 1=1 AND oymbSeq =
@@ -597,6 +594,28 @@
 		oynaUseNy = 1
 	</select>
 
+	<insert id="insertRest">
+		INSERT INTO oyMember(
+			oymbName
+			,oymbId
+			,oymbPassword
+			,oymbDelNy
+		) VALUES (
+			#{oymbName}
+			,#{oymbId}
+			,#{oymbPassword}
+			,0
+		)	
+	</insert>
+	
+	<update id="updateRest">
+		UPDATE oyMember SET 	
+			oymbName = #{oymbName}
+			,oymbId = #{oymbId}
+			,oymbPassword = #{oymbPassword}
+		WHERE 1=1
+			AND oymbSeq=#{oymbSeq}	
+	</update>
 
 
 </mapper>

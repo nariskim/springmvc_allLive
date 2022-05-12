@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -7,10 +6,9 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<jsp:useBean id="CateServiceImpl" 
-	class="com.julyte.user.modules.cate.CateServiceImpl" />
-<jsp:useBean id="CodeServiceImpl"
-	class="com.julyte.user.modules.code.CodeServiceImpl" />
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl" />
+
 <!DOCTYPE HTML> 
 <html lang="ko">   
 <head>
@@ -18,18 +16,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
  
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <!-- jquery ui CSS -->
-<link
-	href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
-	rel="stylesheet">
+<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
 
 <title>AllLiveLogin</title>
+
 <style type="text/css">
 .container {
 	justify-content: center; /* 수평 정렬 */
@@ -43,16 +37,15 @@ a {
 	font-size: 13px;
 }
 </style>
+
 <!-- content에 자신의 OAuth2.0 클라이언트ID를 넣습니다. -->
 <!-- google -->
-<meta name="google-signin-client_id"
-	content="128484483787-h95dbrgr17toacol178o5dh0j82e8fj5.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="128484483787-h95dbrgr17toacol178o5dh0j82e8fj5.apps.googleusercontent.com">
 
 </head>
 <body>
 
-	<form id="loginForm" name="loginForm" method="post"
-		action="/allLive/loginForm">
+	<form id="loginForm" name="loginForm" method="post" action="/allLive/loginForm">
 
 
 		<div class="position-absolute top-50 start-50 translate-middle">
@@ -113,21 +106,18 @@ a {
 					<div class="col-4">
 						<div class="input-group" style="text-align: right;">
 							<!-- kakao -->
-							<a href="javascript:kakaoLogin()"><img
-								src="/resources/user/image/kako.png"></a>
+							<a href="javascript:kakaoLogin()">
+							<img src="/resources/user/image/kako.png"></a>
 							<!-- apple -->
 							<a href=""><img src="/resources/user/image/aple.png"></a>
 							<!-- facebook -->
-							<button class="btn btn-facebook" type="button" id="btn-facebook"
-								onclick="fnFbCustomLogin();">
+							<button class="btn btn-facebook" type="button" id="btn-facebook" onclick="fnFbCustomLogin();">
 								<img src="/resources/user/image/facebookicon.png">
 							</button>
 							<!-- google -->
-							<button class="btn btn-lg" id="GgCustomLogin"
-								onclick="javascript:void(0)">구글</button>
+							<button class="btn btn-lg" id="GgCustomLogin" onclick="javascript:void(0)">구글</button>
 							<!-- naver -->
-							<div class="col-auto linksq" style="margin-left: auto;"
-								onclick="location.href='${url}';">
+							<div class="col-auto linksq" style="margin-left: auto;" onclick="location.href='${url}';">
 								<div id="naver_id_login" style="display: none;"></div>
 								<div class="circle linksns naverlogin" style="float: none;">
 								</div>
@@ -140,8 +130,6 @@ a {
 						</div>
 					</div>
 				</div>
-
-
 
 				<br>
 				<div class="d-grid gap-2">
@@ -156,43 +144,33 @@ a {
 
 
 	<!-- bootstrap -->
-	<script
-		src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+	<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 	<!-- ajax -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- validation -->
 	<script src="/resources/js/validation.js"></script>
 
 	<!-- jquery ui -->
-	<script
-		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 	<!-- kakao -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 	<!-- facebook -->
-	<script async defer crossorigin="anonymous"
-		src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=4427218787378399"
-		nonce="JutAfaKH"></script>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=4427218787378399" nonce="JutAfaKH"></script>
 
 	<!-- &autoLogAppEvents=1 -->
-	<script async defer crossorigin="anonymous"
-		src="https://connect.facebook.net/en_US/sdk.js"></script>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
 	<!-- google -->
-	<script src="https://apis.google.com/js/platform.js?onload=init" async
-		defer></script>
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
 
 	<!-- naver -->
-	<script type="text/javascript"
-		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-		charset="utf-8"></script>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<!-- 네이버로그인 -->
 	<script type="text/javascript">
@@ -204,7 +182,7 @@ a {
   	naver_id_login.setState(state);
   	naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();
-</script>
+	</script>
 
 
 	<script type="text/javascript">
@@ -390,6 +368,8 @@ function onSignInFailure(t){
 				"click",
 				function() {
 					/* 	if(validation()==false) return false; */
+					if(!checkNull($("oymbId"), $.trim($("#oymbId").val()), "아이디를 확인해 주세요!")) return false;
+					if(!checkNull($("oymbPassword"), $.trim($("#oymPassword").val()), "비밀번호를 확인해 주세요!")) return false;
 					$.ajax({
 						async : true,
 						cache : false,

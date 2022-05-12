@@ -25,6 +25,13 @@ public interface MemberService {
 	public int uelete(MemberVo vo) throws Exception;
 	
 	public int delete(MemberVo vo) throws Exception;
-	
 
+
+	//rest
+	
+	public int insertRest(Member dto) throws Exception;
+	public int updateRest(Member dto) throws Exception;
+	
+	
+	
 } 

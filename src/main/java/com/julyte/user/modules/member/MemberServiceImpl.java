@@ -130,4 +130,16 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
+	
+	//rest
+	
+	@Override
+	public int insertRest(Member dto) throws Exception {
+		return dao.insertRest(dto);
+	}
+
+	@Override
+	public int updateRest(Member dto) throws Exception {
+		return dao.updateRest(dto);
+	}
 }

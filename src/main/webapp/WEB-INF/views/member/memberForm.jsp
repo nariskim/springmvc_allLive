@@ -145,18 +145,13 @@ main {
 
 
 
-		<input type="hidden" id="thisPage" name="thisPage"
-			value="<c:out value="${vo.thisPage}"/>"> <input type="hidden"
-			id="scOption" name="scOption" value="<c:out value="${vo.scOption}"/>">
-		<input type="hidden" id="scValue" name="scValue"
-			value="<c:out value="${vo.scValue}"/>"> <input type="hidden"
-			id="oymbSeq" name="oymbSeq" value="<c:out value="${item.oymbSeq}"/>">
-		<input type="hidden" id="scOptionDate" name="scOptionDate"
-			value="<c:out value="${vo.scOptionDate}"/>"> <input
-			type="hidden" id="scDateStart" name="scDateStart"
-			value="<c:out value="${vo.scDateStart}"/>"> <input
-			type="hidden" id="scDateEnd" name="scDateEnd"
-			value="<c:out value="${vo.scDateEnd}"/>">
+		<input type="hidden" id="thisPage" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
+		<input type="hidden" id="scOption" name="scOption" value="<c:out value="${vo.scOption}"/>">
+		<input type="hidden" id="scValue" name="scValue" value="<c:out value="${vo.scValue}"/>">
+		<input type="hidden" id="oymbSeq" name="oymbSeq" value="<c:out value="${item.oymbSeq}"/>">
+		<input type="hidden" id="scOptionDate" name="scOptionDate" value="<c:out value="${vo.scOptionDate}"/>">
+		<input type="hidden" id="scDateStart" name="scDateStart" value="<c:out value="${vo.scDateStart}"/>">
+		<input type="hidden" id="scDateEnd" name="scDateEnd" value="<c:out value="${vo.scDateEnd}"/>">
 
 		<div class="row">
 			<header class="navbar navbar-dark sticky-top bg-light ml-auto">

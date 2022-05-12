@@ -110,5 +110,9 @@ public class MemberDao {
 	public int delete(MemberVo vo) {
 		return sqlSession.delete(namespace + ".delete", vo);
 	}
+	
+	//rest
+	public int insertRest(Member dto) {return sqlSession.insert(namespace +".insertRest", dto);}	
+	public int updateRest(Member dto) {return sqlSession.update(namespace +".updateRest", dto);}
 
 }

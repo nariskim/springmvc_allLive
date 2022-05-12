@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
 @RequestMapping("/rest/member")
@@ -31,13 +32,19 @@ public class MemberRestController {
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String insert(@RequestBody Member dto) throws Exception {
-		service.insert(dto);
+		service.insertRest(dto);
 		return dto.getOymbSeq();
 	}
 
 	@RequestMapping(value = "/{seq}", method = RequestMethod.PATCH)
 	public void update(@PathVariable String seq, @RequestBody Member dto) throws Exception {
 		dto.setOymbSeq(seq);
-		service.update(dto);
+		service.updateRest(dto);
+	}
+	
+	@RequestMapping(value = "", method = RequestMethod.DELETE)
+	public void Delete(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+
+		service.delete(vo);
 	}
 }
