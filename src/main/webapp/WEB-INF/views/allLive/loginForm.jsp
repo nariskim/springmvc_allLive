@@ -369,7 +369,7 @@ function onSignInFailure(t){
 				function() {
 					/* 	if(validation()==false) return false; */
 					if(!checkNull($("oymbId"), $.trim($("#oymbId").val()), "아이디를 확인해 주세요!")) return false;
-					if(!checkNull($("oymbPassword"), $.trim($("#oymPassword").val()), "비밀번호를 확인해 주세요!")) return false;
+					if(!checkNull($("oymbPassword"), $.trim($("#oymbPassword").val()), "비밀번호를 확인해 주세요!")) return false;
 					$.ajax({
 						async : true,
 						cache : false,

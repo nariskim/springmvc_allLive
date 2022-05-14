@@ -257,8 +257,7 @@
 		INSERT INTO ${tableName} (
 		type
 		, defaultNy
-		,
-		originalName
+		, originalName
 		, uuidName
 		, ext
 		, size

@@ -290,7 +290,7 @@ main {
 						</div>
 						<div class="col-12 col-sm-8 col-lg-4"
 							style="margin-top: 20px; margin-bottom: 20px;">
-							<input type="text" id="" name="" max="2022-01-08"
+							<input type="text" id="oymbDob" name="oymbDob" max="2022-01-08"
 								class="form-control" placeholder="'yyyyMMdd'">
 						</div>
 						<div class="col-12 col-sm-4 col-lg-2"
@@ -548,8 +548,6 @@ main {
 				<ul id="ulField" class="list-group">
 				</ul>
 				</div> -->
-				jty
-
 
 
 				<div class="row">
