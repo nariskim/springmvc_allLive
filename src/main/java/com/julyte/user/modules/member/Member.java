@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Member {
 
+	// restFul test
 	private String resultCode;
 	private String resultMsg;
 	private String pageNo;
