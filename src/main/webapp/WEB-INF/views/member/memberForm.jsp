@@ -127,8 +127,7 @@ main {
 
 </head>
 <body>
-	<form id="memberForm" name="memberForm" method="post"
-		action="/member/memberInst" enctype="multipart/form-data">
+	<form id="memberForm" name="memberForm" method="post" action="/member/memberInst" enctype="multipart/form-data">
 
 
 

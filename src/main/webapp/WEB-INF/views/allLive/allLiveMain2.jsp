@@ -142,10 +142,11 @@ dl>dt:before {
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav justify-content-end">
-						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#"><c:out value="${sessName }" />
+									님, 반갑습니다👋</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark"
-							href="javascript:goLogin();">로그인</a></li>
+							href="javascript:goLogout();">로그아웃</a></li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
@@ -165,8 +166,8 @@ dl>dt:before {
 
 			<div class="row">
 				<div class="col-auto col-sm-5">
-					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
-						src="/resources/user/image/h1_logo.png" width="90%"></a>
+					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain2"><img
+						src="/resources/xdmin/image/oliveimage.PNG" width="95%"></a>
 				</div>
 				<div class="col-auto d-md-none">
 
@@ -427,7 +428,7 @@ dl>dt:before {
 	<script type="text/javascript">
 	goView = function(seq) {
 		$("#oypdSeq").val(seq);
-		$("#allLiveMain2").attr("action", "/allLive/allLiveView");
+		$("#allLiveMain2").attr("action", "/allLive/allLiveDetail");
 		$("#allLiveMain2").submit();
 	}
 	

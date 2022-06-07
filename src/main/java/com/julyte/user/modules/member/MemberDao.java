@@ -2,6 +2,7 @@ package com.julyte.user.modules.member;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -11,8 +12,12 @@ import org.springframework.stereotype.Repository;
 public class MemberDao {
 
 	@Inject
-//	@Resource(name = "sqlSession") 
+	@Resource(name = "sqlSession") 
 	private SqlSession sqlSession;
+
+	@Inject
+	@Resource(name = "sqlSessionOracle") 
+	private SqlSession sqlSessionOracle;
 
 	private static String namespace = "com.julyte.user.modules.member.MemberMpp";
 
@@ -24,6 +29,11 @@ public class MemberDao {
 	// selectList
 	public List<Member> selectList(MemberVo vo) {
 		return sqlSession.selectList(namespace + ".selectList", vo);
+	}
+
+	// selectList oracle
+	public List<Member> selectListOracle(MemberVo vo) {
+		return sqlSessionOracle.selectList(namespace + ".selectListOracle", vo);
 	}
 
 	// selectListPhone

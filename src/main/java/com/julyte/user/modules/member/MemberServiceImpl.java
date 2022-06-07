@@ -6,15 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.julyte.user.common.util.UtilDateTime;
+import com.julyte.user.common.util.UtilMail;
+
 @Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDao dao;
 
-	@Override 
+	@Override
 	public List<Member> selectList(MemberVo vo) throws Exception {
 		return dao.selectList(vo);
+	}
+	
+	@Override
+	public List<Member> selectListOracle(MemberVo vo) throws Exception {
+		return dao.selectListOracle(vo);
 	}
 
 	@Override
@@ -26,7 +33,7 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> selectListEmail(MemberVo vo) throws Exception {
 		return dao.selectListEmail(vo);
 	}
- 
+
 	@Override
 	public int insert(Member dto) throws Exception {
 
@@ -67,7 +74,7 @@ public class MemberServiceImpl implements MemberService {
 			dto.setOymeEmailAccount(dto.getOymeEmailAccountArray()[i]);
 			dao.insertEmail(dto);
 		}
-
+		UtilMail.sendMail();
 		return 2;
 	}
 
@@ -130,9 +137,8 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
-	
-	//rest
-	
+	// rest
+
 	@Override
 	public int insertRest(Member dto) throws Exception {
 		return dao.insertRest(dto);
@@ -142,4 +148,8 @@ public class MemberServiceImpl implements MemberService {
 	public int updateRest(Member dto) throws Exception {
 		return dao.updateRest(dto);
 	}
+	
 }
+
+
+

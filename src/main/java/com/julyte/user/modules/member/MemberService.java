@@ -11,6 +11,8 @@ public interface MemberService {
 	public List<Member> selectListPhone(MemberVo vo) throws Exception;
 
 	public List<Member> selectListEmail(MemberVo vo) throws Exception;
+
+	public List<Member> selectListOracle(MemberVo vo) throws Exception;	//oracle
 	 
 	public int insert(Member dto) throws Exception;
 	

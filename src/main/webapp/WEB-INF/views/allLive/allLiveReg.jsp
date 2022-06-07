@@ -4,19 +4,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%> 
-<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
-<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
-<!DOCTYPE HTML>   
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+<jsp:useBean id="CateServiceImpl"
+	class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl"
+	class="com.julyte.user.modules.code.CodeServiceImpl" />
+<!DOCTYPE HTML>
 <html lang="ko">
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
+	rel="stylesheet">
 
- 
+
 <title>allLiveYoung_Reg</title>
- 
+
 <style>
 .map_wrap, .map_wrap * {
 	margin: 0;
@@ -279,9 +283,11 @@ main {
 	width: 10%;
 	text-align: center;
 }
+
 .nav-link {
 	color: black;
 }
+
 a {
 	text-decoration: none;
 	color: black;
@@ -319,10 +325,12 @@ a {
 
 <body>
 
-<!-- <form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg"> -->	
-	<form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg" enctype="multipart/form-data" >
-<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${item.oypdSeq}"/>">
-	
+	<!-- <form id="allLiveReg" name="allLiveReg" method="post" action="/allLive/allLiveReg"> -->
+	<form id="allLiveReg" name="allLiveReg" method="post"
+		action="/allLive/allLiveReg" enctype="multipart/form-data">
+		<input type="hidden" id="oypdSeq" name="oypdSeq"
+			value="<c:out value="${item.oypdSeq}"/>">
+
 		<header>
 			<div class="container-header">
 				<div class="row">
@@ -441,278 +449,291 @@ a {
 		<!-- <div class="row"></div> -->
 
 		<main>
-		<div class="container-main">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#">홈</a></li>
-					<li class="breadcrumb-item">관리자</li>
-					<li class="breadcrumb-item active">상품관리</li>
-					<li class="breadcrumb-item active" aria-current="page">상품등록</li>
-				</ol>
-			</nav>
-			<div class="row">
-				<div class="col-6">
+			<div class="container-main">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">홈</a></li>
+						<li class="breadcrumb-item">관리자</li>
+						<li class="breadcrumb-item active">상품관리</li>
+						<li class="breadcrumb-item active" aria-current="page">상품등록</li>
+					</ol>
+				</nav>
+				<div class="row">
+					<div class="col-6">
 
-					
-						<label for="file0" class="form-label input-file-button">메인 상품 사진 등록</label>
-					<input type="file" class="form-control form-control-sm mb-1" id="file0" name="file0" multiple onChange="upload(0,2);"style="display: none;" >
-					<div class="addScroll">
-						<ul id="ulFile0" class="list-group" ></ul>
+
+						<label for="file0" class="form-label input-file-button">메인
+							상품 사진 등록</label> <input type="file"
+							class="form-control form-control-sm mb-1" id="file0" name="file0"
+							multiple onChange="upload(0,2);" style="display: none;">
+						<div class="addScroll">
+							<ul id="ulFile0" class="list-group"></ul>
+						</div>
+
+						<label for="file1" class="form-label input-file-button">(상세)메인
+							상품 사진 등록</label> <input type="file"
+							class="form-control form-control-sm mb-1" id="file1" name="file1"
+							multiple onChange="upload(1,2);" style="display: none;">
+						<div class="addScroll">
+							<ul id="ulFile1" class="list-group"></ul>
+						</div>
+
+
 					</div>
+					<div class="col-6">
+						<label for="formFile" class="form-label">상품 분류</label> <label
+							for="formFile" class="form-label">판매여부</label> <select
+							class="form-select" id="oyspSaleNy" name="oyspSaleNy">
+							<option value="" selected>::판매여부::</option>
+							<option value="1">Y</option>
+							<option value="0">N</option>
+						</select> <label for="formFile" class="form-label">PB여부</label> <select
+							class="form-select" id="oyspExclusiveNy" name="oyspExclusiveNy">
+							<option value="" selected>::PB::</option>
+							<option value="1">Y</option>
+							<option value="0">N</option>
+						</select>
 
-						<label for="file1" class="form-label input-file-button">(상세)메인 상품 사진 등록</label>
-					<input type="file" class="form-control form-control-sm mb-1" id="file1" name="file1" multiple onChange="upload(1,2);"style="display: none;" >
-					<div class="addScroll">
-						<ul id="ulFile1" class="list-group" ></ul>
-					</div>
-				
-					
-				</div>
-				<div class="col-6">
-					<label for="formFile" class="form-label">상품 분류</label> <label
-						for="formFile" class="form-label">판매여부</label> <select
-						class="form-select" id="oyspSaleNy" name="oyspSaleNy">
-						<option value="" selected>::판매여부::</option>
-						<option value="1">Y</option>
-						<option value="0">N</option>
-					</select>
-					
-					<label for="formFile" class="form-label">PB여부</label> <select
-						class="form-select" id="oyspExclusiveNy" name="oyspExclusiveNy">
-						<option value="" selected>::PB::</option>
-						<option value="1">Y</option>
-						<option value="0">N</option>
-					</select> 
-					
-<c:set var="cate3" value="${CateServiceImpl.selectListCachedCode('3')}" />
- <label for="formFile" class="form-label">카테고리</label>
-					<select class="form-select" id="oypdCate" name="oypdCate">
-						<option value="" selected>::카테고리::</option>
-							<c:forEach items="${cate3}" var="itemCate3" varStatus="statusCate3">
-							<option value="<c:out value="${itemCate3.oyctSeq}"/>"
-								<c:if test="${item.oypdCate eq itemCate3.oyctSeq }">selected</c:if>>
-								<c:out value="${itemCate3.oyctName}" /></option>
-						</c:forEach>
-					</select> 
-					
-	<c:set var="codeBrand" value="${CodeServiceImpl.selectListCachedCode('16')}" />
-	<c:set var="codeManufacturer" value="${CodeServiceImpl.selectListCachedCode('101')}" />
-	<c:set var="codeDistributor" value="${CodeServiceImpl.selectListCachedCode('102')}" />
-	<c:set var="codeCountry" value="${CodeServiceImpl.selectListCachedCode('103')}" />
-					
-<label for="formFile" class="form-label">브랜드</label>
-<select class="form-select" id="oypdBrandCd" name="oypdBrandCd">
-<option value="" selected>::브랜드::</option>
-<c:forEach items="${codeBrand}" var="itemBrand" varStatus="statusBrand">
-<option value="<c:out value="${item.oypdBrandCd}"/>">
-<c:out value="${itemBrand.oycdName}" /></option>
-</c:forEach>
-</select>
+						<c:set var="cate3"
+							value="${CateServiceImpl.selectListCachedCode('3')}" />
+						<label for="formFile" class="form-label">카테고리</label> <select
+							class="form-select" id="oypdCate" name="oypdCate">
+							<option value="" selected>::카테고리::</option>
+							<c:forEach items="${cate3}" var="itemCate3"
+								varStatus="statusCate3">
+								<option value="<c:out value="${itemCate3.oyctSeq}"/>"
+									<c:if test="${item.oypdCate eq itemCate3.oyctSeq }">selected</c:if>>
+									<c:out value="${itemCate3.oyctName}" /></option>
+							</c:forEach>
+						</select>
 
-					<hr>
-					<label for="formFile" class="form-label">상품 상세</label> <label
-						for="formFile" class="form-label">상품명</label> <input type="text"
-						class="form-control" id="oypdName" name="oypdName"
-						placeholder="상품명"><br> <label for="formFile"
-						class="form-label">판매가</label> <input type="text"
-						class="form-control" id="oypdPrice" name="oypdPrice"
-						placeholder="판매가"><br> <label for="formFile"
-						class="form-label">행사가</label> <input type="text"
-						class="form-control" id="oyspSalePrice" name="oyspSalePrice"
-						placeholder="행사가"><br> <label for="formFile"
-						class="form-label">행사시작일</label> <input type="text"
-						class="form-control" id="" name="" placeholder="행사시작일"><br>
-					<label for="formFile" class="form-label">행사종료일</label> <input
-						type="text" class="form-control" id="" name="" placeholder="행사종료일"><br>
-					<hr>
-					<label for="formFile" class="form-label">행사 분류</label>
-					<div class="input-group">
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="oyspSaleNy"
-								id="oyspSaleNy"> <span
-								class="badge rounded-pill bg-primary">세일</span>
+						<c:set var="codeBrand"
+							value="${CodeServiceImpl.selectListCachedCode('16')}" />
+						<c:set var="codeManufacturer"
+							value="${CodeServiceImpl.selectListCachedCode('101')}" />
+						<c:set var="codeDistributor"
+							value="${CodeServiceImpl.selectListCachedCode('102')}" />
+						<c:set var="codeCountry"
+							value="${CodeServiceImpl.selectListCachedCode('103')}" />
+
+						<label for="formFile" class="form-label">브랜드</label> <select
+							class="form-select" id="oypdBrandCd" name="oypdBrandCd">
+							<option value="" selected>::브랜드::</option>
+							<c:forEach items="${codeBrand}" var="itemBrand"
+								varStatus="statusBrand">
+								<option value="<c:out value="${item.oypdBrandCd}"/>">
+									<c:out value="${itemBrand.oycdName}" /></option>
+							</c:forEach>
+						</select>
+
+						<hr>
+						<label for="formFile" class="form-label">상품 상세</label> <label
+							for="formFile" class="form-label">상품명</label> <input type="text"
+							class="form-control" id="oypdName" name="oypdName"
+							placeholder="상품명"><br> <label for="formFile"
+							class="form-label">판매가</label> <input type="text"
+							class="form-control" id="oypdPrice" name="oypdPrice"
+							placeholder="판매가"><br> <label for="formFile"
+							class="form-label">행사가</label> <input type="text"
+							class="form-control" id="oyspSalePrice" name="oyspSalePrice"
+							placeholder="행사가"><br> <label for="formFile"
+							class="form-label">행사시작일</label> <input type="text"
+							class="form-control" id="" name="" placeholder="행사시작일"><br>
+						<label for="formFile" class="form-label">행사종료일</label> <input
+							type="text" class="form-control" id="" name=""
+							placeholder="행사종료일"><br>
+						<hr>
+						<label for="formFile" class="form-label">행사 분류</label>
+						<div class="input-group">
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="oyspSaleNy"
+									id="oyspSaleNy"> <span
+									class="badge rounded-pill bg-primary">세일</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio" name="oyspCouponNy"
+									id="oyspCouponNy"> <span
+									class="badge rounded-pill bg-secondary">쿠폰</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio"
+									name="oyspFreeGiftNy" id="oyspFreeGiftNy"> <span
+									class="badge rounded-pill bg-success">증정</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio"
+									name="oyspTodayshipNy" id="oyspTodayshipNy"> <span
+									class="badge rounded-pill bg-danger">오늘드림</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio"
+									name="oyspOneBuyGetOneFreeNy" id="oyspOneBuyGetOneFreeNy">
+								<span class="badge rounded-pill bg-warning">1+1</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio"
+									name="oyspTwoBuyGetOneFreeNy" id="oyspTwoBuyGetOneFreeNy">
+								<span class="badge rounded-pill bg-warning">2+1</span>
+							</div>
+							<div class="form-check" style="padding-right: 50px;">
+								<input class="form-check-input" type="radio"
+									name="oyspFreeShippingNy" id="oyspFreeShippingNy"> <span
+									class="badge rounded-pill bg-info">무배</span>
+							</div>
 						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio" name="oyspCouponNy"
-								id="oyspCouponNy"> <span
-								class="badge rounded-pill bg-secondary">쿠폰</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="oyspFreeGiftNy" id="oyspFreeGiftNy"> <span
-								class="badge rounded-pill bg-success">증정</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="oyspTodayshipNy" id="oyspTodayshipNy"> <span
-								class="badge rounded-pill bg-danger">오늘드림</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="oyspOneBuyGetOneFreeNy" id="oyspOneBuyGetOneFreeNy">
-							<span class="badge rounded-pill bg-warning">1+1</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="oyspTwoBuyGetOneFreeNy" id="oyspTwoBuyGetOneFreeNy">
-							<span class="badge rounded-pill bg-warning">2+1</span>
-						</div>
-						<div class="form-check" style="padding-right: 50px;">
-							<input class="form-check-input" type="radio"
-								name="oyspFreeShippingNy" id="oyspFreeShippingNy"> <span
-								class="badge rounded-pill bg-info">무배</span>
-						</div>
-					</div>
-					<hr>
-<label for="formFile" class="form-label">상품 정보</label>
+						<hr>
+						<label for="formFile" class="form-label">상품 정보</label> <label
+							for="formFile" class="form-label">용량 또는 중량</label> <input
+							type="text" class="form-control" id="oypdVolumeWeight"
+							name="oypdVolumeWeight" placeholder="용량 또는 중량"><br>
 
-<label for="formFile" class="form-label">용량 또는 중량</label>
-<input type="text" class="form-control" id="oypdVolumeWeight" name="oypdVolumeWeight" placeholder="용량 또는 중량"><br>
+						<label for="formFile" class="form-label">제품 주요 사양</label> <input
+							type="text" class="form-control" id="oypdIdeal" name="oypdIdeal"
+							placeholder="제품 주요 사양"><br> <label for="formFile"
+							class="form-label">사용기간(개봉 후 사용기간)</label> <input type="text"
+							class="form-control" id="oypdExpirationDate"
+							name="oypdExpirationDate" placeholder="사용기간(개봉 후 사용기간)"><br>
 
-<label for="formFile" class="form-label">제품 주요 사양</label>
-<input type="text" class="form-control" id="oypdIdeal" name="oypdIdeal" placeholder="제품 주요 사양"><br>
+						<label for="formFile" class="form-label">사용방법</label> <input
+							type="text" class="form-control" id="oypdHowtoUse"
+							name="oypdHowtoUse" placeholder="사용방법"><br> <label
+							for="formFile" class="form-label">화장품제조업자</label> <select
+							class="form-select" id="oypdManufacturerCd"
+							name="oypdManufacturerCd">
+							<option value="" selected>::제조사::</option>
+							<c:forEach items="${codeManufacturer}" var="itemManufacturer"
+								varStatus="statusManufacturer">
+								<option value="<c:out value="${item.oypdManufacturerCd}"/>">
+									<c:out value="${itemManufacturer.oycdName}" /></option>
+							</c:forEach>
+						</select>
+						<!-- <input type="text" class="form-control" id="oypdManufacturerCd" name="oypdManufacturerCd" placeholder="화장품제조업자"><br> -->
 
-<label for="formFile" class="form-label">사용기간(개봉 후 사용기간)</label>
-<input type="text" class="form-control" id="oypdExpirationDate" name="oypdExpirationDate" placeholder="사용기간(개봉 후 사용기간)"><br>
+						<label for="formFile" class="form-label">화장품책임판매업자</label> <select
+							class="form-select" id="oypdDistributorCd"
+							name="oypdDistributorCd">
+							<option value="" selected>::판매사::</option>
+							<c:forEach items="${codeDistributor}" var="itemDistributor"
+								varStatus="statusDistributor">
+								<option value="<c:out value="${item.oypdDistributorCd}"/>">
+									<c:out value="${itemDistributor.oycdName}" /></option>
+							</c:forEach>
+						</select> <label for="formFile" class="form-label">제조국</label> <select
+							class="form-select" id="oypdCountryCd" name="oypdCountryCd">
+							<option value="" selected>::제조국::</option>
+							<c:forEach items="${codeCountry}" var="itemCountry"
+								varStatus="statusCountry">
+								<option value="<c:out value="${item.oypdCountryCd}"/>">
+									<c:out value="${itemCountry.oycdName}" /></option>
+							</c:forEach>
+						</select> <label for="formFile" class="form-label">화장품법에 따라 기재해야 하는
+							모든 성분</label> <input type="text" class="form-control"
+							id="oypdIngredients" name="oypdIngredients" placeholder="모든 성분"><br>
 
-<label for="formFile" class="form-label">사용방법</label>
-<input type="text" class="form-control" id="oypdHowtoUse" name="oypdHowtoUse" placeholder="사용방법"><br>
-
-<label for="formFile" class="form-label">화장품제조업자</label>
-<select class="form-select" id="oypdManufacturerCd" name="oypdManufacturerCd">
-<option value="" selected>::제조사::</option>
-<c:forEach items="${codeManufacturer}" var="itemManufacturer" varStatus="statusManufacturer">
-<option value="<c:out value="${item.oypdManufacturerCd}"/>">
-<c:out value="${itemManufacturer.oycdName}"/></option>
-</c:forEach>
-</select>
-<!-- <input type="text" class="form-control" id="oypdManufacturerCd" name="oypdManufacturerCd" placeholder="화장품제조업자"><br> -->
-
-<label for="formFile" class="form-label">화장품책임판매업자</label>
-<select class="form-select" id="oypdDistributorCd" name="oypdDistributorCd">
-<option value="" selected>::판매사::</option>
-<c:forEach items="${codeDistributor}" var="itemDistributor" varStatus="statusDistributor">
-<option value="<c:out value="${item.oypdDistributorCd}"/>">
-<c:out value="${itemDistributor.oycdName}"/></option>
-</c:forEach>
-</select>
-
-<label for="formFile" class="form-label">제조국</label>
-<select class="form-select" id="oypdCountryCd" name="oypdCountryCd">
-<option value="" selected>::제조국::</option>
-<c:forEach items="${codeCountry}" var="itemCountry" varStatus="statusCountry">
-<option value="<c:out value="${item.oypdCountryCd}"/>">
-<c:out value="${itemCountry.oycdName}"/></option>
-</c:forEach>
-</select>
-
-<label for="formFile" class="form-label">화장품법에 따라 기재해야 하는 모든 성분</label>
-<input type="text" class="form-control" id="oypdIngredients" name="oypdIngredients" placeholder="모든 성분"><br>
-
-<label for="formFile" class="form-label">기능성 화장품 식품의약품안전처 심사필 여부</label>
-<select class="form-select" id="oypdFunctionalNy" name="oypdFunctionalNy">
-<option value="" selected>::심사필여부::</option>
-<option value="1">Y</option>
-<option value="0">N</option>
-</select>
-
-<label for="formFile" class="form-label">사용시 주의사항</label>
-<input type="text" class="form-control" id="oypdCautions" name="oypdCautions" placeholder="주의사항"><br>
-
-<label for="formFile" class="form-label">품질보증기준</label>
-<input type="text" class="form-control" id="oypdQaStandard" name="oypdQaStandard" placeholder="품질보증기준"><br>
-
-<label for="formFile" class="form-label">소비자상담 전화번호</label>
-<input type="text" class="form-control" id="oypdCustomerService" name="oypdCustomerService" placeholder="소비자상담 전화번호"><br>
-<br>
-<hr>
-<br>
-<a href="javaScript:goReg();"><button type="button" class="btn btn-success btn-lg">상품등록</button></a>
-</div>
-</div>
-	
-	<br>
-	<hr>
-	<br>
-	<div class="row">
-		<div class="map_wrap">
-
-			<div id="map"
-				style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-			<div id="menu_wrap" class="bg_white">
-				<div class="option">
-					<div>
-						<form onsubmit="searchPlaces(); return false;">
-							키워드 : <input type="text" value="올리브영" id="keyword" size="15">
-							<button type="submit">검색하기</button>
-						</form>
+						<label for="formFile" class="form-label">기능성 화장품 식품의약품안전처
+							심사필 여부</label> <select class="form-select" id="oypdFunctionalNy"
+							name="oypdFunctionalNy">
+							<option value="" selected>::심사필여부::</option>
+							<option value="1">Y</option>
+							<option value="0">N</option>
+						</select> <label for="formFile" class="form-label">사용시 주의사항</label> <input
+							type="text" class="form-control" id="oypdCautions"
+							name="oypdCautions" placeholder="주의사항"><br> <label
+							for="formFile" class="form-label">품질보증기준</label> <input
+							type="text" class="form-control" id="oypdQaStandard"
+							name="oypdQaStandard" placeholder="품질보증기준"><br> <label
+							for="formFile" class="form-label">소비자상담 전화번호</label> <input
+							type="text" class="form-control" id="oypdCustomerService"
+							name="oypdCustomerService" placeholder="소비자상담 전화번호"><br>
+						<br>
+						<hr>
+						<br> <a href="javaScript:goReg();"><button type="button"
+								class="btn btn-success btn-lg">상품등록</button></a>
 					</div>
 				</div>
+
+				<br>
 				<hr>
-				<ul id="placesList"></ul>
-				<div id="pagination"></div>
-			</div>
-		</div>
-
-	</div>
-	
-		<hr>
-		<h2>이런 에센스 / 크림 상품은 어떠세요?</h2>
-		<div class="row">
-			<div class="col-2">
-				<img src="/resources/user/image/this1jpg.jpg" class="rounded"
-					alt="..." width="100px" height="100px">
-			</div>
-			<div class="col-2">
-				<p>
-					[단독기획]구달 청귤 비타C잡티케<br>어 크림 75ml 기획(+크림...
-				</p>
 				<br>
-				<del>27000원</del>
-				<p>21600원</p>
-			</div>
-			<div class="col-2">
-				<img src="/resources/user/image/this2.jpg" class="rounded" alt="..."
-					width="100px" height="100px">
-			</div>
-			<div class="col-2">
-				<p>
-					[한정기획]라네즈 워터뱅크 블루히<br>알루로닉 크림 45ml_중건성...
-				</p>
-				<br>
-				<del>39000원</del>
-				<p>28400원</p>
-			</div>
-			<div class="col-2">
-				<img src="/resources/user/image/this3.jpg" class="rounded" alt="..."
-					width="100px">
-			</div>
-			<div class="col-2">
-				<p>
-					[단독기획]라운드랩 자작나무 수분<br>크림 더블기획 (80ml+80ml)
-				</p>
-				<br>
-				<del>32000원</del>
-				<p>29800원</p>
-			</div>
-		</div>
-		
-		<ul class="nav nav-tabs nav-tabs-p">
-			<li class="nav-item nav-item-p"><a class="nav-link active"
-				aria-current="page" href="#">상품설명</a></li>
-			<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
-			<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰</a></li>
-			<li class="nav-item nav-item-p"><a class="nav-link">Q&A</a></li>
-		</ul>
+				<div class="row">
+					<div class="map_wrap">
 
-		<div class="row row-detail">
-			<div>
-				<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
-					class="form-control form-control-lg" id="formFileLg" type="file">
+						<div id="map"
+							style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+						<div id="menu_wrap" class="bg_white">
+							<div class="option">
+								<div>
+									<form onsubmit="searchPlaces(); return false;">
+										키워드 : <input type="text" value="올리브영" id="keyword" size="15">
+										<button type="submit">검색하기</button>
+									</form>
+								</div>
+							</div>
+							<hr>
+							<ul id="placesList"></ul>
+							<div id="pagination"></div>
+						</div>
+					</div>
 
+				</div>
+
+				<hr>
+				<h2>이런 에센스 / 크림 상품은 어떠세요?</h2>
+				<div class="row">
+					<div class="col-2">
+						<img src="/resources/user/image/this1jpg.jpg" class="rounded"
+							alt="..." width="100px" height="100px">
+					</div>
+					<div class="col-2">
+						<p>
+							[단독기획]구달 청귤 비타C잡티케<br>어 크림 75ml 기획(+크림...
+						</p>
+						<br>
+						<del>27000원</del>
+						<p>21600원</p>
+					</div>
+					<div class="col-2">
+						<img src="/resources/user/image/this2.jpg" class="rounded"
+							alt="..." width="100px" height="100px">
+					</div>
+					<div class="col-2">
+						<p>
+							[한정기획]라네즈 워터뱅크 블루히<br>알루로닉 크림 45ml_중건성...
+						</p>
+						<br>
+						<del>39000원</del>
+						<p>28400원</p>
+					</div>
+					<div class="col-2">
+						<img src="/resources/user/image/this3.jpg" class="rounded"
+							alt="..." width="100px">
+					</div>
+					<div class="col-2">
+						<p>
+							[단독기획]라운드랩 자작나무 수분<br>크림 더블기획 (80ml+80ml)
+						</p>
+						<br>
+						<del>32000원</del>
+						<p>29800원</p>
+					</div>
+				</div>
+
+				<ul class="nav nav-tabs nav-tabs-p">
+					<li class="nav-item nav-item-p"><a class="nav-link active"
+						aria-current="page" href="#">상품설명</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link">Q&A</a></li>
+				</ul>
+
+				<div class="row row-detail">
+					<div>
+						<label for="formFileLg" class="form-label">메인 상품 사진 등록</label> <input
+							class="form-control form-control-lg" id="formFileLg" type="file">
+
+					</div>
+				</div>
 			</div>
-		</div>
-		</div>
 		</main>
 
 
@@ -1023,57 +1044,75 @@ a {
 				el.removeChild(el.lastChild);
 			}
 		}
-		</script>
-		<script type="text/javascript">
+	</script>
+	<script type="text/javascript">
 		goReg = function() {
 			$("#allLiveReg").attr("action", "/allLive/allLiveInst");
 			$("#allLiveReg").submit();
 		}
-		</script>
+	</script>
 	<script>
-	upload = function(seq,div){
-		
-		$("#ulFile" + seq).children().remove();
-		
-		var fileCount = $("input[type=file]")[seq].files.length;
-		
-		if(checkUploadedTotalFileNumber(fileCount, seq) == false) {return false;}
-		
-		var totalFileSize;
-		for(var i = 0; i < fileCount; i++){
-			if(div==1){
-				if(checkUploadedAllExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
-			}else if(div==2){
-				if(checkUploadedImageExt($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
-			}else {
+		upload = function(seq, div) {
+
+			$("#ulFile" + seq).children().remove();
+
+			var fileCount = $("input[type=file]")[seq].files.length;
+
+			if (checkUploadedTotalFileNumber(fileCount, seq) == false) {
 				return false;
 			}
-			
-			if(checkUploadedEachFileSize($("input[type=file]")[seq].files[i].name, seq) == false) {return false;}
-			totalFileSize += $("input[type=file]")[seq].files[i].size;
-		}
-		if(checkUploadedTotalFileSize(totalFileSize, seq) == false) {return false;}
-		
-		for(var i=0; i<fileCount; i++){
-			addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
-		}
-	}
 
-	addUploadLi = function(seq,index,name){
-		
-		var ul_list = $("#ulFile0");
-		
-		li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
-		li = li + name;
-		li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+index +')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
-		li = li + '</li>';
-		
-		$("#ulFile"+seq).append(li);
-	}
-	
-	delLi = function(seq, index){
-		$("#li_"+seq+"_"+index).remove();
-	}
+			var totalFileSize;
+			for (var i = 0; i < fileCount; i++) {
+				if (div == 1) {
+					if (checkUploadedAllExt(
+							$("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else if (div == 2) {
+					if (checkUploadedImageExt(
+							$("input[type=file]")[seq].files[i].name, seq) == false) {
+						return false;
+					}
+				} else {
+					return false;
+				}
+
+				if (checkUploadedEachFileSize(
+						$("input[type=file]")[seq].files[i].name, seq) == false) {
+					return false;
+				}
+				totalFileSize += $("input[type=file]")[seq].files[i].size;
+			}
+			if (checkUploadedTotalFileSize(totalFileSize, seq) == false) {
+				return false;
+			}
+
+			for (var i = 0; i < fileCount; i++) {
+				addUploadLi(seq, i, $("input[type=file]")[seq].files[i].name);
+			}
+		}
+
+		addUploadLi = function(seq, index, name) {
+
+			var ul_list = $("#ulFile0");
+
+			li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-item-center">';
+			li = li + name;
+			li = li
+					+ '<span class="badge bg-danger rounded-pill" onClick="delLi('
+					+ seq
+					+ ','
+					+ index
+					+ ')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
+			li = li + '</li>';
+
+			$("#ulFile" + seq).append(li);
+		}
+
+		delLi = function(seq, index) {
+			$("#li_" + seq + "_" + index).remove();
+		}
 	</script>
 </body>
 </html>

@@ -616,5 +616,18 @@
 			AND oymbSeq=#{oymbSeq}	
 	</update>
 
+	<select id="selectListOracle"  resultMap="resultMapObj">
+
+	SELECT
+
+	a.oymbSeq
+	, a.oymbId
+	, a.oymbName
+
+	FROM
+	oyMember a
+	
+	</select>
+
 
 </mapper>

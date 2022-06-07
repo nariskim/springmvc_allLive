@@ -266,7 +266,7 @@ function kakaoLogin() {
             			,data : {"oymbName" : profile_nickname}
             			,success: function(response) {
             				if(response.item == "success") {
-            					location.href = "/allLive/allLiveMain";
+            					location.href = "/allLive/allLiveMain2";
             				} else {
             					alert("카카오 로그인 실패");
             				}
@@ -381,7 +381,7 @@ function onSignInFailure(t){
 						},
 						success : function(response) {
 							if (response.rt == "success") {
-								location.href = "/allLive/allLiveMain";
+								location.href = "/index/indexView";
 							} else {
 								alert("회원없음");
 							}

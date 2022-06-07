@@ -65,6 +65,7 @@ public class AllLiveController {
 	@RequestMapping(value = "/allLive/allLiveDetail2")
 	public String allLiveDetail2(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 
+		
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 		
@@ -114,8 +115,7 @@ public class AllLiveController {
 
 	@ResponseBody // 카카오 로그인
 	@RequestMapping(value = "/allLive/KakaoProc")
-	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession)
-			throws Exception {
+	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		System.out.println(name);
@@ -130,8 +130,7 @@ public class AllLiveController {
 
 	@ResponseBody // 구글 로그인
 	@RequestMapping(value = "/allLive/GoogleProc")
-	public Map<String, Object> GloginProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession)
-			throws Exception {
+	public Map<String, Object> GloginProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		System.out.println(name);
@@ -210,8 +209,7 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveInst")
-	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo, RedirectAttributes redirectAttributes)
-			throws Exception {
+	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo, RedirectAttributes redirectAttributes) throws Exception {
 
 		// MultipartFile multipartFile = dto.getFile0();
 		// multipartFile.transferTo(new
@@ -255,8 +253,7 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveUpdt")
-	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model,
-			RedirectAttributes redirectAttributes) throws Exception {
+	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
 
 		service.update(dto);
 

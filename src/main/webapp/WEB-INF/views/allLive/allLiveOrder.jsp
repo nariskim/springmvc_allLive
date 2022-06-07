@@ -15,7 +15,7 @@
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
  
-<title>allLiveYoung_Order</title>
+<title>All Live Young</title>
  
 <style>
 .container-header {
@@ -219,7 +219,7 @@ dl>dt:before {
 			<div class="row">
 				<div class="col-auto col-sm-5">
 					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
-						src="/resources/user/image/h1_logo.png" width="90%"></a>
+						src="/resources/xdmin/image/allLiveLogo.PNG" width="100%"></a>
 				</div>
 				<div class="col-auto d-md-none">
 
