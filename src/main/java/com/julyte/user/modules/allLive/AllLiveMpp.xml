@@ -4,9 +4,99 @@
 
 <mapper namespace="com.julyte.user.modules.allLive.AllLiveMpp">
 
-	<resultMap id="resultMapObj"
-		type="com.julyte.user.modules.allLive.AllLive"></resultMap>
+<resultMap id="resultMapObj" type="com.julyte.user.modules.allLive.AllLive"></resultMap>
 
+
+<select id="selectOneMember" resultMap="resultMapObj">
+
+		SELECT
+		
+		a.oymbSeq
+		, a.oymbName
+		, a.oymbNameEng
+		, a.oymbId
+		, a.oymbNickName
+		, a.oymbPassword
+		, a.oymbDelNy
+		, a.oymbGenderCd
+		, a.oymbSkinTypeCd
+		, a.oymbPersonalColorCd
+		, a.oymbSavedCd
+		, a.oymbInterestsCd
+		, a.oymbEmailConsentNy
+		, a.oymbSmsConsentNy
+		, a.oymbPushConsentNy
+		, b.oyjqQuestionCd
+		, b.oyjqAnswer
+		, b.oyjqDelNy
+		, c.oymnSeq
+		, c.oymnDelNy
+		, c.oynaSeq
+		, c.oymbSeq
+		, d.oymaDefaultNy
+		, d.oymaZipCode
+		, d.oymaAddress1
+		, d.oymaAddress2
+		, d.oymaAddress3
+		, d.oymaDelNy
+		, e.oympSeq
+		, e.oympDefaultNy
+		, e.oympTelecomCd
+		, e.oympNumber
+		, e.oympDelNy
+		, f.oymeSeq
+		, f.oymeDefaultNy
+		, f.oymeEmailAccount
+		, f.oymeEmailDomainCd
+		, f.oymeDelNy
+
+		FROM oyMember a
+		LEFT JOIN oymbJoinQna b ON b.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbNationality c ON c.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbAddress d ON d.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbPhone e ON e.oympDefaultNy=1 AND e.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbEmail f ON f.oymeDefaultNy=1 AND f.oymbSeq = a.oymbSeq
+
+		WHERE 1=1
+		AND a.oymbSeq = #{oymbSeq}
+
+
+	</select>
+
+	<select id="selectListPhone" resultMap="resultMapObj">
+		
+		SELECT
+		oympSeq
+		, oympDefaultNy
+		, oympTypeCd
+		, oympTelecomCd
+		, oympNumber
+		, oympDelNy
+
+		FROM
+		oymbPhone
+
+		WHERE 1=1
+		AND oympDelNy = 0
+		AND oymbSeq = #{oymbSeq}
+	
+	</select>
+
+	<select id="selectListEmail" resultMap="resultMapObj">
+		SELECT
+		oymeSeq
+		, oymeDefaultNy
+		, oymeTypeCd
+		, oymeEmailDomainCd
+		, oymeEmailAccount
+		, oymeEmailFull
+
+		FROM oymbEmail
+
+		WHERE 1=1
+		AND oymeDelNy = 0
+		AND oymbSeq = #{oymbSeq}
+	</select>
  
 	<select id="selectListPd" resultMap="resultMapObj">
    
@@ -54,23 +144,23 @@
 
 	<select id="selectListUploaded" resultMap="resultMapObj">
 
-	SELECT
-	seq
-	, type
-	, defaultNy
-	, sort
-	, originalName
-	, uuidName
-	, ext
-	, size
-	, delNy
-	, pseq
-	, path
-	FROM
-	oymbUploaded
-	WHERE 1=1
-	AND pseq = #{oypdSeq}
-	ORDER BY sort
+		SELECT
+		seq
+		, type
+		, defaultNy
+		, sort
+		, originalName
+		, uuidName
+		, ext
+		, size
+		, delNy
+		, pseq
+		, path
+		FROM
+		oymbUploaded
+		WHERE 1=1
+		AND pseq = #{oypdSeq}
+		ORDER BY sort
 
 	</select>
 
@@ -157,6 +247,7 @@
 	<insert id="insertUploaded">
 
 		INSERT INTO ${tableName} (
+		
 		type
 		, defaultNy
 		, originalName
@@ -176,6 +267,7 @@
 		,0
 		,#{pseq}
 		,#{path}
+		
 		)
 
 	</insert>
@@ -183,6 +275,7 @@
 	<select id="selectOne" resultMap="resultMapObj">
 
 		SELECT
+		
 		a.oypdSeq
 		, a.oypdCate
 		, a.oypdBrandCd
@@ -206,7 +299,6 @@
 		, b.oyspDelNy
 		, b.oyspSaleNy
 		, b.oyspExclusiveNy
-
 
 		FROM oyProduct a
 		LEFT JOIN

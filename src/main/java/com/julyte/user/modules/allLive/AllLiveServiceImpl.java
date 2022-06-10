@@ -5,16 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
- 
+
 import com.julyte.user.common.util.UtilDateTime;
 import com.julyte.user.common.util.UtilUpload;
- 
+
 @Service
 public class AllLiveServiceImpl implements AllLiveService {
- 
+
 	@Autowired
 	AllLiveDao dao;
- 
+
+	@Override
+	public AllLive selectOneMember(AllLiveVo vo) throws Exception {
+		return dao.selectOne(vo);
+	}
+
+	@Override
+	public List<AllLive> selectListPhone(AllLiveVo vo) throws Exception {
+		return dao.selectListPhone(vo);
+	}
+
+	@Override
+	public List<AllLive> selectListEmail(AllLiveVo vo) throws Exception {
+		return dao.selectListEmail(vo);
+	}
+
 	@Override
 	public List<AllLive> selectListPd(AllLiveVo vo) throws Exception {
 		return dao.selectListPd(vo);
@@ -52,7 +67,6 @@ public class AllLiveServiceImpl implements AllLiveService {
 			dao.insertUploaded(dto);
 			j++;
 		}
-
 
 		j = 0;
 		for (MultipartFile multipartFile : dto.getFile1()) {
@@ -96,7 +110,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 			dao.updateUploaded(dto);
 			j++;
 		}
-		
+
 		j = 0;
 		for (MultipartFile multipartFile : dto.getFile1()) {
 			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");

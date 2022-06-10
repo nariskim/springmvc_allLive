@@ -55,12 +55,12 @@ a {
 			<div class="container">
 				<div class="form-floating mb-3" style="font-size: small;">
 					<input type="email" class="form-control" id="oymbId" name="oymbId"
-						placeholder="name@example.com" value="zxcv"> <label
+						placeholder="name@example.com" value="nari"> <label
 						for="floatingInput">CJ ONE 통합회원 아이디 입력</label>
 				</div>
 				<div class="form-floating mb-3" style="font-size: small;">
 					<input type="password" class="form-control" id="oymbPassword"
-						name="oymbPassword" placeholder="Password" value="zxcv"> <label
+						name="oymbPassword" placeholder="Password" value="1234"> <label
 						for="floatingPassword">비밀번호(8-12자 영문자+숫자+특수문자)</label>
 				</div>
 				<div class="input-group">

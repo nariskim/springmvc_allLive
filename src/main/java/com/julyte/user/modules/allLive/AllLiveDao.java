@@ -2,12 +2,12 @@ package com.julyte.user.modules.allLive;
 
 import java.util.List;
 
-import javax.inject.Inject; 
- 
+import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
- 
+
 import org.springframework.stereotype.Repository;
- 
+
 @Repository
 public class AllLiveDao {
 
@@ -28,7 +28,7 @@ public class AllLiveDao {
 	public List<AllLive> selectListPd(AllLiveVo vo) {
 		return sqlSession.selectList(namespace + ".selectListPd", vo);
 	}
-	
+
 	public List<AllLive> selectListUploaded(AllLiveVo vo) {
 		return sqlSession.selectList(namespace + ".selectListUploaded", vo);
 	}
@@ -52,9 +52,24 @@ public class AllLiveDao {
 	public int updateSalePd(AllLive dto) {
 		return sqlSession.update(namespace + ".updateSalePd", dto);
 	}
-	
+
 	public int updateUploaded(AllLive dto) {
 		return sqlSession.update(namespace + ".updateUploaded", dto);
+	}
+
+	// selectListEmail
+	public List<AllLive> selectListEmail(AllLiveVo vo) {
+		return sqlSession.selectList(namespace + ".selectListEmail", vo);
+	}
+
+	// selectListPhone
+	public List<AllLive> selectListPhone(AllLiveVo vo) {
+		return sqlSession.selectList(namespace + ".selectListPhone", vo);
+	}
+
+	// view, edit
+	public AllLive selectOneMember(AllLiveVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneMember", vo);
 	}
 
 }

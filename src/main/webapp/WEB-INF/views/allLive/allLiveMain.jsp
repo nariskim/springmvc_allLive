@@ -31,6 +31,11 @@
 	margin-right: 6%;
 }
 
+#carousel-inner {
+	margin-left: 6%;
+	margin-right: 6%;
+}
+
 .container-main {
 	margin-top: 2%;
 	margin-bottom: 5%;
@@ -137,225 +142,110 @@ dl>dt:before {
 
 <body>
 
-	<form id="allLiveMain" name="allLiveMain" method="post"
-		action="/allLive/allLiveMain">
+	<form id="allLiveMain" name="allLiveMain" method="post">
 		<input type="hidden" id="oypdSeq" name="oypdSeq">
 
+		<%@include file="../include/pageHeader.jsp"%>
 
-
-
-
-		<header>
-			<div class="container-header">
-				<div class="row">
-					<div style="font-size: small;">
-						<ul class="nav justify-content-end">
-							<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark"
-								href="javascript:goLogin();">로그인</a></li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">고객센터</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">매장안내</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">Global</a>
-							</li>
-
-						</ul>
-
-					</div>
-				</div>
-
-
-				<div class="row">
-					<div class="col-auto col-sm-5">
-						<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
-							src="/resources/xdmin/image/oliveimage.PNG" width="120%"></a>
-					</div>
-					<div class="col-auto d-md-none">
-
-
-						<div class="btn-group btn-group-lg" role="group"
-							aria-label="Basic outlined example">
-							<nav class="navbar fixed-bottom navbar-light bg-light">
-
-
-								<a class="navbar-brand" href="#"><button
-										class="btn btn-outline-primary navbar-toggler position-relative d-md-none collapsed"
-										type="button" data-bs-toggle="collapse"
-										data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-										aria-expanded="false" aria-label="Toggle navigation">
-										<span class="navbar-toggler-icon"></span>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-magnifying-glass"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-magnifying-glass"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-house"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-user"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-cart-shopping"></i>
-									</button></a>
-
-							</nav>
-						</div>
-					</div>
-
-
-
-					<div class="col-6 col-sm-2" style="margin-top: 30px;">
-
-					<!-- 	<input type="text" class="form-control search-input"
-							placeholder="Search..."> -->
-					</div>
-					<div class="col-6 col-sm-1" style="margin-top: 30px;">
-					<!-- 	<button type="button" class="btn search-button">
-							<i class="fas fa-search"></i>
-						</button> -->
-
-					</div>
-
-					<div class="col-auto col-sm-4" style="margin-top: 30px;">
-						<!-- <ul class="nav">
-							<li class="nav-item"><a href="#" class="nav-link">오늘드림</a></li>
-							<li class="nav-item"><a href="#" class="nav-link">관심
-									매장소식</a></li>
-							<li class="nav-item"><a href="#" class="nav-link">방금 본
-									상품</a></li>
-						</ul> -->
-					</div>
-				</div>
-
-				<br>
-
-				<ul class="nav nav-top">
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모
-							코스메틱</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업
-							· 네일</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">미용소품</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
-				</ul>
+		<div id="carouselExampleIndicators" class="carousel slide"
+			data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="0" class="active" aria-current="true"
+					aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="3" aria-label="Slide 4"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="4" aria-label="Slide 5"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="5" aria-label="Slide 6"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="6" aria-label="Slide 7"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="7" aria-label="Slide 8"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="8" aria-label="Slide 9"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="9" aria-label="Slide 10"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="10" aria-label="Slide 11"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="11" aria-label="Slide 12"></button>
 			</div>
 
-
-			<div id="carouselExampleIndicators" class="carousel slide"
-				data-bs-ride="carousel">
-				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="0" class="active" aria-current="true"
-						aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="2" aria-label="Slide 3"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="3" aria-label="Slide 4"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="4" aria-label="Slide 5"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="5" aria-label="Slide 6"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="6" aria-label="Slide 7"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="7" aria-label="Slide 8"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="8" aria-label="Slide 9"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="9" aria-label="Slide 10"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="10" aria-label="Slide 11"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide-to="11" aria-label="Slide 12"></button>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="/resources/user/image/1.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/2.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/3.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/4.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/5.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/6.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/7.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/8.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/9.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/10.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/11.jpg" class="d-block w-100"
+						alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="/resources/user/image/12.jpg" class="d-block w-100"
+						alt="...">
 				</div>
 
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="/resources/user/image/1.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/2.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/3.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/4.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/5.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/6.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/7.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/8.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/9.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/10.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/11.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="/resources/user/image/12.jpg" class="d-block w-100"
-							alt="...">
-					</div>
-
-				</div>
-
-				<button class="carousel-control-prev" type="button"
-					data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button"
-					data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
 			</div>
-		</header>
+
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+
+
+		</div>
 
 
 		<!-- <div class="row"></div> -->
 		<main>
-
-
-
 
 			<div class="container-main">
 				<br>
@@ -429,7 +319,7 @@ dl>dt:before {
 							<br>
 						</c:if>
 					</c:forEach>
-<%-- 					<div class="col-12 col-sm-3">
+					<%-- 					<div class="col-12 col-sm-3">
 						<h3>
 							<i class="fa-regular fa-5"></i>
 						</h3>
@@ -837,19 +727,17 @@ dl>dt:before {
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<script type="text/javascript">
+		goLogin = function() {
+			$("#allLiveMain").attr("action", "/allLive/loginForm");
+			$("#allLiveMain").submit();
+		}
 
-goLogin = function() {
-	$("#allLiveMain").attr("action", "/allLive/loginForm");
-	$("#allLiveMain").submit();
-}
-
-goView = function(seq) {
-	$("#oypdSeq").val(seq);
-	$("#allLiveMain").attr("action", "/allLive/allLiveDetail");
-	$("#allLiveMain").submit();
-}
-
-</script>
+		goView = function(seq) {
+			$("#oypdSeq").val(seq);
+			$("#allLiveMain").attr("action", "/allLive/allLiveDetail");
+			$("#allLiveMain").submit();
+		}
+	</script>
 
 </body>
 </html>

@@ -1,15 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
-
-<jsp:useBean id="CodeServiceImpl"
-	class="com.julyte.user.modules.code.CodeServiceImpl" />
-
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl" />
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -20,12 +16,9 @@
 <title>Form.AllLiveYoung</title>
 
 
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
 
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <style type="text/css">
 main {
@@ -127,7 +120,7 @@ main {
 
 </head>
 <body>
-	<form id="memberForm" name="memberForm" method="post" action="/member/memberInst" enctype="multipart/form-data">
+	<form id="memberForm" name="memberForm" method="post" enctype="multipart/form-data">
 
 
 
@@ -153,10 +146,13 @@ main {
 		<input type="hidden" id="scDateEnd" name="scDateEnd" value="<c:out value="${vo.scDateEnd}"/>">
 
 		<div class="row">
+		
 			<header class="navbar navbar-dark sticky-top bg-light ml-auto">
 
 				<div class="col-auto col-sm-5">
+				
 				<img src="/resources/xdmin/image/oliveimage.PNG" width="600px">
+				
 				</div>
 
 				<div class="col-auto d-md-none">
@@ -923,18 +919,15 @@ main {
 							var geocoder = new daum.maps.services.Geocoder();
 
 							// 주소로 좌표를 검색
-							geocoder
-									.addressSearch(
+							geocoder.addressSearch(
 											addr,
 											function(result, status) {
 
 												// 정상적으로 검색이 완료됐으면,
 												if (status == daum.maps.services.Status.OK) {
 
-													document
-															.getElementById('oymaLat').value = result[0].x;
-													document
-															.getElementById('oymaLng').value = result[0].y;
+													document.getElementById('oymaLat').value = result[0].x;
+													document.getElementById('oymaLng').value = result[0].y;
 
 													/* 						
 															var coords = new daum.maps.LatLng(result[0].y, result[0].x);

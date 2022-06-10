@@ -12,10 +12,8 @@
  
 
 		FROM oyMember a
-		LEFT JOIN oymbPhone f on f.oympDefaultNy=1 AND
-		f.oymbSeq = a.oymbSeq
-		LEFT JOIN oymbEmail g on g.oymeDefaultNy=1 AND
-		g.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbPhone f on f.oympDefaultNy=1 AND f.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbEmail g on g.oymeDefaultNy=1 AND g.oymbSeq = a.oymbSeq
 
 		WHERE 1=1
 
@@ -109,14 +107,12 @@
 		, a.oymbNameEng
 		, a.oymbId
 		, a.oymbGenderCd
-		,
-		a.oymbGradeCd
+		, a.oymbGradeCd
 		, a.oymbDelNy
 		, a.oymbDob
 		, a.regDateTime
 		, a.modDateTime
-		,
-		f.oympNumber
+		, f.oympNumber
 		, g.oymeEmailFull
 
 		<include refid="selectCommon" />
@@ -151,7 +147,7 @@
 		, modDateTime
 		) values (
 		#{oymbName}
-		,#{oymbNameEng}
+		, #{oymbNameEng}
 		, #{oymbId}
 		, 0
 		, #{oymbNickName}
@@ -160,14 +156,14 @@
 		, #{oymbPassword}
 		, #{oymbGenderCd}
 		, #{originalFileName}
-		,#{uuidFileName}
-		,#{oymbSkinTypeCd}
-		,#{oymbPersonalColorCd}
-		,#{oymbSavedCd}
-		,#{oymbInterestsCd}
-		,#{oymbEmailConsentNy}
-		,#{oymbSmsConsentNy}
-		,#{oymbPushConsentNy}
+		, #{uuidFileName}
+		, #{oymbSkinTypeCd}
+		, #{oymbPersonalColorCd}
+		, #{oymbSavedCd}
+		, #{oymbInterestsCd}
+		, #{oymbEmailConsentNy}
+		, #{oymbSmsConsentNy}
+		, #{oymbPushConsentNy}
 		
 		, now()
 		, now()
@@ -189,11 +185,11 @@
 		, oymbSeq
 		) values (
 		#{oyjqQuestionCd}
-		,#{oyjqAnswer}
-		,0
+		, #{oyjqAnswer}
+		, 0
 		, now()
 		, now()
-		,#{oymbSeq}
+		, #{oymbSeq}
 		)
 		<selectKey resultType="String" keyProperty="oyjqSeq"
 			order="AFTER">
@@ -220,8 +216,8 @@
 		, #{oymaAddress3}
 		, #{oymaLat}
 		, #{oymaLng}
-		,0
-		,#{oymbSeq}
+		, 0
+		, #{oymbSeq}
 		, now()
 		, now()
 		)
@@ -240,8 +236,8 @@
 		, modDateTime
 		) values (
 		0
-		,#{oymbSeq}
-		,#{oynaSeq}
+		, #{oymbSeq}
+		, #{oynaSeq}
 		, now()
 		, now()
 		)
@@ -265,13 +261,13 @@
 		, pseq
 		) values (
 		#{type}
-		,#{defaultNy}
-		,#{originalName}
-		,#{uuidName}
-		,#{ext}
-		,#{size}
-		,0
-		,#{pseq}
+		, #{defaultNy}
+		, #{originalName}
+		, #{uuidName}
+		, #{ext}
+		, #{size}
+		, 0
+		, #{pseq}
 		)
 
 	</insert>
@@ -281,8 +277,7 @@
 		oympTelecomCd
 		, oympDefaultNy
 		, oympNumber
-		,
-		oympDelNy
+		, oympDelNy
 		, oymbSeq
 		, regDateTime
 		, modDateTime
@@ -291,7 +286,7 @@
 		#{oympTelecomCd}
 		, #{oympDefaultNy}
 		, #{oympNumber}
-		,0
+		, 0
 		, #{oymbSeq}
 		, now()
 		, now()
@@ -306,8 +301,7 @@
 		INSERT INTO oymbEmail (
 		oymeDefaultNy
 		, oymeEmailAccount
-		,
-		oymeEmailDomainCd
+		, oymeEmailDomainCd
 		, oymeDelNy
 		, oymbSeq
 		, regDateTime
@@ -317,7 +311,7 @@
 		#{oymeDefaultNy}
 		, #{oymeEmailAccount}
 		, #{oymeEmailDomainCd}
-		,0
+		, 0
 		, #{oymbSeq}
 		, now()
 		, now()
@@ -342,8 +336,7 @@
 		SELECT
 		oymbSeq
 		, oymbId
-		,
-		oymbPassword
+		, oymbPassword
 		, oymbDesc
 		, oymbName
 		FROM oyMember
@@ -398,28 +391,23 @@
 		, f.oymeDelNy
 
 		FROM oyMember a
-		LEFT JOIN oymbJoinQna b ON b.oymbSeq =
-		a.oymbSeq
+		LEFT JOIN oymbJoinQna b ON b.oymbSeq = a.oymbSeq
 		LEFT JOIN oymbNationality c ON c.oymbSeq = a.oymbSeq
-		LEFT JOIN
-		oymbAddress d ON d.oymbSeq = a.oymbSeq
-		LEFT JOIN oymbPhone e ON
-		e.oympDefaultNy=1 AND e.oymbSeq = a.oymbSeq
-		LEFT JOIN oymbEmail f ON
-		f.oymeDefaultNy=1 AND f.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbAddress d ON d.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbPhone e ON e.oympDefaultNy=1 AND e.oymbSeq = a.oymbSeq
+		LEFT JOIN oymbEmail f ON f.oymeDefaultNy=1 AND f.oymbSeq = a.oymbSeq
 
 		WHERE 1=1
-		AND a.oymbSeq =
-		#{oymbSeq}
+		AND a.oymbSeq = #{oymbSeq}
 
 
 	</select>
 
 	<select id="selectListPhone" resultMap="resultMapObj">
+		
 		SELECT
 		oympSeq
-		,
-		oympDefaultNy
+		, oympDefaultNy
 		, oympTypeCd
 		, oympTelecomCd
 		, oympNumber
@@ -431,25 +419,25 @@
 		WHERE 1=1
 		AND oympDelNy = 0
 		AND oymbSeq = #{oymbSeq}
+	
 	</select>
 
 	<select id="selectListEmail" resultMap="resultMapObj">
+		
 		SELECT
 		oymeSeq
-		,
-		oymeDefaultNy
+		, oymeDefaultNy
 		, oymeTypeCd
 		, oymeEmailDomainCd
 		, oymeEmailAccount
-		,
-		oymeEmailFull
+		, oymeEmailFull
 
 		FROM oymbEmail
 
 		WHERE 1=1
 		AND oymeDelNy = 0
-		AND oymbSeq =
-		#{oymbSeq}
+		AND oymbSeq = #{oymbSeq}
+		
 	</select>
 
 
@@ -461,7 +449,7 @@
 		oymbName = #{oymbName}
 		, oymbNameEng = #{oymbNameEng}
 		, oymbId = #{oymbId}
-<!-- 	, oymbNickName = #{oymbNickName}
+		, oymbNickName = #{oymbNickName}
 		, oymbPassword = #{oymbPassword}
 		, modDateTime = #{modDateTime}
 		, oymbSkinTypeCd = #{oymbSkinTypeCd}
@@ -470,11 +458,10 @@
 		, oymbInterestsCd = #{oymbInterestsCd}
 		, oymbEmailConsentNy = #{oymbEmailConsentNy}
 		, oymbSmsConsentNy = #{oymbSmsConsentNy}
-		, oymbPushConsentNy = #{oymbPushConsentNy} -->		
+		, oymbPushConsentNy = #{oymbPushConsentNy}		
 
 		WHERE 1=1
 		AND oymbSeq = #{oymbSeq}
-
 
 	</update>
 
@@ -548,8 +535,7 @@
 		SET
 		oymeEmailFull = #{oymeEmailFull}
 		, oymeEmailAccount = #{oymeEmailAccount}
-		, oymeEmailDomainCd =
-		#{oymeEmailDomainCd}
+		, oymeEmailDomainCd = #{oymeEmailDomainCd}
 		, modDateTime = #{modDateTime}
 
 		WHERE 1=1
@@ -559,61 +545,70 @@
 	</update>
 
 	<update id="uelete">
+		
 		UPDATE oyMember SET oymbDelNy = 1 WHERE 1=1 AND
 		oymbSeq = #{oymbSeq}
+	
 	</update>
 
 	<delete id="delete">
+		
 		DELETE FROM oyMember WHERE 1=1 AND oymbSeq =
 		#{oymbSeq}
+	
 	</delete>
 
 	<select id="selectListForCache" resultMap="resultMapObj">
+		
 		SELECT
 		oycdSeq
 		, oycdName
 		, oycgSeq
-		FROM
-		oyCode
+		FROM oyCode
+		
 		WHERE 1=1
 		AND oycdDelNy = 0
 		AND oycdUseNy = 1
 	</select>
 
 	<select id="selectListForCacheNation" resultMap="resultMapObj">
+		
 		SELECT
 		oynaSeq
 		, oynaName
 		, oymnSeq
-		FROM
-		oyNationality
+		FROM oyNationality
 		WHERE 1=1
 		AND oynaDelNy = 0
-		AND
-		oynaUseNy = 1
+		AND oynaUseNy = 1
+	
 	</select>
 
 	<insert id="insertRest">
+		
 		INSERT INTO oyMember(
 			oymbName
-			,oymbId
-			,oymbPassword
-			,oymbDelNy
+			, oymbId
+			, oymbPassword
+			, oymbDelNy
 		) VALUES (
 			#{oymbName}
-			,#{oymbId}
-			,#{oymbPassword}
-			,0
+			, #{oymbId}
+			, #{oymbPassword}
+			, 0
 		)	
+	
 	</insert>
 	
 	<update id="updateRest">
+	
 		UPDATE oyMember SET 	
 			oymbName = #{oymbName}
 			,oymbId = #{oymbId}
 			,oymbPassword = #{oymbPassword}
 		WHERE 1=1
 			AND oymbSeq=#{oymbSeq}	
+	
 	</update>
 
 	<select id="selectListOracle"  resultMap="resultMapObj">
@@ -624,8 +619,7 @@
 	, a.oymbId
 	, a.oymbName
 
-	FROM
-	oyMember a
+	FROM oyMember a
 	
 	</select>
 

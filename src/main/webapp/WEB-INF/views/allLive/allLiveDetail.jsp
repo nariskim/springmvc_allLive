@@ -215,6 +215,7 @@
 	cursor: default;
 	color: #777;
 }
+
 .row-detail {
 	margin-top: 5%;
 	margin-left: 15%;
@@ -241,8 +242,10 @@
 }
 
 .container-header {
-	margin-left: 7%;
-	margin-right: 7%;
+	margin-top: 1%;
+	margin-bottom: 3%;
+	margin-left: 6%;
+	margin-right: 6%;
 }
 
 .container-main {
@@ -325,124 +328,15 @@ a {
 
 <body>
 
-	<form id="allLiveDetail" name="allLiveDetail" method="post"
-		action="/allLive/allLiveDetail">
-		<header>
-			<div class="container-header">
-				<div class="row">
-					<div style="font-size: small;">
-						<ul class="nav justify-content-end">
-							<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark"
-								href="javascript:goLogin();">로그인</a></li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">고객센터</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">매장안내</a>
-							</li>
-							<li class="nav-item"><a class="nav-link text-dark" href="#">Global</a>
-							</li>
-
-						</ul>
-
-					</div>
-				</div>
-
-
-				<div class="row">
-					<div class="col-auto col-sm-5">
-						<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain"><img
-							src="/resources/xdmin/image/oliveimage.PNG" width="95%"></a>
-					</div>
-					<div class="col-auto d-md-none">
-
-
-						<div class="btn-group btn-group-lg" role="group"
-							aria-label="Basic outlined example">
-							<nav class="navbar fixed-bottom navbar-light bg-light">
-
-
-								<a class="navbar-brand" href="#"><button
-										class="btn btn-outline-primary navbar-toggler position-relative d-md-none collapsed"
-										type="button" data-bs-toggle="collapse"
-										data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-										aria-expanded="false" aria-label="Toggle navigation">
-										<span class="navbar-toggler-icon"></span>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-magnifying-glass"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-magnifying-glass"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-house"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-user"></i>
-									</button></a> <a href="#"><button type="button"
-										class="btn btn-outline-primary">
-										<i class="fa-solid fa-cart-shopping"></i>
-									</button></a>
-
-							</nav>
-						</div>
-					</div>
-
-
-
-					<div class="col-6 col-sm-2" style="margin-top: 30px;">
-
-						<input type="text" class="form-control search-input"
-							placeholder="Search...">
-					</div>
-					<div class="col-6 col-sm-1" style="margin-top: 30px;">
-						<button type="button" class="btn search-button">
-							<i class="fas fa-search"></i>
-						</button>
-
-					</div>
-
-					<div class="col-auto col-sm-4" style="margin-top: 30px;">
-						<ul class="nav">
-							<li class="nav-item"><a href="#" class="nav-link">오늘드림</a></li>
-							<li class="nav-item"><a href="#" class="nav-link">관심
-									매장소식</a></li>
-							<li class="nav-item"><a href="#" class="nav-link">방금 본
-									상품</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<br>
-
-				<ul class="nav nav-top">
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모
-							코스메틱</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업
-							· 네일</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">미용소품</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
-					<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
-				</ul>
-			</div>
-
-		</header>
-
-
+	<form id="allLiveDetail" name="allLiveDetail" method="post">
+		<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${vo.oypdSeq}"/>">
+		
+		<%@include file="../include/pageHeader.jsp"%>
 
 		<!-- <div class="row"></div> -->
 
 		<main>
+		 
 			<div class="container-main">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
@@ -544,17 +438,19 @@ a {
 
 						<div class="mb-3">
 							<label for="formFileMultiple" class="form-label">구매수량</label> <input
-								class="form-control" type="number" id="formFileMultiple"
-								multiple>
+								class="form-control" type="number" id="result" name="result"
+								value="1" min="1" max="10" multiple>
+
+
 						</div>
 						<div class="prd_total_price">
 							<span class="tx_tit">상품금액 합계</span> <input type="hidden"
 								id="totalCnt" value="1" name="totalCnt"> <input
-								type="hidden" id="totalPrc" value="31900" name="totalPrc">
+								type="hidden" id="totalPrc" value="<fmt:formatNumber value="${item.oypdPrice}" />" name="totalPrc">
 
 
 							<span class="tx_cont"><span class="tx_num"
-								id="totalPrcTxt">31,900</span>원</span>
+								id="totalPrcTxt"><fmt:formatNumber value="${item.oyspSalePrice}" /></span>원</span>
 
 						</div>
 						<br>
@@ -564,12 +460,9 @@ a {
 							for="deliveDay">오늘드림으로 받아 보시겠어요?</label><br>
 						<div class="input-group">
 							<button type="button" class="btn btn-outline-success">장바구니</button>
-							<a href="/allLive/allLiveOrder"><button type="button"
-									class="btn btn-success">바로구매</button></a>
+							<button type="button" onclick="location.href='javascript:goPurchase(<c:out value="${item.oypdSeq}"/>)'" class="btn btn-success">바로구매</button>
 						</div>
-
 					</div>
-
 				</div>
 				<br>
 				<hr>
@@ -676,8 +569,7 @@ a {
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=09c29750f01b8ca73dc6135b998baf4b&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=09c29750f01b8ca73dc6135b998baf4b&libraries=services"></script>
 	<script>
 		// 마커를 담을 배열입니다
 		var markers = [];
@@ -956,6 +848,30 @@ a {
 			$("#allLiveDetail").attr("action", "/allLive/loginForm");
 			$("#allLiveDetail").submit();
 		}
+
+		goPurchase = function(seq) {
+			$("#oypdSeq").val(seq);
+			$("#allLiveDetail").attr("action", "/allLive/allLiveOrder");
+			$("#allLiveDetail").submit();
+		}
+		</script>
+		<script>
+		$("#rtCount").val(bookCount);
+		$("#rtPoint").val(finalPoint);	  
+		$("#rtFinalPrice").val(finalPrice); 
+		
+		
+		var pdCount = ${rtCount};
+		var totalPrice = (price1*pdCount);
+		if(totalPrice < 10000){
+			var deliFee = 2500;
+		}else if(totalPrice >= 10000){
+			var deliFee = 0;
+		}else{
+			/* by pass */
+		}
+		var finalPrice = totalPrice+deliFee;
+		var finalPoint = (${item.oypdPrice}*0.05)*pdCount;
 	</script>
 </body>
 </html>

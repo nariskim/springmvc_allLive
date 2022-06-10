@@ -4,7 +4,7 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class AllLive {
-  
+
 	private String tableName;
 	private Integer type;
 	private String seq;
@@ -13,10 +13,11 @@ public class AllLive {
 	private String originalName;
 	private String uuidName;
 	private String ext;
-	private long size; 
+	private long size;
 	private Integer delNy;
-	private String pseq; 
+	private String pseq;
 	private String path;
+	private String oymaTitle;
 
 	private MultipartFile[] file0;
 	private MultipartFile[] file1;
@@ -159,7 +160,15 @@ public class AllLive {
 	private Integer oymeEmailDomainCd;
 	private Integer oymeDelNy;
 
-//	private String oymbSeq;
+	public String getOymaTitle() {
+		return oymaTitle;
+	}
+
+	public void setOymaTitle(String oymaTitle) {
+		this.oymaTitle = oymaTitle;
+	}
+
+	// private String oymbSeq;
 	public String getTableName() {
 		return tableName;
 	}

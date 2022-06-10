@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-  
+
 import javax.servlet.http.HttpSession;
- 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller; 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,25 +58,39 @@ public class AllLiveController {
 
 		List<AllLive> list = service.selectListUploaded(vo);
 		model.addAttribute("listUploaded", list);
-		
+
 		return "/allLive/allLiveDetail";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail2")
 	public String allLiveDetail2(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 
-		
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
-		
+
 		List<AllLive> list = service.selectListUploaded(vo);
 		model.addAttribute("listUploaded", list);
-		
+
 		return "/allLive/allLiveDetail2";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveOrder")
-	public String allLiveOrder() throws Exception {
+	public String allLiveOrder(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
+
+		AllLive rt = service.selectOne(vo);
+		model.addAttribute("item", rt);
+
+		List<AllLive> list = service.selectListUploaded(vo);
+		model.addAttribute("listUploaded", list);
+
+		AllLive rt2 = service.selectOneMember(vo);
+		model.addAttribute("item", rt2);
+
+		List<AllLive> list2 = service.selectListPhone(vo);
+		model.addAttribute("listPhone", list2);
+		
+		List<AllLive> list3 = service.selectListEmail(vo);
+		model.addAttribute("listEmail", list3);
 
 		return "/allLive/allLiveOrder";
 	}
@@ -115,7 +129,8 @@ public class AllLiveController {
 
 	@ResponseBody // 카카오 로그인
 	@RequestMapping(value = "/allLive/KakaoProc")
-	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession)
+			throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		System.out.println(name);
@@ -130,7 +145,8 @@ public class AllLiveController {
 
 	@ResponseBody // 구글 로그인
 	@RequestMapping(value = "/allLive/GoogleProc")
-	public Map<String, Object> GloginProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> GloginProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession)
+			throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		System.out.println(name);
@@ -143,8 +159,6 @@ public class AllLiveController {
 		return returnMap;
 
 	}
-	
-	
 
 	@ResponseBody
 	@RequestMapping(value = "/allLive/logoutProc")
@@ -155,47 +169,47 @@ public class AllLiveController {
 		return returnMap;
 	}
 
-	   /* NaverLoginBO */
-		private NaverLoginBO naverLoginBO;
+	/* NaverLoginBO */
+	private NaverLoginBO naverLoginBO;
 
-		/* NaverLoginBO */
-		@Autowired
-		private void setNaverLoginBO(NaverLoginBO naverLoginBO){
-			this.naverLoginBO = naverLoginBO;
-		} 
-		
-		//로그인 첫 화면 요청 메소드
-		   @RequestMapping(value = "/allLive/loginForm", method = { RequestMethod.GET, RequestMethod.POST })
-		   public String loginForm(Model model, HttpSession session) {
-		       
-		       /* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
-			   String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
-		       
-		       System.out.println("네이버:" + naverAuthUrl);
-		       
-		       //네이버 
-		       model.addAttribute("url", naverAuthUrl);
+	/* NaverLoginBO */
+	@Autowired
+	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
+		this.naverLoginBO = naverLoginBO;
+	}
 
-		       /* 생성한 인증 URL을 View로 전달 */
-		       return "/allLive/loginForm";
-		   }
-		   
-		  @RequestMapping(value = "/allLive/NaverProc", method = { RequestMethod.GET, RequestMethod.POST })	//네이버 로그인
-		    public String NaverProc(@RequestParam String code, @RequestParam String state, HttpSession session) throws IOException {
-				OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
-				
-				//로그인 사용자 정보를 읽어온다.
-				String apiResult = naverLoginBO.getUserProfile(oauthToken);
+	// 로그인 첫 화면 요청 메소드
+	@RequestMapping(value = "/allLive/loginForm", method = { RequestMethod.GET, RequestMethod.POST })
+	public String loginForm(Model model, HttpSession session) {
+
+		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+
+		System.out.println("네이버:" + naverAuthUrl);
+
+		// 네이버
+		model.addAttribute("url", naverAuthUrl);
+
+		/* 생성한 인증 URL을 View로 전달 */
+		return "/allLive/loginForm";
+	}
+
+	@RequestMapping(value = "/allLive/NaverProc", method = { RequestMethod.GET, RequestMethod.POST }) // 네이버 로그인
+	public String NaverProc(@RequestParam String code, @RequestParam String state, HttpSession session)
+			throws IOException {
+		OAuth2AccessToken oauthToken = naverLoginBO.getAccessToken(session, code, state);
+
+		// 로그인 사용자 정보를 읽어온다.
+		String apiResult = naverLoginBO.getUserProfile(oauthToken);
 //		      System.out.println(naverLoginBO.getUserProfile(oauthToken).toString());
-		        session.setAttribute("result", apiResult);
-		        System.out.println("result"+apiResult);
-		        
-		        session.setAttribute("sessSeq", 0); //생략 가능
-		        /* 네이버 로그인 성공 페이지 View 호출 */
-		        return "redirect:/allLive/allLiveMain";
-		    }	
-		  
-		  
+		session.setAttribute("result", apiResult);
+		System.out.println("result" + apiResult);
+
+		session.setAttribute("sessSeq", 0); // 생략 가능
+		/* 네이버 로그인 성공 페이지 View 호출 */
+		return "redirect:/allLive/allLiveMain";
+	}
+
 	@RequestMapping(value = "/allLive/allLiveReg")
 	public String allLiveReg(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
 
@@ -209,7 +223,8 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveInst")
-	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	public String allLiveInst(Model model, AllLive dto, AllLiveVo vo, RedirectAttributes redirectAttributes)
+			throws Exception {
 
 		// MultipartFile multipartFile = dto.getFile0();
 		// multipartFile.transferTo(new
@@ -236,7 +251,7 @@ public class AllLiveController {
 		vo.setOypdSeq(dto.getOypdSeq());
 
 		redirectAttributes.addFlashAttribute("vo", vo);
-		
+
 		return "redirect:/allLive/allLiveView";
 	}
 
@@ -248,12 +263,13 @@ public class AllLiveController {
 
 		List<AllLive> list = service.selectListUploaded(vo);
 		model.addAttribute("listUploaded", list);
-		
+
 		return "allLive/allLiveView";
 	}
 
 	@RequestMapping(value = "/allLive/allLiveUpdt")
-	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model, RedirectAttributes redirectAttributes) throws Exception {
+	public String durianUpdt(@ModelAttribute("vo") AllLive dto, AllLiveVo vo, Model model,
+			RedirectAttributes redirectAttributes) throws Exception {
 
 		service.update(dto);
 
