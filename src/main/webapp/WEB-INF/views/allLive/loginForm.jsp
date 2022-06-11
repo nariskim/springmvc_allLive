@@ -21,8 +21,10 @@
 
 <!-- jquery ui CSS -->
 <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
-
-<title>AllLiveLogin</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
+    <!-- Page Title -->
+    <title>All Live Young</title>
 
 <style type="text/css">
 .container {
@@ -50,36 +52,20 @@ a {
 
 		<div class="position-absolute top-50 start-50 translate-middle">
 			<div style="text-align: center;">
-				<img src="/resources/user/image/oy_lg.jpg" alt="..." width="200px">
+				<img src="/resources/user/image/logo.png" alt="..." width="300px" style="padding-bottom:50px; padding-top:100px;">
 			</div>
 			<div class="container">
 				<div class="form-floating mb-3" style="font-size: small;">
 					<input type="email" class="form-control" id="oymbId" name="oymbId"
 						placeholder="name@example.com" value="nari"> <label
-						for="floatingInput">CJ ONE 통합회원 아이디 입력</label>
+						for="floatingInput">아이디 입력</label>
 				</div>
 				<div class="form-floating mb-3" style="font-size: small;">
 					<input type="password" class="form-control" id="oymbPassword"
-						name="oymbPassword" placeholder="Password" value="1234"> <label
+						name="oymbPassword" placeholder="Password" value="nari"> <label
 						for="floatingPassword">비밀번호(8-12자 영문자+숫자+특수문자)</label>
 				</div>
-				<div class="input-group">
-					<div class="form-check" style="font-size: medium;">
-						<input class="form-check-input" type="checkbox" value=""
-							id="flexCheckDefault"> <label class="form-check-label"
-							for="flexCheckDefault"> 자동로그인&nbsp; </label>
-					</div>
-					<div class="form-check" style="font-size: medium;">
-						<input class="form-check-input" type="checkbox" value=""
-							id="flexCheckDefault"> <label class="form-check-label"
-							for="flexCheckDefault"> 아이디 저장 </label>
-					</div>
-					<div class="form-check" style="font-size: medium;">
-						<input class="form-check-input" type="checkbox" value="1"
-							id="oymbAdminNy" name="oymbAdminNy"> <label
-							class="form-check-label" for="flexCheckDefault"> 관리자 </label>
-					</div>
-				</div>
+			
 				<br>
 				<div class="d-grid gap-2">
 					<button class="btn btn-success text-white" type="button"
@@ -129,12 +115,6 @@ a {
 
 						</div>
 					</div>
-				</div>
-
-				<br>
-				<div class="d-grid gap-2">
-					<button class="btn btn-outline-secondary text-dark" type="button">CJONE
-						통합가입</button>
 				</div>
 
 			</div>

@@ -5,22 +5,23 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<jsp:useBean id="CateServiceImpl"
-	class="com.julyte.user.modules.cate.CateServiceImpl" />
-<jsp:useBean id="CodeServiceImpl"
-	class="com.julyte.user.modules.code.CodeServiceImpl" />
+
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl" />
+
+
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
-<title>allLiveYoung_Detail</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
+    <!-- Page Title -->
+    <title>All Live Young</title>
 
 <style>
 .map_wrap, .map_wrap * {
@@ -349,18 +350,13 @@ a {
 				<div class="row">
 					<div class="col-6">
 
-						<c:forEach items="${listUploaded}" var="itemUploaded"
-							varStatus="statusUploaded">
+						<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
 							<c:choose>
-								<c:when
-									test="${itemUploaded.type eq 0 && itemUploaded.size ne 0}">
-									<img id="mainimage"
-										src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>">
+								<c:when test="${itemUploaded.type eq 0 && itemUploaded.size ne 0}">
+									<img id="mainimage" src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>">
 								</c:when>
-								<c:when
-									test="${itemUploaded.type eq 0 && itemUploaded.size eq 0}">
-									<p style="font-size: 13px; font-style: italic;">선택된 파일이
-										없습니다!</p>
+								<c:when test="${itemUploaded.type eq 0 && itemUploaded.size eq 0}">
+									<p style="font-size: 13px; font-style: italic;">선택된 파일이 없습니다!</p>
 								</c:when>
 								<c:otherwise></c:otherwise>
 							</c:choose>
@@ -449,19 +445,15 @@ a {
 								type="hidden" id="totalPrc" value="<fmt:formatNumber value="${item.oypdPrice}" />" name="totalPrc">
 
 
-							<span class="tx_cont"><span class="tx_num"
-								id="totalPrcTxt"><fmt:formatNumber value="${item.oyspSalePrice}" /></span>원</span>
+							<span class="tx_cont"><span class="tx_num" id="totalPrice"></span>원</span>
 
 						</div>
 						<br>
 						<hr>
-						<br> <input type="checkbox" id="deliveDay" name="qDelive"
-							value="Y" class="o2oDeliveDay " data-attr="상품상세^오늘드림신청여부^오늘드림신청"><label
-							for="deliveDay">오늘드림으로 받아 보시겠어요?</label><br>
-						<div class="input-group">
-							<button type="button" class="btn btn-outline-success">장바구니</button>
+						<br>
+				
 							<button type="button" onclick="location.href='javascript:goPurchase(<c:out value="${item.oypdSeq}"/>)'" class="btn btn-success">바로구매</button>
-						</div>
+					
 					</div>
 				</div>
 				<br>
@@ -508,11 +500,10 @@ a {
 				</div>
 
 				<ul class="nav nav-tabs-p">
-					<li class="nav-item nav-item-p"><a class="nav-link active"
-						aria-current="page" href="#">상품설명</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link active" aria-current="page" href="#">상품설명</a></li>
 					<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
-					<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰(771)</a></li>
-					<li class="nav-item nav-item-p"><a class="nav-link">Q&A(27)</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰</a></li>
+					<li class="nav-item nav-item-p"><a class="nav-link">Q&A</a></li>
 				</ul>
 
 				<div class="row row-detail">
@@ -844,6 +835,7 @@ a {
 		}
 	</script>
 	<script type="text/javascript">
+		
 		goLogin = function() {
 			$("#allLiveDetail").attr("action", "/allLive/loginForm");
 			$("#allLiveDetail").submit();
@@ -854,22 +846,26 @@ a {
 			$("#allLiveDetail").attr("action", "/allLive/allLiveOrder");
 			$("#allLiveDetail").submit();
 		}
+		
 		</script>
-		<script>
-		$("#rtCount").val(bookCount);
+		
+		<script type="text/javascript">
+		
+		$("#rtCount").val(oliveCount);
 		$("#rtPoint").val(finalPoint);	  
-		$("#rtFinalPrice").val(finalPrice); 
+		$("#rtFinalPrice").val(finalPrice);
 		
+		/* 화면에 보여지는 부분 */
+		$("#totalPrice").text(totalPrice.toLocaleString());
+		$("#couponPrice").text("0");
+		$("#totalPrice2").text(finalPrice.toLocaleString()); 
+		$("#fee").text(deliFee.toLocaleString()); 
+		$("#point").text(finalPoint.toLocaleString()); 
+		$("#point1").text(finalPoint.toLocaleString()); 
 		
-		var pdCount = ${rtCount};
-		var totalPrice = (price1*pdCount);
-		if(totalPrice < 10000){
-			var deliFee = 2500;
-		}else if(totalPrice >= 10000){
-			var deliFee = 0;
-		}else{
-			/* by pass */
-		}
+		var oliveCount = ${rtCount};
+		var totalPrice = (price1*oliveCount);
+	
 		var finalPrice = totalPrice+deliFee;
 		var finalPoint = (${item.oypdPrice}*0.05)*pdCount;
 	</script>

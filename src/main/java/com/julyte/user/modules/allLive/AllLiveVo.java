@@ -13,7 +13,7 @@ public class AllLiveVo {
 	private String oyctSeq;
 	private String pseq;
 	private String seq;
-    
+
 	// oyMemberSearch
 	private String regDateTime;
 	private String modDateTime;
@@ -27,6 +27,8 @@ public class AllLiveVo {
 	// common
 	private Integer scOption;
 	private String scValue;
+
+	private int result;
 
 	// Paging
 
@@ -88,6 +90,14 @@ public class AllLiveVo {
 		System.out.println("getEndRnumForOracle():" + endRnumForOracle);
 		System.out.println("getStartRnumForMysql(): " + startRnumForMysql);
 
+	}
+
+	public int getResult() {
+		return result;
+	}
+
+	public void setResult(int result) {
+		this.result = result;
 	}
 
 	public String getSeq() {

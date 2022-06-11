@@ -5,6 +5,80 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class AllLive {
 
+	private int result;
+
+	private String rtCount;
+	private String rtFinalPrice;
+	private String rtCoupon;
+	private Date rtDoP;
+	private String rtPoint;
+	private Date rtDoA;
+	private String rtPayment;
+
+	public int getResult() {
+		return result;
+	}
+
+	public void setResult(int result) {
+		this.result = result;
+	}
+
+	public String getRtCount() {
+		return rtCount;
+	}
+
+	public void setRtCount(String rtCount) {
+		this.rtCount = rtCount;
+	}
+
+	public String getRtFinalPrice() {
+		return rtFinalPrice;
+	}
+
+	public void setRtFinalPrice(String rtFinalPrice) {
+		this.rtFinalPrice = rtFinalPrice;
+	}
+
+	public String getRtCoupon() {
+		return rtCoupon;
+	}
+
+	public void setRtCoupon(String rtCoupon) {
+		this.rtCoupon = rtCoupon;
+	}
+
+	public Date getRtDoP() {
+		return rtDoP;
+	}
+
+	public void setRtDoP(Date rtDoP) {
+		this.rtDoP = rtDoP;
+	}
+
+	public String getRtPoint() {
+		return rtPoint;
+	}
+
+	public void setRtPoint(String rtPoint) {
+		this.rtPoint = rtPoint;
+	}
+
+	public Date getRtDoA() {
+		return rtDoA;
+	}
+
+	public void setRtDoA(Date rtDoA) {
+		this.rtDoA = rtDoA;
+	}
+
+	public String getRtPayment() {
+		return rtPayment;
+	}
+
+	public void setRtPayment(String rtPayment) {
+		this.rtPayment = rtPayment;
+	}
+
 	private String tableName;
 	private Integer type;
 	private String seq;

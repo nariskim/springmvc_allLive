@@ -22,9 +22,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 <link  rel="stylesheet" href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css">
 
-<link href="/resources/user/css/bookPurchase.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="https://ifh.cc/g/74QNWX.png" type="image/x-icon" />
-<title id="ctl00_headerTitle">책이 수북수북</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
+    <!-- Page Title -->
+    <title>All Live Young</title>>
 
 <style type="text/css">
 	#floatMenu {

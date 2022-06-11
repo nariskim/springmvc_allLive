@@ -1,28 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
 
-<jsp:useBean id="CateServiceImpl"
-	class="com.julyte.user.modules.cate.CateServiceImpl" />
-<jsp:useBean id="CodeServiceImpl"
-	class="com.julyte.user.modules.code.CodeServiceImpl" />
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl" />
 
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
-<title>All Live Young</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
+    <!-- Page Title -->
+    <title>All Live Young</title>
+
 
 <style>
 .container-header {
@@ -168,6 +166,16 @@ dl>dt:before {
 	vertical-align: middle;
 }
 
+.contents2 {
+	padding: 15px 20px;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 14px;
+	color: #222;
+	line-height: 28px;
+	vertical-align: middle;
+	text-align: center;
+}
+
 .payarea {
 	background: #fcfcfc;
 	padding: 10px 0;
@@ -213,9 +221,8 @@ dl>dt:before {
 					<div class="col-10 headline">배송지정보</div>
 					<div class="col-2 headline2">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id=""
-								name="" checked> <label class="form-check-label"
-								for="defaultCheck1"> 기본 배송지 설정 </label>
+							<input class="form-check-input" type="checkbox" value="" id="" name="" checked>
+							<label class="form-check-label" for="defaultCheck1"> 기본 배송지 설정 </label>
 						</div>
 					</div>
 					<br>
@@ -225,14 +232,12 @@ dl>dt:before {
 					<div class="col-9 contents">
 						<div class="row">
 							<div class="col-6 form-check">
-								<input class="form-check-input" type="radio" name="address"
-									id="addressDefault" value="1"> <label
-									class="form-check-label" for="addressDefault"> 기본배송지 </label>
+								<input class="form-check-input" type="radio" name="address" id="addressDefault" value="1">
+								<label class="form-check-label" for="addressDefault"> 기본배송지 </label>
 							</div>
 							<div class="col-6 form-check">
-								<input class="form-check-input" type="radio" name="address"
-									id="addressNew" value="0"> <label
-									class="form-check-label" for="addressNew"> 신규배송지 </label>
+								<input class="form-check-input" type="radio" name="address" id="addressNew" value="0">
+								<label class="form-check-label" for="addressNew"> 신규배송지 </label>
 							</div>
 
 							<div class="col-12">
@@ -254,13 +259,11 @@ dl>dt:before {
 					<div class="col-3 headname">받는분</div>
 					<div class="col-9 contents">
 						<div class="input-group">
-							<input type="text" class="form-control" id="oymaTitle"
-								name="oymaTitle" value="">
+							<input type="text" class="form-control" id="oymaTitle" name="oymaTitle" value="">
 
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id=""
-									name=""> <label class="form-check-label"
-									for="defaultCheck1"> 주문자정보와 동일 </label>
+								<input class="form-check-input" type="checkbox" value="" id="" name="">
+								<label class="form-check-label" for="defaultCheck1"> 주문자정보와 동일 </label>
 							</div>
 						</div>
 					</div>
@@ -269,20 +272,15 @@ dl>dt:before {
 					<div class="col-3 headname">연락처1</div>
 					<div class="col-9 contents">
 						<div class="input-group">
-							<input type="hidden" id="oympDefaultNyArray0"
-								name="oympDefaultNyArray" value="1"> <select
-								class="form-select" id="oympTelecomCdArray0"
-								name="oympTelecomCdArray">
+							<input type="hidden" id="oympDefaultNyArray0" name="oympDefaultNyArray" value="1">
+							<select class="form-select" id="oympTelecomCdArray0" name="oympTelecomCdArray">
 								<option selected>::통신사::</option>
-								<c:forEach items="${codeTelecom}" var="itemTelecom"
-									varStatus="statusTelecom">
-									<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
-										<c:if test="${oympTelecom1 eq itemTelecom.oycdSeq }">selected</c:if>>
+								<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
+									<option value="<c:out value="${itemTelecom.oycdSeq}"/>" <c:if test="${oympTelecom1 eq itemTelecom.oycdSeq }">selected</c:if>>
 										<c:out value="${itemTelecom.oycdName}" /></option>
 								</c:forEach>
-							</select> <input type="text" class="form-control" id="oympNumberArray0"
-								name="oympNumberArray" value="<c:out value="${oympNumber1}"/>"
-								placeholder="'-'제외">
+							</select>
+							<input type="text" class="form-control" id="oympNumberArray0" name="oympNumberArray" value="<c:out value="${oympNumber1}"/>" placeholder="'-'제외">
 						</div>
 					</div>
 
@@ -290,41 +288,27 @@ dl>dt:before {
 					<div class="col-3 headname">연락처2</div>
 					<div class="col-9 contents">
 						<div class="input-group">
-							<input type="hidden" id="oympDefaultNyArray1"
-								name="oympDefaultNyArray" value="0"> <select
-								class="form-select" id="oympTelecomCdArray1"
-								name="oympTelecomCdArray">
+							<input type="hidden" id="oympDefaultNyArray1" name="oympDefaultNyArray" value="0">
+							<select class="form-select" id="oympTelecomCdArray1" name="oympTelecomCdArray">
 								<option selected>::통신사::</option>
-								<c:forEach items="${codeTelecom}" var="itemTelecom"
-									varStatus="statusTelecom">
+								<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
 									<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
 										<c:if test="${oympTelecom0 eq itemTelecom.oycdSeq }">selected</c:if>>
 										<c:out value="${itemTelecom.oycdName}" /></option>
 								</c:forEach>
-							</select> <input type="text" class="form-control" id="oympNumberArray1"
-								name="oympNumberArray" value="<c:out value="${oympNumber0}"/>"
-								placeholder="'-'제외">
+							</select> <input type="text" class="form-control" id="oympNumberArray1" name="oympNumberArray" value="<c:out value="${oympNumber0}"/>" placeholder="'-'제외">
 						</div>
 					</div>
 
 					<div class="col-3 headname">주소</div>
 					<div class="col-9 contents">
 						<div class=input-group>
-							<input type="text" class="form-control" id="oymaZipCode"
-								name="oymaZipCode" placeholder="우편번호"
-								value="<c:out value="${item.oymaZipCode}"/>"> <input
-								type="button" class="btn btn-outline-dark"
-								onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+							<input type="text" class="form-control" id="oymaZipCode" name="oymaZipCode" placeholder="우편번호" value="<c:out value="${item.oymaZipCode}"/>">
+							<input type="button" class="btn btn-outline-dark" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
 						</div>
-						<input type="text" class="form-control" id="oymaAddress1"
-							name="oymaAddress1" placeholder="주소"
-							value="<c:out value="${item.oymaAddress1}"/>"> <input
-							type="text" class="form-control" id="oymaAddress2"
-							name="oymaAddress2" placeholder="상세주소"
-							value="<c:out value="${item.oymaAddress2}"/>"> <input
-							type="text" class="form-control" id="oymaAddress3"
-							name="oymaAddress3" placeholder="참고항목"
-							value="<c:out value="${item.oymaAddress3}"/>">
+						<input type="text" class="form-control" id="oymaAddress1" name="oymaAddress1" placeholder="주소" value="<c:out value="${item.oymaAddress1}"/>">
+						<input type="text" class="form-control" id="oymaAddress2" name="oymaAddress2" placeholder="상세주소" value="<c:out value="${item.oymaAddress2}"/>">
+						<input type="text" class="form-control" id="oymaAddress3" name="oymaAddress3" placeholder="참고항목" value="<c:out value="${item.oymaAddress3}"/>">
 					</div>
 				</div>
 
@@ -357,20 +341,16 @@ dl>dt:before {
 					<div class="col-1 headname">구매가</div>
 
 
-					<div class="col-9 contents">
+					<div class="col-9 contents2">
 						<div class="row">
 							<div class="col-4">
-								<c:forEach items="${listUploaded}" var="itemUploaded"
-									varStatus="statusUploaded">
-									<c:if
-										test="${itemUploaded.type eq 0 && itemUploaded.size ne 0}">
-										<img
-											src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"
-											width="150px" height="150px">
+								<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
+									<c:if test="${itemUploaded.type eq 0 && itemUploaded.size ne 0}">
+										<img src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>" width="150px" height="150px">
 									</c:if>
 								</c:forEach>
 							</div>
-							<div class="col-8">
+							<div class="col-8"><br>
 								<div class="pdText">
 									<div class="pdbrand">
 										<c:out value="${item.oypdBrand}" />
@@ -384,13 +364,14 @@ dl>dt:before {
 							</div>
 						</div>
 					</div>
-					<div class="col-1 contents">
+					<div class="col-1 contents2"><br><br>
 						<fmt:formatNumber value="${item.oypdPrice}" />
 						<span>원</span>
 					</div>
-					<div class="col-1 contents"> <%=request.getParameter("result")%> 개
+					<div class="col-1 contents2"><br><br>
+					<%=request.getParameter("result")%> 개
 					</div>
-					<div class="col-1 contents">
+					<div class="col-1 contents2"><br>
 						<div class="priceB">
 							<fmt:formatNumber value="${item.oypdPrice}" />
 							<span>원</span>
@@ -402,58 +383,42 @@ dl>dt:before {
 				</div>
 				<br>
 				<div class="row">
+					<div class="col headline">쿠폰</div>
+				</div>
+				<div class="row">
 					<div class="col-8">
 						<div class="row">
-							<table class="table table-bordered" style="">
-								<thead class="table table-bordered" style="">
-									<tr>
-										<td style="font-size: 15px; text-align: left;"><b>STEP 1. 할인쿠폰</b></td>
-									</tr>
-								</thead>
-								<tbody style="">
-									<tr>
-										<td
-											style="width: 50%; height: 150px; text-align: left; vertical-align: top; padding: 20px;">
-											<table>
-												<tr>
-													<td style="font-size: 16px; text-align: left;"><b>사용가능 쿠폰</b></td>
-													<td style="font-size: 16px; text-align: left;"><b>쿠폰 번호</b></td>
-													<td style="font-size: 16px; text-align: left;"><b>쿠폰 금액</b></td>
-													<td style="font-size: 16px;"><b>유효기간</b></td>
-													<td style="font-size: 16px;"></td>
-												</tr>
-												<tr>
-													<td style="font-size: 16px; text-align: left;">7월정기쿠폰</td>
-													<td style="font-size: 16px; text-align: left;">JULYCOUPON</td>
-													<td style="font-size: 16px; text-align: left;">6,000원</td>
-													<td style="font-size: 16px;">2022-05-10 ~ 2022-12-31</td>
-													<td style="font-size: 16px;"><button type="button" id="coupon1" value="6000" style="color: blue;">
+							<div class="col-2 headname">사용가능 쿠폰</div>
+							<div class="col-2 headname">쿠폰 번호</div>
+							<div class="col-2 headname">쿠폰 금액</div>
+							<div class="col-4 headname">유효기간</div>
+							<div class="col-2 headname"></div>
+						
+						<div class="col-2 contents2">7월정기쿠폰</div>
+							<div class="col-2 contents2">JULYCOUPON</div>
+							<div class="col-2 contents2">6,000원</div>
+							<div class="col-4 contents2">2022-05-10 ~ 2022-12-31</div>
+							<div class="col-2 contents2"><button type="button" id="coupon1" value="6000" style="color: blue;">
 															<u>사용하기</u>
-														</button></td>
-												</tr>
-												<tr>
-													<td style="font-size: 16px; text-align: left;">여름아부탁해!</td>
-													<td style="font-size: 16px; text-align: left;">SUMMER5000</td>
-													<td style="font-size: 16px; text-align: left;">5,000원</td>
-													<td style="font-size: 16px;">2022-05-12 ~ 2022-12-31</td>
-													<td style="font-size: 16px;"><button type="button" id="coupon2" value="5000" style="color: blue;">
+														</button></div>
+							
+							<div class="col-2 contents2">여름아부탁해!</div>
+							<div class="col-2 contents2">SUMMER5000</div>
+							<div class="col-2 contents2">5,000원</div>
+							<div class="col-4 contents2">2022-05-12 ~ 2022-12-31</div>
+							<div class="col-2 contents2"><button type="button" id="coupon2" value="5000" style="color: blue;">
 															<u>사용하기</u>
-														</button></td>
-												</tr>
-												<tr>
-													<td style="font-size: 16px; text-align: left;">신규회원가입</td>
-													<td style="font-size: 16px; text-align: left;">NEWMEMBER</td>
-													<td style="font-size: 16px; text-align: left;">10,000원</td>
-													<td style="font-size: 16px;">2022-05-22 ~ 2022-12-31</td>
-													<td style="font-size: 16px;"><button type="button" id="coupon3" value="10000" style="color: blue;">
+														</button></div>
+							
+							<div class="col-2 contents2">신규회원가입</div>
+							<div class="col-2 contents2">NEWMEMBER</div>
+							<div class="col-2 contents2">10,000원</div>
+							<div class="col-4 contents2">2022-05-22 ~ 2022-12-31</div>
+							<div class="col-2 contents2"><button type="button" id="coupon3" value="10000" style="color: blue;">
 															<u>사용하기</u>
-														</button></td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+														</button></div>
+						</div>
+							
 							<!-- <div class="col-12 headline">포인트/기프트카드사용</div>
 					<div class="col-3 headname">올리브영 기프트카드</div>
 					<div class="col-9 contents"></div>
@@ -463,10 +428,26 @@ dl>dt:before {
 					<div class="col-9 contents"></div>
 					<div class="col-3 headname">예치금</div>
 					<div class="col-9 contents"></div> -->
-						</div>
 						<br>
 						<div class="row">
-							<div class="col-12 headline">결제수단 선택</div>
+							<div class="col headline">적립</div>
+						</div>
+						<div class="row">
+							<div class="col-3 headname">적립 유형</div>
+							<div class="col-3 headname">적립률</div>
+							<div class="col-3 headname">적립 포인트</div>
+							<div class="col-3 headname">적립 날짜</div>
+						
+							<div class="col-3 contents2">기본적립</div>
+							<div class="col-3 contents2">5%</div>
+							<div class="col-3 contents2"><span id="point"></span> P</div>
+							<c:set var="ymd" value="<%=new java.util.Date()%>" /> 
+							<div class="col-3 contents2"><fmt:formatDate value="${ymd}" pattern="yyyy-MM-dd" /></div>
+					
+					</div>
+						<br>
+						<div class="row">
+							<div class="col-12 headline">결제수단</div>
 							<div class="col-12 payarea">
 								<div class="input-group">
 									<!-- <div class="form-check" style="padding-right: 150px;">
@@ -482,7 +463,7 @@ dl>dt:before {
 										<label class="form-check-label" for="flexRadioDefault1"> PAYCO </label>
 									</div> -->
 									<div class="form-check" style="padding-right: 150px;">
-										<input class="form-check-input" type="radio" name="kpay" id="kpay">
+										<input class="form-check-input" type="radio" name="kpay" id="kpay" checked>
 										<label class="form-check-label" for="kpay"> 카카오페이 </label>
 									</div>
 									<!-- <div class="form-check" style="padding-right: 150px;">
@@ -507,67 +488,6 @@ dl>dt:before {
 									</div> -->
 								</div>
 							</div>
-							<div class="col-3 headname">카드종류</div>
-							<div class="col-9 contents"></div>
-
-							<div class="col-3 headname">할부분류</div>
-							<div class="col-9 contents"></div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-12 paybenefit">
-								<ul>
-									<li><카카오뱅크 체크카트 혜택></카카오뱅크></li>
-									<li>3만원 이상 결제 시 2천원 캐시백</li>
-									<li>온/오프라인에서 월 1회 사용 가능</li>
-									<li>자세한 내용은 이벤트 탭에서 확인해주세요</li>
-									<li>신용/체크카드 결제금액이 30만원 이상인 경우 공인인증서가 필요합니다.</li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<table style="">
-								<tr>
-									<th style="font-size: 15px;"><b>결제하실 금액</b></th>
-								</tr>
-								<tr>
-									<th style="font-size: 15px;"><span
-										style="font-size: 25px; text-align: right;"> <b
-											id="price"></b></span>원</th>
-								</tr>
-							</table>
-							<br></br>
-							<table style="border: 1px solid black;">
-								<tr>
-									<th style="font-size: 15px;"><b>할인내역</b></th>
-								</tr>
-								<tr>
-									<th style="font-size: 18px;"><b>총 할인금액</b></th>
-								</tr>
-								<tr>
-									<th style="font-size: 15px;"><span
-										style="font-size: 25px; text-align: right;"> <b
-											id="couponPrice"></b></span>원</th>
-								</tr>
-							</table>
-							<br></br>
-							<table style="">
-								<tr>
-									<th colspan="2" style="font-size: 15px;"><b>결제내역</b></th>
-								</tr>
-								<tr style="border-bottom: 1px solid black;">
-									<td style="font-size: 15px;"><p id="pay"></p></td>
-									<td style="font-size: 15px;"><p id="totalPrice2"></p></td>
-								</tr>
-								<tr>
-									<th colspan="2" style="font-size: 18px;"><b>남은 결제금액</b></th>
-								</tr>
-								<tr>
-									<th colspan="2" style="font-size: 15px;"><span
-										style="font-size: 25px; text-align: right;"> <b
-											id="totalPrice"></b></span>원</th>
-								</tr>
-							</table>
 						</div>
 					</div>
 
@@ -581,7 +501,8 @@ dl>dt:before {
 
 								<div class="col-9">쿠폰할인금액</div>
 								<div class="col-3">
-									<span style="font-size:25px; color: green; "><b id="couponPrice"></b></span> 원
+									<span style="font-size:25px; color: green; ">
+									<b id="couponPrice"></b></span> 원
 								</div>
 
 								<div class="col-9">총 배송비</div>
@@ -589,81 +510,63 @@ dl>dt:before {
 									
 								</div>
 
-								<div class="col-9">적립예정 포인트</div>
+								<div class="col-9" id="savingPoint">적립예정 포인트</div>
 								<div class="col-3">
 									<span id="point1"></span> p
 								</div>
 
 								<div class="col-9">최종 결제 금액</div>
 								<div class="col-3 sticky">
-									<span style="font-size: 24px; color: red; "><b id="totalPrice2"></b>원</span>
+									<span style="font-size: 24px; color: red; ">
+									<b id="totalPrice2"></b>원</span>
 								</div>
 								<div class="col-12">
-									<button type="button" id="iamportPayment"
-										class="btn btn-danger btn-lg text-light">결제하기</button>
+									<button type="button" id="iamportPayment" class="btn btn-danger btn-lg text-light">결제하기</button>
 								</div>
 							</div>
 							<div class="col-12">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id=""
-										name="" checked> <label class="form-check-label"
-										for="defaultCheck1">지금 설정을 다음 주문에도 사용하겠습니다.<br>
-									</label>
-								</div>
+							<br>
+							</div>
+							<div class="col-12">
+							<br>
 							</div>
 							<div class="col-12">
 								<div class="row">
 									<div class="accordion" id="">
 										<div class="accordion-item">
 											<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-												<button class="accordion-button" type="button"
-													data-bs-toggle="collapse"
-													data-bs-target="#panelsStayOpen-collapseOne"
-													aria-expanded="true"
-													aria-controls="panelsStayOpen-collapseOne">
-													주문 상품정보 및 결제대행 서비스 이용약관에<br>모두 동의하십니까?
+												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> 주문 상품정보 및 결제대행 서비스 이용약관에<br>모두 동의하십니까?
 													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value=""
-															id="" name=""> <label class="form-check-label"
-															for="defaultCheck1"> 모두 동의 </label>
+														<input class="form-check-input" type="checkbox" value="" id="checkboxAll" name="checkboxAll">
+														<label class="form-check-label" for="defaultCheck1"> 모두 동의 </label>
 													</div>
 												</button>
 											</h2>
-											<div id="panelsStayOpen-collapseOne"
-												class="accordion-collapse collapse show"
-												aria-labelledby="panelsStayOpen-headingOne">
+											<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
 												<div class="accordion-body">
 													<hr>
 													<strong>주문상품정보에 대한 동의</strong>
 													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value=""
-															id="" name=""> <label class="form-check-label"
-															for="defaultCheck1">주문하실 상품, 가격, 배송정보, 할인내역등을 최<br>종
-															확인하였으며, 구매에 동의합니다.<br>(전상거래법 제8조 제2항)
+														<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+														<label class="form-check-label" for="defaultCheck1">주문하실 상품, 가격, 배송정보, 할인내역등을 최<br>종 확인하였으며, 구매에 동의합니다.<br>(전상거래법 제8조 제2항)
 														</label>
 													</div>
 													<hr>
 													<strong>결제대행 서비스 이용약관 동의</strong>
 													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value=""
-															id="" name=""> <label class="form-check-label"
-															for="defaultCheck1">전자금융거래 기본약관</label>
-														<button type="button" id="" name=""
-															class="btn btn-outline-light text-dark">약관보기</button>
+														<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+														<label class="form-check-label" for="defaultCheck1">전자금융거래 기본약관</label>
+														<button type="button" id="" name="" class="btn btn-outline-light text-dark">약관보기</button>
 													</div>
 													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value=""
-															id="" name=""> <label class="form-check-label"
-															for="defaultCheck1">개인정보 수집 및 이용 동의</label>
-														<button type="button" id="" name=""
-															class="btn btn-outline-light text-dark">약관보기</button>
+														<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+														<label class="form-check-label" for="defaultCheck1">개인정보 수집 및 이용 동의</label>
+														<button type="button" id="" name="" class="btn btn-outline-light text-dark">약관보기</button>
 													</div>
 													<div class="form-check">
-														<input class="form-check-input" type="checkbox" value=""
-															id="" name=""> <label class="form-check-label"
-															for="defaultCheck1">개인정보 제공 및 위탁 동의</label>
-														<button type="button" id="" name=""
-															class="btn btn-outline-light text-dark">약관보기</button>
+														<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+														<label class="form-check-label" for="defaultCheck1">개인정보 제공 및 위탁 동의</label>
+														<button type="button" id="" name="" class="btn btn-outline-light text-dark">약관보기</button>
 													</div>
 												</div>
 											</div>
@@ -696,73 +599,16 @@ dl>dt:before {
 			</footer>
 		</div>
 	</form>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- iamport.payment.js -->
-	<script type="text/javascript"
-		src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	<!-- Jquery ui -->
-	<script
-		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 
+	<script type="text/javascript">
 	<!-- 아임포트 카카오 결제 API -->
-
-	<script>
-
-	var pdCount = ${rtCount};
-	var totalPrice = (price1*pdCount);
-	if(totalPrice < 10000){
-		var deliFee = 2500;
-	}else if(totalPrice >= 10000){
-		var deliFee = 0;
-	}else{
-		/* by pass */
-	}
-	var finalPrice = totalPrice+deliFee;
-	var finalPoint = (${item.oypdPrice}*0.05)*bookCount;
-	/* 화면에 보여지는 부분 */
-	$("#totalPrice").text(totalPrice.toLocaleString());
-	$("#couponPrice").text("0");
-	$("#totalPrice2").text(finalPrice.toLocaleString()); 
-	$("#fee").text(deliFee.toLocaleString()); 
-	$("#point").text(finalPoint.toLocaleString()); 
-	$("#point1").text(finalPoint.toLocaleString()); 
-	/* 쿠폰 할인 적용 */
-	$(document).ready(function() {
-		   $("#coupon1").click(function(){
-		      var coupon1Price = $(this).attr('value');   
-		      $("#couponPrice").text((coupon1Price)/1000 + ",000");
-		      $("#totalPrice2").text((finalPrice-coupon1Price).toLocaleString());
-		      $('#rtFinalPrice').val(totalPrice-coupon1Price);
-		      $('#rtCoupon').val(coupon1Price); 
-		      
-		   });
-		   $("#coupon2").click(function(){
-		      var coupon2Price = $(this).attr('value');      
-		      $("#couponPrice").text((coupon2Price)/1000 + ",000");
-		      $("#totalPrice2").text((finalPrice-coupon2Price).toLocaleString());
-		      $('#rtFinalPrice').val(totalPrice-coupon2Price);
-		      $('#rtCoupon').val(coupon2Price); 
-		   });
-		   $("#coupon3").click(function(){
-		      var coupon3Price = $(this).attr('value');      
-		      $("#couponPrice").text((coupon3Price)/1000 + ",000");
-		      $("#totalPrice2").text((finalPrice-coupon3Price).toLocaleString());
-		      $('#rtFinalPrice').val(totalPrice-coupon3Price); 
-		      $('#rtCoupon').val(coupon3Price); 
-		   });
-		});
-		
-	$("#rtCount").val(pdCount);
-	$("#rtPoint").val(finalPoint);	  
-	$("#rtFinalPrice").val(finalPrice); 
-
-
 		$(document).ready(function() {
 			$("#iamportPayment").click(function() {
 				payment(); // 버튼 클릭하면 호출
@@ -806,6 +652,74 @@ dl>dt:before {
 				$("#allLiveOrder").submit();
 			});
 		}
+		
+		var price1 = <c:out value="${item.oyspSalePrice}"/>;
+		var oliveCount = ${rtCount};
+		var totalPrice = (price1*oliveCount);
+		if(totalPrice < 20000){
+			var deliFee = 2500;
+		}else if(totalPrice >= 20000){
+			var deliFee = 0;
+		}else{
+			/* by pass */
+		}
+		var finalPrice = totalPrice+deliFee;
+		var finalPoint = (${item.oyspSalePrice}*0.05)*oliveCount;
+		/* 화면에 보여지는 부분 */
+		$("#totalPrice").text(totalPrice.toLocaleString());
+		$("#couponPrice").text("0");
+		$("#totalPrice2").text(finalPrice.toLocaleString()); 
+		$("#fee").text(deliFee.toLocaleString()); 
+		$("#point").text(finalPoint.toLocaleString()); 
+		$("#point1").text(finalPoint.toLocaleString()); 
+		/* 쿠폰 할인 적용 */
+		$(document).ready(function() {
+			   $("#coupon1").click(function(){
+			      var coupon1Price = $(this).attr('value');   
+			      $("#couponPrice").text((coupon1Price)/1000 + ",000");
+			      $("#totalPrice2").text((finalPrice-coupon1Price).toLocaleString());
+			      $('#rtFinalPrice').val(totalPrice-coupon1Price);
+			      $('#rtCoupon').val(coupon1Price); 
+			      
+			   });
+			   $("#coupon2").click(function(){
+			      var coupon2Price = $(this).attr('value');      
+			      $("#couponPrice").text((coupon2Price)/1000 + ",000");
+			      $("#totalPrice2").text((finalPrice-coupon2Price).toLocaleString());
+			      $('#rtFinalPrice').val(totalPrice-coupon2Price);
+			      $('#rtCoupon').val(coupon2Price); 
+			   });
+			   $("#coupon3").click(function(){
+			      var coupon3Price = $(this).attr('value');      
+			      $("#couponPrice").text((coupon3Price)/1000 + ",000");
+			      $("#totalPrice2").text((finalPrice-coupon3Price).toLocaleString());
+			      $('#rtFinalPrice').val(totalPrice-coupon3Price); 
+			      $('#rtCoupon').val(coupon3Price); 
+			   });
+			});
+			
+		$("#rtCount").val(oliveCount);
+		$("#rtPoint").val(finalPoint);	  
+		$("#rtFinalPrice").val(finalPrice); 
+		
+		$('#checkboxAll').click(function() {
+			if ($("#checkboxAll").is(':checked'))
+				$("input[name=checkboxSeq]").prop("checked", true);
+			else
+				$("input[name=checkboxSeq]").prop("checked", false);
+		});
+		$("input[name=checkboxSeq]").click(function() {
+
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+
+			if (total != checked)
+				$("checkboxAll").prop("checked", false);
+			else
+				$("checkboxAll").prop("checked", true);
+		});
+
+
 	</script>
 </body>
 </html>

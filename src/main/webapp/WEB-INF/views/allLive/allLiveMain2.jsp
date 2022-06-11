@@ -17,8 +17,10 @@
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/893e1f7eb8.js"
 	crossorigin="anonymous"></script>
-  
-<title>allLiveYoung_Main2</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
+    <!-- Page Title -->
+    <title>All Live Young</title>
 
 <style>
 .container-header {

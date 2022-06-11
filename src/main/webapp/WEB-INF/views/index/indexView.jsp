@@ -18,7 +18,7 @@
     <meta name="author" content="Surjith S M">
     
     <!-- Favicons -->
-    <link rel="shortcut icon" href="https://img.cgv.co.kr/theater_img/favicon.ico" type="image/x-icon" /> <!-- cj아이콘 -->
+    <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
     <!-- Page Title -->
     <title>All Live Young</title>
     <!-- Bootstrap CSS -->
