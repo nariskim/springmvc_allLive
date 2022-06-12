@@ -16,6 +16,7 @@
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
     <!-- Favicons -->
@@ -322,6 +323,24 @@ a {
 	color: #e02020;
 	font-weight: 500;
 }
+.bi-plus-square,
+.bi-dash-square{
+    font-size: 21px;
+    line-height: 22px;
+    color: black;
+    margin-left: 5px;
+}	
+#btn,
+#btn:hover,
+#btn:active,
+#btn:visited,
+#btn:focus{
+	border: 1px #7B8ED1 solid;
+	background: #7B8ED1;
+	color: white;
+	width: 18%;
+	height: 50px;
+}
 </style>
 
 </head>
@@ -431,14 +450,18 @@ a {
 						<br>
 						<hr>
 						<br>
-
+						
+						<input type="text" id="result" name="result" style="width: 50px;" value="1"><i class="bi bi-plus-square" role="button" onclick='count("plus")'></i> <i class="bi bi-dash-square" role="button" onclick='count("minus")'></i></p>
+						
+						
+<!-- 
 						<div class="mb-3">
 							<label for="formFileMultiple" class="form-label">구매수량</label> <input
 								class="form-control" type="number" id="result" name="result"
 								value="1" min="1" max="10" multiple>
 
 
-						</div>
+						</div> -->
 						<div class="prd_total_price">
 							<span class="tx_tit">상품금액 합계</span> <input type="hidden"
 								id="totalCnt" value="1" name="totalCnt"> <input
@@ -533,16 +556,11 @@ a {
 		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Home</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Features</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">FAQs</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">About</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
 				</ul>
 				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
 			</footer>
@@ -851,23 +869,37 @@ a {
 		
 		<script type="text/javascript">
 		
-		$("#rtCount").val(oliveCount);
-		$("#rtPoint").val(finalPoint);	  
-		$("#rtFinalPrice").val(finalPrice);
-		
+		function count(type)  {
+			if(type === 'plus') {
+		    
+				var tmp = document.getElementById("result").value;
+				tmp++;
+				document.getElementById("result").value = tmp;
+			}else if(type === 'minus')  {
+		   
+				var tmp = document.getElementById("result").value;
+					if(tmp<2){
+						alert("최소수량은 1개입니다");
+						return true;
+					}else{
+						tmp--;
+					}
+				document.getElementById("result").value = tmp;
+			}
+			 
+		}
+/*		var oliveCount = document.getElementById("result").value; */
+		var price1 = <c:out value="${item.oyspSalePrice}"/>;
+		var totalPrice = (${item.oyspSalePrice*item.result});
+/* 		var totalPrice = (price1*oliveCount); */
+	
 		/* 화면에 보여지는 부분 */
 		$("#totalPrice").text(totalPrice.toLocaleString());
-		$("#couponPrice").text("0");
-		$("#totalPrice2").text(finalPrice.toLocaleString()); 
-		$("#fee").text(deliFee.toLocaleString()); 
-		$("#point").text(finalPoint.toLocaleString()); 
-		$("#point1").text(finalPoint.toLocaleString()); 
 		
-		var oliveCount = ${rtCount};
-		var totalPrice = (price1*oliveCount);
-	
-		var finalPrice = totalPrice+deliFee;
-		var finalPoint = (${item.oypdPrice}*0.05)*pdCount;
+		$("#rtCount").val(oliveCount);
+		$("#rtPoint").val(finalPoint);	  
+
+		
 	</script>
 </body>
 </html>

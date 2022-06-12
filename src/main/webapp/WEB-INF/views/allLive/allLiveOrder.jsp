@@ -496,33 +496,35 @@ dl>dt:before {
 						<div class="row">
 							<div class="col-12 headline">최종 결제정보</div>
 							<div class="row totalbox">
-								<div class="col-9">총 상품금액</div>
-								<div class="col-3"><span id="totalPrice"></span>원</div>
+								<div class="col-6" style="margin-bottom: 20px; margin-top: 20px;">총 상품금액</div>
+								<div class="col-6" style="margin-bottom: 20px; margin-top: 20px;"><span id="totalPrice"></span>원</div>
 
-								<div class="col-9">쿠폰할인금액</div>
-								<div class="col-3">
+								<div class="col-6" style="margin-bottom: 20px;">쿠폰할인금액</div>
+								<div class="col-6" style="margin-bottom: 20px;">
 									<span style="font-size:25px; color: green; ">
 									<b id="couponPrice"></b></span> 원
 								</div>
 
-								<div class="col-9">총 배송비</div>
-								<div class="col-3"><span id="fee"></span>원
+								<div class="col-6" style="margin-bottom: 20px;">총 배송비</div>
+								<div class="col-6" style="margin-bottom: 20px;"><span id="fee"></span>원
 									
 								</div>
 
-								<div class="col-9" id="savingPoint">적립예정 포인트</div>
-								<div class="col-3">
+								<div class="col-6" id="savingPoint" style="margin-bottom: 20px;">적립예정 포인트</div>
+								<div class="col-6" style="margin-bottom: 20px;">
 									<span id="point1"></span> p
 								</div>
 
-								<div class="col-9">최종 결제 금액</div>
-								<div class="col-3 sticky">
+								<div class="col-6" style="margin-bottom: 20px;">최종 결제 금액</div>
+								<div class="col-6 sticky" style="margin-bottom: 20px;">
 									<span style="font-size: 24px; color: red; ">
 									<b id="totalPrice2"></b>원</span>
 								</div>
-								<div class="col-12">
+								<div class="col-3"></div>
+								<div class="col-6">
 									<button type="button" id="iamportPayment" class="btn btn-danger btn-lg text-light">결제하기</button>
 								</div>
+								<div class="col-3"></div>
 							</div>
 							<div class="col-12">
 							<br>
@@ -665,6 +667,7 @@ dl>dt:before {
 		}
 		var finalPrice = totalPrice+deliFee;
 		var finalPoint = (${item.oyspSalePrice}*0.05)*oliveCount;
+		
 		/* 화면에 보여지는 부분 */
 		$("#totalPrice").text(totalPrice.toLocaleString());
 		$("#couponPrice").text("0");
@@ -672,6 +675,7 @@ dl>dt:before {
 		$("#fee").text(deliFee.toLocaleString()); 
 		$("#point").text(finalPoint.toLocaleString()); 
 		$("#point1").text(finalPoint.toLocaleString()); 
+		
 		/* 쿠폰 할인 적용 */
 		$(document).ready(function() {
 			   $("#coupon1").click(function(){

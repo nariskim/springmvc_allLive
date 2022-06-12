@@ -59,6 +59,8 @@ public class AllLiveController {
 		List<AllLive> list = service.selectListUploaded(vo);
 		model.addAttribute("listUploaded", list);
 
+		model.addAttribute("rtCount",dto.getResult());
+		
 		return "/allLive/allLiveDetail";
 	}
 
@@ -75,7 +77,7 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveOrder")
-	public String allLiveOrder(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
+	public String allLiveOrder(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model, HttpSession httpSession) throws Exception {
 
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
@@ -83,6 +85,7 @@ public class AllLiveController {
 		List<AllLive> list = service.selectListUploaded(vo);
 		model.addAttribute("listUploaded", list);
 
+		vo.setOymbSeq((String) httpSession.getAttribute("sessSeq"));
 		AllLive rt2 = service.selectOneMember(vo);
 		model.addAttribute("item", rt2);
 
@@ -92,6 +95,8 @@ public class AllLiveController {
 		List<AllLive> list3 = service.selectListEmail(vo);
 		model.addAttribute("listEmail", list3);
 
+		model.addAttribute("rtCount",dto.getResult());
+		
 		return "/allLive/allLiveOrder";
 	}
 
