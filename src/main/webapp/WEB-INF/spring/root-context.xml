@@ -12,12 +12,13 @@
 		<property name="username" value="julyte" />
 		<property name="password" value="ppo8270^^" />
 	</bean> -->
+
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
-		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
-		<property name="url" value="jdbc:mysql://alllive.cjs1lmaxbdqa.ap-northeast-2.rds.amazonaws.com:33064/allyoung" />	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
-		<!-- <property name="url" value="jdbc:log4jdbc:mariadb://sj-maria-1.cvnd1cw1haiu.ap-northeast-2.rds.amazonaws.com:33062/nct" /> -->
+		<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<!-- <property name="url" value="jdbc:mysql://alllive.cjs1lmaxbdqa.ap-northeast-2.rds.amazonaws.com:33064/allyoung" /> -->	<!-- log4j2로 디비 로그를 찍기 위하여 아래 내용으로 변경 -->
+		<property name="url" value="jdbc:log4jdbc:mysql://alllive.cjs1lmaxbdqa.ap-northeast-2.rds.amazonaws.com:33064/allyoung" />
 		<property name="username" value="julyte" />
 		<property name="password" value="ppo8270^^" />
 	</bean>
@@ -37,10 +38,10 @@
 	
 		<!-- oracle s 2022.06.07 -->
 	<bean id="dataSourceOracle" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
+		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" /> -->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
 		<!-- <property name="url" value="jdbc:log4jdbc:mysql://alllive.cjs1lmaxbdqa.ap-northeast-2.rds.amazonaws.com:33064/allyoung" /> -->
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521/xe" />
+		<property name="url" value="jdbc:log4jdbc:oracle:thin:@localhost:1521/xe" />
 		<property name="username" value="julyte" />
 		<property name="password" value="ppo" />
 	</bean>

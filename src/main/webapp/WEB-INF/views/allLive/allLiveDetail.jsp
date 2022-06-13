@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -358,14 +357,7 @@ a {
 		<main>
 		 
 			<div class="container-main">
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">홈</a></li>
-						<li class="breadcrumb-item">스킨케어</li>
-						<li class="breadcrumb-item active">에센스 / 크림</li>
-						<li class="breadcrumb-item active" aria-current="page">크림</li>
-					</ol>
-				</nav>
+
 				<div class="row">
 					<div class="col-6">
 
@@ -380,7 +372,7 @@ a {
 								<c:otherwise></c:otherwise>
 							</c:choose>
 						</c:forEach>
-
+					
 					</div>
 					<div class="col-6">
 						<div id="brand">
@@ -462,21 +454,17 @@ a {
 
 
 						</div> -->
-						<div class="prd_total_price">
+						<%-- <div class="prd_total_price">
 							<span class="tx_tit">상품금액 합계</span> <input type="hidden"
 								id="totalCnt" value="1" name="totalCnt"> <input
 								type="hidden" id="totalPrc" value="<fmt:formatNumber value="${item.oypdPrice}" />" name="totalPrc">
-
-
 							<span class="tx_cont"><span class="tx_num" id="totalPrice"></span>원</span>
-
-						</div>
+						</div> --%>
 						<br>
 						<hr>
 						<br>
-				
 							<button type="button" onclick="location.href='javascript:goPurchase(<c:out value="${item.oypdSeq}"/>)'" class="btn btn-success">바로구매</button>
-					
+							<button type="button" onclick="shareKakaotalk();" class="btn" style="background-color:#FFE227; color:#1A1A1A;">카카오톡 공유하기</button>
 					</div>
 				</div>
 				<br>
@@ -519,16 +507,13 @@ a {
 							<div id="pagination"></div>
 						</div>
 					</div>
-
 				</div>
-
 				<ul class="nav nav-tabs-p">
 					<li class="nav-item nav-item-p"><a class="nav-link active" aria-current="page" href="#">상품설명</a></li>
 					<li class="nav-item nav-item-p"><a class="nav-link" href="#">구매정보</a></li>
 					<li class="nav-item nav-item-p"><a class="nav-link" href="#">리뷰</a></li>
 					<li class="nav-item nav-item-p"><a class="nav-link">Q&A</a></li>
 				</ul>
-
 				<div class="row row-detail">
 					<c:forEach items="${listUploaded}" var="itemUploaded"
 						varStatus="statusUploaded">
@@ -551,8 +536,6 @@ a {
 				</div>
 			</div>
 		</main>
-
-
 		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -565,19 +548,10 @@ a {
 				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
 			</footer>
 		</div>
-
-
-
-
-
-
 	</form>
-
-	<script
-		src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+	<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=09c29750f01b8ca73dc6135b998baf4b&libraries=services"></script>
 	<script>
 		// 마커를 담을 배열입니다
@@ -720,19 +694,12 @@ a {
 				// 해당 장소에 인포윈도우에 장소명을 표시합니다
 				// mouseout 했을 때는 인포윈도우를 닫습니다
 				(function(marker, title) {
-					kakao.maps.event.addListener(marker, 'mouseover',
-							function() {
-								displayInfowindow(marker, title);
-							});
 
-					kakao.maps.event.addListener(marker, 'mouseout',
-							function() {
-								infowindow.close();
-							});
 
-					itemEl.onmouseover = function() {
+			
+			/* 		itemEl.onmouseover = function() {
 						displayInfowindow(marker, title);
-					};
+					}; */
 
 					itemEl.onmouseout = function() {
 						infowindow.close();
@@ -888,17 +855,44 @@ a {
 			}
 			 
 		}
-/*		var oliveCount = document.getElementById("result").value; */
+		
+		var oliveCount = document.getElementById("result").value;
 		var price1 = <c:out value="${item.oyspSalePrice}"/>;
 		var totalPrice = (${item.oyspSalePrice*item.result});
 /* 		var totalPrice = (price1*oliveCount); */
 	
 		/* 화면에 보여지는 부분 */
 		$("#totalPrice").text(totalPrice.toLocaleString());
-		
 		$("#rtCount").val(oliveCount);
-		$("#rtPoint").val(finalPoint);	  
 
+		var olive = '<c:out value="${item.oypdName}"/>';
+		var seq = '<c:out value="${item.oypdSeq}"/>';
+
+		function shareKakaotalk() {
+		    Kakao.init("09c29750f01b8ca73dc6135b998baf4b");      // 사용할 앱의 JavaScript 키를 설정
+		    Kakao.Link.sendDefault({
+		          objectType:"feed"
+		        , content : {
+		              title: "이 상품 어떠세요?"   // 콘텐츠의 타이틀
+		            , description: "추천상품 : " + olive + "\n" // 콘텐츠 상세설명
+		            , imageUrl: "https://ifh.cc/g/mRNCMB.png"   // 썸네일 이미지
+		            , link : {
+		                 mobileWebUrl: "http://54.180.116.208/allLive/allLiveDetail?oypdSeq=" + seq // 모바일 카카오톡에서 사용하는 웹 링크 URL
+		                  ,webUrl:"http://54.180.116.208/allLive/allLiveDetail?oypdSeq=" + seq // PC버전 카카오톡에서 사용하는 웹 링크 URL
+		            }
+		    
+		        }
+		        , buttons : [
+		            {
+		                  title:" 상품 보러가기 "    // 버튼 제목
+		                , link : {
+		                     mobileWebUrl:"http://54.180.116.208/allLive/allLiveDetail?oypdSeq=" + seq  // 모바일 카카오톡에서 사용하는 웹 링크 URL
+		                   ,webUrl:"http://54.180.116.208/allLive/allLiveDetail?oypdSeq=" + seq // PC버전 카카오톡에서 사용하는 웹 링크 URL
+		                }
+		            }
+		        ]
+		    });
+		}
 		
 	</script>
 </body>

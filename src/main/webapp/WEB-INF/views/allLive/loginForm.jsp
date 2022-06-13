@@ -94,14 +94,14 @@ a {
 							<!-- kakao -->
 							<a href="javascript:kakaoLogin()">
 							<img src="/resources/user/image/kako.png"></a>
-							<!-- apple -->
-							<a href=""><img src="/resources/user/image/aple.png"></a>
+							<!-- <!-- apple -->
+							<a href=""><img src="/resources/user/image/aple.png"></a> -->
 							<!-- facebook -->
-							<button class="btn btn-facebook" type="button" id="btn-facebook" onclick="fnFbCustomLogin();">
+						<!-- 	<button class="btn btn-facebook" type="button" id="btn-facebook" onclick="fnFbCustomLogin();">
 								<img src="/resources/user/image/facebookicon.png">
-							</button>
-							<!-- google -->
-							<button class="btn btn-lg" id="GgCustomLogin" onclick="javascript:void(0)">구글</button>
+							</button> -->
+					<!-- 		<!-- google -->
+							<button class="btn btn-lg" id="GgCustomLogin" onclick="javascript:void(0)">구글</button> -->
 							<!-- naver -->
 							<div class="col-auto linksq" style="margin-left: auto;" onclick="location.href='${url}';">
 								<div id="naver_id_login" style="display: none;"></div>

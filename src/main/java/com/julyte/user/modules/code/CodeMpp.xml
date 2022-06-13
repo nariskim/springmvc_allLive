@@ -9,10 +9,11 @@
 		type="com.julyte.user.modules.code.Code"></resultMap>
 
 	<select id="selectListForCache" resultMap="resultMapObj">
+
 		SELECT
 		oycdSeq
 		, oycdName
-		, oycgSeq 
+		, oycgSeq
 		FROM
 		oyCode
 		WHERE 1=1

@@ -279,7 +279,6 @@ main {
 							<div id="passwordHelpBlock" class="form-text"></div>
 						</div>
 					</div>
-
 					<div class="row">
 						<div class="col-12 col-sm-4 col-lg-2"
 							style="margin-top: 20px; margin-bottom: 20px;">
@@ -301,14 +300,12 @@ main {
 								<c:forEach items="${codeGender}" var="itemGender"
 									varStatus="statusGender">
 									<option value="<c:out value="${itemGender.oycdSeq}"/>"
-										<c:if test="${item.oymbGenderCd eq itemGender.oycdSeq }">selected</c:if>><c:out
-											value="${itemGender.oycdName}" /></option>
+										<c:if test="${item.oymbGenderCd eq itemGender.oycdSeq }">selected</c:if>>
+										<c:out value="${itemGender.oycdName}" /></option>
 								</c:forEach>
 							</select>
 						</div>
 					</div>
-
-
 					<div class="row">
 						<div class="col-12 col-sm-4 col-lg-2"
 							style="margin-top: 20px; margin-bottom: 20px;">
@@ -323,18 +320,16 @@ main {
 									<c:forEach items="${codeJoinQna}" var="itemJoinQna"
 										varStatus="statusJoinQna">
 										<option value="<c:out value="${itemJoinQna.oycdSeq}"/>"
-											<c:if test="${item.oyjqQuestionCd eq itemJoinQna.oycdSeq }">selected</c:if>><c:out
-												value="${itemJoinQna.oycdName}" /></option>
+											<c:if test="${item.oyjqQuestionCd eq itemJoinQna.oycdSeq }">selected</c:if>>
+											<c:out value="${itemJoinQna.oycdName}" /></option>
 									</c:forEach>
 								</select>
 							</div>
 						</div>
-						<div class="col-12 col-sm-4 col-lg-2"
-							style="margin-top: 20px; margin-bottom: 20px;">
+						<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 							<label for="formFile" class="form-label">비밀번호 답변</label>
 						</div>
-						<div class="col-12 col-sm-8 col-lg-4"
-							style="margin-top: 20px; margin-bottom: 20px;">
+						<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 							<input type="text" class="form-control" id="oyjqAnswer"
 								name="oyjqAnswer" placeholder="비밀번호 힌트 답">
 						</div>

@@ -202,7 +202,7 @@ dl>dt:before {
 
 <body>
 
-	<form id="allLiveOrder" name="allLiveOrder" method="post">
+	<form id="allLiveOrder" name="allLiveOrder" method="post" action="/allLive/allLiveSuccess">
 	<input type="hidden" id="oypdSeq" name="oypdSeq" value="<c:out value="${item.oypdSeq}"/>">
 	<input type="hidden" id="rtCount" name="rtCount">
 	<input type="hidden" id="rtFinalPrice" name="rtFinalPrice">
@@ -243,8 +243,6 @@ dl>dt:before {
 							<div class="col-12">
 								<select class="form-select" aria-label="Default select example">
 									<option selected>기본배송지1</option>
-									<option selected>기본배송지2</option>
-									<option selected>기본배송지3</option>
 								</select>
 							</div>
 						</div>
@@ -259,7 +257,7 @@ dl>dt:before {
 					<div class="col-3 headname">받는분</div>
 					<div class="col-9 contents">
 						<div class="input-group">
-							<input type="text" class="form-control" id="oymaTitle" name="oymaTitle" value="">
+							<input type="text" class="form-control" id="oymbName" name="oymbName" value="<c:out value="${item.oymbName}"/>">
 
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value="" id="" name="">

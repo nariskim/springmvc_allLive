@@ -79,13 +79,15 @@ public class AllLiveController {
 	@RequestMapping(value = "/allLive/allLiveOrder")
 	public String allLiveOrder(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model, HttpSession httpSession) throws Exception {
 
+		vo.setOymbSeq((String) httpSession.getAttribute("sessSeq"));
+		System.out.println("(String) httpSession.getAttribute(\"sessSeq\"):" + (String) httpSession.getAttribute("sessSeq"));
+		
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
 		List<AllLive> list = service.selectListUploaded(vo);
 		model.addAttribute("listUploaded", list);
 
-		vo.setOymbSeq((String) httpSession.getAttribute("sessSeq"));
 		AllLive rt2 = service.selectOneMember(vo);
 		model.addAttribute("item", rt2);
 
@@ -104,6 +106,12 @@ public class AllLiveController {
 	public String loginForm() throws Exception {
 
 		return "/allLive/loginForm";
+	}
+
+	@RequestMapping(value = "/allLive/allLiveSuccess")
+	public String allLiveSuccess() throws Exception {
+		
+		return "/allLive/allLiveSuccess";
 	}
 
 	@ResponseBody

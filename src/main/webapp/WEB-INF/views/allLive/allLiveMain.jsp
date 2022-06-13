@@ -145,7 +145,7 @@ dl>dt:before {
 
 <body>
 
-	<form id="allLiveMain" name="allLiveMain" method="post">
+	<form id="allLiveMain" name="allLiveMain" method="get">
 		<input type="hidden" id="oypdSeq" name="oypdSeq">
 
 		<%@include file="../include/pageHeader.jsp"%>
