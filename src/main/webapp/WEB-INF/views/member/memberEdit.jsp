@@ -17,7 +17,7 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
     <!-- Page Title -->
-    <title>All Live Young</title>
+    <title>All Live Young</title>9
 
 
 <link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">

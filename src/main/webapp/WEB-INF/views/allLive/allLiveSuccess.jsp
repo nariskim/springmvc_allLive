@@ -216,7 +216,7 @@ a {
 					<td colspan="2"
 						style="text-align: left; padding: 0; vertical-align: middle;"><b
 						style="margin-left: 140px;"><c:out
-								value="${itemMember.kbmmName}" /></b></td>
+								value="${itemMember.oymbName}" /></b></td>
 				</tr>
 				<tr>
 					<td
@@ -225,7 +225,7 @@ a {
 					<td colspan="2"
 						style="text-align: left; padding: 0; vertical-align: middle;">
 						<b style="margin-left: 140px;"> <c:set var="numberPhone"
-								value="${item.oymbNumberFull}" /> <c:choose>
+								value="${item.oympNumber}" /> <c:choose>
 								<c:when test="${fn:length(numberPhone) eq 10 }">
 									<c:out value="${fn:substring(numberPhone,0,3)}" />
 									- <c:out value="${fn:substring(numberPhone,3,6)}" />
@@ -247,7 +247,7 @@ a {
 					<td colspan="2"
 						style="text-align: left; padding: 0; vertical-align: middle;">
 						<b style="margin-left: 140px;"><c:out
-								value="${itemMember.oymaZipcode}" /></b>
+								value="${itemMember.oymaZipCode}" /></b>
 					</td>
 				</tr>
 				<tr>
@@ -291,8 +291,7 @@ a {
 						href="/allLive/allLiveMain" style="margin-right: 10px;">
 							<button type="button" class="btn btn-success btn-lg mb-4">홈
 								화면으로</button>
-					</a> <img src="/resources/xdmin/image/kakaoicon.png" role="button"
-						onclick="shareKakaotalk();" style="margin-bottom: 23px;"></td>
+					</a> </td>
 				</tr>
 				<tr style="background-color: #FFE488; border: 1px solid #FFE488;">
 					<td
@@ -301,7 +300,7 @@ a {
 					</td>
 					<td colspan="2"
 						style="text-align: left; padding-bottom: 30px; padding-top: 30px; font-size: 16px;">
-						교환/반품/환불의 경우 규정을 확인해주시기 바랍니다.</br> 기타 다른 문의 사항이 있을 시 서점으로 문의주시기 바랍니다.
+						교환/반품/환불의 경우 규정을 확인해주시기 바랍니다.</br> 기타 다른 문의 사항이 있을 시 매장으로 문의주시기 바랍니다.
 						(1500-1000)
 					</td>
 				</tr>

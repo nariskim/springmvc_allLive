@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.julyte.user.common.constants.Constants;
+import com.julyte.user.modules.code.CodeServiceImpl;
 import com.julyte.user.modules.naver.NaverLoginBO;
 
 @Controller
@@ -59,8 +60,8 @@ public class AllLiveController {
 		List<AllLive> list = service.selectListUploaded(vo);
 		model.addAttribute("listUploaded", list);
 
-		model.addAttribute("rtCount",dto.getResult());
-		
+		model.addAttribute("rtCount", dto.getResult());
+
 		return "/allLive/allLiveDetail";
 	}
 
@@ -77,11 +78,13 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveOrder")
-	public String allLiveOrder(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model, HttpSession httpSession) throws Exception {
+	public String allLiveOrder(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model, HttpSession httpSession)
+			throws Exception {
 
 		vo.setOymbSeq((String) httpSession.getAttribute("sessSeq"));
-		System.out.println("(String) httpSession.getAttribute(\"sessSeq\"):" + (String) httpSession.getAttribute("sessSeq"));
-		
+		System.out.println(
+				"(String) httpSession.getAttribute(\"sessSeq\"):" + (String) httpSession.getAttribute("sessSeq"));
+
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
@@ -89,16 +92,19 @@ public class AllLiveController {
 		model.addAttribute("listUploaded", list);
 
 		AllLive rt2 = service.selectOneMember(vo);
-		model.addAttribute("item", rt2);
+		model.addAttribute("item2", rt2);
 
 		List<AllLive> list2 = service.selectListPhone(vo);
 		model.addAttribute("listPhone", list2);
-		
+
 		List<AllLive> list3 = service.selectListEmail(vo);
 		model.addAttribute("listEmail", list3);
-
-		model.addAttribute("rtCount",dto.getResult());
 		
+		model.addAttribute("codeTelecom", CodeServiceImpl.selectListCachedCode("9"));
+		model.addAttribute("codeEmail", CodeServiceImpl.selectListCachedCode("11"));
+
+		model.addAttribute("rtCount", dto.getResult());
+
 		return "/allLive/allLiveOrder";
 	}
 
@@ -109,8 +115,29 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveSuccess")
-	public String allLiveSuccess() throws Exception {
+	public String allLiveSuccess(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model, HttpSession httpSession)
+			throws Exception {
+
+		vo.setOymbSeq((String) httpSession.getAttribute("sessSeq"));
+
+		List<AllLive> list = service.selectListUploaded(vo);
+		model.addAttribute("listUploaded", list);
+
+		AllLive rt = service.selectOne(vo);
+		model.addAttribute("item", rt);
+
+		AllLive rt2 = service.selectOneMember(vo);
+		model.addAttribute("itemMember", rt2);
+
+		model.addAttribute("codeTelecom", CodeServiceImpl.selectListCachedCode("9"));
+		model.addAttribute("codeEmail", CodeServiceImpl.selectListCachedCode("11"));
 		
+		model.addAttribute("rtCount", dto.getRtCount());
+		model.addAttribute("rtFinalPrice", dto.getRtFinalPrice());
+		model.addAttribute("rtPoint", dto.getRtPoint());
+		model.addAttribute("rtCoupon", dto.getRtCoupon());
+		model.addAttribute("rtPayment", dto.getRtPayment());
+
 		return "/allLive/allLiveSuccess";
 	}
 
@@ -140,13 +167,14 @@ public class AllLiveController {
 		return returnMap;
 	}
 
+//	카카오로그인
 	@ResponseBody // 카카오 로그인
-	@RequestMapping(value = "/allLive/KakaoProc")
+	@RequestMapping(value = "/allLive/KakaoProc", method = { RequestMethod.GET, RequestMethod.POST })
 	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession)
 			throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
-		System.out.println(name);
+		System.out.println("카카오 " + name);
 		httpSession.setAttribute("sessName", name);
 		httpSession.setAttribute("sessId", "카카오 회원입니다");
 		httpSession.setAttribute("sessSeq", "카카오 회원입니다");

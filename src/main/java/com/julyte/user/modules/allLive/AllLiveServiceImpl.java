@@ -17,7 +17,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 
 	@Override
 	public AllLive selectOneMember(AllLiveVo vo) throws Exception {
-		return dao.selectOne(vo);
+		return dao.selectOneMember(vo);
 	}
 
 	@Override

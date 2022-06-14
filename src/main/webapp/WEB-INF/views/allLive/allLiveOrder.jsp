@@ -8,6 +8,7 @@
 <jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl" />
 <jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl" />
 
+
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -23,6 +24,16 @@
 
 
 <style>
+
+/* 	#floatMenu {
+		position: absolute;
+		right: 200px;
+		width: 310px;
+		border: 2px solid #c8c8c8; 
+		border-radius: 15px;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	} */
 .container-header {
 	margin-top: 1%;
 	margin-bottom: 3%;
@@ -232,7 +243,7 @@ dl>dt:before {
 					<div class="col-9 contents">
 						<div class="row">
 							<div class="col-6 form-check">
-								<input class="form-check-input" type="radio" name="address" id="addressDefault" value="1">
+								<input class="form-check-input" type="radio" name="address" id="addressDefault" value="1" checked>
 								<label class="form-check-label" for="addressDefault"> 기본배송지 </label>
 							</div>
 							<div class="col-6 form-check">
@@ -240,76 +251,112 @@ dl>dt:before {
 								<label class="form-check-label" for="addressNew"> 신규배송지 </label>
 							</div>
 
-							<div class="col-12">
-								<select class="form-select" aria-label="Default select example">
-									<option selected>기본배송지1</option>
-								</select>
-							</div>
 						</div>
 					</div>
 
 
 					<div class="col-3 headname">배송지명</div>
-					<div class="col-9 contents"></div>
+					<div class="col-9 contents"><input type="text" class="form-control" id="oymaTitle" name="oymaTitle" value="<c:out value="${item2.oymaTitle}"/>">
+					</div>
 
 
 
 					<div class="col-3 headname">받는분</div>
 					<div class="col-9 contents">
-						<div class="input-group">
-							<input type="text" class="form-control" id="oymbName" name="oymbName" value="<c:out value="${item.oymbName}"/>">
 
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="" name="">
-								<label class="form-check-label" for="defaultCheck1"> 주문자정보와 동일 </label>
+						<div class="row">
+							<div class="col-6">
+								<input type="text" class="form-control" id="oymbName" name="oymbName" value="<c:out value="${item2.oymbName}"/>">
+							</div>
+							<div class="col-4"></div>
+							<div class="col-2">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="" id="orderer" name="orderer" checked>
+									<label class="form-check-label" for="orderer"> 주문자정보와 동일 </label>
+								</div>
 							</div>
 						</div>
 					</div>
 
+<c:forEach items="${listPhone}" var="item"
+						varStatus="statusTelecom">
+						<c:choose>
+							<c:when test="${item.oympDefaultNy eq 1}">
+								<c:set var="oympNumber1" value="${item.oympNumber}" />
+								<c:set var="oympTelecom1" value="${item.oympTelecomCd}" />
+							</c:when>
+							<c:when test="${item.oympDefaultNy eq 0}">
+								<c:set var="oympNumber0" value="${item.oympNumber}" />
+								<c:set var="oympTelecom0" value="${item.oympTelecomCd}" />
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
 
-					<div class="col-3 headname">연락처1</div>
+
+					<div class="col-3 headname">휴대전화</div>
 					<div class="col-9 contents">
-						<div class="input-group">
-							<input type="hidden" id="oympDefaultNyArray0" name="oympDefaultNyArray" value="1">
-							<select class="form-select" id="oympTelecomCdArray0" name="oympTelecomCdArray">
-								<option selected>::통신사::</option>
-								<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
-									<option value="<c:out value="${itemTelecom.oycdSeq}"/>" <c:if test="${oympTelecom1 eq itemTelecom.oycdSeq }">selected</c:if>>
-										<c:out value="${itemTelecom.oycdName}" /></option>
-								</c:forEach>
-							</select>
-							<input type="text" class="form-control" id="oympNumberArray0" name="oympNumberArray" value="<c:out value="${oympNumber1}"/>" placeholder="'-'제외">
-						</div>
+							<div class="input-group">
+									<select class="form-select" id="oympTelecomCd"
+										name="oympTelecomCd">
+										<option value="" selected>::통신사::</option>
+										<c:forEach items="${codeTelecom}" var="itemTelecom"
+											varStatus="statusTelecom">
+											<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
+												<c:if test="${oympTelecom1 eq itemTelecom.oycdSeq}">selected</c:if>><c:out
+													value="${itemTelecom.oycdName}" /></option>
+										</c:forEach>
+									</select> <input type="text" class="form-control" id="oympNumber"
+										name="oympNumber" value="<c:out value="${oympNumber1}"/>">
+								</div>
 					</div>
 
+<c:forEach items="${listEmail}" var="item" varStatus="statusEmail">
+							<c:choose>
+								<c:when test="${item.oymeDefaultNy eq 1}">
+									<c:set var="oymeAccount1" value="${item.oymeEmailAccount}" />
+									<c:set var="oymeDomain1" value="${item.oymeEmailDomainCd}" />
+								</c:when>
+								<c:when test="${item.oymeDefaultNy eq 0}">
+									<c:set var="oymeAccount0" value="${item.oymeEmailAccount}" />
+									<c:set var="oymeDomain0" value="${item.oymeEmailDomainCd}" />
+								</c:when>
+								<c:otherwise></c:otherwise>
+							</c:choose>
+						</c:forEach>
 
-					<div class="col-3 headname">연락처2</div>
+					<div class="col-3 headname">이메일</div>
 					<div class="col-9 contents">
 						<div class="input-group">
-							<input type="hidden" id="oympDefaultNyArray1" name="oympDefaultNyArray" value="0">
-							<select class="form-select" id="oympTelecomCdArray1" name="oympTelecomCdArray">
-								<option selected>::통신사::</option>
-								<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
-									<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
-										<c:if test="${oympTelecom0 eq itemTelecom.oycdSeq }">selected</c:if>>
-										<c:out value="${itemTelecom.oycdName}" /></option>
-								</c:forEach>
-							</select> <input type="text" class="form-control" id="oympNumberArray1" name="oympNumberArray" value="<c:out value="${oympNumber0}"/>" placeholder="'-'제외">
-						</div>
+									<input type="text" class="form-control" id="oymeEmailAccount"
+										name="oymeEmailAccount"
+										value="<c:out value="${oymeAccount1}"/>"> <span
+										class="input-group-text">@</span> <select class="form-select"
+										id="oymeEmailDomainCd" name="oymeEmailDomainCd">
+										<option value="" selected>::선택::
+											<c:forEach items="${codeEmail}" var="itemEmail"
+												varStatus="statusEmail">
+												<option value="<c:out value="${itemEmail.oycdSeq}"/>"
+													<c:if test="${oymeDomain1 eq itemEmail.oycdSeq}">selected</c:if>><c:out
+														value="${itemEmail.oycdName}" /></option>
+											</c:forEach>
+									</select>
+								</div>
 					</div>
 
 					<div class="col-3 headname">주소</div>
 					<div class="col-9 contents">
 						<div class=input-group>
-							<input type="text" class="form-control" id="oymaZipCode" name="oymaZipCode" placeholder="우편번호" value="<c:out value="${item.oymaZipCode}"/>">
-							<input type="button" class="btn btn-outline-dark" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+							<input type="text" class="form-control" id="oymaZipCode" name="oymaZipCode" placeholder="우편번호" value="<c:out value="${item2.oymaZipCode}"/>">
+							<input type="button" class="btn btn-outline-dark" onclick="sample6_execDaumPostcode();" value="우편번호 찾기">
 						</div>
-						<input type="text" class="form-control" id="oymaAddress1" name="oymaAddress1" placeholder="주소" value="<c:out value="${item.oymaAddress1}"/>">
-						<input type="text" class="form-control" id="oymaAddress2" name="oymaAddress2" placeholder="상세주소" value="<c:out value="${item.oymaAddress2}"/>">
-						<input type="text" class="form-control" id="oymaAddress3" name="oymaAddress3" placeholder="참고항목" value="<c:out value="${item.oymaAddress3}"/>">
+						<input type="text" class="form-control" id="oymaAddress1" name="oymaAddress1" placeholder="주소" value="<c:out value="${item2.oymaAddress1}"/>">
+						<input type="text" class="form-control" id="oymaAddress2" name="oymaAddress2" placeholder="상세주소" value="<c:out value="${item2.oymaAddress2}"/>">
+						<input type="text" class="form-control" id="oymaAddress3" name="oymaAddress3" placeholder="참고항목" value="<c:out value="${item2.oymaAddress3}"/>">
+						<input class="field form-control" id="oymaLat" name="oymaLat" />
+						<input class="field form-control" id="oymaLng" name="oymaLng" />
 					</div>
 				</div>
-
 
 				<br>
 				<div class="row">
@@ -493,7 +540,7 @@ dl>dt:before {
 					<div class="col-3">
 						<div class="row">
 							<div class="col-12 headline">최종 결제정보</div>
-							<div class="row totalbox">
+							<div class="row totalbox" id="floatMenu">
 								<div class="col-6" style="margin-bottom: 20px; margin-top: 20px;">총 상품금액</div>
 								<div class="col-6" style="margin-bottom: 20px; margin-top: 20px;"><span id="totalPrice"></span>원</div>
 
@@ -599,15 +646,134 @@ dl>dt:before {
 			</footer>
 		</div>
 	</form>
+	
+	<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- iamport.payment.js -->
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	<!-- Jquery ui -->
 	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 
 
 	<script type="text/javascript">
+	
+/*  	$(document).ready(function() {
+		// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+		var floatPosition = parseInt($("#floatMenu").css('top'));
+		// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
+		$(window).scroll(function() {
+			// 현재 스크롤 위치를 가져온다.
+			var scrollTop = $(window).scrollTop();
+			var newPosition = scrollTop + floatPosition + "px";
+			// 애니메이션 없이 바로 따라감
+			 $("#floatMenu").css('top', newPosition);
+			 
+			$("#floatMenu").stop().animate({
+				"top" : newPosition
+			}, 500);
+		}).scroll();
+	}); 
+	 */
+	function sample6_execDaumPostcode() {
+		new daum.Postcode(
+				{
+					oncomplete : function(data) {
+						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+						// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+						var addr = ''; // 주소 변수
+						var extraAddr = ''; // 참고항목 변수
+
+						//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+							addr = data.roadAddress;
+						} else { // 사용자가 지번 주소를 선택했을 경우(J)
+							addr = data.jibunAddress;
+						}
+
+						// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+						if (data.userSelectedType === 'R') {
+							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+							if (data.bname !== ''
+									&& /[동|로|가]$/g.test(data.bname)) {
+								extraAddr += data.bname;
+							}
+							// 건물명이 있고, 공동주택일 경우 추가한다.
+							if (data.buildingName !== ''
+									&& data.apartment === 'Y') {
+								extraAddr += (extraAddr !== '' ? ', '
+										+ data.buildingName
+										: data.buildingName);
+							}
+							// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+							if (extraAddr !== '') {
+								extraAddr = ' (' + extraAddr + ')';
+							}
+							// 조합된 참고항목을 해당 필드에 넣는다.
+							document.getElementById("oymaAddress3").value = extraAddr;
+
+						} else {
+							document.getElementById("oymaAddress3").value = '';
+						}
+
+						// 우편번호와 주소 정보를 해당 필드에 넣는다.
+						document.getElementById('oymaZipCode').value = data.zonecode;
+						document.getElementById("oymaAddress1").value = addr;
+						// 커서를 상세주소 필드로 이동한다.
+						document.getElementById("oymaAddress2").focus();
+
+						/* lat and lng from address s */
+
+						// 주소-좌표 변환 객체를 생성
+						var geocoder = new daum.maps.services.Geocoder();
+
+						// 주소로 좌표를 검색
+						geocoder.addressSearch(
+										addr,
+										function(result, status) {
+
+											// 정상적으로 검색이 완료됐으면,
+											if (status == daum.maps.services.Status.OK) {
+
+												document.getElementById('oymaLat').value = result[0].x;
+												document.getElementById('oymaLng').value = result[0].y;
+
+												/* 						
+														var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+												
+														y = result[0].x;
+														x = result[0].y;
+												
+														// 결과값으로 받은 위치를 마커로 표시합니다.
+														var marker = new daum.maps.Marker({
+															map: map,
+															position: coords
+														});
+												
+														// 인포윈도우로 장소에 대한 설명표시
+														var infowindow = new daum.maps.InfoWindow({
+															content: '<div style="width:150px;text-align:center;padding:5px 0;">좌표위치</div>'
+														});
+												
+														infowindow.open(map,marker);
+												
+														// 지도 중심을 이동
+														map.setCenter(coords);
+														
+														document.getElementById("ifmaLatArray0").value=x;
+														document.getElementById("ifmaLngArray0").value=y;
+												 */
+											}
+										});
+						/* lat and lng from address e */
+					}
+				}).open();
+	}
 	<!-- 아임포트 카카오 결제 API -->
 		$(document).ready(function() {
 			$("#iamportPayment").click(function() {
