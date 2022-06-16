@@ -278,8 +278,7 @@ dl>dt:before {
 						</div>
 					</div>
 
-<c:forEach items="${listPhone}" var="item"
-						varStatus="statusTelecom">
+					<c:forEach items="${listPhone}" var="item" varStatus="statusTelecom">
 						<c:choose>
 							<c:when test="${item.oympDefaultNy eq 1}">
 								<c:set var="oympNumber1" value="${item.oympNumber}" />
@@ -297,33 +296,30 @@ dl>dt:before {
 					<div class="col-3 headname">휴대전화</div>
 					<div class="col-9 contents">
 							<div class="input-group">
-									<select class="form-select" id="oympTelecomCd"
-										name="oympTelecomCd">
+									<select class="form-select" id="oympTelecomCd" name="oympTelecomCd">
 										<option value="" selected>::통신사::</option>
-										<c:forEach items="${codeTelecom}" var="itemTelecom"
-											varStatus="statusTelecom">
+										<c:forEach items="${codeTelecom}" var="itemTelecom" varStatus="statusTelecom">
 											<option value="<c:out value="${itemTelecom.oycdSeq}"/>"
-												<c:if test="${oympTelecom1 eq itemTelecom.oycdSeq}">selected</c:if>><c:out
-													value="${itemTelecom.oycdName}" /></option>
+												<c:if test="${oympTelecom1 eq itemTelecom.oycdSeq}">selected</c:if>>
+												<c:out value="${itemTelecom.oycdName}" /></option>
 										</c:forEach>
-									</select> <input type="text" class="form-control" id="oympNumber"
-										name="oympNumber" value="<c:out value="${oympNumber1}"/>">
+									</select> <input type="text" class="form-control" id="oympNumber" name="oympNumber" value="<c:out value="${oympNumber1}"/>">
 								</div>
 					</div>
 
-<c:forEach items="${listEmail}" var="item" varStatus="statusEmail">
-							<c:choose>
-								<c:when test="${item.oymeDefaultNy eq 1}">
-									<c:set var="oymeAccount1" value="${item.oymeEmailAccount}" />
-									<c:set var="oymeDomain1" value="${item.oymeEmailDomainCd}" />
-								</c:when>
-								<c:when test="${item.oymeDefaultNy eq 0}">
-									<c:set var="oymeAccount0" value="${item.oymeEmailAccount}" />
-									<c:set var="oymeDomain0" value="${item.oymeEmailDomainCd}" />
-								</c:when>
-								<c:otherwise></c:otherwise>
-							</c:choose>
-						</c:forEach>
+					<c:forEach items="${listEmail}" var="item" varStatus="statusEmail">
+						<c:choose>
+							<c:when test="${item.oymeDefaultNy eq 1}">
+								<c:set var="oymeAccount1" value="${item.oymeEmailAccount}" />
+								<c:set var="oymeDomain1" value="${item.oymeEmailDomainCd}" />
+							</c:when>
+							<c:when test="${item.oymeDefaultNy eq 0}">
+								<c:set var="oymeAccount0" value="${item.oymeEmailAccount}" />
+								<c:set var="oymeDomain0" value="${item.oymeEmailDomainCd}" />
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
 
 					<div class="col-3 headname">이메일</div>
 					<div class="col-9 contents">
@@ -342,7 +338,7 @@ dl>dt:before {
 											</c:forEach>
 									</select>
 								</div>
-					</div>
+							</div>
 
 					<div class="col-3 headname">주소</div>
 					<div class="col-9 contents">

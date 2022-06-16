@@ -126,6 +126,9 @@ public class AllLiveController {
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 
+		List<AllLive> list2 = service.selectListPhone(vo);
+		model.addAttribute("listPhone", list2);
+		
 		AllLive rt2 = service.selectOneMember(vo);
 		model.addAttribute("itemMember", rt2);
 

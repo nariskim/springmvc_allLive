@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -8,10 +7,8 @@
 
 
 
-<jsp:useBean id="CateServiceImpl"
-	class="com.julyte.user.modules.cate.CateServiceImpl" />
-<jsp:useBean id="CodeServiceImpl"
-	class="com.julyte.user.modules.code.CodeServiceImpl" />
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl" />
 
 <!doctype html>
 <html lang="ko">
@@ -20,11 +17,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap CSS -->
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 <link rel="stylesheet"
@@ -161,7 +155,7 @@ a {
 							<c:if test="${itemUploaded.defaultNy eq 1}">
 								<img
 									src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"
-									style="height: 250px; margin-left: 150px;" />
+									style="height: 400px; margin: 30px; margin-right:50px;" />
 							</c:if>
 						</c:forEach></td>
 					<td style="text-align: middle; padding: 0; vertical-align: middle;">구매번호</td>
@@ -218,15 +212,31 @@ a {
 						style="margin-left: 140px;"><c:out
 								value="${itemMember.oymbName}" /></b></td>
 				</tr>
+				
+				<c:forEach items="${listPhone}" var="item"
+						varStatus="statusTelecom">
+						<c:choose>
+							<c:when test="${item.oympDefaultNy eq 1}">
+								<c:set var="oympNumber1" value="${item.oympNumber}" />
+								<c:set var="oympTelecom1" value="${item.oympTelecomCd}" />
+							</c:when>
+							<c:when test="${item.oympDefaultNy eq 0}">
+								<c:set var="oympNumber0" value="${item.oympNumber}" />
+								<c:set var="oympTelecom0" value="${item.oympTelecomCd}" />
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
+				
 				<tr>
 					<td
 						style="text-align: left; padding: 0; vertical-align: middle; height: 37px;"><span
 						style="margin-left: 240px;">핸드폰번호</span></td>
 					<td colspan="2"
 						style="text-align: left; padding: 0; vertical-align: middle;">
-						<b style="margin-left: 140px;"> <c:set var="numberPhone"
-								value="${item.oympNumber}" /> <c:choose>
-								<c:when test="${fn:length(numberPhone) eq 10 }">
+						<b style="margin-left: 140px;"> <c:set var="numberPhone" value="${oympNumber1}" />
+							<c:choose>
+								<c:when test="${fn:length(numberPhone) eq 10}">
 									<c:out value="${fn:substring(numberPhone,0,3)}" />
 									- <c:out value="${fn:substring(numberPhone,3,6)}" />
 									- <c:out value="${fn:substring(numberPhone,6,10)}" />
