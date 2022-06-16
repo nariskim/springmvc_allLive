@@ -140,7 +140,12 @@ public class AllLiveController {
 		model.addAttribute("rtPoint", dto.getRtPoint());
 		model.addAttribute("rtCoupon", dto.getRtCoupon());
 		model.addAttribute("rtPayment", dto.getRtPayment());
-
+		model.addAttribute("rtAddress1", dto.getOymaAddress1());
+		model.addAttribute("rtAddress2", dto.getOymaAddress2());
+		model.addAttribute("rtZipcode", dto.getOymaZipCode());
+		model.addAttribute("rtName", dto.getRtName());
+		model.addAttribute("rtNumber", dto.getRtNumber());
+		
 		return "/allLive/allLiveSuccess";
 	}
 
@@ -173,13 +178,15 @@ public class AllLiveController {
 //	카카오로그인
 	@ResponseBody // 카카오 로그인
 	@RequestMapping(value = "/allLive/KakaoProc", method = { RequestMethod.GET, RequestMethod.POST })
-	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession, Model model) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
-		System.out.println("카카오 " + name);
+		System.out.println("카카오 "+name);
 		httpSession.setAttribute("sessName", name);
-		httpSession.setAttribute("sessId", "카카오 회원입니다");
-		httpSession.setAttribute("sessSeq", "카카오 회원입니다");
+		httpSession.setAttribute("sessId","0");
+		httpSession.setAttribute("sessSeq","0");
+		
+
 
 		returnMap.put("item", "success");
 
@@ -188,8 +195,7 @@ public class AllLiveController {
 
 	@ResponseBody // 구글 로그인
 	@RequestMapping(value = "/allLive/GoogleProc")
-	public Map<String, Object> GloginProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession)
-			throws Exception {
+	public Map<String, Object> GloginProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		System.out.println(name);

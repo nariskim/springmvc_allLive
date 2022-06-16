@@ -14,6 +14,11 @@ public class AllLive {
 	private String rtPoint;
 	private Date rtDoA;
 	private String rtPayment;
+	private String rtAddress1;
+	private String rtAddress2;
+	private String rtZipCode;
+	private String rtName;
+	private String rtNumber;
 
 	public int getResult() {
 		return result;
@@ -77,6 +82,46 @@ public class AllLive {
 
 	public void setRtPayment(String rtPayment) {
 		this.rtPayment = rtPayment;
+	}
+
+	public String getRtAddress1() {
+		return rtAddress1;
+	}
+
+	public void setRtAddress1(String rtAddress1) {
+		this.rtAddress1 = rtAddress1;
+	}
+
+	public String getRtAddress2() {
+		return rtAddress2;
+	}
+
+	public void setRtAddress2(String rtAddress2) {
+		this.rtAddress2 = rtAddress2;
+	}
+
+	public String getRtZipCode() {
+		return rtZipCode;
+	}
+
+	public void setRtZipCode(String rtZipCode) {
+		this.rtZipCode = rtZipCode;
+	}
+
+	public String getRtName() {
+		return rtName;
+	}
+
+	public void setRtName(String rtName) {
+		this.rtName = rtName;
+	}
+
+	public String getRtNumber() {
+		return rtNumber;
+	}
+
+	public void setRtNumber(String rtNumber) {
+		this.rtNumber = rtNumber;
 	}
 
 	private String tableName;

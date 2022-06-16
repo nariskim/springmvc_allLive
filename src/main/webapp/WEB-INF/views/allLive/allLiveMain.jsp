@@ -1,25 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
-<jsp:useBean id="CateServiceImpl"
-	class="com.julyte.user.modules.cate.CateServiceImpl" />
-<jsp:useBean id="CodeServiceImpl"
-	class="com.julyte.user.modules.code.CodeServiceImpl" />
+
+<jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl" />
+<jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl" />
 
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
@@ -150,8 +145,7 @@ dl>dt:before {
 
 		<%@include file="../include/pageHeader.jsp"%>
 
-		<div id="carouselExampleIndicators" class="carousel slide"
-			data-bs-ride="carousel">
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselExampleIndicators"
 					data-bs-slide-to="0" class="active" aria-current="true"

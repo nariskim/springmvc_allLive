@@ -192,6 +192,7 @@ a {
 					<th colspan="3"
 						style="height: 120px; font-size: 25px; text-align: center; vertical-align: middle; font-weight: bold; color: #5E6B9F;"> 구매자 정보 </th>
 				</tr>
+				<c:if test="${sessSeq ne '0'}">
 				<tr>
 					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
 					<span style="margin-left: 240px;">이름</span></td>
@@ -258,6 +259,77 @@ a {
 						<c:out value="${itemMember.oymaAddress2}" /></b>
 					</td>
 				</tr>
+				</c:if>
+				<!-- 카카로 로그인 -->
+				<c:if test="${sessSeq eq '0'}">
+				<tr>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 240px;">이름</span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+					<b style="margin-left: 140px;">
+					<c:out value="${rtName}"/></b></td>
+				</tr>
+				
+				<c:forEach items="${listPhone}" var="item" varStatus="statusTelecom">
+						<c:choose>
+							<c:when test="${item.oympDefaultNy eq 1}">
+								<c:set var="oympNumber1" value="${item.oympNumber}" />
+								<c:set var="oympTelecom1" value="${item.oympTelecomCd}" />
+							</c:when>
+							<c:when test="${item.oympDefaultNy eq 0}">
+								<c:set var="oympNumber0" value="${item.oympNumber}" />
+								<c:set var="oympTelecom0" value="${item.oympTelecomCd}" />
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
+				
+				<tr>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 240px;">핸드폰번호</span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+						<b style="margin-left: 140px;"> <c:set var="numberPhone" value="${rtNumber}"/>
+							<c:choose>
+								<c:when test="${fn:length(numberPhone) eq 10}">
+									<c:out value="${fn:substring(numberPhone,0,3)}" />
+									- <c:out value="${fn:substring(numberPhone,3,6)}" />
+									- <c:out value="${fn:substring(numberPhone,6,10)}" />
+								</c:when>
+								<c:otherwise>
+									<c:out value="${fn:substring(numberPhone,0,3)}" />
+									- <c:out value="${fn:substring(numberPhone,3,7)}" />
+									- <c:out value="${fn:substring(numberPhone,7,11)}" />
+								</c:otherwise>
+							</c:choose>
+					</b>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 240px;">주소</span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+						<b style="margin-left: 140px;">
+						<c:out value="${rtZipcode}"/></b>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 140px;"></span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+						<b style="margin-left: 140px;">
+						<c:out value="${rtAddress1}"/></b>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 140px;"></span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+						<b style="margin-left: 140px;">
+						<c:out value="${rtAddress2}"/></b>
+					</td>
+				</tr>
+				</c:if>
+				
 				<tr style="height: 50px;">
 					<td colspan="3"></td>
 				</tr>

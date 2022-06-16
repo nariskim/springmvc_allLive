@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -12,11 +11,8 @@
 <head> 
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
   
     <!-- Favicons -->
     <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->

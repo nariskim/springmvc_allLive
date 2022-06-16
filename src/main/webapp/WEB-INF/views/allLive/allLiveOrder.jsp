@@ -228,7 +228,8 @@ dl>dt:before {
 				</div>
 
 				<div class="row">
-
+<!-- 일반로그인 -->
+				<c:if test="${sessSeq ne '0'}">
 					<div class="col-10 headline">배송지정보</div>
 					<div class="col-2 headline2">
 						<div class="form-check">
@@ -352,6 +353,46 @@ dl>dt:before {
 			
 					</div>
 				</div>
+</c:if>
+<!-- 카카오 로그인일 경우 -->
+				<c:if test="${sessSeq eq '0'}">
+					<div style="width: 90%;" class="mx-auto mt-5">
+						<p class="mb-4" style="font-weight: bold;  font-size: 23px;"> 배송정보</p>
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">국내배송</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">해외배송</button>
+							</li>
+						</ul>
+						<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<table class="table mb-4 mx-auto">
+								<tr>
+									<th class="w-25">이름</th>
+									<td><input type="text" class="form-control form-control-sm" id="rtName" name="rtName" value="<c:out value="${sessName}"/>"></td>
+								</tr>
+								<tr>
+									<th>휴대폰번호</th>
+									<td><input type="text" class="form-control form-control-sm" id="rtNumber" name="rtNumber"></td>
+								</tr>
+								<tr>
+									<th>주소</th>
+									<td><div class="input-group">
+										<input class="form-control form-control-sm mb-1" type="text" id="oymaZipCode" name="oymaZipCode" placeholder="우편번호" readonly>
+										<button class="btn btn-outline-secondary btn-sm mb-1" type="button" id="btnAddress"><i class= "fas fa-search"></i></button>
+										<button class="btn btn-outline-secondary btn-sm mb-1" type="button" id="btnClear"><i class= "fas fa-solid fa-x"></i></button>
+									</div>
+									<input type="text" class="form-control form-control-sm mb-1" id="oymaAddress1" name="oymaAddress1"  placeholder="기본주소"> 
+									<input type="text" class="form-control form-control-sm mb-1" id="oymaAddress2" name="oymaAddress2"  placeholder="상세주소"> </td>
+								</tr>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+						</div>
+					</div>
+				</c:if>				
 
 				<br>
 				<div class="row">
@@ -766,6 +807,14 @@ dl>dt:before {
 				$("#allLiveOrder").submit();
 			});
 		}
+	
+	<c:if test="${sessSeq eq '0'}">
+		rtName = document.getElementById("rtName").value;
+		rtNumber = document.getElementById("rtNumber").value;
+		$("#rtName").val(rtName);  
+		$("#rtNumber").val(rtNumber);  
+	</c:if>
+		
 		
 		var price1 = <c:out value="${item.oyspSalePrice}"/>;
 		var oliveCount = ${rtCount};
