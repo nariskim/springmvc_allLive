@@ -131,90 +131,76 @@ a {
 			style="width: 1000px; margin-left: auto; margin-right: auto; margin-top: 50px;">
 			<thead class="table" style="background-color: #FFE488; color: white;">
 				<tr>
-					<th colspan="3"
-						style="font-size: 20px; width: 980px; text-align: center; vertical-align: center;">구매
-						완료</th>
+					<th colspan="3" style="font-size: 20px; width: 980px; text-align: center; vertical-align: center;"> 구매 완료 </th>
 				</tr>
 			</thead>
 			<tbody
 				style="font-size: 16px; background-color: #F2F2F1; border: 1px solid #F2F2F1;">
 				<tr>
-					<th colspan="3"
-						style="height: 150px; font-size: 35px; text-align: center; vertical-align: middle;">
-						구매가 완료 되었습니다.</th>
+					<th colspan="3" style="height: 150px; font-size: 35px; text-align: center; vertical-align: middle;"> 구매가 완료 되었습니다. </th>
 				</tr>
 				<tr>
-					<td colspan="3"
-						style="height: 80px; font-size: 25px; text-align: center; vertical-align: center; font-weight: bold; color: #5E6B9F;">상품정보</td>
+					<td colspan="3" style="height: 80px; font-size: 25px; text-align: center; vertical-align: center; font-weight: bold; color: #5E6B9F;"> 상품정보 </td>
 				</tr>
 				<tr></tr>
 				<tr>
-					<td rowspan="7" width="40%"><c:forEach
-							items="${listUploaded}" var="itemUploaded"
-							varStatus="statusUploaded">
+					<td rowspan="7" width="40%">
+					<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
 							<c:if test="${itemUploaded.defaultNy eq 1}">
-								<img
-									src="<c:out value="${itemUploaded.path}"/><c:out value="${itemUploaded.uuidName}"/>"
-									style="height: 400px; margin: 30px; margin-right:50px;" />
+								<img src="<c:out value="${itemUploaded.path}"/>
+								<c:out value="${itemUploaded.uuidName}"/>" style="height: 350px; margin: 30px;" />
 							</c:if>
 						</c:forEach></td>
-					<td style="text-align: middle; padding: 0; vertical-align: middle;">구매번호</td>
-					<td style="text-align: left; padding: 0; vertical-align: middle;"><b>NARIPROJECT</b></td>
+					<td style="text-align: middle; padding: 0; vertical-align: middle;"> 구매번호 </td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"><b> NARIPROJECT </b></td>
 				</tr>
 				<tr>
-					<td style="text-align: left; padding: 0; vertical-align: middle;">상품명</td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"> 상품명 </td>
 					<td style="text-align: left; padding: 0; vertical-align: middle;"><b><c:out
 								value="${item.oypdName}" /></b></td>
 				</tr>
 				<tr>
-					<td style="text-align: left; padding: 0; vertical-align: middle;">수량</td>
-					<td style="text-align: left; padding: 0; vertical-align: middle;"><b>${rtCount}
-							개</b></td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"> 수량 </td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"><b> ${rtCount} 개 </b></td>
 				</tr>
 				<tr>
 					<c:set var="ymd" value="<%=new java.util.Date()%>" />
-					<td style="text-align: left; padding: 0; vertical-align: middle;">구매날짜</td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"> 구매날짜 </td>
 					<td style="text-align: left; padding: 0; vertical-align: middle;">
-						<b><fmt:formatDate value="${ymd}" pattern="YYYY" />년 <fmt:formatDate
-								value="${ymd}" pattern="MM" />월 <fmt:formatDate value="${ymd}"
-								pattern="dd" />일</b>
+						<b><fmt:formatDate value="${ymd}" pattern="YYYY" /> 년 <fmt:formatDate
+								value="${ymd}" pattern="MM" /> 월 <fmt:formatDate value="${ymd}"
+								pattern="dd" /> 일 </b>
 					</td>
 				</tr>
 				<tr>
-					<td style="text-align: left; padding: 0; vertical-align: middle;">적립포인트</td>
-					<td style="text-align: left; padding: 0; vertical-align: middle;"><b><fmt:formatNumber
-								value="${rtPoint}" /> P</b></td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"> 적립포인트 </td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"><b><fmt:formatNumber value="${rtPoint}" /> P </b></td>
 				</tr>
 
 				<tr>
-					<td style="text-align: left; padding: 0; vertical-align: middle;">결제방식</td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"> 결제방식 </td>
 					<td style="text-align: left; padding: 0; vertical-align: middle;">
-						<b>카카오페이</b>
+						<b> 카카오페이 </b>
 					</td>
 				</tr>
 				<tr>
-					<td style="text-align: left; padding: 0; vertical-align: middle;">결제금액</td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"> 결제금액 </td>
 					<td style="text-align: left; padding: 0; vertical-align: middle;"><b
-						style="color: red;"><fmt:formatNumber value="${rtFinalPrice}" />
-							원</b></td>
+						style="color: red;"> <fmt:formatNumber value="${rtFinalPrice}" /> 원 </b></td>
 				</tr>
 				<tr>
 					<th colspan="3"
-						style="height: 120px; font-size: 25px; text-align: center; vertical-align: middle; font-weight: bold; color: #5E6B9F;">구매자
-						정보</th>
+						style="height: 120px; font-size: 25px; text-align: center; vertical-align: middle; font-weight: bold; color: #5E6B9F;"> 구매자 정보 </th>
 				</tr>
 				<tr>
-					<td
-						style="text-align: left; padding: 0; vertical-align: middle; height: 37px;"><span
-						style="margin-left: 240px;">이름</span></td>
-					<td colspan="2"
-						style="text-align: left; padding: 0; vertical-align: middle;"><b
-						style="margin-left: 140px;"><c:out
-								value="${itemMember.oymbName}" /></b></td>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 240px;">이름</span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+					<b style="margin-left: 140px;">
+					<c:out value="${itemMember.oymbName}" /></b></td>
 				</tr>
 				
-				<c:forEach items="${listPhone}" var="item"
-						varStatus="statusTelecom">
+				<c:forEach items="${listPhone}" var="item" varStatus="statusTelecom">
 						<c:choose>
 							<c:when test="${item.oympDefaultNy eq 1}">
 								<c:set var="oympNumber1" value="${item.oympNumber}" />
@@ -229,11 +215,9 @@ a {
 					</c:forEach>
 				
 				<tr>
-					<td
-						style="text-align: left; padding: 0; vertical-align: middle; height: 37px;"><span
-						style="margin-left: 240px;">핸드폰번호</span></td>
-					<td colspan="2"
-						style="text-align: left; padding: 0; vertical-align: middle;">
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 240px;">핸드폰번호</span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
 						<b style="margin-left: 140px;"> <c:set var="numberPhone" value="${oympNumber1}" />
 							<c:choose>
 								<c:when test="${fn:length(numberPhone) eq 10}">
@@ -251,43 +235,35 @@ a {
 					</td>
 				</tr>
 				<tr>
-					<td
-						style="text-align: left; padding: 0; vertical-align: middle; height: 37px;"><span
-						style="margin-left: 240px;">주소</span></td>
-					<td colspan="2"
-						style="text-align: left; padding: 0; vertical-align: middle;">
-						<b style="margin-left: 140px;"><c:out
-								value="${itemMember.oymaZipCode}" /></b>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 240px;">주소</span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+						<b style="margin-left: 140px;">
+						<c:out value="${itemMember.oymaZipCode}" /></b>
 					</td>
 				</tr>
 				<tr>
-					<td
-						style="text-align: left; padding: 0; vertical-align: middle; height: 37px;"><span
-						style="margin-left: 140px;"></span></td>
-					<td colspan="2"
-						style="text-align: left; padding: 0; vertical-align: middle;">
-						<b style="margin-left: 140px;"><c:out
-								value="${itemMember.oymaAddress1}" /></b>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 140px;"></span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+						<b style="margin-left: 140px;">
+						<c:out value="${itemMember.oymaAddress1}" /></b>
 					</td>
 				</tr>
 				<tr>
-					<td
-						style="text-align: left; padding: 0; vertical-align: middle; height: 37px;"><span
-						style="margin-left: 140px;"></span></td>
-					<td colspan="2"
-						style="text-align: left; padding: 0; vertical-align: middle;">
-						<b style="margin-left: 140px;"><c:out
-								value="${itemMember.oymaAddress2}" /></b>
+					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
+					<span style="margin-left: 140px;"></span></td>
+					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
+						<b style="margin-left: 140px;">
+						<c:out value="${itemMember.oymaAddress2}" /></b>
 					</td>
 				</tr>
 				<tr style="height: 50px;">
 					<td colspan="3"></td>
 				</tr>
 
-				<tr
-					style="background-color: #F2F2F1; text-align: left; vertical-align: center; font-size: 15px; border: 1px solid #F2F2F1;">
-					<td colspan="3"
-						style="border-top: 1px solid #F2F2F1; padding: 30px; padding-left: 150px; padding-bottom: 20px;">
+				<tr style="background-color: #F2F2F1; text-align: left; vertical-align: center; font-size: 15px; border: 1px solid #F2F2F1;">
+					<td colspan="3" style="border-top: 1px solid #F2F2F1; padding: 30px; padding-left: 150px; padding-bottom: 20px;">
 						<b>ALL LIVE YOUNG 을 이용해주셔서 감사합니다.</b></br>
 						<p style="margin-top: 10px;">
 							출고일은 영업일 기준 1~3일이내로 출고됩니다.</br> 택배 신청 물량이 많거나 해당도로의 교통사정, 지역에 따라 다소

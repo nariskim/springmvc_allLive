@@ -173,8 +173,7 @@ public class AllLiveController {
 //	카카오로그인
 	@ResponseBody // 카카오 로그인
 	@RequestMapping(value = "/allLive/KakaoProc", method = { RequestMethod.GET, RequestMethod.POST })
-	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession)
-			throws Exception {
+	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, AllLive dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
 		System.out.println("카카오 " + name);

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,7 +15,6 @@
 
 <!-- jquery ui CSS -->
 <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
-
 
 <script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
@@ -36,8 +34,7 @@ a {
 </style>
 </head>
 <body>
-	<form id="loginForm" name="loginForm" method="post"
-		action="/durian/loginForm">
+	<form id="loginForm" name="loginForm" method="post" action="/durian/loginForm">
 		<!--  -->
 
 		<div class="position-absolute top-50 start-50 translate-middle">
@@ -92,7 +89,9 @@ a {
 					<div class="col-3"></div>
 					<div class="col-4">
 						<div class="input-group" style="text-align: right;">
-							<a href=""><img src=""></a> <a href=""><img src=""></a>
+									<!-- kakao -->
+							<a href="javascript:kakaoLogin()"> <img
+								src="/resources/user/image/kako.png"></a>
 						</div>
 						
 
@@ -131,7 +130,7 @@ a {
 						async : true,
 						cache : false,
 						type : "post",
-						url : "/durian/loginProc",
+						url : "/member/loginProc",
 						data : {
 							"oymbId" : $("#oymbId").val(),
 							"oymbPassword" : $("#oymbPassword").val()
@@ -149,6 +148,64 @@ a {
 						}
 					});
 				});
+		
+		
+		<!-- 카카오 로그인-->
+		window.Kakao.init('6f78c252f58489b7d8095745c904b8af');	// 자바스크립트 키 입력
+		console.log(Kakao.isInitialized()); 
+		
+		function kakaoLogin() {
+		   window.Kakao.Auth.login({
+		       scope: 'profile_nickname', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+		       success: function(response) {
+		           console.log(response) // 로그인 성공하면 받아오는 데이터
+		           window.Kakao.API.request({ // 사용자 정보 가져오기 
+		               url: '/v2/user/me',
+		               success: (res) => {
+		                   const kakao_account = res.kakao_account; 
+		                   const profile_nickname = res.properties.nickname; 
+		                   console.log(kakao_account)		// 받아온 정보들을 출력
+		                   console.log(profile_nickname)		// 받아온 정보들을 출력
+		                   $.ajax({
+		           			async: true 
+		           			,cache: false
+		           			,type: "post"
+		           			,url: "/member/KakaoProc"
+		           			,data : {"oymbName" : profile_nickname}
+		           			,success: function(response) {
+		           				if(response.item == "success") {
+		           					location.href = "/index/indexView";
+		           				} else {
+		           					alert("카카오 로그인 실패");
+		           				}
+		           			}
+		           			,error : function(jqXHR, textStatus, errorThrown){
+		           				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		           			}
+		           		})
+		               }
+		           });
+		       }, fail: function(err) { //다른 로그인 일때 실행
+		   	    
+		   	    $.ajax({
+		       		
+		       		type: "post"
+		       		,url: "/allLive/logoutProc"
+		       		,success: function(response) {
+		       			if(response.rt == "success") {
+		       				location.href = "/allLive/KakaoProc";
+		       			} 
+		       		}
+		       		,error : function(jqXHR, textStatus, errorThrown){
+		       			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		       		}
+		       		
+		       	}); 
+		     }
+		     
+		   })
+
+		}
 	</script>
 
 </body>

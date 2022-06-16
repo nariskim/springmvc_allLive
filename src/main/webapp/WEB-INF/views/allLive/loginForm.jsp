@@ -158,96 +158,7 @@ a {
 	<!-- kakao -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
-	<!-- facebook -->
-	<script async defer crossorigin="anonymous"
-		src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v13.0&appId=4427218787378399"
-		nonce="JutAfaKH"></script>
-
-	<!-- &autoLogAppEvents=1 -->
-	<script async defer crossorigin="anonymous"
-		src="https://connect.facebook.net/en_US/sdk.js"></script>
-
-	<!-- google -->
-	<script src="https://apis.google.com/js/platform.js?onload=init" async
-		defer></script>
-
-
-	<!-- naver -->
-	<script type="text/javascript"
-		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-		charset="utf-8"></script>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-
-
-
 	<script type="text/javascript">
-
-
-<!-- 카카오 로그인-->
-window.Kakao.init('6f78c252f58489b7d8095745c904b8af');	// 자바스크립트 키 입력
-console.log(Kakao.isInitialized()); 
-function kakaoLogin() {
-   window.Kakao.Auth.login({
-       scope: 'profile_nickname', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-       success: function(response) {
-           console.log(response) // 로그인 성공하면 받아오는 데이터
-           window.Kakao.API.request({ // 사용자 정보 가져오기 
-               url: '/v2/user/me',
-               success: (res) => {
-                   const kakao_account = res.kakao_account; 
-                   const profile_nickname = res.properties.nickname; 
-                   console.log(kakao_account)		// 받아온 정보들을 출력
-                   console.log(profile_nickname)		// 받아온 정보들을 출력
-                   $.ajax({
-           			async: true 
-           			,cache: false
-           			,type: "post"
-           			,url: "/allLive/KakaoProc"
-           			,data : {"oymbName" : profile_nickname}
-           			,success: function(response) {
-           				if(response.item == "success") {
-           					location.href = "/index/indexView";
-           				} else {
-           					alert("카카오 로그인 실패");
-           				}
-           			}
-           			,error : function(jqXHR, textStatus, errorThrown){
-           				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-           			}
-           		})
-               }
-           });
-       }, fail: function(err) { //다른 로그인 일때 실행
-   	    
-   	    $.ajax({
-       		
-       		type: "post"
-       		,url: "/allLive/logoutProc"
-       		
-       		,success: function(response) {
-       			if(response.rt == "success") {
-       				location.href = "/allLive/KakaoProc";
-       			} 
-       		}
-       		,error : function(jqXHR, textStatus, errorThrown){
-       			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-       		}
-       		
-       	}); 
-     }
-     
-   })
-
-}
-	
-
-</script>
-
-
-
-	<script>
 		$("#btnLogin").on(
 				"click",
 				function() {
@@ -276,7 +187,63 @@ function kakaoLogin() {
 						}
 					});
 				});
+		
+		<!-- 카카오 로그인-->
+		window.Kakao.init('6f78c252f58489b7d8095745c904b8af');	// 자바스크립트 키 입력
+		console.log(Kakao.isInitialized()); 
+		
+		function kakaoLogin() {
+		   window.Kakao.Auth.login({
+		       scope: 'profile_nickname', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+		       success: function(response) {
+		           console.log(response) // 로그인 성공하면 받아오는 데이터
+		           window.Kakao.API.request({ // 사용자 정보 가져오기 
+		               url: '/v2/user/me',
+		               success: (res) => {
+		                   const kakao_account = res.kakao_account; 
+		                   const profile_nickname = res.properties.nickname; 
+		                   console.log(kakao_account)		// 받아온 정보들을 출력
+		                   console.log(profile_nickname)		// 받아온 정보들을 출력
+		                   $.ajax({
+		           			async: true 
+		           			,cache: false
+		           			,type: "post"
+		           			,url: "/allLive/KakaoProc"
+		           			,data : {"oymbName" : profile_nickname}
+		           			,success: function(response) {
+		           				if(response.item == "success") {
+		           					location.href = "/index/indexView";
+		           				} else {
+		           					alert("카카오 로그인 실패");
+		           				}
+		           			}
+		           			,error : function(jqXHR, textStatus, errorThrown){
+		           				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		           			}
+		           		})
+		               }
+		           });
+		       }, fail: function(err) { //다른 로그인 일때 실행
+		   	    
+		   	    $.ajax({
+		       		
+		       		type: "post"
+		       		,url: "/allLive/logoutProc"
+		       		,success: function(response) {
+		       			if(response.rt == "success") {
+		       				location.href = "/allLive/KakaoProc";
+		       			} 
+		       		}
+		       		,error : function(jqXHR, textStatus, errorThrown){
+		       			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		       		}
+		       		
+		       	}); 
+		     }
+		     
+		   })
 
+		}
 	</script>
 
 </body>

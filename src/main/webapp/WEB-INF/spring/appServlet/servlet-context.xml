@@ -34,9 +34,9 @@
 		<interceptor>
 			<mapping path="/**" />
 			<exclude-mapping path="/resources/**" />
-			<exclude-mapping path="/allLive/loginForm" />
+			<exclude-mapping path="/allLive/loginForm"/>
 			<exclude-mapping path="/allLive/loginProc" />
-			<exclude-mapping path="/allLive/GoogleProc" />
+			<exclude-mapping path="/allLive/KakaoProc" />
 			<exclude-mapping path="/allLive/allLiveMain" />
 			<exclude-mapping path="/allLive/allLiveDetail" />
 			<exclude-mapping path="/rest/**" />

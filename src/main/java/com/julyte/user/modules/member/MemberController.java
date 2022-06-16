@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -481,7 +482,22 @@ public class MemberController {
 		returnMap.put("rt", "success");
 		return returnMap;
 	}
-
+	
+//	카카오로그인
+	@ResponseBody //카카오 로그인
+	@RequestMapping(value = "/member/KakaoProc", method = { RequestMethod.GET, RequestMethod.POST })
+	public Map<String, Object> KakaoProc(@RequestParam("oymbName") String name, Member dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		System.out.println("카카오 "+name);
+		httpSession.setAttribute("sessName", name);
+		httpSession.setAttribute("sessId","카카오 회원입니다");
+		httpSession.setAttribute("sessSeq","카카오 회원입니다");
+		
+		returnMap.put("item", "success");
+		
+		return returnMap;	
+	}
 	
 	/* oracle */
 	@RequestMapping(value = "/member/memberListOracle")
