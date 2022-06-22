@@ -11,10 +11,9 @@
 				<ul class="nav justify-content-end">
 
 					<c:if test="${sessSeq ne null}">
-						<li class="nav-item"><a class="nav-link text-dark" href="#"><c:out
+						<li class="nav-item"><a class="nav-link text-dark"><c:out
 									value="${sessName }" /> 님, 반갑습니다👋</a></li>
-						<li class="nav-item"><a class="nav-link text-dark"
-							href="javascript:goLogout();">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link text-dark" role="button" id="btnLogout">로그아웃</a></li>
 					</c:if>
 					<c:if test="${sessSeq eq null}">
 						<li class="nav-item"><a class="nav-link text-dark" href="#">회원가입</a>
@@ -24,15 +23,15 @@
 					</c:if>
 
 
-					<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
+					<li class="nav-item"><a class="nav-link text-dark">장바구니</a>
 					</li>
-					<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
+					<li class="nav-item"><a class="nav-link text-dark">주문배송</a>
 					</li>
-					<li class="nav-item"><a class="nav-link text-dark" href="#">고객센터</a>
+					<li class="nav-item"><a class="nav-link text-dark">고객센터</a>
 					</li>
-					<li class="nav-item"><a class="nav-link text-dark" href="#">매장안내</a>
+					<li class="nav-item"><a class="nav-link text-dark">매장안내</a>
 					</li>
-					<li class="nav-item"><a class="nav-link text-dark" href="#">Global</a>
+					<li class="nav-item"><a class="nav-link text-dark">Global</a>
 					</li>
 
 				</ul>
@@ -109,19 +108,20 @@
 		<br>
 
 		<ul class="nav nav-top">
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">랭킹</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">기초화장품</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">더모
-					코스메틱</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">메이크업
-					· 네일</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">바디케어</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">헤어케어</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">향수/디퓨저</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">미용소품</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">남성</a></li>
-			<li class="nav-item nav-item-top"><a class="nav-link" href="#">건강/위생용품</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link" href="/allLive/allLiveMain">랭킹</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">기초화장품</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">더모 코스메틱</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">메이크업 · 네일</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">바디케어</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">헤어케어</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">향수/디퓨저</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">미용소품</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">남성</a></li>
+			<li class="nav-item nav-item-top"><a class="nav-link">건강/위생용품</a></li>
 		</ul>
+	
+	
+	
 	</div>
 
 

@@ -109,10 +109,8 @@ dl>dt:before {
 }
 
 #mainimage {
-	width: auto !important;
-	max-width: 215px;
-	height: auto !important;
-	max-height: 215px;
+	width: 215px;
+	height: 215px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -245,17 +243,7 @@ dl>dt:before {
 		<main>
 
 			<div class="container-main">
-				<br>
-				<div class="row mb-2">
-					<div class="col-md-6">
-						<a href="#"><img src="/resources/user/image/todayShip.jpg"
-							class="img-fluid" width="100%"></a>
-					</div>
-					<div class="col-md-6">
-						<a href="#"><img src="/resources/user/image/topCoupon.jpg"
-							class="img-fluid" width="100%"></a>
-					</div>
-				</div>
+				
 
 				<div class="row mb-2">
 					<div class="col-12">
@@ -300,7 +288,7 @@ dl>dt:before {
 													<c:out value="${item.oypdName}" />
 												</div>
 											</div>
-											<br>
+											<br><br>
 											<div class="priceB">
 												<fmt:formatNumber value="${item.oypdPrice}" />
 												<span>원</span>
@@ -701,21 +689,7 @@ dl>dt:before {
 
 
 		<div class="container-footer">
-			<footer class="py-3 my-4">
-				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Home</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Features</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">FAQs</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">About</a></li>
-				</ul>
-				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
-			</footer>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %><!-- footer -->
 		</div>
 	</form>
 	<script
@@ -734,6 +708,27 @@ dl>dt:before {
 			$("#allLiveMain").attr("action", "/allLive/allLiveDetail");
 			$("#allLiveMain").submit();
 		}
+		
+		$("#btnLogout").on("click", function(){
+			/* if(validation() == false) return false; */
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				/* ,data : { "mvmmId" : $("#mvmmId").val(), "mvmmPassword" : $("#mvmmPassword").val()} */
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/allLive/loginForm";
+					} else {
+						// by pass
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		});
 	</script>
 
 </body>

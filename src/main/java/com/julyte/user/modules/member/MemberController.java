@@ -9,8 +9,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -509,4 +516,60 @@ public class MemberController {
 		return "member/memberListOracle";
 	}
 	
+	@RequestMapping("excelDownload")
+    public void excelDownload(MemberVo vo, HttpServletResponse httpServletResponse) throws Exception {
+		
+		vo.setScOptionDate(vo.getScOptionDate() == null ? 1 : vo.getScOptionDate());
+		vo.setScDateStart(vo.getScDateStart() == null
+				? UtilDateTime.calculateDayString(UtilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL)
+				: UtilDateTime.addNowTimeString(vo.getScDateStart()));
+		vo.setScDateEnd(vo.getScDateEnd() == null ? UtilDateTime.nowString()
+				: UtilDateTime.addNowTimeString(vo.getScDateEnd()));
+
+		vo.setParamsPaging(service.selectOneCount(vo));
+
+		if (vo.getTotalRows() > 0) {
+			List<Member> list = service.selectList(vo);
+//			List<?> list = service.selectList(vo);
+
+		
+		
+	//        Workbook wb = new HSSFWorkbook();
+	        Workbook wb = new XSSFWorkbook();
+	        Sheet sheet = wb.createSheet("첫번째 시트");
+	        Row row = null;
+	        Cell cell = null;
+	        int rowNum = 0;
+	
+	        // Header
+	        row = sheet.createRow(rowNum++);
+	        cell = row.createCell(0);
+	        cell.setCellValue("번호");
+	        cell = row.createCell(1);
+	        cell.setCellValue("이름");
+	        cell = row.createCell(2);
+	        cell.setCellValue("제목");
+	
+	        // Body
+	        
+	        for (int i=0; i<list.size(); i++) {
+	            row = sheet.createRow(rowNum++);
+	            cell = row.createCell(0);
+	            cell.setCellValue(String.valueOf(list.get(i).getOymbSeq()));
+	            cell = row.createCell(1);
+	            cell.setCellValue(list.get(i).getOymbName());
+	            cell = row.createCell(2);
+	            cell.setCellValue(i+"_title");
+	        }
+	
+	        // 컨텐츠 타입과 파일명 지정
+	        httpServletResponse.setContentType("ms-vnd/excel");
+	//        response.setHeader("Content-Disposition", "attachment;filename=example.xls");
+	        httpServletResponse.setHeader("Content-Disposition", "attachment;filename=example.xlsx");
+	
+	        // Excel File Output
+	        wb.write(httpServletResponse.getOutputStream());
+	        wb.close();
+		}
+    }
 }

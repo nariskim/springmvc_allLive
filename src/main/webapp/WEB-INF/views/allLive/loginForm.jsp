@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -19,19 +18,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <!-- jquery ui CSS -->
-<link
-	href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css"
-	rel="stylesheet">
+<link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
 <!-- Favicons -->
-<link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png"
-	type="image/x-icon" />
+<link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" />
 <!-- olive 아이콘 -->
 <!-- Page Title -->
 <title>All Live Young</title>
@@ -97,7 +90,7 @@ a {
 				<div class="row">
 					<div class="col-5" style="font-size: 10px; text-align: left;">
 						<p>
-							카카오로 ALL LIVE YOUNG<br> 간편하게 시작하기
+							카카오로 <br> 간편하게 시작하기
 						</p>
 					</div>
 

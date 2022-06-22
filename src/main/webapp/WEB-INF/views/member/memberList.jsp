@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -173,8 +172,8 @@ main {
 			<header class="navbar navbar-dark sticky-top ml-auto">
 
 				<div class="col-auto col-sm-5">
-					<img src="/resources/xdmin/image/oliveimage.PNG" width="120%">
-				</div>
+					<a href=/member/memberList><img src="/resources/xdmin/image/oliveimage.PNG" width="120%">
+				</a></div>
 
 				<div class="col-auto d-md-none">
 
@@ -191,16 +190,17 @@ main {
 
 
 				</div>
-				<div class="col-10 col-sm-5"></div>
+				<div class="col-auto col-sm-5"></div>
 
 				<div class="col-auto col-sm-2">
 
 			<ul class="nav justify-content-end">
-							<li class="nav-item"><a class="nav-link text-dark" href="#"><c:out value="${sessName}"/>님 반갑습니다.</a>
-							</li>
-							<li class="nav-item"><a href="#" class="nav-link"><i
-						class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
-							<li class="nav-item"> </li>
+
+					<c:if test="${sessSeq ne null}">
+						<li class="nav-item"><a class="nav-link text-dark"><c:out
+									value="${sessName }" /> 님, 반갑습니다👋</a></li>
+						<li class="nav-item"><a class="nav-link text-dark" role="button" id="btnLogout">로그아웃</a></li>
+					</c:if>
 							
 						</ul>
 				</div>
@@ -360,8 +360,8 @@ main {
 										<c:if test="${vo.scOption eq 4 }">selected</c:if>>성별</option>
 									<option value="7"
 										<c:if test="${vo.scOption eq 4 }">selected</c:if>>연락처</option>
-									<option value="8"
-										<c:if test="${vo.scOption eq 4 }">selected</c:if>>이메일</option>
+									<%-- <option value="8"
+										<c:if test="${vo.scOption eq 4 }">selected</c:if>>이메일</option> --%>
 
 								</select>
 							</div>
@@ -380,7 +380,7 @@ main {
 								</button>
 							</div>
 							<div class="col-12 col-sm-12 col-lg-1">
-								<a href="/durian/durianList"><button type="button"
+								<a href="/member/memberList"><button type="button"
 										class="btn btn-secondary search-button">
 										<i class="fa-solid fa-rotate-right text-light"></i>
 									</button></a>
@@ -416,29 +416,30 @@ main {
 					</nav>
 
 					<div class="row">
-						<div class="col-9"></div>
-						<div class="col-3" style="text-aling: right;">
+						<div class="col-6"></div>
+						<div class="col-6" style="text-align: right;">
 							<button type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="회원삭제(임시)" id="uelete" name="uelete"
-								class="btn btn-outline-warning btn-lg">
-								<i class="fa-solid fa-user-minus"></i>
-							</button>
-							<button type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="회원삭제(영구)" id="btnSubmit_del" name="btnSubmit_del"
 								class="btn btn-outline-danger btn-lg">
-								<i class="fa-solid fa-user-xmark"></i>
+								<i class="fa-solid fa-user-minus"></i> 삭제
 							</button>
+							<!-- <button type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="회원삭제(영구)" id="btnSubmit_del" name="btnSubmit_del"
+								class="btn btn-outline-danger btn-lg">
+								<i class="fa-solid fa-user-xmark"></i> 삭제(영구)
+							</button> -->
 
-							<a href="javascript:goForm();">
-								<button type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="회원가입" class="btn btn-outline-success btn-lg">
-									<i class="fa-solid fa-user-plus"></i>
+							
+								<button type="button" onclick="javascript:goForm();" data-bs-toggle="tooltip" data-bs-placement="bottom" title="회원가입" class="btn btn-outline-success btn-lg">
+									<i class="fa-solid fa-user-plus"></i> 회원가입
 								</button>
-							</a>
-							<a href="javascript:goReg();">
-				<button type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="상품등록" class="btn btn-outline-primary btn-lg">
+							<!-- 엑셀버튼 -->
+							<button type="button" id="btnExcel" class="btn btn-warning" `data-bs-dismiss="modal">엑셀</button>
+
+							<!-- <button type="button" data-bs-toggle="tooltip" onclick="javascript:goReg();" data-bs-placement="bottom" title="상품등록" class="btn btn-outline-primary btn-lg">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2-heart-fill" viewBox="0 0 16 16">
   <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4h-8.5ZM8.5 4h6l.5.667V5H1v-.333L1.5 4h6V1h1v3ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-</svg>
-							</button>
-							</a>
+</svg> 상품등록
+							</button> -->
+							
 						</div>
 					</div>
 
@@ -459,7 +460,7 @@ main {
 								<th scope="col">아이디</th>
 								<th scope="col">성별</th>
 								<th scope="col">연락처</th>
-								<th scope="col">이메일</th>
+								<!-- <th scope="col">이메일</th> -->
 								<th scope="col">삭제여부</th>
 								<th scope="col">최초접속</th>
 								<th scope="col">최근접속</th>
@@ -519,7 +520,7 @@ main {
 														<c:out value="${fn:substring(phoneNumber,7,11)}" />
 													</c:otherwise>
 												</c:choose></td>
-											<td><c:out value="${item.oymeEmailFull}" /></td>
+											<%-- <td><c:out value="${item.oymeEmailFull}" /></td> --%>
 											<td><c:choose>
 													<c:when test="${item.oymbDelNy eq 0 }">N</c:when>
 													<c:otherwise>Y</c:otherwise>
@@ -558,14 +559,10 @@ main {
 						varStatus="i">
 						<c:choose>
 							<c:when test="${i.index eq vo.thisPage}">
-								<li class="page-item active"><a class="page-link"
-									style="color: black;"
-									href="javascript:goPage(<c:out value='${i.index}'/>);">${i.index}</a></li>
+								<li class="page-item active"><a class="page-link" style="color: black;" href="javascript:goPage(<c:out value='${i.index}'/>);">${i.index}</a></li>
 							</c:when>
 							<c:otherwise>
-								<li class="page-item"><a class="page-link"
-									style="color: black;"
-									href="javascript:goPage(<c:out value='${i.index}'/>);">${i.index}</a></li>
+								<li class="page-item"><a class="page-link" style="color: black;" href="javascript:goPage(<c:out value='${i.index}'/>);">${i.index}</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -584,21 +581,7 @@ main {
 		</main>
 		<!--  -->
 		<div class="container">
-			<footer class="py-3 my-4">
-				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Home</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Features</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">FAQs</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">About</a></li>
-				</ul>
-				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
-			</footer>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %><!-- footer -->
 		</div>
 
 
@@ -610,12 +593,10 @@ main {
 	<script src="/resources/common/bootstrap/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="/resources/js/validation.js"></script>
 	<!-- jquery ui -->
-	<script
-		src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+	<script src="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
 
 	<script type="text/javascript">
@@ -681,10 +662,19 @@ main {
 			$("#formList").submit();
 		}
 
+		goReg = function() {
+			$("#formList").attr("action", "/allLive/allLiveReg");
+			$("#formList").submit();
+		}
+		
+		$("#btnExcel").click(function() {
+			$("#formList").attr("action", "/excelDownload").submit();
+		});
+		
 		$("#btnSubmit_del").on("click", function() {
 
-			alert("삭제?");
-			confirm("진짜 삭제? 복구 노노");
+			alert("삭제하시겠습니까?");
+			confirm("삭제시 삭제여부가 변경됩니다.");
 		});
 
 		$('#checkboxAll').click(function() {
@@ -707,7 +697,7 @@ main {
 
 		var checkboxSeqArray = [];
 		$("#uelete").on("click", function() {
-			var answer = confirm("데이터 삭제?");
+			var answer = confirm("삭제하시겠습니까?");
 
 			if (answer) {
 				$("input[name=checkboxSeq]:checked").each(function() { //체크되어있는지 확인하고 
@@ -724,6 +714,27 @@ main {
 
 		});
 
+		$("#btnLogout").on("click", function(){
+			/* if(validation() == false) return false; */
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				/* ,data : { "mvmmId" : $("#mvmmId").val(), "mvmmPassword" : $("#mvmmPassword").val()} */
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/allLive/loginForm";
+					} else {
+						// by pass
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		});
+		
 		/* $("#uelete").on("click" function(){
 		 $("input[name=checkboxSeq]:checked").each(Function(){
 		 checkboxArray.push($(this).val());

@@ -98,7 +98,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 
 		int j = 0;
 		for (MultipartFile multipartFile : dto.getFile0()) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImpl", "");
 			UtilUpload.upload(multipartFile, pathModule, dto);
 
 			dto.setTableName("oymbUploaded");
@@ -113,7 +113,7 @@ public class AllLiveServiceImpl implements AllLiveService {
 
 		j = 0;
 		for (MultipartFile multipartFile : dto.getFile1()) {
-			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImple", "");
+			String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceImpl", "");
 			UtilUpload.upload(multipartFile, pathModule, dto);
 
 			dto.setTableName("oymbUploaded");

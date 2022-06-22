@@ -24,7 +24,10 @@
 <script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <style type="text/css">
-
+.bigHeader {
+	margin-left: 6%;
+	margin-right: 6%;
+}
 main {
 	margin-top: 5%;
 	margin-bottom: 15%;
@@ -130,22 +133,18 @@ main {
 
 
 
-		<c:set var="codeGender"
-			value="${CodeServiceImpl.selectListCachedCode('2')}" />
-		<c:set var="codeJoinQna"
-			value="${CodeServiceImpl.selectListCachedCode('6')}" />
-		<c:set var="codeTelecom"
-			value="${CodeServiceImpl.selectListCachedCode('9')}" />
-		<c:set var="codeEmail"
-			value="${CodeServiceImpl.selectListCachedCode('11')}" />
-		<c:set var="codeGrade"
-			value="${CodeServiceImpl.selectListCachedCode('19')}" />
+		<c:set var="codeGender" value="${CodeServiceImpl.selectListCachedCode('2')}" />
+		<c:set var="codeJoinQna" value="${CodeServiceImpl.selectListCachedCode('6')}" />
+		<c:set var="codeTelecom" value="${CodeServiceImpl.selectListCachedCode('9')}" />
+		<c:set var="codeEmail" value="${CodeServiceImpl.selectListCachedCode('11')}" />
+		<c:set var="codeGrade" value="${CodeServiceImpl.selectListCachedCode('19')}" />
 
-		<div class="row">
-			<header class="navbar navbar-dark sticky-top bg-light ml-auto">
+		<!-- navbar s -->
+		<div class="row bigHeader">
+			<header class="navbar navbar-dark sticky-top ml-auto">
 
 				<div class="col-auto col-sm-5">
-					<img src="/resources/xdmin/image/oliveimage.PNG" width="600px">
+					<a href=/member/memberList><img src="/resources/xdmin/image/oliveimage.PNG" width="120%"></a>
 				</div>
 
 				<div class="col-auto d-md-none">
@@ -163,27 +162,33 @@ main {
 
 
 				</div>
-				<div class="col-10 col-sm-3"></div>
-				<div class="col-2 col-sm-3"></div>
+				<div class="col-auto col-sm-5"></div>
 
-				<div class="col-auto col-sm-1">
+				<div class="col-auto col-sm-2">
 
+			<ul class="nav justify-content-end">
 
-					<a href="#" class="nav-link"><i
-						class="fas fa-sign-out-alt text-danger fa-lg"></i></a>
-
+					<c:if test="${sessSeq ne null}">
+						<li class="nav-item"><a class="nav-link text-dark"><c:out
+									value="${sessName }" /> 님, 반갑습니다👋</a></li>
+						<li class="nav-item"><a class="nav-link text-dark" role="button" id="btnLogout">로그아웃</a></li>
+					</c:if>
+							
+						</ul>
 				</div>
 
 
 			</header>
 		</div>
 
+		<!-- navbar e -->
+
 
 
 		<div class="container-fluid">
 			<main>
 				<div class="row">
-					<br>
+					
 					<div class="container">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">회원 관리</a></li>
@@ -192,101 +197,78 @@ main {
 								조회</li>
 						</ol>
 
-						<br> <br> <br> <br> <br> <a
-							href="javascript:goList();">
-							<button type="button" id=""
+							<button type="button" onclick="javascript:goList();"
 								class="btn btn-outline-primary btn-lg">
-								<i class="fa-solid fa-users"></i>
+								<i class="fa-solid fa-users"></i> 리스트
 							</button>
-						</a> <a href="javascript:goEdit();">
-							<button type="button" id=""
+						
+						
+							<button type="button" onclick="javascript:goEdit();"
 								class="btn btn-outline-success btn-lg">
-								<i class="fa-solid fa-user-pen"></i>
+								<i class="fa-solid fa-user-pen"></i> 수정
 							</button>
-						</a> <a href="javascript:goDel();">
-							<button type="button" id="" class="btn btn-outline-danger btn-lg">
-								<i class="fa-solid fa-user-xmark"></i>
+						 
+<!-- 							<button type="button" onclick="javascript:goDel();"" class="btn btn-outline-danger btn-lg">
+								<i class="fa-solid fa-user-xmark"></i> 영구삭제
+							</button> -->
+						
+						
+							<button type="button" onclick="javascript:goHide();"
+								class="btn btn-outline-danger btn-lg">
+								<i class="fa-solid fa-user-minus"></i> 삭제
 							</button>
-						</a> <a href="javascript:goHide();">
-							<button type="button" id=""
-								class="btn btn-outline-warning btn-lg">
-								<i class="fa-solid fa-user-minus"></i>
-							</button>
-						</a> <br>
+						
+						<br>
 						<hr>
 						<br>
 
 						<div class="row">
-
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">이름 (한글)</label>
 							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="text" class="form-control" id="oymbName"
-									name="oymbName" value="<c:out value="${item.oymbName}"/>">
+							<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
+								<p><c:out value="${item.oymbName}"/></p>
 							</div>
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">이름 (영문)</label>
 							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="text" class="form-control" id="oymbNameEng"
-									name="oymbNameEng" value="<c:out value="${item.oymbNameEng}"/>">
+							<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
+								<p><c:out value="${item.oymbNameEng}"/></p>
 								<div id="NameEngHelpBlock" class="form-text">예시:김나리 'nr'</div>
 							</div>
-
 						</div>
-
 						<div class="row">
-
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">아이디</label>
 							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="text" class="form-control" id="oymbId"
-									name="oymbId" value="<c:out value="${item.oymbId}"/>">
+							<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
+								<p><c:out value="${item.oymbId}"/></p>
 							</div>
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">닉네임</label>
 							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="text" class="form-control" id="oymbNickName"
-									name="oymbNickName"
-									value="<c:out value="${item.oymbNickName}"/>">
+							<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
+								<p><c:out value="${item.oymbNickName}"/></p>
 							</div>
 
 						</div>
 
 						<div class="row">
 
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">비밀번호</label>
 							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 								<input type="password" id="oymbPassword" name="oymbPassword"
-									class="form-control" aria-describedby="passwordHelpBlock"
-									value="<c:out value="${item.oymbPassword}"/>">
-								<div id="passwordHelpBlock" class="form-text">8-20자리의 영문
-									대소문자, 숫자, 특수문자를 조합하여 설정</div>
+									class="form-control pw" aria-describedby="passwordHelpBlock"
+									value="<c:out value="${item.oymbPassword}"/>" readonly>
+								
 							</div>
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">비밀번호 확인</label>
 							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="password" id="" name="" class="form-control"
-									aria-describedby="passwordHelpBlock"
-									value="<c:out value="${item.oymbPassword}"/>">
+							<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
+								<input type="password" id="oymbPassword2" class="form-control pw" aria-describedby="passwordHelpBlock" value="<c:out value="${item.oymbPassword}"/>" readonly>
 								<div id="passwordHelpBlock" class="form-text"></div>
 							</div>
 
@@ -300,7 +282,7 @@ main {
 							</div>
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="text" class="form-control" id="" name="" value="">
+								<input type="date" class="form-control" id="" name="" value="" readonly>
 							</div>
 							<div class="col-12 col-sm-4 col-lg-2"
 								style="margin-top: 20px; margin-bottom: 20px;">
@@ -309,7 +291,7 @@ main {
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
 								<select class="form-select" id="oymbGenderCd"
-									name="oymbGenderCd">
+									name="oymbGenderCd" disabled>
 									<option value="" selected>::성별::</option>
 									<c:forEach items="${codeGender}" var="itemGender"
 										varStatus="statusGender">
@@ -324,18 +306,14 @@ main {
 
 						<div class="row">
 
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">비밀번호 질문</label>
 							</div>
-							<div class="col-12 col-sm-8 col-lg-4"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 								<div class="mb-3">
-									<select class="form-select" id="oyjqQuestionCd"
-										name="oyjqQuestionCd">
+									<select class="form-select" id="oyjqQuestionCd" name="oyjqQuestionCd" disabled>
 										<option value="" selected>::선택::</option>
-										<c:forEach items="${codeJoinQna}" var="itemJoinQna"
-											varStatus="statusJoinQna">
+										<c:forEach items="${codeJoinQna}" var="itemJoinQna" varStatus="statusJoinQna">
 											<option value="<c:out value="${itemJoinQna.oycdSeq}"/>"
 												<c:if test="${item.oyjqQuestionCd eq itemJoinQna.oycdSeq }">selected</c:if>><c:out
 													value="${itemJoinQna.oycdName}" /></option>
@@ -349,8 +327,7 @@ main {
 							</div>
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
-								<input type="text" class="form-control" id="oyjqAnswer"
-									name="oyjqAnswer" value="<c:out value="${item.oyjqAnswer}"/>">
+								<p><c:out value="${item.oyjqAnswer}"/></p>
 							</div>
 
 						</div>
@@ -364,21 +341,11 @@ main {
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
 								<div class=input-group>
-									<input type="text" class="form-control" id="oymaZipCode"
-										name="oymaZipCode" placeholder="우편번호"
-										value="<c:out value="${item.oymaZipCode}"/>"> <input
-										type="button" class="btn btn-outline-dark"
-										onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+									<p><c:out value="${item.oymaZipCode}"/></p><br>
 								</div>
-								<input type="text" class="form-control" id="oymaAddress1"
-									name="oymaAddress1" placeholder="주소"
-									value="<c:out value="${item.oymaAddress1}"/>"> <input
-									type="text" class="form-control" id="oymaAddress2"
-									name="oymaAddress2" placeholder="상세주소"
-									value="<c:out value="${item.oymaAddress2}"/>"> <input
-									type="text" class="form-control" id="oymaAddress3"
-									name="oymaAddress3" placeholder="참고항목"
-									value="<c:out value="${item.oymaAddress3}"/>">
+								<p><c:out value="${item.oymaAddress1}"/></p><br>
+								<p><c:out value="${item.oymaAddress2}"/></p><br>
+								<p><c:out value="${item.oymaAddress3}"/></p>
 
 							</div>
 
@@ -389,7 +356,7 @@ main {
 							</div>
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
-								<select class="form-select" id="oynaSeq" name="oynaSeq">
+								<select class="form-select" id="oynaSeq" name="oynaSeq" disabled>
 									<option value=" ">선택해주세요</option>
 									<option value="1"
 										<c:if test="${item.oynaSeq eq 1 }">selected</c:if>>한국</option>
@@ -407,8 +374,7 @@ main {
 										<c:if test="${item.oynaSeq eq 7 }">selected</c:if>>호주</option>
 									<option value="8"
 										<c:if test="${item.oynaSeq eq 8 }">selected</c:if>>중국</option>
-								</select> <input type="text" class="form-control" id=""
-									placeholder="그 외 국가 직접 입력">
+								</select> 
 							</div>
 
 						</div>
@@ -439,7 +405,7 @@ main {
 								style="margin-top: 20px; margin-bottom: 20px;">
 								<div class="input-group">
 									<select class="form-select" id="oympTelecomCd"
-										name="oympTelecomCd">
+										name="oympTelecomCd" disabled>
 										<option value="" selected>::통신사::</option>
 										<c:forEach items="${codeTelecom}" var="itemTelecom"
 											varStatus="statusTelecom">
@@ -448,19 +414,17 @@ main {
 													value="${itemTelecom.oycdName}" /></option>
 										</c:forEach>
 									</select> <input type="text" class="form-control" id="oympNumber"
-										name="oympNumber" value="<c:out value="${oympNumber1}"/>">
+										name="oympNumber" value="<c:out value="${oympNumber1}"/>" readonly>
 								</div>
 							</div>
 
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">연락처 (선택)</label>
 							</div>
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
 								<div class="input-group">
-									<select class="form-select" id="oympTelecomCd"
-										name="oympTelecomCd">
+									<select class="form-select" id="oympTelecomCd" name="oympTelecomCd" disabled>
 										<option value="" selected>::통신사::</option>
 										<c:forEach items="${codeTelecom}" var="itemTelecom"
 											varStatus="statusTelecom">
@@ -468,8 +432,8 @@ main {
 												<c:if test="${oympTelecom0 eq itemTelecom.oycdSeq}">selected</c:if>><c:out
 													value="${itemTelecom.oycdName}" /></option>
 										</c:forEach>
-									</select> <input type="text" class="form-control" id="oympNumber"
-										name="oympNumber" value="<c:out value="${oympNumber0}"/>">
+									</select>
+									<input type="text" class="form-control" id="oympNumber" name="oympNumber" value="<c:out value="${oympNumber0}"/>" readonly>
 
 								</div>
 
@@ -501,14 +465,11 @@ main {
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
 								<div class="input-group">
-									<input type="text" class="form-control" id="oymeEmailAccount"
-										name="oymeEmailAccount"
-										value="<c:out value="${oymeAccount1}"/>"> <span
-										class="input-group-text">@</span> <select class="form-select"
-										id="oymeEmailDomainCd" name="oymeEmailDomainCd">
+									<input type="text" class="form-control" id="oymeEmailAccount" name="oymeEmailAccount" value="<c:out value="${oymeAccount1}"/>" readonly>
+									<span class="input-group-text">@</span>
+									<select class="form-select" id="oymeEmailDomainCd" name="oymeEmailDomainCd" disabled>
 										<option value="" selected>::선택::
-											<c:forEach items="${codeEmail}" var="itemEmail"
-												varStatus="statusEmail">
+											<c:forEach items="${codeEmail}" var="itemEmail" varStatus="statusEmail">
 												<option value="<c:out value="${itemEmail.oycdSeq}"/>"
 													<c:if test="${oymeDomain1 eq itemEmail.oycdSeq}">selected</c:if>><c:out
 														value="${itemEmail.oycdName}" /></option>
@@ -517,18 +478,15 @@ main {
 								</div>
 							</div>
 
-							<div class="col-12 col-sm-4 col-lg-2"
-								style="margin-top: 20px; margin-bottom: 20px;">
+							<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 								<label for="formFile" class="form-label">이메일 (선택)</label>
 							</div>
 							<div class="col-12 col-sm-8 col-lg-4"
 								style="margin-top: 20px; margin-bottom: 20px;">
 								<div class="input-group">
-									<input type="text" class="form-control" id="oymeEmailAccount"
-										name="oymeEmailAccount"
-										value="<c:out value="${oymeAccount0}"/>"> <span
-										class="input-group-text">@</span> <select class="form-select"
-										id="oymeEmailDomainCd" name="oymeEmailDomainCd">
+									<input type="text" class="form-control" id="oymeEmailAccount" name="oymeEmailAccount" value="<c:out value="${oymeAccount0}"/>" readonly>
+									<span class="input-group-text">@</span>
+									<select class="form-select" id="oymeEmailDomainCd" name="oymeEmailDomainCd" disabled>
 										<option value="" selected>::선택::
 											<c:forEach items="${codeEmail}" var="itemEmail"
 												varStatus="statusEmail">
@@ -547,12 +505,10 @@ main {
 						<br>
 
 	<div class="row">
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">피부타입</label>
 					</div>
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<input type="radio" class="btn-check" id="oymbSkinTypeCd141" name="oymbSkinTypeCd" autocomplete="off" value="141" <c:if test="${item.oymbSkinTypeCd eq 141}">checked</c:if>>
 						<label class="btn btn-outline-dark" for="oymbSkinTypeCd141">민감성</label>
 						<input type="radio" class="btn-check" id="oymbSkinTypeCd142" name="oymbSkinTypeCd" autocomplete="off" value="142" <c:if test="${item.oymbSkinTypeCd eq 142}">checked</c:if>>
@@ -564,12 +520,10 @@ main {
 						<input type="radio" class="btn-check" id="oymbSkinTypeCd145" name="oymbSkinTypeCd" autocomplete="off" value="145" <c:if test="${item.oymbSkinTypeCd eq 145}">checked</c:if>>
 						<label class="btn btn-outline-dark" for="oymbSkinTypeCd145">트러블</label>
 					</div>
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">퍼스널컬러</label>
 					</div>
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 
 						<input type="radio" class="btn-check" id="oymbPersonalColorCd146" name="oymbPersonalColorCd" autocomplete="off" value="146" <c:if test="${item.oymbPersonalColorCd eq 146}">checked</c:if>>
 						<label class="btn btn-outline-dark" for="oymbPersonalColorCd146">봄 웜</label>
@@ -584,12 +538,10 @@ main {
 				</div>
 
 				<div class="row">
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">관심 분야</label>
 					</div>
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<input type="checkbox" class="btn-check" id="oymbInterestsCd150" name="oymbInterestsCd" autocomplete="off" value="150" <c:if test="${item.oymbInterestsCd eq 150}">checked</c:if>>
 						<label class="btn btn-outline-dark" for="oymbInterestsCd150">스킨 케어</label>
 						<input type="checkbox" class="btn-check" id="oymbInterestsCd151" name="oymbInterestsCd" autocomplete="off" value="151" <c:if test="${item.oymbInterestsCd eq 151}">checked</c:if>>
@@ -607,13 +559,11 @@ main {
 				<br>
 				<div class="row">
 
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">모바일 수신동의</label>
 					</div>
 
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
 							<input type="radio" class="btn-check" id="oymbSmsConsent1" name="oymbSmsConsentNy" autocomplete="off" value="1" <c:if test="${item.oymbSmsConsentNy eq 1}">checked</c:if>>
 							<label class="btn btn-outline-dark" for="oymbSmsConsent1">동의</label>
@@ -622,13 +572,11 @@ main {
 						</div>
 					</div>
 
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">이메일 수신동의</label>
 					</div>
 
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
 							<input type="radio" class="btn-check" id="oymbEmailConsent1" name="oymbEmailConsentNy" autocomplete="off" value="1" <c:if test="${item.oymbEmailConsentNy eq 1}">checked</c:if>>
 							<label class="btn btn-outline-dark" for="oymbEmailConsent1">동의</label>
@@ -639,12 +587,10 @@ main {
 				</div>
 
 				<div class="row">
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">PUSH 수신동의</label>
 					</div>
-					<div class="col-12 col-sm-8 col-lg-4"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
 						<div class="input-group">
 							<input type="radio" class="btn-check" id="oymbPushConsent1" name="oymbPushConsentNy" autocomplete="off" value="1" <c:if test="${item.oymbPushConsentNy eq 1}">checked</c:if>>
 							<label class="btn btn-outline-dark" for="oymbPushConsent1">동의</label>
@@ -652,8 +598,7 @@ main {
 							<label class="btn btn-outline-dark" for="oymbPushConsent0">비동의</label>
 						</div>
 					</div>
-					<div class="col-12 col-sm-4 col-lg-2"
-						style="margin-top: 20px; margin-bottom: 20px;">
+					<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 						<label for="formFile" class="form-label">개인정보 유효기간</label>
 					</div>
 					<div class="col-12 col-sm-8 col-lg-4"
@@ -675,21 +620,7 @@ main {
 
 
 		<div class="container">
-			<footer class="py-3 my-4">
-				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Home</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Features</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">FAQs</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">About</a></li>
-				</ul>
-				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
-			</footer>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %><!-- footer -->
 		</div>
 
 	</form>
@@ -772,10 +703,12 @@ main {
 		}
 
 		goHide = function() {
-			$("#formView").attr("action", "/durian/durianFelete");
+			$("#formView").attr("action", "/member/memberFelete");
 			$("#formView").submit();
 		}
 
+
+		
 	</script>
 
 

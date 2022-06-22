@@ -82,7 +82,7 @@ a {
 	line-height: 14px;
 	color: #a9a9a9;
 	text-decoration: line-through;
-	text-align: right;
+	text-align: center;
 }
 
 .priceR {
@@ -416,13 +416,13 @@ dl>dt:before {
 				<br>
 				<div class="row">
 
-					<div class="col-9 headname">상품정보</div>
+					<div class="col-8 headname">상품정보</div>
 					<div class="col-1 headname">판매가</div>
 					<div class="col-1 headname">수량</div>
-					<div class="col-1 headname">구매가</div>
+					<div class="col-2 headname">구매가</div>
 
 
-					<div class="col-9 contents2">
+					<div class="col-8 contents2">
 						<div class="row">
 							<div class="col-4">
 								<c:forEach items="${listUploaded}" var="itemUploaded" varStatus="statusUploaded">
@@ -452,7 +452,7 @@ dl>dt:before {
 					<div class="col-1 contents2"><br><br>
 					<%=request.getParameter("result")%> 개
 					</div>
-					<div class="col-1 contents2"><br>
+					<div class="col-2 contents2"><br>
 						<div class="priceB">
 							<fmt:formatNumber value="${item.oypdPrice}" />
 							<span>원</span>
@@ -665,21 +665,7 @@ dl>dt:before {
 
 
 		<div class="container-footer">
-			<footer class="py-3 my-4">
-				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Home</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Features</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">FAQs</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">About</a></li>
-				</ul>
-				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
-			</footer>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %><!-- footer -->
 		</div>
 	</form>
 	
@@ -885,6 +871,26 @@ dl>dt:before {
 		});
 
 
+		$("#btnLogout").on("click", function(){
+			/* if(validation() == false) return false; */
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				/* ,data : { "mvmmId" : $("#mvmmId").val(), "mvmmPassword" : $("#mvmmPassword").val()} */
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/allLive/loginForm";
+					} else {
+						// by pass
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		});
 	</script>
 </body>
 </html>

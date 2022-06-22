@@ -52,8 +52,8 @@ public class AllLiveController {
 	}
 
 	@RequestMapping(value = "/allLive/allLiveDetail")
-	public String allLiveDetail(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model) throws Exception {
-
+	public String allLiveDetail(@ModelAttribute("vo") AllLiveVo vo, AllLive dto, Model model, HttpSession httpSession) throws Exception {
+		vo.setOymbSeq((String) httpSession.getAttribute("sessSeq"));
 		AllLive rt = service.selectOne(vo);
 		model.addAttribute("item", rt);
 

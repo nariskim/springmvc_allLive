@@ -1,22 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+
 <jsp:useBean id="CateServiceImpl" class="com.julyte.user.modules.cate.CateServiceImpl"/>
 <jsp:useBean id="CodeServiceImpl" class="com.julyte.user.modules.code.CodeServiceImpl"/>
+
 <!DOCTYPE HTML>
 <html lang="ko">  
 <head>
+
 <meta charset="uTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://kit.fontawesome.com/893e1f7eb8.js"
-	crossorigin="anonymous"></script>
+
+<link href="/resources/common/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
     <!-- Favicons -->
     <link rel="shortcut icon" href="https://ifh.cc/g/lBA5vD.png" type="image/x-icon" /> <!-- olive 아이콘 -->
     <!-- Page Title -->
@@ -136,19 +137,16 @@ dl>dt:before {
 
 <body>
 
-	<form id="allLiveMain2" name="allLiveMain2" method="post"
-		action="/allLive/allLiveMain2">
+	<form id="allLiveMain2" name="allLiveMain2" method="post" action="/allLive/allLiveMain2">
 <input type="hidden" id="oypdSeq" name="oypdSeq">
-				<header>
+	<header>
 		<div class="container-header">	
 			<div class="row">
 				<div style="font-size: small;">
 					<ul class="nav justify-content-end">
-						<li class="nav-item"><a class="nav-link text-dark" href="#"><c:out value="${sessName }" />
-									님, 반갑습니다👋</a>
+						<li class="nav-item"><a class="nav-link text-dark" href="#"><c:out value="${sessName }" /> 님, 반갑습니다👋</a>
 						</li>
-						<li class="nav-item"><a class="nav-link text-dark"
-							href="javascript:goLogout();">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link text-dark" href="javascript:goLogout();">로그아웃</a></li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">장바구니</a>
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">주문배송</a>
@@ -159,49 +157,39 @@ dl>dt:before {
 						</li>
 						<li class="nav-item"><a class="nav-link text-dark" href="#">Global</a>
 						</li>
-
 					</ul>
-
 				</div>
 			</div>
 
 
 			<div class="row">
 				<div class="col-auto col-sm-5">
-					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain2"><img
-						src="/resources/xdmin/image/oliveimage.PNG" width="95%"></a>
+					<a class="navbar-brand me-0 px-3" href="/allLive/allLiveMain2">
+					<img src="/resources/xdmin/image/oliveimage.PNG" width="95%"></a>
 				</div>
 				<div class="col-auto d-md-none">
-
-
-					<div class="btn-group btn-group-lg" role="group"
-						aria-label="Basic outlined example">
+					<div class="btn-group btn-group-lg" role="group" aria-label="Basic outlined example">
 						<nav class="navbar fixed-bottom navbar-light bg-light">
-
-
-							<a class="navbar-brand" href="#"><button
-									class="btn btn-outline-primary navbar-toggler position-relative d-md-none collapsed"
-									type="button" data-bs-toggle="collapse"
-									data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-									aria-expanded="false" aria-label="Toggle navigation">
+							<a class="navbar-brand" href="#">
+							<button class="btn btn-outline-primary navbar-toggler position-relative d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
 									<span class="navbar-toggler-icon"></span>
-								</button></a> <a href="#"><button type="button"
-									class="btn btn-outline-primary">
+								</button></a>
+								<a href="#"><button type="button" class="btn btn-outline-primary">
 									<i class="fa-solid fa-magnifying-glass"></i>
-								</button></a> <a href="#"><button type="button"
-									class="btn btn-outline-primary">
+								</button></a>
+								<a href="#">
+								<button type="button" class="btn btn-outline-primary">
 									<i class="fa-solid fa-magnifying-glass"></i>
-								</button></a> <a href="#"><button type="button"
-									class="btn btn-outline-primary">
+								</button></a>
+								<a href="#"><button type="button" class="btn btn-outline-primary">
 									<i class="fa-solid fa-house"></i>
-								</button></a> <a href="#"><button type="button"
-									class="btn btn-outline-primary">
+								</button></a>
+								<a href="#"><button type="button" class="btn btn-outline-primary">
 									<i class="fa-solid fa-user"></i>
-								</button></a> <a href="#"><button type="button"
-									class="btn btn-outline-primary">
+								</button></a>
+								<a href="#"><button type="button" class="btn btn-outline-primary">
 									<i class="fa-solid fa-cart-shopping"></i>
 								</button></a>
-
 						</nav>
 					</div>
 				</div>
@@ -402,21 +390,15 @@ dl>dt:before {
 					</c:forEach>
 				</div>
 			</div>
-		
 		</main>
 		<div class="container-footer">
 			<footer class="py-3 my-4">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Home</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Features</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">FAQs</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">About</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+					<li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
 				</ul>
 				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
 			</footer>

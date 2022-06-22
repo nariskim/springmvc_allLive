@@ -23,6 +23,10 @@
 <script src="https://kit.fontawesome.com/893e1f7eb8.js" crossorigin="anonymous"></script>
 
 <style type="text/css">
+.bigHeader {
+	margin-left: 6%;
+	margin-right: 6%;
+}
 main {
 	margin-top: 5%;
 	margin-bottom: 15%;
@@ -126,16 +130,11 @@ main {
 
 
 
-		<c:set var="codeGender"
-			value="${CodeServiceImpl.selectListCachedCode('2')}" />
-		<c:set var="codeJoinQna"
-			value="${CodeServiceImpl.selectListCachedCode('6')}" />
-		<c:set var="codeTelecom"
-			value="${CodeServiceImpl.selectListCachedCode('9')}" />
-		<c:set var="codeEmail"
-			value="${CodeServiceImpl.selectListCachedCode('11')}" />
-		<c:set var="codeGrade"
-			value="${CodeServiceImpl.selectListCachedCode('19')}" />
+		<c:set var="codeGender" value="${CodeServiceImpl.selectListCachedCode('2')}" />
+		<c:set var="codeJoinQna" value="${CodeServiceImpl.selectListCachedCode('6')}" />
+		<c:set var="codeTelecom" value="${CodeServiceImpl.selectListCachedCode('9')}" />
+		<c:set var="codeEmail" value="${CodeServiceImpl.selectListCachedCode('11')}" />
+		<c:set var="codeGrade" value="${CodeServiceImpl.selectListCachedCode('19')}" />
 
 
 
@@ -147,14 +146,12 @@ main {
 		<input type="hidden" id="scDateStart" name="scDateStart" value="<c:out value="${vo.scDateStart}"/>">
 		<input type="hidden" id="scDateEnd" name="scDateEnd" value="<c:out value="${vo.scDateEnd}"/>">
 
-		<div class="row">
-		
-			<header class="navbar navbar-dark sticky-top bg-light ml-auto">
+			<!-- navbar s -->
+		<div class="row bigHeader">
+			<header class="navbar navbar-dark sticky-top ml-auto">
 
 				<div class="col-auto col-sm-5">
-				
-				<img src="/resources/xdmin/image/oliveimage.PNG" width="600px">
-				
+					<a href=/member/memberList><img src="/resources/xdmin/image/oliveimage.PNG" width="120%"></a>
 				</div>
 
 				<div class="col-auto d-md-none">
@@ -172,27 +169,32 @@ main {
 
 
 				</div>
-				<div class="col-10 col-sm-3"></div>
-				<div class="col-2 col-sm-3"></div>
+				<div class="col-auto col-sm-5"></div>
 
-				<div class="col-auto col-sm-1">
+				<div class="col-auto col-sm-2">
 
+			<ul class="nav justify-content-end">
 
-					<a href="#" class="nav-link"><i
-						class="fas fa-sign-out-alt text-danger fa-lg"></i></a>
-
+					<c:if test="${sessSeq ne null}">
+						<li class="nav-item"><a class="nav-link text-dark"><c:out
+									value="${sessName }" /> 님, 반갑습니다👋</a></li>
+						<li class="nav-item"><a class="nav-link text-dark" role="button" id="btnLogout">로그아웃</a></li>
+					</c:if>
+							
+						</ul>
 				</div>
 
 
 			</header>
 		</div>
 
+		<!-- navbar e -->
+
 
 		<div class="container-fluid">
 
 			<main>
 
-				<br>
 				<div class="container">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
@@ -201,14 +203,13 @@ main {
 							<li class="breadcrumb-item active" aria-current="page">회원 등록</li>
 						</ol>
 					</nav>
-					<br> <br> <br> <br> <br> <a
-						href="javascript:goInst();"><button type="button"
-							id="btnSubmit" name="" class="btn btn-outline-success btn-lg">
-							<i class="fa-solid fa-user-check"></i>
-						</button></a> <a href="javascript:goList();"><button type="button" id=""
-							name="" class="btn btn-outline-primary btn-lg">
-							<i class="fa-solid fa-users"></i>
-						</button></a> <br>
+	
+					
+			
+					
+					<button type="button" onclick="javascript:goList();" class="btn btn-outline-primary btn-lg">
+							<i class="fa-solid fa-users"></i> 리스트
+						</button><br>
 					<hr>
 					<br>
 					<div class="row">
@@ -244,14 +245,11 @@ main {
 							<input type="text" class="form-control" id="oymbId" name="oymbId"
 								placeholder="아이디">
 						</div>
-						<div class="col-12 col-sm-4 col-lg-2"
-							style="margin-top: 20px; margin-bottom: 20px;">
+						<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 							<label for="formFile" class="form-label">닉네임</label>
 						</div>
-						<div class="col-12 col-sm-8 col-lg-4"
-							style="margin-top: 20px; margin-bottom: 20px;">
-							<input type="text" class="form-control" id="oymbNickName"
-								name="oymbNickName" placeholder="닉네임">
+						<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
+							<input type="text" class="form-control" id="oymbNickName" name="oymbNickName" placeholder="닉네임">
 						</div>
 					</div>
 
@@ -263,31 +261,33 @@ main {
 						<div class="col-12 col-sm-8 col-lg-4"
 							style="margin-top: 20px; margin-bottom: 20px;">
 							<input type="password" id="oymbPassword" name="oymbPassword"
-								class="form-control" aria-describedby="passwordHelpBlock"
+								class="form-control pw" aria-describedby="passwordHelpBlock"
 								placeholder="비밀번호">
 							<div id="passwordHelpBlock" class="form-text">8-20자리의 영문
 								대소문자, 숫자, 특수문자를 조합하여 설정</div>
+								<span id="alert-success" style="display: none; color: blue; text-align: left;"><i class="fa-solid fa-check"></i> 비밀번호가 일치합니다.</span>
+						<span id="alert-danger" style="display: none; color: red; text-align: left;"><i class="fa-solid fa-xmark"></i> 비밀번호가 일치하지 않습니다.</span>
 						</div>
 						<div class="col-12 col-sm-4 col-lg-2"
 							style="margin-top: 20px; margin-bottom: 20px;">
 							<label for="formFile" class="form-label">비밀번호 확인</label>
 						</div>
-						<div class="col-12 col-sm-8 col-lg-4"
-							style="margin-top: 20px; margin-bottom: 20px;">
-							<input type="password" id="" name="" class="form-control"
-								aria-describedby="passwordHelpBlock" placeholder="비밀번호 확인">
+						<div class="col-12 col-sm-8 col-lg-4" style="margin-top: 20px; margin-bottom: 20px;">
+							<input type="password" id="oymbPassword2" class="form-control pw" aria-describedby="passwordHelpBlock" placeholder="비밀번호 확인">
 							<div id="passwordHelpBlock" class="form-text"></div>
-						</div>
+						</div>	
 					</div>
+					
+					
+					
+					
 					<div class="row">
-						<div class="col-12 col-sm-4 col-lg-2"
-							style="margin-top: 20px; margin-bottom: 20px;">
+						<div class="col-12 col-sm-4 col-lg-2" style="margin-top: 20px; margin-bottom: 20px;">
 							<label for="formFile" class="form-label">생년월일</label>
 						</div>
 						<div class="col-12 col-sm-8 col-lg-4"
 							style="margin-top: 20px; margin-bottom: 20px;">
-							<input type="text" id="oymbDob" name="oymbDob" max="2022-01-08"
-								class="form-control" placeholder="'yyyyMMdd'">
+							<input type="date" id="oymbDob" name="oymbDob" max="2022-01-08" class="form-control" placeholder="'yyyyMMdd'">
 						</div>
 						<div class="col-12 col-sm-4 col-lg-2"
 							style="margin-top: 20px; margin-bottom: 20px;">
@@ -657,8 +657,15 @@ main {
 					</div>
 				</div>
 
-				<input type="file" id="originalFileName" name="file"> <input
-					type="file" id="uuidFileName" name="file1">
+<br>
+						<hr>
+						<br>
+						<div style="text-align:right;">
+		<button type="button" onclick="javascript:goInst();" id="btnSubmit" class="btn btn-outline-success btn-lg">
+							<i class="fa-solid fa-user-check"></i> 회원 등록
+						</button></div>
+			<!-- 	<input type="file" id="originalFileName" name="file"> <input
+					type="file" id="uuidFileName" name="file1"> -->
 			</main>
 		</div>
 
@@ -666,21 +673,7 @@ main {
 
 
 		<div class="container">
-			<footer class="py-3 my-4">
-				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Home</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Features</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">Pricing</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">FAQs</a></li>
-					<li class="nav-item"><a href="#"
-						class="nav-link px-2 text-muted">About</a></li>
-				</ul>
-				<p class="text-center text-muted">© 2021 All Live Young, Inc</p>
-			</footer>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %><!-- footer -->
 		</div>
 
 
@@ -698,8 +691,58 @@ main {
 
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=041ca094f388711dee3ba9ae04f3fb99&libraries=services"></script>
+	<!-- /* DatePicker */  -->
+	<script type="text/javascript">
+		/* 
+		 $(document).ready(function() {
+		 alert("asdfasdf");
+		 $("#mvmmDob").datepicker();
+		 $("#mvmmMarriageDate").datepicker();
+		 });	
+		 */
+		$(document).ready(function() {
+			$("#oymbDob").datepicker();
+		});
 
-	<script>
+		$.datepicker.setDefaults({
+			dateFormat : 'yy-mm-dd',
+			prevText : '이전 달',
+			nextText : '다음 달',
+			monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+					'9월', '10월', '11월', '12월' ],
+			monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+					'9월', '10월', '11월', '12월' ],
+			dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+			dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+			showMonthAfterYear : true,
+			yearSuffix : '년'
+		});
+	</script>
+	
+	<script type="text/javascript">
+	
+	
+	<!-- 비밀번호 일치 체크 -->
+	
+    $('.pw').focusout(function () {
+        var pwd1 = $("#oymbPassword").val();
+        var pwd2 = $("#oymbPassword2").val();
+  
+        if ( pwd1 != '' && pwd2 == '' ) {
+            null;
+        } else if (pwd1 != "" || pwd2 != "") {
+            if (pwd1 == pwd2) {
+                $("#alert-success").css('display', 'inline-block');
+                $("#alert-danger").css('display', 'none');
+            } else {
+                $("#alert-success").css('display', 'none');
+                $("#alert-danger").css('display', 'inline-block');
+            }
+        }
+    });
+    
+    
 		upload = function(seq, div) {
 
 			$("#ulFile" + seq).children().remove();
@@ -955,6 +998,9 @@ main {
 						}
 					}).open();
 		}
+		
+
+	
 	</script>
 
 
