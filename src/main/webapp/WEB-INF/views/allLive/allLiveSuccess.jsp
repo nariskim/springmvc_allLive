@@ -127,15 +127,13 @@ a {
 	<div class="container">
 
 
-		<table class="table"
-			style="width: 1000px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+		<table class="table" style="width: 1000px; margin-left: auto; margin-right: auto; margin-top: 50px;">
 			<thead class="table" style="background-color: #FFE488; color: white;">
 				<tr>
 					<th colspan="3" style="font-size: 20px; width: 980px; text-align: center; vertical-align: center;"> 구매 완료 </th>
 				</tr>
 			</thead>
-			<tbody
-				style="font-size: 16px; background-color: #F2F2F1; border: 1px solid #F2F2F1;">
+			<tbody style="font-size: 16px; background-color: #F2F2F1; border: 1px solid #F2F2F1;">
 				<tr>
 					<th colspan="3" style="height: 150px; font-size: 35px; text-align: center; vertical-align: middle;"> 구매가 완료 되었습니다. </th>
 				</tr>
@@ -167,9 +165,9 @@ a {
 					<c:set var="ymd" value="<%=new java.util.Date()%>" />
 					<td style="text-align: left; padding: 0; vertical-align: middle;"> 구매날짜 </td>
 					<td style="text-align: left; padding: 0; vertical-align: middle;">
-						<b><fmt:formatDate value="${ymd}" pattern="YYYY" /> 년 <fmt:formatDate
-								value="${ymd}" pattern="MM" /> 월 <fmt:formatDate value="${ymd}"
-								pattern="dd" /> 일 </b>
+						<b><fmt:formatDate value="${ymd}" pattern="YYYY" /> 년 
+						<fmt:formatDate value="${ymd}" pattern="MM" /> 월 
+						<fmt:formatDate value="${ymd}" pattern="dd" /> 일 </b>
 					</td>
 				</tr>
 				<tr>
@@ -179,26 +177,21 @@ a {
 
 				<tr>
 					<td style="text-align: left; padding: 0; vertical-align: middle;"> 결제방식 </td>
-					<td style="text-align: left; padding: 0; vertical-align: middle;">
-						<b> 카카오페이 </b>
-					</td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"><b> 카카오페이 </b></td>
 				</tr>
 				<tr>
 					<td style="text-align: left; padding: 0; vertical-align: middle;"> 결제금액 </td>
-					<td style="text-align: left; padding: 0; vertical-align: middle;"><b
-						style="color: red;"> <fmt:formatNumber value="${rtFinalPrice}" /> 원 </b></td>
+					<td style="text-align: left; padding: 0; vertical-align: middle;"><b style="color: red;"> <fmt:formatNumber value="${rtFinalPrice}" /> 원 </b></td>
 				</tr>
 				<tr>
-					<th colspan="3"
-						style="height: 120px; font-size: 25px; text-align: center; vertical-align: middle; font-weight: bold; color: #5E6B9F;"> 구매자 정보 </th>
+					<th colspan="3" style="height: 120px; font-size: 25px; text-align: center; vertical-align: middle; font-weight: bold; color: #5E6B9F;"> 구매자 정보 </th>
 				</tr>
 				<c:if test="${sessSeq ne '0'}">
 				<tr>
 					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
 					<span style="margin-left: 240px;">이름</span></td>
 					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
-					<b style="margin-left: 140px;">
-					<c:out value="${itemMember.oymbName}" /></b></td>
+					<b style="margin-left: 140px;"><c:out value="${itemMember.oymbName}" /></b></td>
 				</tr>
 				
 				<c:forEach items="${listPhone}" var="item" varStatus="statusTelecom">
@@ -219,7 +212,7 @@ a {
 					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
 					<span style="margin-left: 240px;">핸드폰번호</span></td>
 					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
-						<b style="margin-left: 140px;"> <c:set var="numberPhone" value="${oympNumber1}" />
+						<b style="margin-left: 140px;"><c:set var="numberPhone" value="${oympNumber1}" />
 							<c:choose>
 								<c:when test="${fn:length(numberPhone) eq 10}">
 									<c:out value="${fn:substring(numberPhone,0,3)}" />
@@ -288,7 +281,7 @@ a {
 					<td style="text-align: left; padding: 0; vertical-align: middle; height: 37px;">
 					<span style="margin-left: 240px;">핸드폰번호</span></td>
 					<td colspan="2" style="text-align: left; padding: 0; vertical-align: middle;">
-						<b style="margin-left: 140px;"> <c:set var="numberPhone" value="${rtNumber}"/>
+						<b style="margin-left: 140px;"><c:set var="numberPhone" value="${rtNumber}"/>
 							<c:choose>
 								<c:when test="${fn:length(numberPhone) eq 10}">
 									<c:out value="${fn:substring(numberPhone,0,3)}" />
@@ -343,21 +336,17 @@ a {
 						</p>
 					</td>
 				</tr>
-				<tr
-					style="background-color: #F2F2F1; text-align: left; vertical-align: center; font-size: 15px; border: 1px solid #F2F2F1; border-bottom: 1px solid #F2F2F1;">
-					<td colspan="3" style="text-align: center;"><a
-						href="/allLive/allLiveMain" style="margin-right: 10px;">
-							<button type="button" class="btn btn-success btn-lg mb-4">홈
-								화면으로</button>
-					</a> </td>
+				<tr style="background-color: #F2F2F1; text-align: left; vertical-align: center; font-size: 15px; border: 1px solid #F2F2F1; border-bottom: 1px solid #F2F2F1;">
+					<td colspan="3" style="text-align: center;">
+					<a href="/allLive/allLiveMain" style="margin-right: 10px;">
+							<button type="button" class="btn btn-success btn-lg mb-4"> 홈 화면으로 </button>
+					</a></td>
 				</tr>
 				<tr style="background-color: #FFE488; border: 1px solid #FFE488;">
-					<td
-						style="text-align: left; vertical-align: top; padding: 30px; padding-left: 100px; padding-bottom: 0;">
+					<td style="text-align: left; vertical-align: top; padding: 30px; padding-left: 100px; padding-bottom: 0;">
 						<b>구매 유의사항</b>
 					</td>
-					<td colspan="2"
-						style="text-align: left; padding-bottom: 30px; padding-top: 30px; font-size: 16px;">
+					<td colspan="2" style="text-align: left; padding-bottom: 30px; padding-top: 30px; font-size: 16px;">
 						교환/반품/환불의 경우 규정을 확인해주시기 바랍니다.</br> 기타 다른 문의 사항이 있을 시 매장으로 문의주시기 바랍니다.
 						(1500-1000)
 					</td>
@@ -389,9 +378,7 @@ a {
 						async : true,
 						cache : false,
 						type : "post",
-						url : "/member/logoutProc"
-						/* ,data : { "mvmmId" : $("#mvmmId").val(), "mvmmPassword" : $("#mvmmPassword").val()} */
-						,
+						url : "/member/logoutProc",
 						success : function(response) {
 							if (response.rt == "success") {
 								location.href = "/";
