@@ -390,13 +390,13 @@ a {
 							<span>원</span>
 						</div>
 						<div id="priceR">
-							<strong> <fmt:formatNumber value="${item.oyspSalePrice}" /></strong>
+							<strong><fmt:formatNumber value="${item.oyspSalePrice}" /></strong>
 							<span>원</span>
 						</div>
 
 						<b>혜택 정보</b> <br> <span class="badge rounded-pill bg-danger">세일</span>
-						<span class="badge rounded-pill bg-success">쿠폰</span> <span
-							class="badge rounded-pill bg-info">오늘드림</span> <br>
+						<span class="badge rounded-pill bg-success">쿠폰</span>
+						<span class="badge rounded-pill bg-info">오늘드림</span><br>
 						<p>
 							231명이 보고있어요<br>
 						<hr>
@@ -460,9 +460,8 @@ a {
 						<p class="title">증정품 안내</p>
 					</div>
 					<div class="col-6">
-						<span class="txt">전 회원 바이오힐보 상품 30,000원 이상 구매 시, <span
-							class="num">증정품 1개</span> 선착순 증정
-						</span>
+						<span class="txt">전 회원 바이오힐보 상품 30,000원 이상 구매 시, 
+						<span class="num">증정품 1개</span> 선착순 증정 </span>
 					</div>
 					<div class="col-3">
 						
