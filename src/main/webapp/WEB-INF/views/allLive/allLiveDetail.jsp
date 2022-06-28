@@ -509,10 +509,8 @@ a {
 									width="510px">
 							</c:when>
 
-							<c:when
-								test="${itemUploaded.type eq 1 && itemUploaded.size eq 0}">
-								<p style="font-size: 13px; font-style: italic;">선택된 파일이
-									없습니다!</p>
+							<c:when test="${itemUploaded.type eq 1 && itemUploaded.size eq 0}">
+								<p style="font-size: 13px; font-style: italic;">선택된 파일이 없습니다!</p>
 							</c:when>
 							<c:otherwise></c:otherwise>
 						</c:choose>
