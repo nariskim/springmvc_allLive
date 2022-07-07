@@ -27,7 +27,7 @@
 	margin-left: 15%;
 	margin-right: 15%;
 	margin-bottom: 5%;
-}
+} 
  
 .nav-m {
 	width: 100%;
